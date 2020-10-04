@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./Home/Home";
 import JavaScript from "./Javascript";
 import Regex from "./Regex";
+import Questions from "./Questions";
 import PageNotFound from "./PageNotFound";
 
 const Main = () => (
@@ -10,8 +11,9 @@ const Main = () => (
     <Switch>
       <Redirect exact from="/" to="/home" />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/javascript" component={JavaScript} />
-      <Route exact path="/regex" component={Regex} />
+      <Route path="/javascript" component={JavaScript} />
+      <Route path="/regex" component={Regex} />
+      <Route path="/questions" component={Questions} />
       <Route
         path="*"
         render={() => {
