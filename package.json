@@ -1,7 +1,9 @@
 {
-  "name": "final-ui",
+  "name": "Go Math",
   "version": "1.0.0",
   "description": "",
+  "contributors": ["Rajat Porwal <rajatporwal1483@gmail.com>"],
+  "license": "SEE LICENSE IN LICENSE",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
