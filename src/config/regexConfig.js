@@ -1,6 +1,7 @@
 const regexConfig = [
   {
     heading: "Regex",
+    pathname: "/regex",
     children: [
       {
         title: "Two ways of writing Regex",
@@ -58,8 +59,8 @@ const regexConfig = [
         note: null
       },
       {
-        title: "Regular Expressions Flags",
-        id: "regular_expressions_flags",
+        title: "Regular Expression Flags",
+        id: "regular_expression_flags",
         desciption: null,
         list: [
           "<b>g : </b> global, it matches more than one occurrence",
@@ -149,6 +150,7 @@ const regexConfig = [
   },
   {
     heading: "Meta Characters",
+    pathname: "/regex",
     children: [
       {
         title: "Characters",
@@ -487,7 +489,7 @@ const regexConfig = [
       },
       {
         title: "Anchored Expressions",
-        id: "snchored_expressions",
+        id: "anchored_expressions",
         desciption: null,
         list: [
           "<b>^ : </b> match to the start of the line",
@@ -554,6 +556,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
   },
   {
     heading: "Grouping",
+    pathname: "/regex",
     children: [
       {
         title: "Introduction",

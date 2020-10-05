@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { HashLink as Link } from "react-router-hash-link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -9,6 +10,7 @@ import { Table, Switch, Space } from "antd";
 const Questions = () => {
   const [border, setBorder] = useState(false);
   const [showIndex, setShowIndex] = useState(false);
+  const dispatch = useDispatch();
 
   const addIndex = [
     {
@@ -45,6 +47,10 @@ const Questions = () => {
       )
     }
   ];
+
+  useEffect(() => {
+    dispatch({ type: "SIDE_BAR_OPTIONS", value: [] });
+  });
 
   return (
     <div>

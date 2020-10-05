@@ -1,10 +1,11 @@
 const javaScriptConfig = [
   {
     heading: "JavaScript Foundation",
+    pathname: "/javascript",
     children: [
       {
         title: "Execution Context",
-        id: "executionContext",
+        id: "execution_context",
         desciption: `When the <b>JavaScript</b> engine first encounters your script, it
   creates a global <b>execution context</b> and pushes it to the current 
   <b>execution stack</b>. Whenever the engine finds a function invocation,
@@ -28,7 +29,7 @@ const javaScriptConfig = [
       },
       {
         title: "Lexical Environment",
-        id: "lexicalEnvironment",
+        id: "lexical_environment",
         desciption: ` Every time the <b>JavaScript</b> engine creates an execution context to
     execute the function or global code, it also creates a new 
     <b>lexical environment</b> to store the variable defined in that
@@ -177,7 +178,7 @@ const javaScriptConfig = [
       },
       {
         title: "Scope Chain",
-        id: "scopeChain",
+        id: "scope_chain",
         desciption: `The scope chain is used to resolve the value of variable names in javascript. Without a scope chain the Javascript engine wouldn't know which value to pick for a certain variable name if there are multiple defined at different scopes. Scope chain in javascript is lexically defined, which means that we can see what the scope chain will be by looking at the code.`,
         list: null,
         code: [
@@ -203,7 +204,7 @@ const javaScriptConfig = [
       },
       {
         title: "use strict",
-        id: "useStrict",
+        id: "use_strict",
         desciption: `The <b>use strict</b> directive was new in ECMAScript version 5. It is not a statement, but a literal expression, ignored by earlier versions of <b>JavaScript</b>. The purpose of <b>use strict</b> is to indicate that the code should be executed in <b>strict</b> mode. With strict mode, you can not, for example, use undeclared variables.`,
         list: null,
         code: [
@@ -232,7 +233,7 @@ const javaScriptConfig = [
       },
       {
         title: "Function Scope vs Block Scope",
-        id: "functionScopeVsBlockScope",
+        id: "function_scope_vs_block_scope",
         desciption: null,
         list: [
           "Variables are by default functionally scoped in JS.",
@@ -413,6 +414,7 @@ const javaScriptConfig = [
       },
       {
         title: "Arrow function vs Regular Function",
+        id: "Arrow_function_vs_regular_function",
         desciption: `Todo`,
         list: null,
         code: null,
@@ -422,6 +424,7 @@ const javaScriptConfig = [
   },
   {
     heading: "Types in JavaScript",
+    pathname: "/javascript",
     children: [
       {
         title: "Primitive Types",
@@ -539,7 +542,7 @@ const javaScriptConfig = [
       },
       {
         title: "Pass By Value vs Pass By Reference",
-        id: "pass_y_alue_vs_pass_by_reference",
+        id: "pass_by_value_vs_pass_by_reference",
         desciption: `Primitive data types are passed by value while non-primitive data types are pass by reference.`,
         list: null,
         code: [
@@ -814,6 +817,7 @@ const javaScriptConfig = [
   },
   {
     heading: "Closures and Inheritance",
+    pathname: "/javascript",
     children: [
       {
         title: "Functions are Objects",
