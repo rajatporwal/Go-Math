@@ -66,12 +66,39 @@ const Home = () => {
       </Collapse>
       <Collapse accordion>
         <Panel header="Questions" key="3">
-          <p>adfadf</p>
+          <ul className="home__list">
+            <li>
+              <Link
+                active
+                to={{
+                  pathname: "/questions"
+                }}
+                smooth
+              >
+                Home
+              </Link>
+            </li>
+          </ul>
         </Panel>
       </Collapse>
       <Collapse accordion>
-        <Panel header="JavaScript" key="4">
-          <p>adfadf</p>
+        <Panel header="Conversion" key="4">
+          <>
+            <h4>Conversion</h4>
+            <ul className="home__list">
+              <li>
+                <Link
+                  active
+                  to={{
+                    pathname: "/conversion/number"
+                  }}
+                  smooth
+                >
+                  Number Conversion
+                </Link>
+              </li>
+            </ul>
+          </>
         </Panel>
       </Collapse>
     </div>

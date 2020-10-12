@@ -22,7 +22,7 @@ export default () => {
             }}
           />
         ) : null}
-        <Menu.Item key="1">
+        <Menu.Item key="1" className={`${showMenu ? "" : "add_margin"}`}>
           <Link
             active
             to="/home"

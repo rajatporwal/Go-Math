@@ -1,0 +1,10 @@
+.add_margin {
+  margin-left: 7rem;
+
+  @media only screen and (max-width: $bp-large) {
+    margin-left: 5rem;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    margin-left: 0;
+  }
+}

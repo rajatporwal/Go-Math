@@ -20,7 +20,7 @@ export default function App() {
         </div>
         <Layout>
           {showSideBar ? <SideBar /> : null}
-          <div className="content">
+          <div className={`content ${showSideBar ? "sideBar" : ""}`}>
             <Content className="site-layout" style={{ marginTop: 64 }}>
               <div className="site-layout-background" style={{ padding: 24 }}>
                 <Main />

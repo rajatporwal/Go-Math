@@ -28,12 +28,15 @@ body {
   margin-right: 15rem;
   @media only screen and (max-width: $bp-large) {
     padding: 0;
-    margin-left: 20rem;
-    margin-right: 0;
+    margin-left: 10rem;
+    margin-right: 10rem;
   }
   @media only screen and (max-width: $bp-medium) {
-    padding: 0;
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.sideBar {
+  margin-right: 0;
 }

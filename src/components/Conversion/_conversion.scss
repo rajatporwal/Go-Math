@@ -1,0 +1,56 @@
+.no_conversion {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-row-gap: 2rem;
+
+  & > div {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: minmax(10rem, 30rem) 1fr;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0.5rem;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    text-align: right;
+    margin-right: 5rem;
+    @media only screen and (max-width: $bp-small) {
+      text-align: left;
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__icon {
+    color: $color-red;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+  }
+
+  &__warning {
+    color: $color-red;
+    font-size: 1.4rem;
+    font-family: monospace;
+  }
+}
+
+  // label {
+//   font-size: 1.6rem;
+//   font-weight: 500;
+//   margin-right: 2rem;
+//   @media only screen and (max-width: $bp-small) {
+//     margin-bottom: 1rem;
+//   }
+// }
+
+input {
+  height: 5rem;
+}
+

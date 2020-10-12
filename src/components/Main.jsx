@@ -5,6 +5,7 @@ import JavaScript from "./Javascript";
 import Regex from "./Regex";
 import Questions from "./Questions";
 import PageNotFound from "./PageNotFound";
+import NumberConversion from "./Conversion/numberConversion";
 
 const Main = () => (
   <main>
@@ -14,6 +15,7 @@ const Main = () => (
       <Route exact path="/javascript" component={JavaScript} />
       <Route exact path="/regex" component={Regex} />
       <Route exact path="/questions" component={Questions} />
+      <Route exact path="/conversion/number" component={NumberConversion} />
       <Route
         path="*"
         render={() => {
