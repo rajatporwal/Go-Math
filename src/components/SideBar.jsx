@@ -26,24 +26,40 @@ const SideBar = () => {
       onCollapse={() => dispatch({ type: "SIDE_BAR", value: false })}
     >
       <Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
-        {sideBarOptions.map((js, j) => (
-          <SubMenu key={j} title={js.heading}>
-            {js.children.map((child, i) => (
+        {sideBarOptions.map((js, j) =>
+          js.heading ? (
+            <SubMenu key={j} title={js.heading}>
+              {js.children.map((child, i) => (
+                <Menu.Item key={`${js.heading} + "__ + ${i}`}>
+                  <Link
+                    active
+                    to={{
+                      pathname: js.pathname,
+                      hash: child.id
+                    }}
+                    smooth
+                  >
+                    {child.title}
+                  </Link>
+                </Menu.Item>
+              ))}
+            </SubMenu>
+          ) : (
+            js.children.map((child, i) => (
               <Menu.Item key={`${js.heading} + "__ + ${i}`}>
                 <Link
                   active
                   to={{
-                    pathname: js.pathname,
-                    hash: child.id
+                    pathname: child.pathname
                   }}
                   smooth
                 >
                   {child.title}
                 </Link>
               </Menu.Item>
-            ))}
-          </SubMenu>
-        ))}
+            ))
+          )
+        )}
       </Menu>
     </Sider>
   );

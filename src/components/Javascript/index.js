@@ -6,19 +6,10 @@ import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import javaScriptConfig from "../../config/javaScriptConfig";
 import { Table } from "antd";
 
-// const getChildren = (children) =>
-//   children.map((child) => {
-//     return { pathname: "/javascript", id: child.id, title: child.title };
-//   });
-
 const JavaScript = () => {
   const dispatch = useDispatch();
-  // const options = javaScriptConfig.map((js) => {
-  //   return { heading: js.heading, children: getChildren(js.children) };
-  // });
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: javaScriptConfig });
-    dispatch({ type: "SHOW_MENU", value: true });
   });
 
   return (

@@ -1,9 +1,11 @@
 @import "base/variables";
 @import "base/typography";
+@import "base/helper";
 @import "base/base";
 
 @import "components/JavaScript/index";
 @import "components/Home/home";
 @import "components/header";
+@import "../components/Footer/footer";
 
 @import "../components/Conversion/conversion"

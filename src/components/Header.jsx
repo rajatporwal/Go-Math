@@ -8,57 +8,40 @@ const { Header } = Layout;
 
 export default () => {
   const sideBar = useSelector((state) => state.sideBar);
-  const showMenu = useSelector((state) => state.showMenu);
   const dispatch = useDispatch();
   return (
     <Header style={{ position: "fixed", zIndex: 1, width: "100%", padding: 0 }}>
       <Menu theme="dark" mode="horizontal">
-        {showMenu ? (
-          <Menu.Item
-            key="menuOutline"
-            icon={<MenuUnfoldOutlined />}
-            onClick={() => {
-              dispatch({ type: "SIDE_BAR", value: !sideBar });
-            }}
-          />
-        ) : null}
-        <Menu.Item key="1" className={`${showMenu ? "" : "add_margin"}`}>
-          <Link
-            active
-            to="/home"
-            onClick={() => {
-              dispatch({ type: "SHOW_MENU", value: false });
-              dispatch({ type: "SHOW_SIDE_BAR", value: false });
-            }}
-          >
+        <Menu.Item
+          key="menuOutline"
+          icon={<MenuUnfoldOutlined />}
+          onClick={() => {
+            dispatch({ type: "SIDE_BAR", value: !sideBar });
+          }}
+        />
+        <Menu.Item key="1" className="add_margin">
+          <Link active to="/home">
             Home
           </Link>
         </Menu.Item>
         <Menu.Item key="2">
-          <Link
-            active
-            to="/javascript"
-            onClick={() => dispatch({ type: "SHOW_MENU", value: true })}
-          >
+          <Link active to="/javascript">
             JavaScript
           </Link>
         </Menu.Item>
         <Menu.Item key="3">
-          <Link
-            active
-            to="/regex"
-            onClick={() => dispatch({ type: "SHOW_MENU", value: true })}
-          >
+          <Link active to="/regex">
             Regex
           </Link>
         </Menu.Item>
         <Menu.Item key="4">
-          <Link
-            active
-            to="/questions"
-            onClick={() => dispatch({ type: "SHOW_MENU", value: true })}
-          >
+          <Link active to="/questions">
             Questions
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="5">
+          <Link active to="/conversion">
+            Conversion
           </Link>
         </Menu.Item>
       </Menu>

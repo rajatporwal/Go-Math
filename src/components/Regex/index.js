@@ -10,7 +10,6 @@ const Regex = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: regexConfig });
-    dispatch({ type: "SHOW_MENU", value: true });
   });
   return (
     <div>

@@ -56,9 +56,17 @@ const NumberConversion = () => {
       enableReinitialize={true}
       validationSchema={numberConversionSchema}
     >
-      {({ values, submitForm, errors, touched, dirty, setFieldValue }) => (
+      {({
+        values,
+        resetForm,
+        submitForm,
+        errors,
+        touched,
+        dirty,
+        setFieldValue
+      }) => (
         <Form validateOnChange={true}>
-          <div className="conversion">
+          <div>
             <Card
               title="Number Conversion"
               // extra={<a href="#">More</a>}
@@ -206,7 +214,11 @@ const NumberConversion = () => {
                 </div>
                 <div style={{ width: "max-content", marginLeft: "auto" }}>
                   <div />
-                  <Button type="primary" size="large">
+                  <Button
+                    type="primary"
+                    size="large"
+                    onClick={() => resetForm()}
+                  >
                     Reset
                   </Button>
                 </div>

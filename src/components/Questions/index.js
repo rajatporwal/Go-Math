@@ -6,6 +6,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import questionsConfig from "../../config/questionsConfig";
 import { Table, Switch, Space } from "antd";
+import { HOME_ROUTES } from "../Home/index";
 
 const Questions = () => {
   const [border, setBorder] = useState(false);
@@ -49,7 +50,7 @@ const Questions = () => {
   ];
 
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: [] });
+    dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
   });
 
   return (

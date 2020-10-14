@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+// import Footer from "./components/Footer/Footer";
 import Main from "./components/Main";
 import "antd/dist/antd.css";
 import "./sass/main.scss";
