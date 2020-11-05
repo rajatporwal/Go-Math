@@ -70,14 +70,18 @@ const Questions = () => {
       />
       {questionsConfig.map((ele) => (
         <div class="javascript">
-          <h2 id={ele.id}>{ele.question}</h2>
+          <h2 className="m_t_50" id={ele.id}>
+            {ele.question}
+          </h2>
           <hr />
           {ele.solution.map((s, i) => (
             <>
-              <p>
-                <b>{i + 1}. &nbsp;</b>
-                {s.title}
-              </p>
+              {s.title ? (
+                <p className="m_t_10">
+                  <b>{i + 1}. &nbsp;</b>
+                  {s.title}
+                </p>
+              ) : null}
               <SyntaxHighlighter
                 language="javascript"
                 style={okaidia}

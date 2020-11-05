@@ -1,7 +1,14 @@
+import {
+  STRING_REVERSE,
+  INTEGER_REVERSAL,
+  CAPITALIZES_FIRST_LETTER,
+  VOWEL_COUNT
+} from "../utils/questionsHelper";
+
 const questionsConfig = [
   {
-    category: "array",
-    question: "Remove duplicate objects from array.",
+    question: "Remove duplicate objects from array",
+    category: ["array"],
     id: "a_remove_duplicate",
     solution: [
       {
@@ -23,6 +30,70 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`
       {
         title: "Using one of the keys as index:",
         code: ""
+      }
+    ]
+  },
+  {
+    question: "Reverse String",
+    category: ["string, reverse"],
+    id: "reverse_string",
+    solution: [
+      {
+        title: "Using reduceRight method:",
+        code: `${STRING_REVERSE.usingReduceRight}`
+      },
+      {
+        title: "Using reduce method:",
+        code: `${STRING_REVERSE.usingReduce}`
+      },
+      {
+        title: "By converting string into array: ",
+        code: `${STRING_REVERSE.byConvertingStringIntoArray}`
+      },
+      {
+        title: "Using loop: ",
+        code: `${STRING_REVERSE.usingLoop}`
+      }
+    ]
+  },
+  {
+    question: "Reverse Integer",
+    category: ["integer, reverse"],
+    id: "reverse_integer",
+    solution: [
+      {
+        title: null,
+        code: `${INTEGER_REVERSAL.reverse}`
+      }
+    ]
+  },
+  {
+    question: "Capitalizes first letter of every word in a sentence",
+    category: ["string"],
+    id: "capitalizes",
+    solution: [
+      {
+        title: "Using array",
+        code: `${CAPITALIZES_FIRST_LETTER.usingArray}`
+      },
+      {
+        title: "Using loop",
+        code: `${CAPITALIZES_FIRST_LETTER.usingLoop}`
+      }
+    ]
+  },
+  {
+    question: "Find total vowel count in string",
+    category: ["string, regex"],
+    id: "vowel_count",
+    solution: [
+      {
+        title: "Using regex",
+        code: `${VOWEL_COUNT.usingRegex}`
+      },
+      {
+        title: "Using loop",
+        code: `${VOWEL_COUNT.usingLoop}`
       }
     ]
   }

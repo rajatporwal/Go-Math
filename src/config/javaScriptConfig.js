@@ -961,42 +961,199 @@ const javaScriptConfig = [
         code: [
           {
             title: "",
-            code: `	function inefficient(idx) {
-              const bigArray = new Array(7000).fill("😄");
-              console.log("created!");
-              return bigArray[idx];
-            }
+            code: `function inefficient(idx) {
+  const bigArray = new Array(7000).fill("😄");
+  console.log("created!");
+  return bigArray[idx];
+}
             
-            // This function will push bigArray into closure when it get's rendered for the first time and when it get called again it will not render bigArray again, it directly returns the inner function.
-            function efficient() {
-              const bigArray = new Array(7000).fill("😄");
-              console.log("created again!");
-              return function(idx) {
-                return bigArray[idx];
-              };
-            }
+// This function will push bigArray into closure when it get's rendered for the first time and when it get called again it will not render bigArray again, it directly returns the inner function.
+function efficient() {
+  const bigArray = new Array(7000).fill("😄");
+  console.log("created again!");
+
+  return function(idx) {
+    return bigArray[idx];
+  };
+}
             
-            inefficient(688);
-            inefficient(1000);
-            inefficient(6500);
+  inefficient(688);
+  inefficient(1000);
+  inefficient(6500);
+  
+  const getEfficient = efficient();
+  
+  getEfficient(688);
+  getEfficient(1000);
+  getEfficient(6500);
             
-            const getEfficient = efficient();
-            
-            getEfficient(688);
-            getEfficient(1000);
-            getEfficient(6500);
-            
-            // created!
-            // created!
-            // created!
-            // created Again!
-            // '😄'
-            
-            // inefficient created the bigArray 3 times
-            // efficient created the bigArray only once`
+  // created!
+  // created!
+  // created!
+  // created Again!
+  // '😄'
+  
+  // inefficient created the bigArray 3 times
+  // efficient created the bigArray only once`
           }
         ],
         note: null
+      }
+    ]
+  },
+  {
+    heading: "Object Oriented Programming",
+    pathname: "/javascript",
+    children: [
+      {
+        title: "OOP Introduction",
+        id: "introduction",
+        desciption: `OOP stands for Object-Oriented Programming. Procedural programming is about writing
+        procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.`,
+        code: [
+          {
+            title: null,
+            code: `  const elf1 = {
+    name: 'Dobby',
+    type: 'house',
+    weapon: 'cloth',
+    say: function() {
+      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
+    }
+    attack: function() {
+      return 'attack with \${this.weapon}'
+    }
+  }
+
+  const elf2 = {
+    name: 'Legolas',
+    type: 'high',
+    weapon: 'bow',
+    say: function() {
+      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
+    }
+    attack: function() {
+      return 'attack with \${this.weapon}'
+    }
+  }
+            
+  elf1.attack()
+  // attack with cloth
+  elf2.attack()
+  // attack with bow`
+          }
+        ]
+      },
+      {
+        title: "Factory Functions",
+        id: "factory_functions",
+        desciption: `When you use regular functions to build objects, they are called factory functions.
+        <br /><br />
+        As you can see, above code is already getting very repetitive and is not maintainable with only 1 character type. Imagine adding more characters, things would get out of control quickly. So, another way to create objects was introduced, factory functions. `,
+        list: [
+          "Factory functions are functions that produces objects. ",
+          "In JavaScript, there are two ways to create objects, one by using either function constructors or classes. ",
+          "In either case, you have to use a new keyword. And secondly, by using regular functions."
+        ],
+        code: [
+          {
+            title: null,
+            code: `  function createElf(name, type, weapon) {
+    return {
+      name: name,
+      type: type,
+      weapon: weapon,
+      say() {
+        return 'Hi, my name is \${name}, I am a \${type} elf.';
+      },
+      attack() {
+        return '\${name} attacks with \${weapon}';
+      }
+    };
+  }
+            
+    const dobby = createElf("Dobby", "house", "cloth");
+    const legolas = createElf("Legolas", "high", "bow");
+    
+    dobby.say(); // Hi, my name is Dobby, I am a house elf.
+    legolas.say(); // Hi, my name is Legolas, I am a high elf.
+    dobby.attack(); // Dobby attacks with cloth.
+    legolas.attack(); // Legolas attacks with bow.`
+          }
+        ],
+        note:
+          "Factory functions return a new object every time they are ran. This could improve the code somewhat."
+      },
+      {
+        title: "Store",
+        id: "store",
+        desciption: `This is a step in the right direction, but if we added more characters, we would run into some of the same issues again. Not only is the code not DRY, the attack method is being created and taking up memory space for every new elf. This is not very efficient. How do we solve this? Well, we could separate the methods out into a store.`,
+        code: [
+          {
+            title: null,
+            code: `  const elfMethodsStore = {
+    attack() {
+      return 'attack with \${this.weapon};
+    },
+    say() {
+      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
+    }
+  };
+            
+  function createElf(name, type, weapon) {
+    return {
+      name: name, // old way
+      type, // with ES6 assignment, if they are the same name
+      weapon
+    };
+  }
+            
+  // each method has to be assigned to the store method to
+  // create the __proto__ chain
+  const dobby = createElf("Dobby", "house", "cloth");
+  dobby.attack = elfMethodsStore.attack;
+  dobby.say = elfMethodsStore.say;
+  
+  const legolas = createElf("Legolas", "high", "bow");
+  legolas.attack = elfMethodsStore.attack;
+  legolas.say = elfMethodsStore.say;`
+          }
+        ]
+      },
+      {
+        title: "Object.create",
+        id: "object_create",
+        desciption: `Having a store saved us some efficiency in memory, but this was a lot of manual work to assign each method. So, we were given Object.create to help create this chain without having to assign each method.`,
+        code: [
+          {
+            title: null,
+            code: `  const elfMethodsStore = {
+    attack() {
+      return 'attack with \${this.weapon}';
+    },
+    say() {
+      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
+    }
+  };
+            
+  function createElf(name, type, weapon) {
+    // this creates the __proto__ chain to the store
+    let newElf = Object.create(elfMethodsStore);
+    console.log(newElf.__proto__); // { attack: [Function], say: [Function] }
+    // this assigns all the methods
+    newElf.name = name;
+    newElf.type = type;
+    newElf.weapon = weapon;
+    // this returns the new Elf with everything attached
+    return newElf;
+  }
+  
+  const dobby = createElf("Dobby", "house", "cloth");
+  const legolas = createElf("Legolas", "high", "bow");
+  dobby.attack; // attack with cloth
+  legolas.attack; // attack with bow`
+          }
+        ]
       }
     ]
   }
