@@ -5,12 +5,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import questionsConfig from "../../config/questionsConfig";
-import { Table, Switch, Space } from "antd";
+import { Table, Switch, Space, Checkbox } from "antd";
 import { HOME_ROUTES } from "../Home/index";
 
 const Questions = () => {
   const [border, setBorder] = useState(false);
   const [showIndex, setShowIndex] = useState(false);
+  const [queCategory, setQueCategory] = useState([]);
   const dispatch = useDispatch();
 
   const addIndex = [
@@ -53,8 +54,36 @@ const Questions = () => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
   });
 
+  const onCategoryChange = (type) => {
+    if (queCategory.indexOf(type) === -1) {
+      queCategory.push(type);
+    } else {
+      queCategory.splice(queCategory.indexOf(type), 1);
+    }
+    setQueCategory([...queCategory]);
+  };
+
+  const filteredData =
+    queCategory.length > 0
+      ? questionsConfig.filter((ele) =>
+          ele.category.some((element) => queCategory.includes(element))
+        )
+      : questionsConfig;
+
   return (
     <div>
+      <h3>Filter Questions</h3>
+      <Space align="center" style={{ marginBottom: 20, marginTop: 10 }}>
+        <Checkbox onChange={() => onCategoryChange("array")}>Array</Checkbox>
+        <Checkbox onChange={() => onCategoryChange("string")}>String</Checkbox>
+        <Checkbox onChange={() => onCategoryChange("number")}>Number</Checkbox>
+        <Checkbox onChange={() => onCategoryChange("regex")}>Regex</Checkbox>
+        <Checkbox onChange={() => onCategoryChange("conversion")}>
+          Conversion
+        </Checkbox>
+      </Space>
+      <br />
+      <hr />
       <Space align="center" style={{ marginBottom: 10 }}>
         Index:
         <Switch checked={showIndex} onChange={() => setShowIndex(!showIndex)} />
@@ -62,13 +91,13 @@ const Questions = () => {
       </Space>
       <Table
         columns={showIndex ? [...addIndex, ...columns] : columns}
-        dataSource={questionsConfig.map((d, i) => {
+        dataSource={filteredData.map((d, i) => {
           d["index"] = i + 1;
           return d;
         })}
         bordered={border}
       />
-      {questionsConfig.map((ele) => (
+      {filteredData.map((ele) => (
         <div class="javascript">
           <h2 className="m_t_50" id={ele.id}>
             {ele.question}

@@ -34,8 +34,8 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`
     ]
   },
   {
-    question: "Reverse String",
-    category: ["string, reverse"],
+    question: "Reverse string",
+    category: ["string", "reverse"],
     id: "reverse_string",
     solution: [
       {
@@ -58,7 +58,7 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`
   },
   {
     question: "Reverse Integer",
-    category: ["integer, reverse"],
+    category: ["number", "reverse"],
     id: "reverse_integer",
     solution: [
       {
@@ -84,7 +84,7 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`
   },
   {
     question: "Find total vowel count in string",
-    category: ["string, regex"],
+    category: ["string", "regex"],
     id: "vowel_count",
     solution: [
       {
