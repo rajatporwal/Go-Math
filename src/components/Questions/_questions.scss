@@ -1,0 +1,7 @@
+.que_filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 12rem));
+  grid-row-gap: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}

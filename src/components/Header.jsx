@@ -44,6 +44,11 @@ export default () => {
             Conversion
           </Link>
         </Menu.Item>
+        <Menu.Item key="6">
+          <Link active to="/ds">
+            Data Structure
+          </Link>
+        </Menu.Item>
       </Menu>
     </Header>
   );

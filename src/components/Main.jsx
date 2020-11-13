@@ -6,6 +6,7 @@ import Regex from "./Regex";
 import Questions from "./Questions";
 import PageNotFound from "./PageNotFound";
 import Conversion from "./Conversion";
+import DataStructure from "./DataStructure";
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route exact path="/regex" component={Regex} />
       <Route exact path="/questions" component={Questions} />
       <Route exact path="/conversion" component={Conversion} />
+      <Route exact path="/ds" component={DataStructure} />
       <Route
         path="*"
         render={() => {

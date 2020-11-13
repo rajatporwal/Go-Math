@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import { HashLink as Link } from "react-router-hash-link";
 import { HOME_ROUTES } from "../Home";
 import { CONVERSION_ROUTES } from "../Home/ConversionRoutes";
-import NumberConversion from "./NumberConversion";
+import NumberConvertor from "./NumberConvertor";
 
 const renderChildren = (type) => {
   switch (type) {
     case "number_convertor": {
-      return <NumberConversion />;
+      return <NumberConvertor />;
     }
     case "number_calculator": {
       return <div>Number Calculator Work In Progress !!</div>;
@@ -29,14 +29,18 @@ const renderChildren = (type) => {
       return <div>Length Convertor Work In Progress !!</div>;
     }
     default:
-      return <NumberConversion />;
+      return <NumberConvertor />;
   }
 };
+
 const Conversion = ({ type }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
+    dispatch({
+      type: "SIDE_BAR_OPTIONS",
+      value: [{ heading: "Conversion", children: [...CONVERSION_ROUTES] }]
+    });
   });
 
   return (
@@ -56,12 +60,12 @@ const Conversion = ({ type }) => {
                   <Link
                     active
                     to={{
-                      pathname: r.path,
+                      pathname: r.pathname,
                       hash: r.id
                     }}
                     smooth
                   >
-                    {r.name}
+                    {r.title}
                   </Link>
                 </li>
               ))}

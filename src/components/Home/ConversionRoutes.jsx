@@ -3,38 +3,38 @@ import { HashLink as Link } from "react-router-hash-link";
 
 export const CONVERSION_ROUTES = [
   {
-    name: "Number Convertor",
-    path: "/conversion",
+    title: "Number Convertor",
+    pathname: "/conversion",
     id: "number_convertor"
   },
   {
-    name: "Number Calculator",
-    path: "/conversion",
+    title: "Number Calculator",
+    pathname: "/conversion",
     id: "number_calculator"
   },
   {
-    name: "HCF - LCM",
-    path: "/conversion",
+    title: "HCF - LCM",
+    pathname: "/conversion",
     id: "hcf_lcm"
   },
   {
-    name: "Infix - Prefix - Postfix",
-    path: "/conversion",
+    title: "Infix - Prefix - Postfix",
+    pathname: "/conversion",
     id: "infix_prefix_postfix"
   },
   {
-    name: "Weight Convertor",
-    path: "/conversion",
+    title: "Weight Convertor",
+    pathname: "/conversion",
     id: "weight_convertor"
   },
   {
-    name: "Temperature Convertor",
-    path: "/conversion",
+    title: "Temperature Convertor",
+    pathname: "/conversion",
     id: "temperature_convertor"
   },
   {
-    name: "Length Convertor",
-    path: "/conversion",
+    title: "Length Convertor",
+    pathname: "/conversion",
     id: "length_convertor"
   }
 ];
@@ -48,12 +48,12 @@ const ConversionRoutes = () => (
           <Link
             active
             to={{
-              pathname: r.path,
+              pathname: r.pathname,
               hash: r.id
             }}
             smooth
           >
-            {r.name}
+            {r.title}
           </Link>
         </li>
       ))}

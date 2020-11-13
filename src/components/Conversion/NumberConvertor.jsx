@@ -18,7 +18,7 @@ const octalTitle =
   "The octal numeral system, or oct for short, is the base-8 number system, and uses the digits 0 to 7. Octal numerals can be made from binary numerals by grouping consecutive binary digits into groups of three (starting from the right). For example, the binary representation for decimal 74 is 1001010.";
 const hexaDecimalTitle = `The word “Hexadecimal” means sixteen because this type of digital numbering system uses 16 different digits from 0-to-9, and A-to-F. ... These binary sets can have any value from 010 ( 00002 ) to 1510 ( 11112 ) representing the hexadecimal equivalent of 0 through to F.`;
 
-const NumberConversion = () => {
+const NumberConvertor = () => {
   const initialValues = {
     binaryNo: "",
     octalNo: "",
@@ -68,7 +68,7 @@ const NumberConversion = () => {
         <Form validateOnChange={true}>
           <div>
             <Card
-              title="Number Conversion"
+              title="Number Convertor"
               // extra={<a href="#">More</a>}
               // style={{ width: 800 }}
             >
@@ -231,4 +231,4 @@ const NumberConversion = () => {
   );
 };
 
-export default NumberConversion;
+export default NumberConvertor;

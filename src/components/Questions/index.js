@@ -72,16 +72,30 @@ const Questions = () => {
 
   return (
     <div>
-      <h3>Filter Questions</h3>
-      <Space align="center" style={{ marginBottom: 20, marginTop: 10 }}>
-        <Checkbox onChange={() => onCategoryChange("array")}>Array</Checkbox>
-        <Checkbox onChange={() => onCategoryChange("string")}>String</Checkbox>
-        <Checkbox onChange={() => onCategoryChange("number")}>Number</Checkbox>
-        <Checkbox onChange={() => onCategoryChange("regex")}>Regex</Checkbox>
-        <Checkbox onChange={() => onCategoryChange("conversion")}>
-          Conversion
-        </Checkbox>
-      </Space>
+      <h3>Add Filters</h3>
+      <div className="que_filter">
+        <div>
+          <Checkbox onChange={() => onCategoryChange("array")}>Array</Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("string")}>
+            String
+          </Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("number")}>
+            Number
+          </Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("regex")}>Regex</Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("conversion")}>
+            Conversion
+          </Checkbox>
+        </div>
+      </div>
       <br />
       <hr />
       <Space align="center" style={{ marginBottom: 10 }}>
