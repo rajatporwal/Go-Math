@@ -58,7 +58,6 @@ const DataStructure = () => {
         </div>
       </div>
       <br />
-      <hr />
       {filteredData.map((ele) => (
         <>
           <h1>{ele.heading}</h1>

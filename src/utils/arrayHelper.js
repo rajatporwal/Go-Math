@@ -218,7 +218,7 @@ arr.reverse();  // Output: [5, 4, 3, 2, 1]`
       note: null
     },
     {
-      title: "Sort()",
+      title: "sort()",
       id: "array/sort",
       desciption: null,
       list: ["only sorts alphabets"],
