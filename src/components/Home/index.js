@@ -6,6 +6,7 @@ import RegexRoutes from "./RegexRoutes";
 import QuestionsRoutes from "./QuestionsRoutes";
 import ConversionRoutes from "./ConversionRoutes";
 import DataStructureRoutes from "./DataStructureRoutes";
+import ReactJsRoutes from "./ReactJsRoutes";
 const { Panel } = Collapse;
 
 export const HOME_ROUTES = [
@@ -51,6 +52,11 @@ const Home = () => {
       <Collapse accordion>
         <Panel header="JavaScript" key="javascript">
           <JavaScriptRoutes />
+        </Panel>
+      </Collapse>
+      <Collapse accordion>
+        <Panel header="React" key="react">
+          <ReactJsRoutes />
         </Panel>
       </Collapse>
       <Collapse accordion>

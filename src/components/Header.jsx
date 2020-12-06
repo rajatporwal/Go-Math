@@ -30,21 +30,26 @@ export default () => {
           </Link>
         </Menu.Item>
         <Menu.Item key="3">
+          <Link active to="/react">
+            React
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="4">
           <Link active to="/regex">
             Regex
           </Link>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="5">
           <Link active to="/questions">
             Questions
           </Link>
         </Menu.Item>
-        <Menu.Item key="5">
+        <Menu.Item key="6">
           <Link active to="/conversion">
             Conversion
           </Link>
         </Menu.Item>
-        <Menu.Item key="6">
+        <Menu.Item key="7">
           <Link active to="/ds">
             Data Structure
           </Link>

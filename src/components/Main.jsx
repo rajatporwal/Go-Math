@@ -7,6 +7,7 @@ import Questions from "./Questions";
 import PageNotFound from "./PageNotFound";
 import Conversion from "./Conversion";
 import DataStructure from "./DataStructure";
+import ReactJS from "./React";
 
 const Main = () => (
   <main>
@@ -14,6 +15,7 @@ const Main = () => (
       <Redirect exact from="/" to="/home" />
       <Route exact path="/home" component={Home} />
       <Route exact path="/javascript" component={JavaScript} />
+      <Route exact path="/react" component={ReactJS} />
       <Route exact path="/regex" component={Regex} />
       <Route exact path="/questions" component={Questions} />
       <Route exact path="/conversion" component={Conversion} />
