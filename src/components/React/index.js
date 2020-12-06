@@ -28,8 +28,8 @@ const ReactJS = () => {
               >
                 {child.title}
               </h2>
-              {child.desciption ? (
-                <p dangerouslySetInnerHTML={{ __html: child.desciption }} />
+              {child.description ? (
+                <p dangerouslySetInnerHTML={{ __html: child.description }} />
               ) : null}
               {child.list ? (
                 <ul>

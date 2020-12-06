@@ -6,7 +6,7 @@ const ARRAY_HELPER = {
     {
       title: "push()",
       id: "array/push",
-      desciption: `Add's the element to the last index.`,
+      description: `Add's the element to the last index.`,
       list: null,
       code: [
         {
@@ -22,7 +22,7 @@ const ARRAY_HELPER = {
     {
       title: "pop()",
       id: "array/pop",
-      desciption: `removes last element from the array.`,
+      description: `removes last element from the array.`,
       list: null,
       code: [
         {
@@ -38,7 +38,7 @@ const ARRAY_HELPER = {
     {
       title: "unshift()",
       id: "array/unshift",
-      desciption: `add elements at the front of an array.`,
+      description: `add elements at the front of an array.`,
       list: null,
       code: [
         {
@@ -54,7 +54,7 @@ const ARRAY_HELPER = {
     {
       title: "shift()",
       id: "array/shift",
-      desciption: `removes element from the front (first element) of array.`,
+      description: `removes element from the front (first element) of array.`,
       list: null,
       code: [
         {
@@ -70,7 +70,7 @@ const ARRAY_HELPER = {
     {
       title: "splice()",
       id: "array/splice",
-      desciption: `removes or add element from the given index.`,
+      description: `removes or add element from the given index.`,
       list: null,
       code: [
         {
@@ -106,7 +106,7 @@ console.log(arr); // [1, 2, 3, "a", "b", 4, 5, 6, 7, 8, 9]`
     {
       title: "slice()",
       id: "array/slice",
-      desciption: `returns new array containing a portion of the array (end index exclusive)`,
+      description: `returns new array containing a portion of the array (end index exclusive)`,
       list: null,
       code: [
         {
@@ -134,7 +134,7 @@ console.log(newArray);   // output: [5, 6];`
     {
       title: "indexOf()",
       id: "array/indexOf",
-      desciption: `returns index of first matched element.`,
+      description: `returns index of first matched element.`,
       list: null,
       code: [
         {
@@ -151,7 +151,7 @@ console.log(index); // output: 0`
     {
       title: "lastIndexOf()",
       id: "array/lastIndexOf",
-      desciption: `returns index of last matched element.`,
+      description: `returns index of last matched element.`,
       list: null,
       code: [
         {
@@ -168,7 +168,7 @@ console.log(index); // output: 3`
     {
       title: "findIndex()",
       id: "array/findindex",
-      desciption: `returns index of first matched element according to condition.`,
+      description: `returns index of first matched element according to condition.`,
       list: null,
       code: [
         {
@@ -187,7 +187,7 @@ console.log(index); // output: 3`
     {
       title: "find()",
       id: "array/find",
-      desciption: `find will return element itself when condition mathced`,
+      description: `find will return element itself when condition mathced`,
       list: null,
       code: [
         {
@@ -206,7 +206,7 @@ console.log(index); // output: 3`
     {
       title: "reverse()",
       id: "array/reverse",
-      desciption: `inbuilt function to reverse array`,
+      description: `inbuilt function to reverse array`,
       list: null,
       code: [
         {
@@ -220,7 +220,7 @@ arr.reverse();  // Output: [5, 4, 3, 2, 1]`
     {
       title: "sort()",
       id: "array/sort",
-      desciption: null,
+      description: null,
       list: ["only sorts alphabets"],
       code: [
         {
@@ -274,7 +274,7 @@ console.log(arr); // output: ["d1", "b3", "a4", "c23"]`
     {
       title: "Iterating over array",
       id: "array/iteration",
-      desciption: null,
+      description: null,
       list: [
         "for loop",
         "while loop",
@@ -336,7 +336,7 @@ for( let e of iterateValues) {
     {
       title: "Array.every()",
       id: "array/every",
-      desciption: `It checks whether all the elements of the array satisfy the given condition or not.`,
+      description: `It checks whether all the elements of the array satisfy the given condition or not.`,
       list: null,
       code: [
         {
@@ -352,7 +352,7 @@ console.log(every);   // output: false`
     {
       title: "Array.some()",
       id: "array/some",
-      desciption: `It checks at least one of the elements of the array satisfy the given condition.`,
+      description: `It checks at least one of the elements of the array satisfy the given condition.`,
       list: null,
       code: [
         {
@@ -368,7 +368,7 @@ console.log(some);   // output: true`
     {
       title: "Array.map()",
       id: "array/map",
-      desciption: `creates a new array from results of calling func for every element.`,
+      description: `creates a new array from results of calling func for every element.`,
       list: null,
       code: [
         {
@@ -385,7 +385,7 @@ console.log(mappedArray)  // output: [2, 4, 6, 8, 10]`
     {
       title: "Array.filter()",
       id: "array/filter",
-      desciption: `filter elements through the function, return all values that make it return true`,
+      description: `filter elements through the function, return all values that make it return true`,
       list: null,
       code: [
         {
@@ -401,7 +401,7 @@ console.log(filter);  // output: [1, 2]`
     {
       title: "reduce/reduceRight",
       id: "array/reduce",
-      desciption: `reduces the array after performing provided calculation on every element`,
+      description: `reduces the array after performing provided calculation on every element`,
       list: [
         "reduce iterates the array in regular fashion",
         "reduceRight reduces the array from rigth to left"
@@ -431,7 +431,7 @@ console.log(result);   // output: [1, 2, 3, 4]`
     {
       title: "join()",
       id: "array/join",
-      desciption: `joins every ele with the passed parameter and returns new string`,
+      description: `joins every ele with the passed parameter and returns new string`,
       list: null,
       code: [
         {
@@ -446,7 +446,7 @@ const result = a.join('|');    // 1|2|3|4|5|6`
     {
       title: "fill()",
       id: "array/fill",
-      desciption: `fills the array with a given static value`,
+      description: `fills the array with a given static value`,
       list: null,
       code: [
         {
@@ -477,7 +477,7 @@ console.log(arr);   // Output: [1, 2, 87, 87, 87, 87]`
     {
       title: "flat()",
       id: "array/flat",
-      desciption: `flats the deeply nested array`,
+      description: `flats the deeply nested array`,
       list: null,
       code: [
         {

@@ -6,7 +6,7 @@ const STRING_HELPER = {
     {
       title: "substr()",
       id: "string/substr",
-      desciption: `Counts index from start index to the next provided end index.`,
+      description: `Counts index from start index to the next provided end index.`,
       list: [
         "Returns new string",
         "ex: if substr(5, 11) then it will return string from index 5 to 16.",
@@ -28,7 +28,7 @@ str.substr(-1, -4)  // no output`
     {
       title: "substring()",
       id: "string/substring",
-      desciption: `Counts index from start index to the end index.`,
+      description: `Counts index from start index to the end index.`,
       list: ["If negative index is passed it will return whole string"],
       code: [
         {
@@ -46,7 +46,7 @@ str.substring(-1, -4)  // no output`
     {
       title: "trim()",
       id: "string/trim",
-      desciption: `Removes the white spaces from both the ends of the given string.`,
+      description: `Removes the white spaces from both the ends of the given string.`,
       list: null,
       code: [
         {
@@ -63,7 +63,7 @@ str.trimRight();   // '   geeks'`
     {
       title: "startsWith()",
       id: "string/startsWith",
-      desciption: `Check whether the given string start's with the characters of the specified string or not.`,
+      description: `Check whether the given string start's with the characters of the specified string or not.`,
       list: [
         "Case sensitive",
         "If index is passed then it will consider passed index as starts index of the string and then checks it"
@@ -83,7 +83,7 @@ str.startsWith('great', 8);   // true`
     {
       title: "endsWith()",
       id: "string/endsWith",
-      desciption: `Check whether the given string ends with the characters of the specified string or not.`,
+      description: `Check whether the given string ends with the characters of the specified string or not.`,
       list: [
         "Case sensitive",
         "If index is passed then it will consider passed index as end index of the string and then checks it"
@@ -102,7 +102,7 @@ str.endsWith('great', 13);  // true, `
     {
       title: "includes()",
       id: "string/includes",
-      desciption: `Check whether the given string includes the characters of the specified string or not.`,
+      description: `Check whether the given string includes the characters of the specified string or not.`,
       list: [
         "Case sensitive",
         "If positive index is passed then it will start searching after the passed index",
@@ -125,7 +125,7 @@ str.includes("g", -2);   // true`
     {
       title: "toUpperCase/toLowerCase",
       id: "string/case",
-      desciption: `Converts string into uppercase/lowercase.`,
+      description: `Converts string into uppercase/lowercase.`,
       list: null,
       code: [
         {
@@ -141,7 +141,7 @@ str.toLowerCase();        // it is a great day.`
     {
       title: "toLocaleUpperCase/toLocaleLowerCase",
       id: "string/localeCase",
-      desciption: `Converts a string to uppercase/lowercase letters, according to the host's current locale.`,
+      description: `Converts a string to uppercase/lowercase letters, according to the host's current locale.`,
       list: [
         "The locale is based on the language settings of the browser.",
         "Generally, this method returns the same result as the toLowerCase() method.",
@@ -161,7 +161,7 @@ str.toLocaleLowerCase();        // it is a great day.`
     {
       title: "charCodeAt()",
       id: "string/charCodeAt",
-      desciption: `returns a Unicode character code of the character present at the index.`,
+      description: `returns a Unicode character code of the character present at the index.`,
       list: null,
       code: [
         {
@@ -178,7 +178,7 @@ str.charCodeAt(6);     // 97`
     {
       title: "fromCharCode()",
       id: "string/fromCharCode",
-      desciption: `Converts the UTF-16 codes into their equivalent characters and returns the string containing them.`,
+      description: `Converts the UTF-16 codes into their equivalent characters and returns the string containing them.`,
       list: null,
       code: [
         {
@@ -191,7 +191,7 @@ str.charCodeAt(6);     // 97`
     {
       title: "length",
       id: "string/length",
-      desciption: `returns the length count`,
+      description: `returns the length count`,
       list: null,
       code: [
         {
@@ -206,7 +206,7 @@ const len = str.length;     // 18`
     {
       title: "charAt",
       id: "string/charAt",
-      desciption: `returns the character present at the passed index`,
+      description: `returns the character present at the passed index`,
       list: null,
       code: [
         {
@@ -223,7 +223,7 @@ str.charAt(-2);   // empty string`
     {
       title: "indexOf/lastIndexOf",
       id: "string/indexOf/lastIndexOf",
-      desciption: `returns the first matched index`,
+      description: `returns the first matched index`,
       list: [
         "If second parameter is passed in indexOf() method then it will skip the starting characters with the passed index.",
         "If second parameter is passed in lastIndexOf() method then it will skip the last characters/characters from right with the passed index."
@@ -244,7 +244,7 @@ str.indexOf('t', 2);       // 12`
     {
       title: "String.raw",
       id: "string/raw",
-      desciption: `Skips the escape char and print it as it is.`,
+      description: `Skips the escape char and print it as it is.`,
       list: null,
       code: [
         {
@@ -260,7 +260,7 @@ console.log(String.raw\`Hello world:\\n new line\`);    // Hello world:\\n new l
     {
       title: "repeat()",
       id: "string/repeat",
-      desciption: `String.repeat() is used to build a new string containing a specified number of copies of the string on which this function has been called.`,
+      description: `String.repeat() is used to build a new string containing a specified number of copies of the string on which this function has been called.`,
       list: null,
       code: [
         {
@@ -277,7 +277,7 @@ rep.repeat(3.8);    // Repeat me Repeat me Repeat me`
     {
       title: "split()",
       id: "string/split",
-      desciption: null,
+      description: null,
       list: [
         "If negative index is passed it will work as a normal function, i.e. it will spplit whole string with the passed condition"
       ],
@@ -298,7 +298,7 @@ str.split(" ", -1);     // [ "U", "want", "to", "split" ]`
     {
       title: "concat()",
       id: "string/concat",
-      desciption: null,
+      description: null,
       list: null,
       code: [
         {
@@ -314,7 +314,7 @@ str1.concat(str2);    // It is a great day.`
     {
       title: "valueOf()",
       id: "string/valueOf",
-      desciption: "Return the primitive value of a string object.",
+      description: "Return the primitive value of a string object.",
       list: null,
       code: [
         {
@@ -328,7 +328,7 @@ var res = str.valueOf();    // Hello World`
     {
       title: "slice()",
       id: "string/slice",
-      desciption:
+      description:
         "Extracts a section of a string and returns it as a new string, without modifying the original string.",
       list: [
         "<b>beginIndex: </b>The zero-based index at which to begin extraction. If negative, it is treated as str.length + beginIndex. (For example, if beginIndex is -3, it is treated as str.length - 3.) If beginIndex is not a number after Number(beginIndex), it is treated as 0. If beginIndex is greater than or equal to str.length, an empty string is returned.",
@@ -349,7 +349,7 @@ str.slice(10);      // eat day`
     {
       title: "search()",
       id: "string/search",
-      desciption: `Return index of first matched character/regex`,
+      description: `Return index of first matched character/regex`,
       list: [
         "String.search()  is used to search for a match in between regular expressions and a given string object",
         "Return -1 if no match found"
@@ -374,7 +374,7 @@ str.search('a');   // 6`
     {
       title: "match()",
       id: "string/match",
-      desciption: `Return array with all the matched characters/regex`,
+      description: `Return array with all the matched characters/regex`,
       list: [
         "String.match()  is used to search for a match in between regular expressions and a given string object",
         "Return null if no match found"
@@ -398,7 +398,7 @@ str.match(re3);    // ["g", "G", "g"]`
     {
       title: "replace()",
       id: "string/replace",
-      desciption: `Replace a part of the given string with some another string or a regular expression. `,
+      description: `Replace a part of the given string with some another string or a regular expression. `,
       list: null,
       code: [
         {
@@ -414,7 +414,7 @@ str.replace(/a/g, 'A');   // It is A greAt dAy.`
     {
       title: "localeCompare()",
       id: "string/localeCompare",
-      desciption: `The localeCompare method returns a number indicating whether str1 comes before, after or is the same as str2 in sort order.`,
+      description: `The localeCompare method returns a number indicating whether str1 comes before, after or is the same as str2 in sort order.`,
       list: [
         "Returns -1 if str1 is sorted before str2",
         "Returns 0 if the two strings are equal",

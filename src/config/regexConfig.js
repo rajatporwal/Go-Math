@@ -6,7 +6,7 @@ const regexConfig = [
       {
         title: "Two ways of writing Regex",
         id: "two_ways_of_writing_regex",
-        desciption: null,
+        description: null,
         list: ["let regex = new RegExp('Hello')", "let regex = /hello/"],
         code: null,
         note: null
@@ -14,7 +14,7 @@ const regexConfig = [
       {
         title: "Regex Methods",
         id: "regexMethods",
-        desciption: null,
+        description: null,
         list: null,
         code: [
           {
@@ -61,7 +61,7 @@ const regexConfig = [
       {
         title: "Regular Expression Flags",
         id: "regular_expression_flags",
-        desciption: null,
+        description: null,
         list: [
           "<b>g : </b> global, it matches more than one occurrence",
           "<b>i : </b> case insensitive match",
@@ -78,7 +78,7 @@ const regexConfig = [
       {
         title: "String Methods",
         id: "string_methods",
-        desciption: null,
+        description: null,
         list: null,
         code: [
           {
@@ -122,7 +122,7 @@ const regexConfig = [
       {
         title: "exec() vs match()",
         id: "exec_vs_match",
-        desciption: null,
+        description: null,
         list: [
           "match() will return all the matches",
           "exec will work as a loop, the more time you call it will return next matched element"
@@ -155,7 +155,7 @@ const regexConfig = [
       {
         title: "Characters",
         id: "characters",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,
@@ -263,7 +263,7 @@ const regexConfig = [
       {
         title: "Control Characters",
         id: "control_characters",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,
@@ -305,7 +305,7 @@ const regexConfig = [
       {
         title: "Indicating Character Repetition",
         id: "indicating_character_repetition",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,
@@ -377,7 +377,7 @@ const regexConfig = [
       {
         title: "Greediness and Laziness",
         id: "greediness_and_laziness",
-        desciption: "By Default Regular expression are greedy.",
+        description: "By Default Regular expression are greedy.",
         list: [
           "<b>* : </b> will grab as much as possible",
           "<b>? : </b> will grab as little as possible, it makes the regex lazyh"
@@ -398,7 +398,7 @@ const regexConfig = [
       {
         title: "Character Set Shorthand",
         id: "character_set_shorthand",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,
@@ -444,7 +444,7 @@ const regexConfig = [
       {
         title: "Character Set Shorthand For Negation",
         id: "character_set_shorthand_for_negation",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,
@@ -490,7 +490,7 @@ const regexConfig = [
       {
         title: "Anchored Expressions",
         id: "anchored_expressions",
-        desciption: null,
+        description: null,
         list: [
           "<b>^ : </b> match to the start of the line",
           "<b>$ : </b> match to the end of line"
@@ -522,7 +522,7 @@ const regexConfig = [
       {
         title: "Accurate Regular Expressions",
         id: "accurate_regular_expressions",
-        desciption: null,
+        description: null,
         list: [
           "When possible, define the quantity of repeated expressions.",
           "Narrow the scope of repeated expressions.",
@@ -534,7 +534,7 @@ const regexConfig = [
       {
         title: "Word Boundary",
         id: "word_boundary",
-        desciption: null,
+        description: null,
         list: [
           "<b>\\b : </b> Word Boundary - Pattern bounded by a non-word character.",
           "<b>\\B : </b> Non word Boundary - Pattern bounded by a word character."
@@ -561,7 +561,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Introduction",
         id: "introduction",
-        desciption: "Grouping in javascript works as split.",
+        description: "Grouping in javascript works as split.",
         list: null,
         code: [
           {
@@ -579,7 +579,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Capturing Groups",
         id: "capturing_groups",
-        desciption: "Capturing groups are used to capture previous group.",
+        description: "Capturing groups are used to capture previous group.",
         list: [
           "To make group non capturing ?: is used.",
           "ex: (?:/d/d)(/d)",
@@ -612,7 +612,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Lookahead groups",
         id: "lookahead_groups",
-        desciption:
+        description:
           "result of lookahead group is not included in response, however it enforces the match",
         list: null,
         code: [
@@ -629,7 +629,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Negative lookahead group",
         id: "negative_lookahead_group",
-        desciption: null,
+        description: null,
         list: null,
         code: [
           {
@@ -644,7 +644,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Meta characters you may need to escape",
         id: "meta_characters",
-        desciption:
+        description:
           " - &nbsp&nbsp&nbsp&nbsp 	^ 	&nbsp&nbsp&nbsp&nbsp 	\\ 	&nbsp&nbsp&nbsp&nbsp	] ",
         list: null,
         code: null,
@@ -653,7 +653,7 @@ let regex3  = /\\Bplan\\B/g;   // it will match only plan in between words outpu
       {
         title: "Applying Regular Expressions",
         id: "applying_regular_expressions",
-        desciption: null,
+        description: null,
         list: null,
         code: null,
         note: null,

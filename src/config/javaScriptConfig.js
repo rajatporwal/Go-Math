@@ -6,7 +6,7 @@ const javaScriptConfig = [
       {
         title: "Execution Context",
         id: "execution_context",
-        desciption: `When the <b>JavaScript</b> engine first encounters your script, it
+        description: `When the <b>JavaScript</b> engine first encounters your script, it
   creates a global <b>execution context</b> and pushes it to the current 
   <b>execution stack</b>. Whenever the engine finds a function invocation,
   it creates a new <b>execution context</b> for that function and pushes
@@ -30,7 +30,7 @@ const javaScriptConfig = [
       {
         title: "Lexical Environment",
         id: "lexical_environment",
-        desciption: ` Every time the <b>JavaScript</b> engine creates an execution context to
+        description: ` Every time the <b>JavaScript</b> engine creates an execution context to
     execute the function or global code, it also creates a new 
     <b>lexical environment</b> to store the variable defined in that
     function during the execution of that function. A <b>lexical environment</b> is a data structure that holds
@@ -62,7 +62,7 @@ const javaScriptConfig = [
       {
         title: "Hoisting",
         id: "hoisting",
-        desciption: `Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+        description: `Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
     Hoisting happens on every execution context.`,
         list: [
           "variables are partially hoisted",
@@ -127,7 +127,7 @@ const javaScriptConfig = [
       {
         title: "Functions",
         id: "functions",
-        desciption: `A <b>JavaScript function</b> is a block of code designed to perform a particular task. A <b>JavaScript function</b> is executed when something invokes it (calls it).
+        description: `A <b>JavaScript function</b> is a block of code designed to perform a particular task. A <b>JavaScript function</b> is executed when something invokes it (calls it).
     `,
         list: [
           "Function Declaration gets hoisted",
@@ -156,7 +156,7 @@ const javaScriptConfig = [
       {
         title: "Arguments",
         id: "arguments",
-        desciption: `The <b>arguments</b> object is a local variable available within all non-arrow functions. You can refer to a function's <b>arguments</b> inside that function by using its <b>arguments</b> object. It has entries for each <b>argument</b> the function was called with, with the first entry's index at 0 .
+        description: `The <b>arguments</b> object is a local variable available within all non-arrow functions. You can refer to a function's <b>arguments</b> inside that function by using its <b>arguments</b> object. It has entries for each <b>argument</b> the function was called with, with the first entry's index at 0 .
     .
     `,
         list: [
@@ -179,7 +179,7 @@ const javaScriptConfig = [
       {
         title: "Scope Chain",
         id: "scope_chain",
-        desciption: `The scope chain is used to resolve the value of variable names in javascript. Without a scope chain the Javascript engine wouldn't know which value to pick for a certain variable name if there are multiple defined at different scopes. Scope chain in javascript is lexically defined, which means that we can see what the scope chain will be by looking at the code.`,
+        description: `The scope chain is used to resolve the value of variable names in javascript. Without a scope chain the Javascript engine wouldn't know which value to pick for a certain variable name if there are multiple defined at different scopes. Scope chain in javascript is lexically defined, which means that we can see what the scope chain will be by looking at the code.`,
         list: null,
         code: [
           {
@@ -205,7 +205,7 @@ const javaScriptConfig = [
       {
         title: "use strict",
         id: "use_strict",
-        desciption: `The <b>use strict</b> directive was new in ECMAScript version 5. It is not a statement, but a literal expression, ignored by earlier versions of <b>JavaScript</b>. The purpose of <b>use strict</b> is to indicate that the code should be executed in <b>strict</b> mode. With strict mode, you can not, for example, use undeclared variables.`,
+        description: `The <b>use strict</b> directive was new in ECMAScript version 5. It is not a statement, but a literal expression, ignored by earlier versions of <b>JavaScript</b>. The purpose of <b>use strict</b> is to indicate that the code should be executed in <b>strict</b> mode. With strict mode, you can not, for example, use undeclared variables.`,
         list: null,
         code: [
           {
@@ -234,7 +234,7 @@ const javaScriptConfig = [
       {
         title: "Function Scope vs Block Scope",
         id: "function_scope_vs_block_scope",
-        desciption: null,
+        description: null,
         list: [
           "Variables are by default functionally scoped in JS.",
           "Variables declared with the var keyword cannot <b>have Block Scope</b>. Variables declared inside a <b>block</b> {} <b>can</b> be accessed from outside the <b>block</b>",
@@ -260,7 +260,7 @@ const javaScriptConfig = [
       {
         title: "IIFE",
         id: "iife",
-        desciption: `An Immediately-invoked Function Expression is a way to execute functions immediately, as soon as they are created. IIFEs are very useful because they don't pollute the global object, and they are a simple way to isolate variables declarations.
+        description: `An Immediately-invoked Function Expression is a way to execute functions immediately, as soon as they are created. IIFEs are very useful because they don't pollute the global object, and they are a simple way to isolate variables declarations.
     `,
         list: ["IIFe has its own execution context. It do not pollutes GEC."],
         code: [
@@ -277,7 +277,7 @@ const javaScriptConfig = [
       {
         title: "this",
         id: "this",
-        desciption: `The <b>JavaScript</b> this keyword refers to the object it belongs to. In a function, this refers to the global object. In a function, in strict mode, this is undefined . In an event, this refers to the element that received the event.
+        description: `The <b>JavaScript</b> this keyword refers to the object it belongs to. In a function, this refers to the global object. In a function, in strict mode, this is undefined . In an event, this refers to the element that received the event.
     `,
         list: null,
         code: [
@@ -316,7 +316,7 @@ const javaScriptConfig = [
       {
         title: "call(), apply(), bind()",
         id: "call_apply_bind",
-        desciption: `The <b>call</b>, <b>bind</b> and <b>apply</b> methods can be used to set the this keyword independent of how a function is <b>called</b>. The <b>bind</b> method creates a copy of the function and sets the this keyword, while the <b>call</b> and <b>apply</b> methods sets the this keyword and <b>calls</b> the function immediately.`,
+        description: `The <b>call</b>, <b>bind</b> and <b>apply</b> methods can be used to set the this keyword independent of how a function is <b>called</b>. The <b>bind</b> method creates a copy of the function and sets the this keyword, while the <b>call</b> and <b>apply</b> methods sets the this keyword and <b>calls</b> the function immediately.`,
         list: [
           "<b>call()</b> and <b>apply()</b> is used to buy the functions from the another object.",
           "<b>bind()</b> returns the bound function, so that we can use the function later on."
@@ -415,7 +415,7 @@ const javaScriptConfig = [
       {
         title: "Arrow function vs Regular Function",
         id: "Arrow_function_vs_regular_function",
-        desciption: `Todo`,
+        description: `Todo`,
         list: null,
         code: null,
         note: null
@@ -423,7 +423,7 @@ const javaScriptConfig = [
       {
         title: "Local Storage",
         id: "local_storage",
-        desciption: `WIP`,
+        description: `WIP`,
         list: "",
         code: [
           {
@@ -443,7 +443,7 @@ localStorage.clear();`
       {
         title: "Client Side Storage Technology",
         id: "client_side_storage_tech",
-        desciption: ``,
+        description: ``,
         list: [
           "Cookies",
           "Local Storage",
@@ -464,7 +464,7 @@ localStorage.clear();`
       {
         title: "Primitive Types",
         id: "primitive_types",
-        desciption: `In JavaScript, a <b>primitive data type</b> is data that is not an object and has no methods. All primitives are immutable, i.e., they cannot be altered.`,
+        description: `In JavaScript, a <b>primitive data type</b> is data that is not an object and has no methods. All primitives are immutable, i.e., they cannot be altered.`,
         list: null,
         code: null,
         note: null,
@@ -519,7 +519,7 @@ localStorage.clear();`
       {
         title: "Non-Primitive Data Types ",
         id: "non_primitive_data_types ",
-        desciption: null,
+        description: null,
         list: [
           "Referred to collectively as Objects.",
           `<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects" target="_blank">[JS Built In Objects]</a>`
@@ -578,7 +578,7 @@ localStorage.clear();`
       {
         title: "Pass By Value vs Pass By Reference",
         id: "pass_by_value_vs_pass_by_reference",
-        desciption: `Primitive data types are passed by value while non-primitive data types are pass by reference.`,
+        description: `Primitive data types are passed by value while non-primitive data types are pass by reference.`,
         list: null,
         code: [
           {
@@ -602,7 +602,7 @@ localStorage.clear();`
       {
         title: "Shallow Clone vs Deep Clone",
         id: "shallow_clone_vs_deep_clone",
-        desciption: null,
+        description: null,
         list: null,
         code: [
           {
@@ -634,7 +634,7 @@ localStorage.clear();`
       {
         title: "Type Coercion",
         id: "type_coercion",
-        desciption: `JS implicit converts the type when we use <b>==</b> for comparison. Always use <b>===</b> for comparison unless you have solid reason for <b>==</b>.`,
+        description: `JS implicit converts the type when we use <b>==</b> for comparison. Always use <b>===</b> for comparison unless you have solid reason for <b>==</b>.`,
         list: null,
         code: null,
         table: [
@@ -857,7 +857,7 @@ localStorage.clear();`
       {
         title: "Functions are Objects",
         id: "functions_are_objects",
-        desciption: null,
+        description: null,
         list: null,
         code: [
           {
@@ -898,7 +898,7 @@ localStorage.clear();`
       {
         title: "Callable Object",
         id: "callable_object",
-        desciption: `Because functions are objects in JavaScript, this also gives them the ability to have properties added to them. This creates a <b>callable object</b>, a special object that creates properties not available on normal objects. Below is a visualisation of how this works under the hood. This code can not be ran in the console, but it is a representation of how the object looks.`,
+        description: `Because functions are objects in JavaScript, this also gives them the ability to have properties added to them. This creates a <b>callable object</b>, a special object that creates properties not available on normal objects. Below is a visualisation of how this works under the hood. This code can not be ran in the console, but it is a representation of how the object looks.`,
         list: null,
         code: [
           {
@@ -932,7 +932,7 @@ localStorage.clear();`
       {
         title: "Higher Order Function",
         id: "higher_order_function",
-        desciption:
+        description:
           "A Higher Order Function (HOF) is a function that either takes a function as an argument or returns another function.",
         list: null,
         code: null,
@@ -941,7 +941,7 @@ localStorage.clear();`
       {
         title: "Closures",
         id: "closures",
-        desciption: `Closures allow a function to access variables from an enclosing scope or environment even after it leaves the scope in which it was declared. In other words, a closure gives you access to its outer functions scope from the inner scope. The JavaScript engine will keep variables around inside functions that have a reference to them, instead of "sweeping" them away after they are popped off the call stack.
+        description: `Closures allow a function to access variables from an enclosing scope or environment even after it leaves the scope in which it was declared. In other words, a closure gives you access to its outer functions scope from the inner scope. The JavaScript engine will keep variables around inside functions that have a reference to them, instead of "sweeping" them away after they are popped off the call stack.
         <br><br>
         As JS is lexically scoped, it first creates the scope chain, i.e. even before our code runs every functions knows which variables he can access.
         <br><br>
@@ -988,7 +988,7 @@ localStorage.clear();`
       {
         title: "Memory Efficient",
         id: "memory_efficient",
-        desciption: `Closures are created only when function returns function.
+        description: `Closures are created only when function returns function.
         <br><br>
         Using closures makes your code more memory efficient. Take the example below.
         `,
@@ -1043,7 +1043,7 @@ function efficient() {
       {
         title: "OOP Introduction",
         id: "introduction",
-        desciption: `OOP stands for Object-Oriented Programming. Procedural programming is about writing
+        description: `OOP stands for Object-Oriented Programming. Procedural programming is about writing
         procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.`,
         code: [
           {
@@ -1082,7 +1082,7 @@ function efficient() {
       {
         title: "Factory Functions",
         id: "factory_functions",
-        desciption: `When you use regular functions to build objects, they are called factory functions.
+        description: `When you use regular functions to build objects, they are called factory functions.
         <br /><br />
         As you can see, above code is already getting very repetitive and is not maintainable with only 1 character type. Imagine adding more characters, things would get out of control quickly. So, another way to create objects was introduced, factory functions. `,
         list: [
@@ -1122,7 +1122,7 @@ function efficient() {
       {
         title: "Store",
         id: "store",
-        desciption: `This is a step in the right direction, but if we added more characters, we would run into some of the same issues again. Not only is the code not DRY, the attack method is being created and taking up memory space for every new elf. This is not very efficient. How do we solve this? Well, we could separate the methods out into a store.`,
+        description: `This is a step in the right direction, but if we added more characters, we would run into some of the same issues again. Not only is the code not DRY, the attack method is being created and taking up memory space for every new elf. This is not very efficient. How do we solve this? Well, we could separate the methods out into a store.`,
         code: [
           {
             title: null,
@@ -1158,7 +1158,7 @@ function efficient() {
       {
         title: "Object.create",
         id: "object_create",
-        desciption: `Having a store saved us some efficiency in memory, but this was a lot of manual work to assign each method. So, we were given Object.create to help create this chain without having to assign each method.`,
+        description: `Having a store saved us some efficiency in memory, but this was a lot of manual work to assign each method. So, we were given Object.create to help create this chain without having to assign each method.`,
         code: [
           {
             title: null,
