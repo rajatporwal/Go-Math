@@ -528,6 +528,148 @@ MyComponent.propTypes = {
           }
         ],
         note: null
+      },
+      {
+        title: "Profiling",
+        id: "profiling",
+        desciption: `The Profiler measures how often a React application renders and what the <b>cost of rendering </b> is. Its purpose is to help identify parts of an application that are slow and may benefit from <a href="https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations" target="_blank">optimizations such as memoization</a>.
+        <br /><br />
+        A Profiler can be added anywhere in a React tree to measure the cost of rendering that part of the tree. It requires two props: an id (string) and an onRender callback (function) which React calls any time a component within the tree “commits” an update.`,
+        list: null,
+        code: [
+          {
+            title:
+              "For example, to profile a Navigation component and its descendants:",
+            code: `render(
+  <App>
+    <Profiler id="Navigation" onRender={callback}>
+      <Navigation {...props} />
+    </Profiler>
+    <Main {...props} />
+  </App>
+);`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Hooks",
+        id: "hooks",
+        desciption: `Hooks let you use state and other React features without writing a class.`,
+        list: null,
+        code: [
+          {
+            title: "<b>useState</b>",
+            code: ` // age is state and setState is setter for the .
+const [age, setAge] = useState(0); // here 0 is the initial .
+
+value={name} // name state can be directly used without using  this.state.name syntax.
+onChange={e => setName(e.target.value)} // setName to update state.`
+          },
+          {
+            title: `<b>useEffect</b> <br /> Performs the same operation as of react lifecycle methods does, like didMount, willMount.`,
+            code: `// [] behaves as componentWillMount, only calls one time.
+// [nirvana] only runs when nirvana changes.
+// no second parameter will run on every update, componentDidUpdate.
+  
+useEffect(() => {
+  if(born) {
+    document.title = "nirvana born";
+  }
+}, [nirvana]);      // always run on second parameter updates.`
+          },
+          {
+            title: `<b>useMemo</b> <br />  useMemo is used for memorizing the previous render of component so
+            that component will not get render again, it will only get rendered if
+            props or state gets updated.`,
+            code: ` const memoChild = useMemo(() => {
+              return <Child />
+            }, [i]);   // if we do not pass i here i.e. [] then it will only   call at initial rendering.
+                       // on passing i it will get called whenever i gets updated.`
+          },
+          {
+            title: `<b>useSelector and useDispatch</b>
+            <br />
+            useSelector is use to get state from store.
+            <br />
+            useDispatch is use to dispatch state to reducer.`,
+            code: `// useSelector is use to get state from store
+const counter = useSelector( (state) => state.counter);
+
+// useDispatch is use to dispatch state to reducer
+const dispatch = useDispatch();
+
+<h1>Counter : {counter} </h1>
+        
+<button onClick={() => dispatch({type: "INCREMENT", payload:10 })}>INCREMENT</button>`
+          },
+          {
+            title: `<b>useParams</b> <br />useParams is for reading values from URL.`,
+            code: `const {firstName,lastName} = useParams();`
+          },
+          {
+            title: `<b>UseLocation</b> <br /> use for fetching multiple parameters from Link.
+            <br /> useLocation will return both the parameter, pathname and state.`,
+            code: `const location = useLocation();
+<Link to={
+  {
+    pathname: "/memo",
+    state: {
+      from: "root"
+      }
+    }
+  }>Memo</Link>`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Force React Component to Render",
+        id: "force_render",
+        desciption: `this.forceUpdate(), which skips shouldComponentUpdate:`,
+        list: "",
+        code: [
+          {
+            title: ``,
+            code: `someMethod() {
+  // Force a render without state change...
+  this.forceUpdate();
+}`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Redux Thunk vs Redux Saga",
+        id: "thunk_vs_saga",
+        desciption: `WIP`,
+        list: "",
+        code: null,
+        note: null
+      },
+      {
+        title: "Advantages Redux Thunk",
+        id: "adv_thunk",
+        desciption: `WIP`,
+        list: "",
+        code: null,
+        note: null
+      },
+      {
+        title: "React Router",
+        id: "router",
+        desciption: `WIP`,
+        list: "",
+        code: null,
+        note: null
+      },
+      {
+        title: "Middleware",
+        id: "middleware",
+        desciption: `WIP`,
+        list: "",
+        code: null,
+        note: null
       }
     ]
   }

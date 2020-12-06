@@ -419,6 +419,41 @@ const javaScriptConfig = [
         list: null,
         code: null,
         note: null
+      },
+      {
+        title: "Local Storage",
+        id: "local_storage",
+        desciption: `WIP`,
+        list: "",
+        code: [
+          {
+            title: ``,
+            code: `//setter
+localStorage.setItem('myData', data);
+// getter
+localStorage.getItem('myData');
+// remove
+localStorage.removeItem('myData');
+// remove all
+localStorage.clear();`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Client Side Storage Technology",
+        id: "client_side_storage_tech",
+        desciption: ``,
+        list: [
+          "Cookies",
+          "Local Storage",
+          "Session Storage",
+          "IndexedDB",
+          "localForage",
+          `<a href="https://mattwest.design/choosing-the-best-client-side-storage-technology-for-your-project" target="_blank">read more</a>`
+        ],
+        code: null,
+        note: null
       }
     ]
   },

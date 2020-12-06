@@ -42,7 +42,11 @@ const ReactJS = () => {
                 {child.code &&
                   child.code.map((e) => (
                     <>
-                      {e.title ? <p> - {e.title}</p> : null}
+                      {e.title ? (
+                        <p
+                          dangerouslySetInnerHTML={{ __html: ` - ${e.title}` }}
+                        />
+                      ) : null}
                       <SyntaxHighlighter
                         language="javascript"
                         style={okaidia}
