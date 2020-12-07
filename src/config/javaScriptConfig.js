@@ -314,6 +314,75 @@ const javaScriptConfig = [
         note: "this is the object as the function is property of."
       },
       {
+        title: "4 ways to bind this",
+        id: "bind_this",
+        description: ``,
+        list: [
+          "<b>new keyword binding : </b> the new keyword changes the meaning of this to be the object that is being created. <br />&nbsp;",
+          `<b>implicit binding : </b> "this" refers to the object that is calling it. It is implied, without doing anything its just how the language works.<br />&nbsp;`,
+          `<b>explicit binding : </b>using the "bind" keyword to change the meaning of "this". <br />&nbsp;`,
+          `<b>arrow functions as methods : </b> "this" is lexically scoped, refers to it's current surroundings and no further. However, if "this" is inside of a method's function, it falls out of scope and belongs to the window object. To correct this, you can use a higher order function to return an arrow function that calls "this".`
+        ],
+        code: [
+          {
+            title: null,
+            code: `// new binding
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  console.log(this);
+}
+
+const person1 = new Person("person1", 55);
+// this = Person { name: 'person1', age: 55 }
+
+//implicit binding
+const person = {
+  name: "person",
+  age: 20,
+  hi() {
+    console.log("hi " + this);
+  }
+};
+
+person.hi();
+// this = person { name: 'person', age: 20, hi(){...} }
+
+//explicit binding
+let name = "Brittney";
+
+const person3 = {
+  name: "person3",
+  age: 50,
+  hi: function() {
+    console.log("hi " + this.name);
+  }.bind(window)
+};
+
+person3.hi();
+// hi Brittney
+// this = window {...}
+
+// arrow functions inside objects
+const person4 = {
+  name: "person4",
+  age: 40,
+  hi: function() {
+    var inner = () => {
+      console.log(this);
+    };
+    return inner();
+  }
+};
+
+person4.hi();
+// this = person4 { name: 'person4', age: 40, hi() {...} }
+// if either function is changed around, it doesn't work`
+          }
+        ],
+        note: null
+      },
+      {
         title: "call(), apply(), bind()",
         id: "call_apply_bind",
         description: `The <b>call</b>, <b>bind</b> and <b>apply</b> methods can be used to set the this keyword independent of how a function is <b>called</b>. The <b>bind</b> method creates a copy of the function and sets the this keyword, while the <b>call</b> and <b>apply</b> methods sets the this keyword and <b>calls</b> the function immediately.`,
@@ -1189,6 +1258,54 @@ function efficient() {
   legolas.attack; // attack with bow`
           }
         ]
+      },
+      {
+        title: "Constructor Functions",
+        id: "constructor_function",
+        description: `Using Object.create is true prototypal inheritance, the code is cleaner and easier to read. However, you will not see this being used in most programs. Before Object.create came around, we had the ability to use constructor functions. 
+        <br /><br />Constructor functions are exactly like the function constructor we talked about above. The number and string functions were constructed and invoked with the new keyword and they were capitalized. The new keyword actually changes the meaning of this for the constructor function. Without new, this will point to the window object instead of the object that we just created.
+        <br /><br />It is best practice to capitalize constructor functions to help us identify them and know to use the new keyword. Properties added to a constructor function can only be done using the this keyword, regular variables do not get added to the object.`,
+        code: [
+          {
+            title: null,
+            code: `// constructor functions are typically capitalized
+function Elf(name, type, weapon) {
+  // not returning anything
+  // "constructing" a new elf
+  this.name = name;
+  this.type = type;
+  this.weapon = weapon;
+}
+
+// to use a constructor function
+// the "new" keyword must be used
+const dobby = new Elf("Dobby", "house", "cloth");
+const legolas = new Elf("Legolas", "high", "bow");
+
+// To add methods we need to add
+Elf.prototype.attack = function() {
+  // cannot be an arrow function
+  // this would be scoped to the window obj
+  return \`attack with \${this.weapon}\`;
+};
+// This would need to be repeated for each method.
+
+dobby.attack(); // attack with cloth
+legolas.attack(); // attack with bow`
+          }
+        ]
+      }
+    ]
+  },
+  {
+    heading: "Asynchronous Javascript",
+    pathname: "/javascript",
+    children: [
+      {
+        title: "OOP Introduction",
+        id: "introduction",
+        description: ``,
+        code: null
       }
     ]
   }
