@@ -326,7 +326,10 @@ Class BaseComponent extends Component {
       {
         title: "Redux",
         id: "redux",
-        description: `It is a predictable state container for JavaScript applications and is used for the entire application state management.`,
+        description: `It is a predictable state container for JavaScript applications and is used for the entire application state management.
+        <br /><br />
+        The key points of interest while working with redux are “Action”, “Dispatcher” and “Reducer”.
+Action is something which triggers what needs to be done from the component dispatcher collects the action that is actively triggered and pasess it to reducer. Now reducer is responsible what needs to be done to update the store data.`,
         list: null,
         code: null,
         note: null
@@ -350,8 +353,8 @@ Class BaseComponent extends Component {
         list: [
           `<b>Action </b> - Actions are payloads of information that send data from our application to our store. They are the only source of information for the store. We send them to the store using store.dispatch(). 
         <br />
-        Dispatch an action.This is the only way to trigger a state change.`,
-          "<b>Reducer </b> - Reducers specify how the application’s state changes in response to actions sent to the store. Remember that actions only describe what happened, but don’t describe how the application’s state changes. So this place determines how state will change to an action.",
+        Dispatch an action.This is the only way to trigger a state change. <br /> &nbsp`,
+          "<b>Reducer </b> - Reducers specify how the application’s state changes in response to actions sent to the store. Remember that actions only describe what happened, but don’t describe how the application’s state changes. So this place determines how state will change to an action. <br /> &nbsp",
           `<b>Store </b> - The Store is the object that brings Action and Reducer together. The store has the following responsibilities: 
     <br/>
     - Holds application state <br/>
@@ -372,6 +375,17 @@ Class BaseComponent extends Component {
     names
   }
 )`
+          },
+          {
+            title:
+              "An action is a plain javascript object with a type field, and optional payload, meta, and error fields. E.g.",
+            code: `const loginRequest = {
+  type: 'LOGIN_REQUEST',
+  payload: {
+    name: 'admin',
+    password: '123',
+  },
+};`
           },
           {
             title: "Reducer",
@@ -640,9 +654,59 @@ const dispatch = useDispatch();
         note: null
       },
       {
+        title: "Middleware",
+        id: "middleware",
+        description: `Middleware is block of code which acts as a mediater while the process of receiving a request or generating response. Here we are going to discuss about the 2 most popular libraries redux-thunk and redux-saga.
+        <br /><br />
+        A thunk is a function that acts as a wrapper in which it wraps an expression to delay its evaluation. Thunk allows to write an action creators that return a function instead of the typical action object.
+        <br /><br /> 
+        Where as redux-saga is a library that mainly focuses on easy handling of application side effects and more efficient for execution.`,
+        list: "",
+        code: null,
+        note: null
+      },
+      {
+        title: "Redux Thunk",
+        id: "thunk",
+        description: `Redux-Thunk middleware allows you to dispatch special functions, called thunks.
+        <br /><br />
+        That is, a thunk is a function that (optionally) takes some parameters and returns another function. The inner function takes a dispatch function and a getState function -- both of which will be supplied by the Redux-Thunk middleware.`,
+        list: "",
+        code: [
+          {
+            title: "Thunks (in Redux) generally have the following structure:",
+            code: `export const thunkName =
+  parameters =>
+    (dispatch, getState) => {
+        // Your application logic goes here
+    };`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Redux Saga",
+        id: "saga",
+        description: `Redux-Saga middleware allows you to express complex application logic as pure functions called sagas. Pure functions are desirable from a testing standpoint because they are predictable and repeatable, which makes them relatively easy to test.
+        <br /><br />
+        Sagas are implemented through special functions called generator functions. These are a new feature of ES6 JavaScript. Basically, execution jumps in and out of a generator everywhere you see a yield statement. Think of a yield statement as causing the generator to pause and return the yielded value. Later on, the caller can resume the generator at the statement following the yield.`,
+        list: "",
+        code: [
+          {
+            title: `A generator function is one defined like this. Notice the asterisk after the function keyword.`,
+            code: `function* mySaga() {
+  // ...
+}`
+          }
+        ],
+        note: null
+      },
+      {
         title: "Redux Thunk vs Redux Saga",
         id: "thunk_vs_saga",
-        description: `WIP`,
+        description: `You might think the biggest difference is in the syntax. Although it's true that writing and reasoning about thunks and sagas are quite different, there's something bigger.
+        <br /><br />
+        <b>Thunks can never act in response to an action.</b> Redux-Saga, on the other hand, subscribes to the store and can trigger a saga to run or continue when a certain action is dispatched.`,
         list: "",
         code: null,
         note: null
@@ -656,17 +720,23 @@ const dispatch = useDispatch();
         note: null
       },
       {
-        title: "React Router",
-        id: "router",
-        description: `WIP`,
-        list: "",
+        title: "Redux Thunk Alternatives & Comparisons",
+        id: "thunk_alt",
+        description: "",
+        list: [
+          "<b>redux-saga : </b> An alternative side effect model for Redux apps. <br /> &nbsp;",
+          "<b>Redux Observable </b> : It allows developers to dispatch a function that returns an observable, promise or iterable of action(s). Compose and cancel async actions to create side effects and more. <br /> &nbsp;",
+          "<b>Redux : </b> It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. t provides a great experience, such as live code editing combined with a time traveling debugger. <br /> &nbsp;",
+          "<b>vuex : </b> Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. It also integrates with Vue's official devtools extension to provide advanced features such as zero-config time-travel debugging and state snapshot export / import. <br /> &nbsp;",
+          "<b>MobX : </b> MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). React and MobX together are a powerful combination. React renders the application state by providing mechanisms to translate it into a tree of renderable components. MobX provides the mechanism to store and update the application state that React then uses."
+        ],
         code: null,
         note: null
       },
       {
-        title: "Middleware",
-        id: "middleware",
-        description: `WIP`,
+        title: "React Router",
+        id: "router",
+        description: `Coming Soon`,
         list: "",
         code: null,
         note: null
