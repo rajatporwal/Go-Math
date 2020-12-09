@@ -433,6 +433,22 @@ str1.localeCompare(str3);      // 0`
         }
       ],
       note: null
+    },
+    {
+      title: "padStart()/padEnd()",
+      id: "string/pad",
+      description: `padStart and padEnd add the spaces before and after the string respectively.`,
+      list: null,
+      code: [
+        {
+          title: null,
+          code: `const str = "Hello";
+
+str.padStart(10);    // output: "       Hello"
+str.padEnd(10);      // output: "Hello       "`
+        }
+      ],
+      note: null
     }
   ]
 };

@@ -1431,7 +1431,7 @@ inception();
         list: [
           "<b>Promise.all : </b> it will print result once all the promise are resolved",
           "<b>Promise.race : </b> it will print result the time first promise is resolved",
-          "<b>Promise.allSettlwd : </b> it will run all the promises regardless whether promises are resolved or rejected"
+          "<b>Promise.allSettled : </b> it will run all the promises regardless whether promises are resolved or rejected"
         ],
         code: [
           {
@@ -1606,6 +1606,195 @@ console.log("3", "is a crowd");
 // 2 can be as bad as one`
           }
         ]
+      }
+    ]
+  },
+  {
+    heading: "EchmaScript",
+    pathname: "/javascript",
+    children: [
+      {
+        title: "for of",
+        id: "for_of",
+        description: `Used to iterate over arrays and string`,
+        code: [
+          {
+            title: "",
+            code: `const basket = ["apples", "oranges", "grapes"];
+const str = "Hi there!";
+// for of
+// Iterating - arrays, strings
+for (item of basket) {
+  console.log(item);
+}
+
+for (item of str) {
+  console.log(item);
+}`
+          }
+        ],
+        note: "for of loop does not works with object"
+      },
+      {
+        title: "for in",
+        id: "for_in",
+        description: `Used to enumerate over object`,
+        list: ["It returns object keys"],
+        code: [
+          {
+            title: "",
+            code: `const basket = ["apples", "oranges", "grapes"];
+const detailedBasket = {
+  apples: 5,
+  oranges: 10,
+  grapes: 1000
+};
+
+// for in - properties
+// enumerating
+for (item in detailedBasket) {
+  console.log(item);
+};    // output: apples, oranges, grapes
+
+for (item in basket) {
+  console.log(item);
+};    // output: 0, 1, 2`
+          }
+        ],
+        note:
+          "for in loop works with array and it returns indexes of the element, as shown above."
+      },
+      {
+        title: "Big  Int",
+        id: "big_int",
+        description: `BigInt is a built-in object that provides a way to represent whole numbers larger than 253 - 1, which is the largest number JavaScript can reliably represent with the Number primitive and represented by the Number.MAX_SAFE_INTEGER constant. BigInt can be used for arbitrarily large integers.`,
+        list: [
+          "A BigInt is created by appending n to the end of an integer literal — 10n — or by calling the function BigInt()."
+        ],
+        code: [
+          {
+            title: "",
+            code: `// bigint
+
+typeof(4);   // number
+typeof(4n);  // bigint
+
+console.log(Number.MAX_SAFE_INTEGER);  // output: 9007199254740991, this is the safest no in JS, after this no if you perform any operation JS may start behaving weirdly.
+
+// for ex: 
+
+console.log(9007199254740991 +  10);    // output : 9007199254741000, which is not the correct output
+
+// here if we use bigint, then we will now get the correct result 
+console.log(9007199254740991n +  10n);    // output : 9007199254741001n`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Optional Chaining ( ?. )",
+        id: "optional_chaining",
+        description: `The optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid. The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.
+        <br /><br />
+        This results in shorter and simpler expressions when accessing chained properties when the possibility exists that a reference may be missing. It can also be helpful while exploring the content of an object when there's no known guarantee as to which properties are required.`,
+        list: null,
+        code: [
+          {
+            title: "",
+            code: `let fruits = {
+  apple: {
+    quantity: 2,
+  }
+}
+
+// to check whether quantity key exists in the obj or not
+if (fruits && fruits.apple && fruits.apple.quantity) {
+  console.log(fruits.apple.quantity);   // output: 2
+} else {
+  console.log('Apple quantity not found')
+}
+
+// optional chaining operator - replaces && operator
+console.log(fruits?.apple?.quantity);     // output: 2
+console.log(fruits?.apple?.available);    // undefined: 2
+
+console.log(fruits.apple.available);      // undefined`
+          },
+          {
+            title: "Simplified Syntax",
+            code: `let nestedProp = obj.first && obj.first.second;
+            
+let nestedProp = obj.first?.second;`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "Nullish coalescing operator (??)",
+        id: "nullish_coalescing",
+        description: `The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is <b>null or undefined</b>, and otherwise returns its left-hand side operand.
+        <br /><br />
+        This can be contrasted with the the logical OR (||) operator, which returns the right-hand side operand if the left operand is any falsy value, not only null or undefined. In other words, if you use || to provide some default value to another variable foo, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., '' or 0). See below for more examples.
+        <br /><br />
+        The nullish coalescing operator has the fifth-lowest operator precedence, directly lower than || and directly higher than the conditional (ternary) operator.`,
+        list: [
+          "<b>?? : </b> returns true only if value is null or undefined",
+          "<b>|| : </b> returns true if value is falsy (ex: null, undefined, 0, '')"
+        ],
+        code: [
+          {
+            title: "",
+            code: `let fruits = {
+  apple: {
+    quantity: 0,
+    available: '',
+    smell: null,
+  }
+}
+
+fruits.apple.quantity || 'no apple';   // output: no apple
+fruits.apple.quantity ?? 'no apple';   // output: 0
+
+fruits.apple.available || 'no apple';   // output: no apple
+fruits.apple.available ?? 'no apple';   // output: ''
+
+fruits.apple.smell || 'no apple';   // output: no apple
+fruits.apple.smell ?? 'no apple';   // output: no apple`
+          }
+        ],
+        note: null
+      },
+      {
+        title: "globalThis",
+        id: "globalThis",
+        description: `globalThis is the object which works in all the environment, i.e. Javascript, Browser and Node.js.
+        <br /><br />
+        Historically, accessing the global object has required different syntax in different JavaScript environments. On the web you can use window, self, or frames - but in Web Workers only self will work. In Node.js none of these work, and you must instead use global.
+        <br /><br />
+        The globalThis property provides a standard way of accessing the global 'this' value (and hence the global object itself) across environments. Unlike similar properties such as window and self, it's guaranteed to work in window and non-window contexts. In this way, you can access the global object in a consistent manner without having to know which environment the code is being run in. To help you remember the name, just remember that in global scope the this value is globalThis.`,
+        list: null,
+        code: [
+          {
+            title: "",
+            code: `let fruits = {
+  apple: {
+    quantity: 0,
+    available: '',
+    smell: null,
+  }
+}
+
+fruits.apple.quantity || 'no apple';   // output: no apple
+fruits.apple.quantity ?? 'no apple';   // output: 0
+
+fruits.apple.available || 'no apple';   // output: no apple
+fruits.apple.available ?? 'no apple';   // output: ''
+
+fruits.apple.smell || 'no apple';   // output: no apple
+fruits.apple.smell ?? 'no apple';   // output: no apple`
+          }
+        ],
+        note: null
       }
     ]
   }

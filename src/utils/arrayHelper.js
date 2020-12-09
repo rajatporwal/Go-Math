@@ -334,7 +334,7 @@ for( let e of iterateValues) {
       note: null
     },
     {
-      title: "Array.every()",
+      title: "every()",
       id: "array/every",
       description: `It checks whether all the elements of the array satisfy the given condition or not.`,
       list: null,
@@ -350,7 +350,7 @@ console.log(every);   // output: false`
       note: null
     },
     {
-      title: "Array.some()",
+      title: "some()",
       id: "array/some",
       description: `It checks at least one of the elements of the array satisfy the given condition.`,
       list: null,
@@ -366,7 +366,7 @@ console.log(some);   // output: true`
       note: "Array.some() breaks the loop when any condition got matched."
     },
     {
-      title: "Array.map()",
+      title: "map()",
       id: "array/map",
       description: `creates a new array from results of calling func for every element.`,
       list: null,
@@ -383,7 +383,7 @@ console.log(mappedArray)  // output: [2, 4, 6, 8, 10]`
       note: null
     },
     {
-      title: "Array.filter()",
+      title: "filter()",
       id: "array/filter",
       description: `filter elements through the function, return all values that make it return true`,
       list: null,
