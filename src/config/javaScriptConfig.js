@@ -1302,10 +1302,310 @@ legolas.attack(); // attack with bow`
     pathname: "/javascript",
     children: [
       {
-        title: "OOP Introduction",
-        id: "introduction",
-        description: ``,
+        title: "Memory Heap",
+        id: "memory_heap",
+        description: `The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed. Think of it as a storage room of boxes that are unordered.`,
+        code: [
+          {
+            title: "",
+            code: `// tell the memory heap to allocate memory for a number
+const number = 11;
+// allocate memory for a string
+const string = "some text";
+// allocate memory for an object and it's values
+const person = {
+  first: "Brittney",
+  last: "Postma"
+};`
+          }
+        ]
+      },
+      {
+        title: "Call Stack",
+        id: "call_stack",
+        description: `The call stack keeps track of where we are in the code, so we can run the program in order.`,
+        code: [
+          {
+            title: "",
+            code: `function subtractTwo(num) {
+  return num - 2;
+}
+
+function calculate() {
+  const sumTotal = 4 + 5;
+  return subtractTwo(sumTotal);
+}
+debugger;
+calculate();`
+          },
+          {
+            title:
+              "Things are placed into the call stack on top and removed as they are finished. It runs in a first in last out mode. Each call stack can point to a location inside the memory heap. In the above snippet the call stack looks like this.",
+            code: `anonymous; // file is being ran
+// CALL STACK
+
+// hits debugger and stops the file
+// step through each line
+
+calculate(
+  // steps through calculate() sumTotal = 9
+  anonymous
+);
+// CALL STACK
+
+// steps into subtractTwo(sumTotal) num = 9
+
+subtractTwo; // returns 9 - 2
+calculate(anonymous);
+// CALL STACK
+
+// subtractTwo() has finished and has been removed
+
+calculate(
+  // returns 7
+  anonymous
+)(
+  // CALL STACK
+
+  // calculate() has finished and has been removed
+
+  anonymous
+);
+// CALL STACK
+
+// and finally the file is finished and is removed
+
+// CALL STACK`
+          }
+        ]
+      },
+      {
+        title: "Stack Overflow",
+        id: "stack_overflow",
+        description: `So what happens if you keep calling functions that are nested inside each other? When this happens it's called a stack overflow.`,
+        code: [
+          {
+            title: "",
+            code: `// When a function calls itself,
+// it is called RECURSION
+function inception() {
+  inception();
+}
+
+inception();
+// returns Uncaught RangeError:
+// Maximum call stack size exceeded`
+          }
+        ]
+      },
+      {
+        title: "Garbage Collection",
+        id: "garbage_collection",
+        description: `JavaScript is a garbage collected language. If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called. However, that does not mean you can forget about memory leaks. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a mark and sweep method.`,
+        code: [
+          {
+            title: null,
+            code: `var person = {
+              first: "Brittney",
+              last: "Postma"
+            };
+            
+            person = "Brittney Postma";`
+          },
+          {
+            title: `In the example above a memory leak is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variables inside of functions when possible. JavaScript is a single threaded language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a synchronous language.`,
+            code: null
+          }
+        ]
+      },
+      {
+        title: "Synchronous",
+        id: "synchronous",
+        description: `So, what is the issue with being a single threaded language? Lets's start from the beginning. When you visit a web page, you run a browser to do so (Chrome, Firefox, Safari, Edge). Each browser has its own version of JavaScript Runtime with a set of Web API's, methods that developers can access from the window object. In a synchronous language, only one thing can be done at a time. Imagine an alert on the page, blocking the user from accessing any part of the page until the OK button is clicked. If everything in JavaScript that took a significant amount of time, blocked the browser, then we would have a pretty bad user experience. <b>This is where concurrency and the event loop come in</b>.`,
         code: null
+      },
+      {
+        title: "Promises",
+        id: "promises",
+        description: `A promise is an object that may produce a single value some time in the future : either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending.`,
+        list: [
+          "<b>Promise.all : </b> it will print result once all the promise are resolved",
+          "<b>Promise.race : </b> it will print result the time first promise is resolved",
+          "<b>Promise.allSettlwd : </b> it will run all the promises regardless whether promises are resolved or rejected"
+        ],
+        code: [
+          {
+            title: "",
+            code: `const promise1 = new Promise((resolve, reject) => {
+  if(true) {
+    resolve('Stuff Worked');
+  } else {
+    reject('Error, it broke');
+  }
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'Hii');
+});
+
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 1000, 'Hii Again');
+});
+
+const promise4 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 3000, 'It is me you are looking for?');
+});
+
+// it will print result once all the promise are resolved
+Promise.all([promise1, promise2, promise3, promise4]).then(values => {
+  console.log(values);    // output: ["Stuff Worked", "Hii", "Hii Again", "It is me you are looking for?"]
+});
+
+promise2.then(result => console.log(result));   // output : Hii
+
+// it will print result the time first promise is resolved
+Promise.race([promise2, promise1, promise3, promise4]).then(values => {
+  console.log(values);    // output: Stuff Worked
+});`
+          },
+          {
+            title: "Promise.allSettled",
+            code: `const promiseOne = new Promise((resolve, reject) => {
+  setTimeout(resolve, 3000, 'Promise one is resolved');
+});
+
+const promiseTwo = new Promise((resolve, reject) => {
+  setTimeout(reject, 3000, 'Promise two is rejected');
+});
+
+Promise.all([promiseOne, promiseTwo]).then(data => console.log(data));    // throws exception: Uncaught (in promise) Promise two is rejected
+
+Promise.all([promiseOne, promiseTwo]).then(data => console.log(data))
+.catch(e => console.log('something failed', e));    // returns error from catch: something failed Promise two is rejected
+
+Promise.allSettled([promiseOne, promiseTwo]).then(data => console.log(data));   
+/* 
+output:  
+[
+  {status: 'fulfilled', Promise one is resolved},
+  {status: 'rejected', Promise two is rejected},
+] */
+
+Promise.allSettled([promiseOne, promiseTwo]).then(data => console.log(data))
+.catch(e => console.log('something failed', e));
+/* 
+output: 
+[
+  {status: 'fulfilled', Promise one is resolved},
+  {status: 'rejected', Promise two is rejected},
+] */
+`
+          }
+        ],
+        note: `Promise.all only returs results if all the promises are resolved, if any of the promise got rejects it will throw exception "Uncaught (in promise) undefined"`
+      },
+      {
+        title: "Async/await",
+        id: "async_await",
+        description: `The purpose of async / await is to simplify the syntax necessary to consume promise-based APIs. The behavior of async / await is similar to combining generators and promises. Async functions always return a promise. ... In this way, an async function without an await expression will run synchronously.`,
+        list: [
+          "In order to do error handling in async function we need to use try catch syntax."
+        ],
+        code: [
+          {
+            title: "",
+            code: `const a = () => promisify("a", 100);
+const b = () => promisify("b", 5000);
+const c = () => promisify("c", 3000);
+
+async function parallel() {
+  const promises = [a(), b(), c()];
+  const [output1, output2, output3] = await Promise.all(promises);
+  return 'parallel is done: \${output1} \${output2} \${output3}';
+}
+
+async function sequence() {
+  const output1 = await a();
+  const output2 = await b();
+  const output3 = await c();
+  return 'sequence is done: \${output1} \${output2} \${output3}';
+}
+
+async function race() {
+  const promises = [a(), b(), c()];
+  const output1 = await Promise.race(promises);
+  return 'race is done: \${output1}';
+}
+
+sequence().then(console.log);
+parallel().then(console.log);
+race().then(console.log);
+
+// race is done: a
+// parallel is done: a b c
+// sequence is done: a b c`
+          }
+        ]
+      },
+      {
+        title: "for await ...of",
+        id: "await_of",
+        description: `The 'for await...of' statement creates a loop iterating over async objects and sync objects such as arrays, array-like objects, maps sets, etc.`,
+        list: null,
+        code: [
+          {
+            title: "syntax",
+            code: `for await (variable of iterable) {
+  statement
+}`
+          },
+          {
+            title: "example",
+            code: `const url1 = "http://ex1";
+const url1 = "http://ex2";
+const url1 = "http://ex3";
+
+const getData = async function() {
+  const arrayOfPrromises = urls.map(url => fetch(url));
+  for await (let request of arrayOfPrromises) {
+    const data = await request.json();
+    console.log(data);
+  }
+}`
+          }
+        ]
+      },
+      {
+        title: "Job Queue",
+        id: "job_queue",
+        description: `The job queue or microtask queue came about with promises in ES6. With promises we needed another callback queue that would give higher priority to promise calls. <b>The JavaScript engine is going to check the job queue before the callback queue.</b>`,
+        list: [
+          "Event loop will now run code in the priority - <b> Plain JS code -> Job Queue (Promise calls) -> Call back Queue (facade function like setTimeOut)</b>"
+        ],
+        code: [
+          {
+            title: null,
+            code: `// 1 Callback Queue ~ Task Queue
+setTimeout(() => {
+  console.log("1", "is the loneliest number");
+}, 0);
+setTimeout(() => {
+  console.log("2", "can be as bad as one");
+}, 10);
+
+// 2 Job Queue ~ Microtask Queue
+Promise.resolve("hi").then(data => console.log("2", data));
+
+// 3
+console.log("3", "is a crowd");
+
+// 3 is a crowd
+// 2 hi
+// undefined Promise resolved
+// 1 is the loneliest number
+// 2 can be as bad as one`
+          }
+        ]
       }
     ]
   }

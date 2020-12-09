@@ -31,57 +31,58 @@ const JavaScript = () => {
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />
               ) : null}
-              {child.list ? (
+              {child.list && (
                 <ul>
                   {child.list.map((v) => (
                     <li dangerouslySetInnerHTML={{ __html: v }} />
                   ))}
                 </ul>
-              ) : null}
+              )}
               <div>
                 {child.code &&
                   child.code.map((e) => (
                     <>
                       {e.title ? <p> - {e.title}</p> : null}
-                      <SyntaxHighlighter
-                        language="javascript"
-                        style={okaidia}
-                        showLineNumbers
-                      >
-                        {e.code}
-                      </SyntaxHighlighter>
+                      {e.code && (
+                        <SyntaxHighlighter
+                          language="javascript"
+                          style={okaidia}
+                          showLineNumbers
+                        >
+                          {e.code}
+                        </SyntaxHighlighter>
+                      )}
                     </>
                   ))}
               </div>
               <div>
-                {child.table
-                  ? child.table.map((t) => (
-                      <>
-                        <p
-                          dangerouslySetInnerHTML={{
-                            __html: `- ${t.title}`
-                          }}
-                        />
-                        <Table
-                          columns={t.columns}
-                          dataSource={t.data.map((d, i) => {
-                            d["index"] = i + 1;
-                            return d;
-                          })}
-                          scroll={{ y: 500, x: "100vw" }}
-                        />
-                      </>
-                    ))
-                  : null}
+                {child.table &&
+                  child.table.map((t) => (
+                    <>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: `- ${t.title}`
+                        }}
+                      />
+                      <Table
+                        columns={t.columns}
+                        dataSource={t.data.map((d, i) => {
+                          d["index"] = i + 1;
+                          return d;
+                        })}
+                        scroll={{ y: 500, x: "100vw" }}
+                      />
+                    </>
+                  ))}
               </div>
-              {child.note ? (
+              {child.note && (
                 <p
                   className="note"
                   dangerouslySetInnerHTML={{
                     __html: `Note: ${child.note}`
                   }}
                 />
-              ) : null}
+              )}
             </div>
           ))}
         </>
