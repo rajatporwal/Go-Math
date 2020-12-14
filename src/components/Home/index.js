@@ -22,6 +22,10 @@ export const HOME_ROUTES = [
         pathname: "/javascript"
       },
       {
+        title: "React",
+        pathname: "/react"
+      },
+      {
         title: "Regex",
         pathname: "/regex"
       },
@@ -60,23 +64,23 @@ const Home = () => {
         </Panel>
       </Collapse>
       <Collapse accordion>
+        <Panel header="Data Structure" key="ds">
+          <DataStructureRoutes />
+        </Panel>
+      </Collapse>
+      <Collapse accordion>
+        <Panel header="Questions" key="questions">
+          <QuestionsRoutes />
+        </Panel>
+      </Collapse>
+      <Collapse accordion>
         <Panel header="Regex" key="regex">
           <RegexRoutes />
         </Panel>
       </Collapse>
       <Collapse accordion>
-        <Panel header="Questions" key="3">
-          <QuestionsRoutes />
-        </Panel>
-      </Collapse>
-      <Collapse accordion>
-        <Panel header="Conversion" key="4">
+        <Panel header="Conversion" key="conversion">
           <ConversionRoutes />
-        </Panel>
-      </Collapse>
-      <Collapse accordion>
-        <Panel header="Data Structure" key="4">
-          <DataStructureRoutes />
         </Panel>
       </Collapse>
     </div>

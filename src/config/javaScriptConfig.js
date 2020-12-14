@@ -486,7 +486,7 @@ d.say()		// { name: 'jay', say: [Function] }
       {
         title: "Local Storage",
         id: "local_storage",
-        description: `WIP`,
+        description: null,
         list: "",
         code: [
           {

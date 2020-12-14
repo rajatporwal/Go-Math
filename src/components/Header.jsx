@@ -35,8 +35,8 @@ export default () => {
           </Link>
         </Menu.Item>
         <Menu.Item key="4">
-          <Link active to="/regex">
-            Regex
+          <Link active to="/ds">
+            Data Structure
           </Link>
         </Menu.Item>
         <Menu.Item key="5">
@@ -45,13 +45,13 @@ export default () => {
           </Link>
         </Menu.Item>
         <Menu.Item key="6">
-          <Link active to="/conversion">
-            Conversion
+          <Link active to="/regex">
+            Regex
           </Link>
         </Menu.Item>
         <Menu.Item key="7">
-          <Link active to="/ds">
-            Data Structure
+          <Link active to="/conversion">
+            Conversion
           </Link>
         </Menu.Item>
       </Menu>

@@ -4,32 +4,26 @@ import { HashLink as Link } from "react-router-hash-link";
 const QUESTIONS_ROUTES = [
   {
     title: "Array",
-    pathname: "/questions",
     id: "array"
   },
   {
     title: "String",
-    pathname: "/questions",
     id: "string"
   },
   {
     title: "Object",
-    pathname: "/questions",
     id: "object"
   },
   {
     title: "Number",
-    pathname: "/questions",
     id: "number"
   },
   {
     title: "Regex",
-    pathname: "/questions",
     id: "regex"
   },
   {
     title: "Conversion",
-    pathname: "/questions",
     id: "conversion"
   }
 ];
@@ -41,7 +35,7 @@ const QuestionsRoutes = () => (
         <Link
           active
           to={{
-            pathname: r.pathname,
+            pathname: "/questions",
             hash: r.id
           }}
           smooth

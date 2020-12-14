@@ -52,14 +52,18 @@ const Questions = () => {
 
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
-    setQueCategory([window.location.hash.replace("#/questions#", "")]);
+    const getHash = window.location.hash
+      .replace("#/questions#", "")
+      .replace("#/questions", "");
+    setQueCategory(getHash ? [getHash] : []);
   }, [dispatch]);
 
+  console.log(queCategory);
   const onCategoryChange = (type) => {
-    if (queCategory.indexOf(type) === -1) {
-      queCategory.push(type);
-    } else {
+    if (queCategory.includes(type)) {
       queCategory.splice(queCategory.indexOf(type), 1);
+    } else {
+      queCategory.push(type);
     }
     setQueCategory([...queCategory]);
   };
