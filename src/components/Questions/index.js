@@ -52,7 +52,8 @@ const Questions = () => {
 
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
-  });
+    setQueCategory([window.location.hash.replace("#/questions#", "")]);
+  }, [dispatch]);
 
   const onCategoryChange = (type) => {
     if (queCategory.indexOf(type) === -1) {
@@ -75,23 +76,42 @@ const Questions = () => {
       <h3>Add Filters</h3>
       <div className="que_filter">
         <div>
-          <Checkbox onChange={() => onCategoryChange("array")}>Array</Checkbox>
+          <Checkbox
+            onChange={() => onCategoryChange("array")}
+            checked={queCategory.includes("array")}
+          >
+            Array
+          </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("string")}>
+          <Checkbox
+            onChange={() => onCategoryChange("string")}
+            checked={queCategory.includes("string")}
+          >
             String
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("number")}>
+          <Checkbox
+            onChange={() => onCategoryChange("number")}
+            checked={queCategory.includes("number")}
+          >
             Number
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("regex")}>Regex</Checkbox>
+          <Checkbox
+            onChange={() => onCategoryChange("regex")}
+            checked={queCategory.includes("regex")}
+          >
+            Regex
+          </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("conversion")}>
+          <Checkbox
+            onChange={() => onCategoryChange("conversion")}
+            checked={queCategory.includes("conversion")}
+          >
             Conversion
           </Checkbox>
         </div>
