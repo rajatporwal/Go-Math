@@ -16,7 +16,7 @@ const JavaScript = () => {
     <div>
       {javaScriptConfig.map((ele) => (
         <>
-          <h1>{ele.heading}</h1>
+          <h1 className="heading_1">{ele.heading}</h1>
           <hr />
           {ele.children.map((child) => (
             <div className="javascript">

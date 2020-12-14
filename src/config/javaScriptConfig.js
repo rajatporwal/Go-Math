@@ -1298,6 +1298,116 @@ legolas.attack(); // attack with bow`
     ]
   },
   {
+    heading: "Functional Programming",
+    pathname: "/javascript",
+    children: [
+      {
+        title: "FP Introduction",
+        id: "fnc_introduction",
+        description: `Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extend, easy to maintain, memory efficient, and DRY. 
+        <br /><br />Instead of objects, it uses reusable functions to create and act on data. Functional programming is based on a separation of concerns similar to object oriented programming. However, in functional programming, there is a complete separation between the data and the behaviors of a program. 
+        <br /><br />There is also an idea that once something is created, it should not be changed, being immutable. Unlike OOP, shared state is avoided as functional programming works on the idea of pure functions.`,
+        code: null
+      },
+      {
+        title: "Pure Functions",
+        id: "pure_fnc",
+        description: `A pure function has no side effects to anything outside of it and given the same input will always output the same value. They do not change any data passed into them, but create new data to return without altering the original.. 
+        <br /><br />However, it is not possible to have 100% pure functions. At some point you need to interact with the dom or fetch an api. Even console.log makes a function unpure because it uses the window object outside of the function. Fact is a program cannot exist without side effects. 
+        <br /><br />So, the goal of functional programming is to minimize side effects by isolating them away from the data. Build lots of very small, reusable and predictable pure functions that do the following:`,
+        list: [
+          "Complete 1 task per function.",
+          "Do not mutate state.",
+          "Do not share state.",
+          "Be predictable.",
+          "Be composable, one input and one output.",
+          "Be pure if possible.",
+          "Return something."
+        ],
+        code: [
+          {
+            title:
+              "if we use console.log in a function, then the function will not remain the pure function as it uses the window object. ",
+            code: `// not a pure function
+function a() {
+  console.log('hi');
+}`
+          }
+        ],
+        note:
+          "No side effects - i.e. a pure function do not update anything outside the function."
+      },
+      {
+        title: "Referential transparency",
+        id: "referential_transparency",
+        description: `One important concept of functional programming is referential transparency, the ability to replace an expression with the resulting value without changing the result of the program.`,
+        code: [
+          {
+            title: "",
+            code: `function a(num1, num2) {
+  return num1 + num2;
+}
+
+function b(num) {
+  return num * 2;
+}
+
+b(a(3, 4)); // 14
+// a should always return 7
+// so it could be changed to
+b(7); // 14
+// and the output is the same`
+          }
+        ]
+      },
+      {
+        title: "Idempotence",
+        id: "idempotence",
+        description: `Idempotence is another important piece of functional programming. It is the idea that given the same input to a function, you will always return the same output. The function could be used over and over again and nothing changes. This is how you make your code predictable.`,
+        code: null
+      },
+      {
+        title: "Imperative vs Declarative",
+        id: "imperative_vs_declarative",
+        description: `Imperative programming tells the computer what to do and how to complete it.
+        <br /><br /> Declarative programming only tells the computer what to do, but not how to do things.
+        <br /><br />Humans are declarative by nature, but computers typically need more imperative type programming. However, using higher level languages like JavaScript is actually being less declarative. This is important in function programming because we want to be more declarative to better understand our code and let the computer handle the dirty work of figuring out the best way to do something.`,
+        code: null,
+        note: "<b>Javascript is more of a declarative programming language.</b>"
+      },
+      {
+        title: "Immutability",
+        id: "immutability",
+        description: `Immutability is simply not modifying the original data or state. Instead we should create copies of the state inside our functions and return a new version of the state.`,
+        code: [
+          {
+            title: ``,
+            code: `// Bad code
+const obj = {name: 'Brittney'}
+
+function clone(obj) {
+  return {...obj} // this is pure
+}
+
+obj.name = 'Joe' //mutated the state
+
+// Better code
+function updateName(obj) {
+  const newObj = clone(obj)
+  newObj.name = 'Joe'
+  return newObj
+}
+
+const updatedNameObj = updateName(obj)
+console.log('obj = \${obj}, updatedNameObj = \${updatedNameObj}')
+// obj = {name: 'Brittney'} updatedNameObj = {name: 'Joe'}`
+          }
+        ],
+        note: `You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called <b>structural sharing</b> that allows the data to only copy new information and points to the original state for any commonalities.`
+      }
+    ]
+  },
+  {
     heading: "Asynchronous Javascript",
     pathname: "/javascript",
     children: [
