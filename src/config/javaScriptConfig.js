@@ -1,3 +1,5 @@
+import { OBJECT_FOR_IN } from "../utils/common";
+
 const javaScriptConfig = [
   {
     heading: "JavaScript Foundation",
@@ -39,21 +41,21 @@ const javaScriptConfig = [
         code: [
           {
             title: null,
-            code: `  function  findMyName() {
-    function  nestedFunction() {
-      return  'I am nested function';
-    };
+            code: `function  findMyName() {
+  function  nestedFunction() {
+    return  'I am nested function';
   };
+};
     
-  function  sayMyName() {
-    findMyName();
-  };
+function  sayMyName() {
+  findMyName();
+};
     
-  sayMyName();
+sayMyName();
     
-  console.log(window.sayMyName);  		// prints function defination
-  console.log(window.findMyName);  		// prints function defination
-  console.log(window.nestedFunction);  	// undefined`
+console.log(window.sayMyName);  		// prints function defination
+console.log(window.findMyName);  		// prints function defination
+console.log(window.nestedFunction);  	// undefined`
           }
         ],
         note:
@@ -74,51 +76,50 @@ const javaScriptConfig = [
         code: [
           {
             title: null,
-            code: ` // Initial code
+            code: `// Initial code
 
-        console.log(a); 			// undefined
-        console.log(myName());  	// Rajat
+console.log(a); 			// undefined
+console.log(myName());  	// Rajat
         
-        var a = 'hello';
-        function myName() {
-          return 'Rajat';
-        }
+var a = 'hello';
+function myName() {
+  return 'Rajat';
+}
       
-          console.log(a);			// hello
-          console.log(myName());	// rajat
-          console.log(b); 		// throw an exception - Uncaught ReferenceError: b is not defined
+console.log(a);			// hello
+console.log(myName());	// rajat
+console.log(b); 		// throw an exception - Uncaught ReferenceError: b is not defined
       
-      // Code that gets compiled internally after hoisting (not really, just for explanation
-      )
+// Code that gets compiled internally after hoisting (not really, just for explanation)
       
-        var a = undefined; 		// undefined will get assign to 'a' initially, as variables are hoisted partially	
-          function  myName() {	// whole function will get hoisted, as functions are fully hoisted
-            return  'Rajat';
-          }
+var a = undefined; 		// undefined will get assign to 'a' initially, as variables are hoisted partially	
+function  myName() {	// whole function will get hoisted, as functions are fully hoisted
+  return  'Rajat';
+}
           
-        console.log(a);
-        console.log(myName());
+console.log(a);
+console.log(myName());
       
-        a = 'hello';
-          console.log(a);
-          console.log(myName());
-          console.log(b);`
+a = 'hello';
+console.log(a);
+console.log(myName());
+console.log(b);`
           },
           {
             title: "Function Hoisting with same name",
-            code: ` a();				// Output: Bye
+            code: `a();				// Output: Bye
 	
-        function a() {
-          return 'Hi';
-        };
+function a() {
+  return 'Hi';
+};
         
-        a();				// Output: Bye
-        
-        function b() {
-          return 'Bye';
-        };
-        
-        a();				// Output: Bye`
+a();				// Output: Bye
+
+function b() {
+  return 'Bye';
+};
+
+a();				// Output: Bye`
           }
         ],
         note:
@@ -136,19 +137,19 @@ const javaScriptConfig = [
         code: [
           {
             title: null,
-            code: `  // Function Expression 
-        var canada = function() {
-          return "cold";
-        }
+            code: `// Function Expression 
+var canada = function() {
+  return "cold";
+}
+
+// Function Declaration
+function india() {
+  return "warm";
+}	
       
-      // Function Declaration
-        function india() {
-          return "warm";
-        }	
-      
-      // Function Invocation/Call/Execution
-        canada();		// it will get memory at runtime
-        india();		// it will get memory at parse/compile time`
+// Function Invocation/Call/Execution
+canada();		// it will get memory at runtime
+india();		// it will get memory at parse/compile time`
           }
         ],
         note: null
@@ -166,12 +167,11 @@ const javaScriptConfig = [
           {
             title: null,
             code: `function world(a, b) {
-          console.log(arguments);		// { 0: "hello", 1: "world" }
-        }
-        
-        console.log(arguments);			// undefined, as it has not created for GEC.
-        world("hello", "world");
-        `
+  console.log(arguments);		// { 0: "hello", 1: "world" }
+}
+
+console.log(arguments);			// undefined, as it has not created for GEC.
+world("hello", "world");`
           }
         ],
         note: null
@@ -185,19 +185,19 @@ const javaScriptConfig = [
           {
             title: null,
             code: `function sayMyName(a) {
-          console.log(a);
-          return function findMyName(b) {
-              console.log(b);
-              return function printName(c) {
-              console.log(c);
-                 return  'Rajat Porwal';
-                 }
-          }
-        }
-      
-        sayMyName(1);				// 1, [function findMyName]
-        sayMyName(1)(2);			// 1, 2, [function printName]
-        sayMyName(1)(2)(3);			// 1, 2, 3, [function findMyName]`
+  console.log(a);
+  return function findMyName(b) {
+    console.log(b);
+    return function printName(c) {
+    console.log(c);
+        return  'Rajat Porwal';
+    }
+  }
+}
+
+sayMyName(1);				// 1, [function findMyName]
+sayMyName(1)(2);			// 1, 2, [function printName]
+sayMyName(1)(2)(3);			// 1, 2, 3, [function findMyName]`
           }
         ],
         note: null
@@ -211,22 +211,22 @@ const javaScriptConfig = [
           {
             title: "without use strict",
             code: `function weird() {
-          height = 50;
-          return height;
-        }
-        
-        weird();  // output: 50`
+  height = 50;
+  return height;
+}
+
+weird();  // output: 50`
           },
           {
             title: "using use strict",
-            code: `  'use strict'
+            code: `'use strict'
 	
-        function weird() {
-          height = 50;
-          return height;
-        }
-        
-        weird();  // Reference error: height is not defined`
+function weird() {
+  height = 50;
+  return height;
+}
+
+weird();  // Reference error: height is not defined`
           }
         ],
         note: "Undeclared vairables are added to global scope. "
@@ -243,16 +243,16 @@ const javaScriptConfig = [
         code: [
           {
             title: null,
-            code: `  function weird() {
-          if(true) {
-          var a = 1;
-          const b = 1;
-          let c = 1;
-        }
-        console.log(a);  	// output: 1, as variables declared with var keyword are functionally scoped.
-        console.log(b); 	// output: Reference error, b is not defined, as variables declared with const and let keyword are blocked scope.
-        console.log(c); 	// output: Reference error, c is not defined.
-        }`
+            code: `function weird() {
+  if(true) {
+    var a = 1;
+    const b = 1;
+    let c = 1;
+  }
+  console.log(a);  	// output: 1, as variables declared with var keyword are functionally scoped.
+  console.log(b); 	// output: Reference error, b is not defined, as variables declared with const and let keyword are blocked scope.
+  console.log(c); 	// output: Reference error, c is not defined.
+}`
           }
         ],
         note: null
@@ -266,10 +266,10 @@ const javaScriptConfig = [
         code: [
           {
             title: null,
-            code: `  	(function (a, b) {
-          console.log(a);			// output: 1
-          console.log(b);			// output: 2
-          }(1, 2));`
+            code: `(function (a, b) {
+  console.log(a);			// output: 1
+  console.log(b);			// output: 2
+}(1, 2));`
           }
         ],
         note: "IIFE are self invoked function, there is no need to call them."
@@ -283,32 +283,29 @@ const javaScriptConfig = [
         code: [
           {
             title: "this without use strict",
-            code: `  	(function () {
-          console.log(this);					// Window object
-          console.log(window);					// Window object
-          console.log(this === window);			// true
-          }());
-          `
+            code: `(function () {
+  console.log(this);					// Window object
+  console.log(window);					// Window object
+  console.log(this === window);			// true
+}());`
           },
           {
             title: "this with use strict",
-            code: `  	(function () {
-          'use strict'
-           console.log(this);					// undefined
-           console.log(window);					// Window object
-           console.log(this === window);			// false
-           }());
-          `
+            code: `(function () {
+  'use strict'
+    console.log(this);					// undefined
+    console.log(window);					// Window object
+    console.log(this === window);			// false
+}());`
           },
           {
             title: "use of this in object",
-            code: `  	const obj = {
-          name: 'Billy',
-          sing() {
-          return 'lalalala' + this.name;		 // because this can access the properties of current object.
-          }	
-        }
-          `
+            code: `const obj = {
+  name: 'Billy',
+  sing() {
+  return 'lalalala' + this.name;		 // because this can access the properties of current object.
+  }	
+}`
           }
         ],
         note: "this is the object as the function is property of."
@@ -393,90 +390,87 @@ person4.hi();
         code: [
           {
             title: null,
-            code: `  function  a() {
-          console.log('hi');
-        }
+            code: `function  a() {
+  console.log('hi');
+}
       
-          function  b() {
-          console.log('hi from bind');
-        }
+function  b() {
+  console.log('hi from bind');
+}
       
-          a(); // hi
-          a.apply(); // hi
-          a.call(); // hi
-          b.bind(this);
-          this.b(); // hi from bind
-          `
+a(); // hi
+a.apply(); // hi
+a.call(); // hi
+b.bind(this);
+this.b(); // hi from bind`
           },
           {
             title: null,
-            code: `  const  wizard  = {
-          name:  'Merlin',
-          health:  50,
-          heal(num1, num2) {
-            this.health  +=  num1  +  num2;
-            console.log(this.health);
-              }
-           };
+            code: `const  wizard  = {
+  name:  'Merlin',
+  health:  50,
+  heal(num1, num2) {
+    this.health  +=  num1  +  num2;
+    console.log(this.health);
+  }
+};
       
-          const  archer  = {
-          name:  'Robin Hood',
-          health:  30
-        };
+const archer  = {
+  name: 'Robin Hood',
+  health: 30
+};
       
-        wizard.heal(10, 20); // 80
+wizard.heal(10, 20); // 80
       
-        // To inherit heal method from wizard to archer
+// To inherit heal method from wizard to archer
       
-        console.log(archer); 					// {name: "Robin Hood", health: 30}
-        wizard.heal.call(archer, 50, 30); 	// 110, here call is binding heal to the archer's object
-        console.log(archer); 					// {name: "Robin Hood", health: 110}
+console.log(archer); 					// {name: "Robin Hood", health: 30}
+wizard.heal.call(archer, 50, 30); 	// 110, here call is binding heal to the archer's object
+console.log(archer); 					// {name: "Robin Hood", health: 110}
+
+wizard.heal.apply(archer, [50, 30]);  // 190
       
-        wizard.heal.apply(archer, [50, 30]);  // 190
-      
-      //  Note: The  only  difference  between  call() and  apply() is  apply  takes  parameters  in  array  form.
-      
-        const healArcher = wizard.heal.bind(archer, 50, 30);		// as bind will return new function and we are assigning that function into healArcher()
+//  Note: The  only  difference  between  call() and  apply() is  apply  takes  parameters  in  array  form.
+
+const healArcher = wizard.heal.bind(archer, 50, 30);		// as bind will return new function and we are assigning that function into healArcher()
         
-        healArcher();			
-        console.log(archer);		// {name: "Robin Hood", health: 270}
-          `
+healArcher();			
+console.log(archer);		// {name: "Robin Hood", health: 270}`
           },
           {
             title: "more on bind()",
             code: `// function currying
-        function  multiply(a, b) {
-          return  a*b;
-        };
+function  multiply(a, b) {
+  return  a*b;
+};
       
-         let  multiplyByTwo  =  multiply.bind(this, 2);
-         console.log(multiplyByTwo(5)); // 10, as multiplyByTwo already has one parameter as 2 when we have bind that function
-        `
+let  multiplyByTwo  =  multiply.bind(this, 2);
+console.log(multiplyByTwo(5)); // 10, as multiplyByTwo already has one parameter as 2 when we have bind that function`
           },
           {
             title: "this in arrow function",
             code: `var b = {
-          name: 'jay',
-          say() { console.log(this) }	
-        }
-      
-        var c = {
-          name: 'jay',
-          say() return function() { console.log(this) }		// this will create its own exection context in normal function
-        }
-        
-        var d = {
-          name: 'jay',
-          say() return () => { console.log(this) }		// this is lexically scoped inside arrow function
-        }
-        
-        b.say()		// { name: 'jay', say: [Function] }
-        c.say()		// [Function]		
-        c.say()()	// Window object, as this inside function will create it's own execution context
-        d.say()		// [Function]
-        d.say()		// { name: 'jay', say: [Function] }
-        
-        // Note: this is lexically scoped in arrow function, i.e. arrow function uses this of the parent and do not create its own execution context`
+  name: 'jay',
+  say() { console.log(this) }	
+}
+
+var c = {
+  name: 'jay',
+  say() return function() { console.log(this) }		// this will create its own exection context in normal function
+}
+
+var d = {
+  name: 'jay',
+  say() return () => { console.log(this) }		// this is lexically scoped inside arrow function
+}
+
+b.say()		// { name: 'jay', say: [Function] }
+c.say()		// [Function]		
+c.say()()	// Window object, as this inside function will create it's own execution context
+d.say()		// [Function]
+d.say()		// { name: 'jay', say: [Function] }
+
+// Note: this is lexically scoped in arrow function, i.e. arrow function uses this of the parent and do not create its own execution context`
           }
         ],
         note: "Every function has call, apply and bind property."
@@ -652,17 +646,17 @@ localStorage.clear();`
         code: [
           {
             title: null,
-            code: `  	var a = 5;
-            var b = a;
-            b++;
-            console.log(a);			// output: 5
-            console.log(b);			// output: 6
-            
-            let obj1 = { name: 'Yao', pass: '123'};
-            let obj2 = obj1;
-            obj2.pass = '456';
-            console.log(obj1);		// output: { name: 'Yao', pass: '456'}
-            console.log(obj2);		// output: { name: 'Yao', pass: '456'}
+            code: `var a = 5;
+var b = a;
+b++;
+console.log(a);			// output: 5
+console.log(b);			// output: 6
+
+let obj1 = { name: 'Yao', pass: '123'};
+let obj2 = obj1;
+obj2.pass = '456';
+console.log(obj1);		// output: { name: 'Yao', pass: '456'}
+console.log(obj2);		// output: { name: 'Yao', pass: '456'}
             `
           }
         ],
@@ -676,26 +670,25 @@ localStorage.clear();`
         code: [
           {
             title: null,
-            code: `  	let obj = {
-              a: 'a',
-                b: 'b',
-                c: {
-                  deep: 'try and copy me'
-                }
-              };
+            code: `let obj = {
+  a: 'a',
+    b: 'b',
+    c: {
+      deep: 'try and copy me'
+    }
+  };
           
-            let clone1 = Object.assign({}, obj); // shallow copy, do not change reference for nested objects
-            let clone2 = {...obj}; // shallow copy
-            let superClone  =  JSON.parse(JSON.stringify(obj)); // deep copy
+let clone1 = Object.assign({}, obj); // shallow copy, do not change reference for nested objects
+let clone2 = {...obj}; // shallow copy
+let superClone  =  JSON.parse(JSON.stringify(obj)); // deep copy
+
+obj.b  =  'updated value';
+obj.c.deep  =  "hahahaha";
           
-            obj.b  =  'updated value';
-            obj.c.deep  =  "hahahaha";
-          
-            console.log(obj);          // { a: 'a', b: 'updated value', c: { deep: 'hahahaha' }}
-            console.log(clone1);       // { a: 'a', b: 'b', c: { deep: 'hahahaha' }}
-            console.log(clone2);       // { a: 'a', b: 'b', c: { deep: 'hahahaha' }}
-            console.log(superClone);   // { a: 'a', b: 'b', c: { deep: 'try and copy me' }}
-            `
+console.log(obj);          // { a: 'a', b: 'updated value', c: { deep: 'hahahaha' }}
+console.log(clone1);       // { a: 'a', b: 'b', c: { deep: 'hahahaha' }}
+console.log(clone2);       // { a: 'a', b: 'b', c: { deep: 'hahahaha' }}
+console.log(superClone);   // { a: 'a', b: 'b', c: { deep: 'try and copy me' }}`
           }
         ],
         note: null
@@ -931,35 +924,32 @@ localStorage.clear();`
         code: [
           {
             title: "4 ways to invoke a function.",
-            code: `  function  one() {
-              return  1;
-            }
+            code: `function one() {
+  return  1;
+}
             
-            one();
+one();
           
-          // 2. Call function as method of object
+// 2. Call function as method of object
+const obj  = {
+  two() {
+  return  2;
+  }
+}
+  
+obj.two();
           
-            const obj  = {
-              two() {
-              return  2;
-              }
-            }
-           
-           obj.two();
-          
-          // 3. using call and apply
-          
-            function  three() {
-              return  3;
-            }
-          
-            three.call();
-          
-          // 4.
-          
-            const  four  =  new  Function('num', 'return num');
-            
-            four(4);`
+// 3. using call and apply
+function  three() {
+  return  3;
+}
+
+three.call();
+
+// 4.
+const  four  =  new  Function('num', 'return num');
+  
+four(4);`
           }
         ],
         note: null
@@ -972,28 +962,28 @@ localStorage.clear();`
         code: [
           {
             title: "Function as objects",
-            code: ` function say() {
-              console.log('say something')
-            }
-            say.yell = 'yell something'
-          
-          // under the hood visual
-          // will not run or show in console
-          
-            const funcObj = {
-              // name will not exist if anonymous
-              name: 'say',
-              // code to be ran
-              (): console.log('say something')
-              // properties get added
-              // apply, arguments, bind, call, caller, length, name, toString
-              yell: 'yell something',
-            }
-          
-          // with an obj
-            const obj = {
-              // nothing gets created
-            }`
+            code: `function say() {
+  console.log('say something')
+}
+say.yell = 'yell something'
+
+// under the hood visual
+// will not run or show in console
+
+const funcObj = {
+  // name will not exist if anonymous
+  name: 'say',
+  // code to be ran
+  (): console.log('say something')
+  // properties get added
+  // apply, arguments, bind, call, caller, length, name, toString
+  yell: 'yell something',
+}
+
+// with an obj
+const obj = {
+  // nothing gets created
+}`
           }
         ],
         note: null
@@ -1020,36 +1010,36 @@ localStorage.clear();`
         code: [
           {
             title: "",
-            code: `	function a() {
-            let grandpa = 'grandpa'
-            return function b() {
-              let father = 'father'
-              let random = 12345 // not referenced, will get garbage collected
-              return function c() {
-                let son = 'son'
-                return 'closure inherited all the scopes: ${"grandpa"} > ${"father"} > ${"son"}'
-              }
-            }
-          }
-        
-          a()()();
-        
-          // closure inherited all the scopes: grandpa > father > son`
+            code: `function a() {
+  let grandpa = 'grandpa'
+  return function b() {
+    let father = 'father'
+    let random = 12345 // not referenced, will get garbage collected
+    return function c() {
+      let son = 'son'
+      return 'closure inherited all the scopes: ${"grandpa"} > ${"father"} > ${"son"}'
+    }
+  }
+}
+
+a()()();
+
+// closure inherited all the scopes: grandpa > father > son`
           },
           {
             title: "A Fun Example with Closures",
             code: `function callMeMaybe() {
-            const callMe = 'Hey, I just met you!'
-            setTimeout(function() {
-                console.log(callMe)
-            }, 8640000000);
-         
-         callMeMaybe()
-         
-         // ONE DAY LATER
-         // Hey, I just met you!
-         
-         // Do not run this in the console, it will take 1 day to timeout!`
+  const callMe = 'Hey, I just met you!'
+  setTimeout(function() {
+      console.log(callMe)
+  }, 8640000000);
+
+callMeMaybe()
+
+// ONE DAY LATER
+// Hey, I just met you!
+
+// Do not run this in the console, it will take 1 day to timeout!`
           }
         ],
         note: null
@@ -1117,34 +1107,34 @@ function efficient() {
         code: [
           {
             title: null,
-            code: `  const elf1 = {
-    name: 'Dobby',
-    type: 'house',
-    weapon: 'cloth',
-    say: function() {
-      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
-    }
-    attack: function() {
-      return 'attack with \${this.weapon}'
-    }
+            code: `const elf1 = {
+  name: 'Dobby',
+  type: 'house',
+  weapon: 'cloth',
+  say: function() {
+    return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
   }
+  attack: function() {
+    return 'attack with \${this.weapon}'
+  }
+}
 
-  const elf2 = {
-    name: 'Legolas',
-    type: 'high',
-    weapon: 'bow',
-    say: function() {
-      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
-    }
-    attack: function() {
-      return 'attack with \${this.weapon}'
-    }
+const elf2 = {
+  name: 'Legolas',
+  type: 'high',
+  weapon: 'bow',
+  say: function() {
+    return 'Hi, my name is \${this.name}, I am a \${this.type} elf.'
   }
-            
-  elf1.attack()
-  // attack with cloth
-  elf2.attack()
-  // attack with bow`
+  attack: function() {
+    return 'attack with \${this.weapon}'
+  }
+}
+          
+elf1.attack()
+// attack with cloth
+elf2.attack()
+// attack with bow`
           }
         ]
       },
@@ -1162,27 +1152,27 @@ function efficient() {
         code: [
           {
             title: null,
-            code: `  function createElf(name, type, weapon) {
-    return {
-      name: name,
-      type: type,
-      weapon: weapon,
-      say() {
-        return 'Hi, my name is \${name}, I am a \${type} elf.';
-      },
-      attack() {
-        return '\${name} attacks with \${weapon}';
-      }
-    };
-  }
+            code: `function createElf(name, type, weapon) {
+  return {
+    name: name,
+    type: type,
+    weapon: weapon,
+    say() {
+      return 'Hi, my name is \${name}, I am a \${type} elf.';
+    },
+    attack() {
+      return '\${name} attacks with \${weapon}';
+    }
+  };
+}
             
-    const dobby = createElf("Dobby", "house", "cloth");
-    const legolas = createElf("Legolas", "high", "bow");
-    
-    dobby.say(); // Hi, my name is Dobby, I am a house elf.
-    legolas.say(); // Hi, my name is Legolas, I am a high elf.
-    dobby.attack(); // Dobby attacks with cloth.
-    legolas.attack(); // Legolas attacks with bow.`
+const dobby = createElf("Dobby", "house", "cloth");
+const legolas = createElf("Legolas", "high", "bow");
+
+dobby.say(); // Hi, my name is Dobby, I am a house elf.
+legolas.say(); // Hi, my name is Legolas, I am a high elf.
+dobby.attack(); // Dobby attacks with cloth.
+legolas.attack(); // Legolas attacks with bow.`
           }
         ],
         note:
@@ -1195,32 +1185,32 @@ function efficient() {
         code: [
           {
             title: null,
-            code: `  const elfMethodsStore = {
-    attack() {
-      return 'attack with \${this.weapon};
-    },
-    say() {
-      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
-    }
-  };
-            
-  function createElf(name, type, weapon) {
-    return {
-      name: name, // old way
-      type, // with ES6 assignment, if they are the same name
-      weapon
-    };
+            code: `const elfMethodsStore = {
+  attack() {
+    return 'attack with \${this.weapon};
+  },
+  say() {
+    return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
   }
+};
             
-  // each method has to be assigned to the store method to
-  // create the __proto__ chain
-  const dobby = createElf("Dobby", "house", "cloth");
-  dobby.attack = elfMethodsStore.attack;
-  dobby.say = elfMethodsStore.say;
-  
-  const legolas = createElf("Legolas", "high", "bow");
-  legolas.attack = elfMethodsStore.attack;
-  legolas.say = elfMethodsStore.say;`
+function createElf(name, type, weapon) {
+  return {
+    name: name, // old way
+    type, // with ES6 assignment, if they are the same name
+    weapon
+  };
+}
+            
+// each method has to be assigned to the store method to
+// create the __proto__ chain
+const dobby = createElf("Dobby", "house", "cloth");
+dobby.attack = elfMethodsStore.attack;
+dobby.say = elfMethodsStore.say;
+
+const legolas = createElf("Legolas", "high", "bow");
+legolas.attack = elfMethodsStore.attack;
+legolas.say = elfMethodsStore.say;`
           }
         ]
       },
@@ -1231,31 +1221,31 @@ function efficient() {
         code: [
           {
             title: null,
-            code: `  const elfMethodsStore = {
-    attack() {
-      return 'attack with \${this.weapon}';
-    },
-    say() {
-      return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
-    }
-  };
+            code: `const elfMethodsStore = {
+attack() {
+  return 'attack with \${this.weapon}';
+},
+say() {
+  return 'Hi, my name is \${this.name}, I am a \${this.type} elf.';
+}
+};
             
-  function createElf(name, type, weapon) {
-    // this creates the __proto__ chain to the store
-    let newElf = Object.create(elfMethodsStore);
-    console.log(newElf.__proto__); // { attack: [Function], say: [Function] }
-    // this assigns all the methods
-    newElf.name = name;
-    newElf.type = type;
-    newElf.weapon = weapon;
-    // this returns the new Elf with everything attached
-    return newElf;
-  }
+function createElf(name, type, weapon) {
+  // this creates the __proto__ chain to the store
+  let newElf = Object.create(elfMethodsStore);
+  console.log(newElf.__proto__); // { attack: [Function], say: [Function] }
+  // this assigns all the methods
+  newElf.name = name;
+  newElf.type = type;
+  newElf.weapon = weapon;
+  // this returns the new Elf with everything attached
+  return newElf;
+}
   
-  const dobby = createElf("Dobby", "house", "cloth");
-  const legolas = createElf("Legolas", "high", "bow");
-  dobby.attack; // attack with cloth
-  legolas.attack; // attack with bow`
+const dobby = createElf("Dobby", "house", "cloth");
+const legolas = createElf("Legolas", "high", "bow");
+dobby.attack; // attack with cloth
+legolas.attack; // attack with bow`
           }
         ]
       },
@@ -1516,11 +1506,11 @@ inception();
           {
             title: null,
             code: `var person = {
-              first: "Brittney",
-              last: "Postma"
-            };
-            
-            person = "Brittney Postma";`
+  first: "Brittney",
+  last: "Postma"
+};
+
+person = "Brittney Postma";`
           },
           {
             title: `In the example above a memory leak is created. By changing the variable person from an object to a string, it leaves the values of first and last in the memory heap and does not remove it. This can be avoided by trying to keep variables out of the global namespace, only instantiate variables inside of functions when possible. JavaScript is a single threaded language, meaning only one thing can be executed at a time. It only has one call stack and therefore it is a synchronous language.`,
@@ -1745,35 +1735,7 @@ for (item of str) {
         ],
         note: "for of loop does not works with object"
       },
-      {
-        title: "for in",
-        id: "for_in",
-        description: `Used to enumerate over object`,
-        list: ["It returns object keys"],
-        code: [
-          {
-            title: "",
-            code: `const basket = ["apples", "oranges", "grapes"];
-const detailedBasket = {
-  apples: 5,
-  oranges: 10,
-  grapes: 1000
-};
-
-// for in - properties
-// enumerating
-for (item in detailedBasket) {
-  console.log(item);
-};    // output: apples, oranges, grapes
-
-for (item in basket) {
-  console.log(item);
-};    // output: 0, 1, 2`
-          }
-        ],
-        note:
-          "for in loop works with array and it returns indexes of the element, as shown above."
-      },
+      OBJECT_FOR_IN,
       {
         title: "Big  Int",
         id: "big_int",

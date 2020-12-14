@@ -41,6 +41,11 @@ const DataStructure = () => {
           </Checkbox>
         </div>
         <div>
+          <Checkbox onChange={() => onCategoryChange("object")}>
+            Object
+          </Checkbox>
+        </div>
+        <div>
           <Checkbox onChange={() => onCategoryChange("number")}>
             Number
           </Checkbox>
