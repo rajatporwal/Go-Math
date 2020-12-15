@@ -4,7 +4,7 @@ const MAP_HELPER = {
   pathname: "/ds",
   children: [
     {
-      title: "Intorduction",
+      title: "Introduction",
       id: "map/introduction",
       description: `Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.`,
       list: [
@@ -210,7 +210,7 @@ console.log(map.clear());       // output:  undefined`
       note: null
     },
     {
-      title: "map into array",
+      title: "convert map to array",
       id: "map/m_array",
       description: null,
       list: null,
