@@ -7,7 +7,8 @@ import {
   LogoutOutlined
 } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { IS_LOGGED_IN, SHOW_MODAL, SIDE_BAR } from "../actions/types";
+import { IS_LOGGED_IN, SIDE_BAR } from "../actions/types";
+import { showModal } from "../actions/commonActions";
 
 const { Header } = Layout;
 
@@ -61,7 +62,7 @@ export default () => {
             <Button
               type="primary"
               onClick={() => {
-                dispatch({ type: SHOW_MODAL, value: true });
+                dispatch(showModal(true));
                 // dispatch({ type: IS_LOGGED_IN, value: true });
               }}
             >

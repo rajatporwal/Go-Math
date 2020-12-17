@@ -1,4 +1,5 @@
 import { API_URLs, HttpUtil } from "../utils";
+import { showLoader, showModal } from "./commonActions";
 import { TEST_DISPATCH, GET_ERRORS } from "./types";
 
 export const registerUser = (userData) => {
@@ -8,7 +9,8 @@ export const registerUser = (userData) => {
   };
 };
 
-export const loginUser = (data, header) => async (dispatch) =>
+export const loginUser = (data, header) => async (dispatch) => {
+  dispatch(showLoader(true));
   HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data, header)
     .then((response) => {
       // if (response.success) {
@@ -16,6 +18,7 @@ export const loginUser = (data, header) => async (dispatch) =>
       if (response.success) {
         // Banner('Success', 'Record created successfully.', 'success');
         console.log("user logged in", response);
+        dispatch(showModal(false));
       } else {
         dispatch({
           type: GET_ERRORS,
@@ -28,4 +31,8 @@ export const loginUser = (data, header) => async (dispatch) =>
     })
     .catch((err) => {
       console.log("Error", "Something went wrong.", err);
-    });
+    })
+  .finally(() => {
+    dispatch(showLoader(false));
+  });
+};
