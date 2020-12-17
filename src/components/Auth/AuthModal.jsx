@@ -3,8 +3,7 @@ import { Modal, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import Auth from ".";
-import { SHOW_MODAL } from "../../actions/types";
-import { showModal } from "../../actions/commonActions";
+import { clearError, showModal } from "../../actions/commonActions";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24, zIndex: 1 }} spin />;
 
@@ -14,6 +13,7 @@ const ModalContent = () => {
 
   const handleCancel = () => {
     dispatch(showModal(false));
+    dispatch(clearError());
   };
 
   return (
