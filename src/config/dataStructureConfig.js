@@ -4,7 +4,7 @@ import {
   OBJECT_HELPER,
   MAP_HELPER,
   SET_HELPER
-} from "../utils";
+} from "../helper";
 
 const dataStructureConfig = [
   ARRAY_HELPER,

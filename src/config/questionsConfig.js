@@ -3,7 +3,7 @@ import {
   INTEGER_REVERSAL,
   CAPITALIZES_FIRST_LETTER,
   VOWEL_COUNT
-} from "../utils/questionsHelper";
+} from "../helper/questionsHelper";
 
 const questionsConfig = [
   {
