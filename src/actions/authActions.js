@@ -1,7 +1,7 @@
 import { API_URLs, HttpUtil } from '../utils';
 
 export const loginUser = (data, header = {'Access-Control-Allow-Origin': true}) => async(dispatch) => (
-    HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, JSON.stringify(data), header)
+    HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data, header)
     .then(response => {
         // if (response.success) {
         if (response) {
