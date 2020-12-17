@@ -13,8 +13,9 @@ import AuthModal from "./components/Auth/AuthModal";
 const { Content } = Layout;
 
 export default function App() {
-  const showSideBar = useSelector((state) => state.sideBar);
-  const showModal = useSelector((state) => state.showModal);
+  const showSideBar = useSelector((state) => state.appReducer.sideBar);
+  const showModal = useSelector((state) => state.appReducer.showModal);
+
   return (
     <Layout>
       <div className="App">

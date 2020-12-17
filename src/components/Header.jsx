@@ -7,12 +7,13 @@ import {
   LogoutOutlined
 } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
+import { IS_LOGGED_IN, SHOW_MODAL, SIDE_BAR } from "../actions/types";
 
 const { Header } = Layout;
 
 export default () => {
-  const sideBar = useSelector((state) => state.sideBar);
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const sideBar = useSelector((state) => state.appReducer.sideBar);
+  const isLoggedIn = useSelector((state) => state.appReducer.isLoggedIn);
   const dispatch = useDispatch();
   return (
     <Header style={{ position: "fixed", zIndex: 1, width: "100%", padding: 0 }}>
@@ -21,7 +22,7 @@ export default () => {
           key="menuOutline"
           icon={<MenuUnfoldOutlined />}
           onClick={() => {
-            dispatch({ type: "SIDE_BAR", value: !sideBar });
+            dispatch({ type: SIDE_BAR, value: !sideBar });
           }}
         />
         <Menu.Item key="1" className="add_margin">
@@ -50,7 +51,7 @@ export default () => {
             <Button
               type="danger"
               onClick={() => {
-                dispatch({ type: "IS_LOGGED_IN", value: false });
+                dispatch({ type: IS_LOGGED_IN, value: false });
               }}
             >
               Logout
@@ -60,8 +61,8 @@ export default () => {
             <Button
               type="primary"
               onClick={() => {
-                dispatch({ type: "SHOW_MODAL", value: true });
-                dispatch({ type: "IS_LOGGED_IN", value: true });
+                dispatch({ type: SHOW_MODAL, value: true });
+                // dispatch({ type: IS_LOGGED_IN, value: true });
               }}
             >
               Login

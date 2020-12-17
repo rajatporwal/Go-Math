@@ -7,7 +7,9 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const SideBar = () => {
-  const sideBarOptions = useSelector((state) => state.sideBarOptions);
+  const sideBarOptions = useSelector(
+    (state) => state.appReducer.sideBarOptions
+  );
   const dispatch = useDispatch();
   return (
     <Sider

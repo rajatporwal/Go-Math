@@ -1,11 +1,11 @@
-import React from "react";
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import { Button, Input } from "antd";
 import { authSchema } from "./authValidationSchema";
-import { loginUser } from "../../actions/authActions";
+import { loginUser, registerUser } from "../../actions/authActions";
 
-const Login = ({ isLoginForm, loginUser }) => {
+const Login = ({ isLoginForm, loginUser, registerUser }) => {
   const initialValues = {
     name: "",
     email: "",
@@ -13,8 +13,10 @@ const Login = ({ isLoginForm, loginUser }) => {
     cpassword: ""
   };
 
-  const submitLoginForm = async (data) => {
-    await loginUser(data);
+  const hasErrors = useSelector((state) => state.error);
+
+  const submitForm = async (data) => {
+    isLoginForm ? await loginUser(data) : await registerUser(data);
   };
 
   return (
@@ -22,7 +24,7 @@ const Login = ({ isLoginForm, loginUser }) => {
       initialValues={initialValues}
       enableReinitialize={true}
       validationSchema={authSchema}
-      onSubmit={(val) => submitLoginForm(val)}
+      onSubmit={(val) => submitForm(val)}
     >
       {({
         values,
@@ -82,7 +84,7 @@ const Login = ({ isLoginForm, loginUser }) => {
                           onChange={(e) => field.onChange(e)}
                         />
                         <span className="login__warning">
-                          {errors[field.name]}
+                          {errors[field.name] || hasErrors?.email}
                         </span>
                       </>
                     )}
@@ -107,7 +109,7 @@ const Login = ({ isLoginForm, loginUser }) => {
                           onChange={(e) => field.onChange(e)}
                         />
                         <span className="login__warning">
-                          {errors[field.name]}
+                          {errors[field.name] || hasErrors?.password}
                         </span>
                       </>
                     )}
@@ -148,7 +150,7 @@ const Login = ({ isLoginForm, loginUser }) => {
                   size="large"
                   onClick={() => submitForm()}
                 >
-                  {isLoginForm ? "Submit" : "Register"}
+                  {isLoginForm ? "Login" : "Register"}
                 </Button>
               </div>
             </div>
@@ -159,7 +161,8 @@ const Login = ({ isLoginForm, loginUser }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  loginUser: data => dispatch(loginUser(data))
-})
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (data) => dispatch(loginUser(data)),
+  registerUser: (data) => dispatch(registerUser(data))
+});
 export default connect(null, mapDispatchToProps)(Login);

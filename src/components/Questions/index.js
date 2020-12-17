@@ -58,7 +58,6 @@ const Questions = () => {
     setQueCategory(getHash ? [getHash] : []);
   }, [dispatch]);
 
-  console.log(queCategory);
   const onCategoryChange = (type) => {
     if (queCategory.includes(type)) {
       queCategory.splice(queCategory.indexOf(type), 1);
