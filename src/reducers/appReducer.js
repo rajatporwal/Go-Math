@@ -1,5 +1,4 @@
 import {
-  IS_LOGGED_IN,
   IS_LOADING,
   SHOW_MODAL,
   SIDE_BAR,
@@ -26,8 +25,6 @@ function appReducer(state = initialState, action) {
       return { ...state, isLoading: action.payload };
     case SHOW_MODAL:
       return { ...state, showModal: action.payload };
-    case IS_LOGGED_IN:
-      return { ...state, isLoggedIn: action.value };
     case USER_DETAIL:
       return { ...state, userDetail: action.value };
     default:

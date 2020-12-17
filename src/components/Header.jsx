@@ -7,15 +7,17 @@ import {
   LogoutOutlined
 } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { IS_LOGGED_IN, SIDE_BAR } from "../actions/types";
+import { SIDE_BAR } from "../actions/types";
 import { showModal } from "../actions/commonActions";
+import { logoutUser } from "../actions/authActions";
 
 const { Header } = Layout;
 
 export default () => {
   const sideBar = useSelector((state) => state.appReducer.sideBar);
-  const isLoggedIn = useSelector((state) => state.appReducer.isLoggedIn);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+
   return (
     <Header style={{ position: "fixed", zIndex: 1, width: "100%", padding: 0 }}>
       <Menu theme="dark" mode="horizontal">
@@ -48,11 +50,11 @@ export default () => {
           <Link to="/conversion">Conversion</Link>
         </Menu.Item>
         <div key="login" style={{ float: "right", marginRight: "5rem" }}>
-          {isLoggedIn ? (
+          {isAuthenticated ? (
             <Button
               type="danger"
               onClick={() => {
-                dispatch({ type: IS_LOGGED_IN, value: false });
+                dispatch(logoutUser());
               }}
             >
               Logout
@@ -63,7 +65,6 @@ export default () => {
               type="primary"
               onClick={() => {
                 dispatch(showModal(true));
-                // dispatch({ type: IS_LOGGED_IN, value: true });
               }}
             >
               Login
