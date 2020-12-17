@@ -7,7 +7,7 @@ import store from "./store";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/React">
     <HashRouter>
       <Provider store={store}>
         <App />
