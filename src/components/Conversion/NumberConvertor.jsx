@@ -7,7 +7,7 @@ import {
   decimalToAll,
   octalToAll,
   hexaDecimalToAll
-} from "../../utils";
+} from "../../helper";
 import { numberConversionSchema } from "./conversionValidationSchema";
 
 const binaryTitle = `In mathematics and digital electronics, a binary number is a number expressed in the base-2 numeral system or binary numeral system, which uses only two symbols: typically "0" (zero) and "1" (one). The base-2 numeral system is a positional notation with a radix of 2. Each digit is referred to as a bit.`;

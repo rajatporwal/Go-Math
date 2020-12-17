@@ -1,4 +1,4 @@
-import { OBJECT_FOR_IN } from "../utils/common";
+import { OBJECT_FOR_IN } from "../helper/common";
 
 const javaScriptConfig = [
   {
