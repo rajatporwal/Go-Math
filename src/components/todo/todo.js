@@ -19,13 +19,26 @@ const columns = [
     title: "Action",
     dataIndex: "action",
     key: "action",
-    render: (id) => {
+    render: (tag) => {
       return (
         <>
-          <Tag color={'geekblue'} key='edit' onClick={() => console.log(id)}>
-            Edit
+          <Tag
+            color={"geekblue"}
+            key="visit"
+            onClick={() => console.log(tag.id)}
+          >
+            <Link
+              active
+              to={{
+                pathname: tag.pathname,
+                hash: tag.hash,
+              }}
+              smooth
+            >
+              visit
+            </Link>
           </Tag>
-          <Tag color='red' key='delete' onClick={() => console.log(id)}>
+          <Tag color="red" key="delete" onClick={() => console.log(tag.id)}>
             Delete
           </Tag>
         </>
@@ -36,12 +49,6 @@ const columns = [
 
 const Todo = () => {
   const data = useSelector((state) => state.todo);
-  console.log(
-    data.map((d, i) => {
-      d["index"] = i + 1;
-      return d;
-    })
-  );
   return (
     <div className="javascript">
       <Table
@@ -60,7 +67,7 @@ const Todo = () => {
               click here
             </Link>
           );
-          d["action"] = { id: "abc" };
+          d["action"] = { id: "abc", pathname: d.category, hash: d.child };
           return d;
         })}
       />
