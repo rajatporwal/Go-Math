@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { HashLink as Link } from "react-router-hash-link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import javaScriptConfig from "../../config/javaScriptConfig";
 import { Table } from "antd";
+import { PlusCircleTwoTone } from '@ant-design/icons';
+import { setTodo } from "../../actions/todoActions";
+import { SIDE_BAR_OPTIONS } from "../../actions/types";
 
 const JavaScript = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: javaScriptConfig });
+    dispatch({ type: SIDE_BAR_OPTIONS , value: javaScriptConfig });
   });
 
   return (
@@ -27,6 +31,10 @@ const JavaScript = () => {
                 name={child.id}
               >
                 {child.title}
+              <PlusCircleTwoTone
+                style={{ marginLeft: '1rem', fontSize: '2rem' }}
+                onClick={() =>  dispatch(setTodo({title: child.title, category: 'javascript', child: child.id }))}
+              />
               </h2>
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />

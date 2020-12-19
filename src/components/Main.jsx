@@ -8,6 +8,7 @@ import PageNotFound from "./PageNotFound";
 import Conversion from "./Conversion";
 import DataStructure from "./DataStructure";
 import ReactJS from "./React";
+import Todo from "./todo/todo";
 
 const Main = () => (
   <main>
@@ -20,6 +21,7 @@ const Main = () => (
       <Route exact path="/questions" component={Questions} />
       <Route exact path="/conversion" component={Conversion} />
       <Route exact path="/ds" component={DataStructure} />
+      <Route exact path="/todo" component={Todo} />
       <Route
         path="*"
         render={() => {
