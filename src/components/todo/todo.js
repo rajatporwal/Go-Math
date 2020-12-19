@@ -1,40 +1,65 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const passport = require("passport");
-const cors = require("cors");
-const users = require("./routes/api/users");
-const todo = require("./routes/api/todo");
+import React from "react";
+import { Table, Tag } from "antd";
+import { useSelector } from "react-redux";
+import { HashLink as Link } from "react-router-hash-link";
 
-const app = express();
+const columns = [
+  {
+    title: "Index",
+    dataIndex: "index",
+    index: "index",
+  },
+  {
+    title: "Todo",
+    dataIndex: "title",
+    key: "title",
+  },
+  {
+    title: "Action",
+    dataIndex: "action",
+    key: "action",
+    render: (id) => {
+      return (
+        <>
+          <Tag color={'geekblue'} key='visit' onClick={() => console.log(id)}>
+            Visit
+          </Tag>
+          <Tag color='red' key='delete' onClick={() => console.log(id)}>
+            Delete
+          </Tag>
+        </>
+      );
+    },
+  },
+];
 
-// Adding cors for cross origin requests
-app.use(cors());
+const Todo = () => {
+  const data = useSelector((state) => state.todo);
 
-//Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+  return (
+    <div className="javascript">
+      <Table
+        columns={columns}
+        dataSource={data.map((d, i) => {
+          d["index"] = i + 1;
+          d["pathname"] = (
+            <Link
+              active
+              to={{
+                pathname: d.category,
+                hash: d.child,
+              }}
+              smooth
+            >
+              click here
+            </Link>
+          );
+          d["action"] = { id: "abc" };
+          return d;
+        })}
+      />
+    </div>
+  );
+};
 
-//DB Config
-const db = require("./config/keys").mongoURI;
-
-//Connect to MongoDB
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
-
-// Passport Middleware
-app.use(passport.initialize());
-
-// Passport Config
-require("./config/passport")(passport);
-
-// Uses Routes
-app.use("/api/users", users);
-// Todo Routes
-app.use("/api/todo", todo);
-
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`Server running on port ${port}`));
+export default Todo;
