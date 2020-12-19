@@ -33,7 +33,7 @@ const JavaScript = () => {
                 {child.title}
               <PlusCircleTwoTone
                 style={{ marginLeft: '1rem', fontSize: '2rem' }}
-                onClick={() =>  dispatch(setTodo({title: child.title, category: 'javascript', child: child.id }))}
+                onClick={() =>  dispatch(setTodo({title: child.title, category: 'javascript', hashId: child.id }))}
               />
               </h2>
               {child.description ? (
