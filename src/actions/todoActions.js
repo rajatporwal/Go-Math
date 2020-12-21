@@ -64,3 +64,26 @@ export const getTodos = () => async (dispatch) => {
       dispatch(showLoader(false));
     });
 };
+
+export const deleteTodo = (id) => async (dispatch) => {
+  dispatch(showLoader(true));
+  HttpUtil.makeDELETE(`${API_URLs.TODO_API_URL}/${id}`)
+    .then((res) => {
+      if (res.success) {
+        Banner("Success", res.data.message);
+      } else {
+        Banner("Success", res.data.message || res.data);
+      }
+      dispatch(setTodo(res.data.todo));
+      return res;
+    })
+    .catch((err) => {
+      Banner(
+        "Error",
+        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        true
+      );
+    }).finally(() => {
+      dispatch(showLoader(false));
+    });
+};
