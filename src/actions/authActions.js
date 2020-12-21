@@ -3,15 +3,15 @@ import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "../actions/types";
 import { API_URLs, HttpUtil } from "../utils";
 import setAuthToken from "../utils/setAuthToken";
-import { clearError, setError, showLoader, showModal } from "./commonActions";
+import { setError, showLoader, showModal } from "./commonActions";
 
-export const registerUser = (data, header) => async (dispatch) => {
+export const registerUser = (data) => async (dispatch) => {
   dispatch(showLoader(true));
-  HttpUtil.makePOST(API_URLs.REGISTER_USER_API_URL, data, header)
+  HttpUtil.makePOST(API_URLs.REGISTER_USER_API_URL, data)
     .then((res) => {
       if (res.success) {
         dispatch(showModal(false));
-        dispatch(clearError());
+        dispatch(setError({}));
         Banner("Success", "User registerd successfully. Please login.");
         dispatch(showModal(true));
       } else {
@@ -30,16 +30,15 @@ export const registerUser = (data, header) => async (dispatch) => {
         err ? JSON.stringify(err) : "Something went wrong, please try again",
         true
       );
-      console.log("Error", "Something went wrong.", err);
     })
     .finally(() => {
       dispatch(showLoader(false));
     });
 };
 
-export const loginUser = (data, header) => async (dispatch) => {
+export const loginUser = (data) => async (dispatch) => {
   dispatch(showLoader(true));
-  HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data, header)
+  HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data)
     .then((res) => {
       if (res.success) {
         dispatch(showModal(false));
@@ -54,7 +53,7 @@ export const loginUser = (data, header) => async (dispatch) => {
         // Set current user
         dispatch(setCurrentUser(decoded));
 
-        dispatch(clearError());
+        dispatch(setError({}));
         Banner("Success", "Login Successfull");
       } else {
         dispatch(setError(res.data));
@@ -68,7 +67,6 @@ export const loginUser = (data, header) => async (dispatch) => {
         err ? JSON.stringify(err) : "Something went wrong, please try again",
         true
       );
-      console.log("Error", "Something went wrong.", err);
     })
     .finally(() => {
       dispatch(showLoader(false));
@@ -84,9 +82,13 @@ export const setCurrentUser = (decoded) => {
 };
 
 // Log user out
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
+  dispatch(showLoader(true));
+  setTimeout(function () {
+    dispatch(showLoader(false));
+  }, 500);
   // Remove token from localStorage
-  localStorage.removeItem('jwtToken');
+  localStorage.removeItem("jwtToken");
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false

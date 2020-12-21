@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage":".",
   "dependencies": {
     "antd": "4.6.6",
     "axios": "^0.21.0",

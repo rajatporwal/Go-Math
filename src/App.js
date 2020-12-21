@@ -20,14 +20,13 @@ const { Content } = Layout;
 const antIcon = <LoadingOutlined style={{ fontSize: 24, zIndex: 1 }} spin />;
 // Check for token
 if (localStorage.jwtToken) {
-  console.log('localStorage', localStorage.jwtToken);
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode token and get user info and exp
   const decoded = jwt_decode(localStorage.jwtToken);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-  
+
   // Check for expired token
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {

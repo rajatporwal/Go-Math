@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import reactJsConfig from "../../config/reactJsConfig";
 import { Table } from "antd";
+import { PlusCircleTwoTone } from "@ant-design/icons";
+import { addTodo } from "../../actions/todoActions";
 
 const ReactJS = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: reactJsConfig });
@@ -27,6 +30,20 @@ const ReactJS = () => {
                 name={child.id}
               >
                 {child.title}
+                {isAuthenticated && (
+                  <PlusCircleTwoTone
+                    style={{ marginLeft: "1rem", fontSize: "2rem" }}
+                    onClick={() =>
+                      dispatch(
+                        addTodo({
+                          title: child.title,
+                          category: "react",
+                          hashId: child.id
+                        })
+                      )
+                    }
+                  />
+                )}
               </h2>
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />

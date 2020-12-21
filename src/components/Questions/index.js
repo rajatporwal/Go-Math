@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HashLink as Link } from "react-router-hash-link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -7,13 +7,12 @@ import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import questionsConfig from "../../config/questionsConfig";
 import { Table, Switch, Space, Checkbox } from "antd";
 import { HOME_ROUTES } from "../Home/index";
+import { setTableProps } from "../../actions/commonActions";
 
 const Questions = () => {
-  const [border, setBorder] = useState(false);
-  const [showIndex, setShowIndex] = useState(false);
   const [queCategory, setQueCategory] = useState([]);
+  const tableProps = useSelector((state) => state.appReducer.tableProps);
   const dispatch = useDispatch();
-
   const addIndex = [
     {
       title: "Index",
@@ -123,16 +122,34 @@ const Questions = () => {
       <hr />
       <Space align="center" style={{ marginBottom: 10 }}>
         Index:
-        <Switch checked={showIndex} onChange={() => setShowIndex(!showIndex)} />
-        Border: <Switch checked={border} onChange={() => setBorder(!border)} />
+        <Switch
+          checked={tableProps.showIndex}
+          onChange={() =>
+            dispatch(
+              setTableProps({ ...tableProps, showIndex: !tableProps.showIndex })
+            )
+          }
+        />
+        Border:{" "}
+        <Switch
+          checked={tableProps.showBorder}
+          onChange={() =>
+            dispatch(
+              setTableProps({
+                ...tableProps,
+                showBorder: !tableProps.showBorder
+              })
+            )
+          }
+        />
       </Space>
       <Table
-        columns={showIndex ? [...addIndex, ...columns] : columns}
+        columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
         dataSource={filteredData.map((d, i) => {
           d["index"] = i + 1;
           return d;
         })}
-        bordered={border}
+        bordered={tableProps.showBorder}
       />
       {filteredData.map((ele) => (
         <div class="javascript">
