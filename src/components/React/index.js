@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import reactJsConfig from "../../config/reactJsConfig";
 import { Table } from "antd";
-import { PlusCircleTwoTone } from '@ant-design/icons';
+import { PlusCircleTwoTone } from "@ant-design/icons";
 import { addTodo } from "../../actions/todoActions";
 
 const ReactJS = () => {
@@ -30,13 +30,20 @@ const ReactJS = () => {
                 name={child.id}
               >
                 {child.title}
-                {
-isAuthenticated &&
+                {isAuthenticated && (
                   <PlusCircleTwoTone
-                  style={{ marginLeft: '1rem', fontSize: '2rem' }}
-                  onClick={() =>  dispatch(addTodo({title: child.title, category: 'react', hashId: child.id }))}
+                    style={{ marginLeft: "1rem", fontSize: "2rem" }}
+                    onClick={() =>
+                      dispatch(
+                        addTodo({
+                          title: child.title,
+                          category: "react",
+                          hashId: child.id
+                        })
+                      )
+                    }
                   />
-                }
+                )}
               </h2>
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />

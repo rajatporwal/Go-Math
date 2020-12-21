@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import javaScriptConfig from "../../config/javaScriptConfig";
 import { Table } from "antd";
-import { PlusCircleTwoTone } from '@ant-design/icons';
+import { PlusCircleTwoTone } from "@ant-design/icons";
 import { addTodo } from "../../actions/todoActions";
 import { SIDE_BAR_OPTIONS } from "../../actions/types";
 
@@ -13,7 +13,7 @@ const JavaScript = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: SIDE_BAR_OPTIONS , value: javaScriptConfig });
+    dispatch({ type: SIDE_BAR_OPTIONS, value: javaScriptConfig });
   });
 
   return (
@@ -31,13 +31,20 @@ const JavaScript = () => {
                 name={child.id}
               >
                 {child.title}
-                {
-isAuthenticated &&
+                {isAuthenticated && (
                   <PlusCircleTwoTone
-                  style={{ marginLeft: '1rem', fontSize: '2rem' }}
-                  onClick={() =>  dispatch(addTodo({title: child.title, category: 'javascript', hashId: child.id }))}
+                    style={{ marginLeft: "1rem", fontSize: "2rem" }}
+                    onClick={() =>
+                      dispatch(
+                        addTodo({
+                          title: child.title,
+                          category: "javascript",
+                          hashId: child.id
+                        })
+                      )
+                    }
                   />
-                }
+                )}
               </h2>
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />

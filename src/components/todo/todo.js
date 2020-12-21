@@ -8,12 +8,12 @@ const columns = [
   {
     title: "Index",
     dataIndex: "index",
-    index: "index",
+    index: "index"
   },
   {
     title: "Todo",
     dataIndex: "title",
-    key: "title",
+    key: "title"
   },
   {
     title: "Action",
@@ -22,32 +22,36 @@ const columns = [
     render: (ele) => {
       return (
         <>
-          <Tag color={'geekblue'} key='visit' onClick={() => console.log(ele.id)}>
+          <Tag
+            color={"geekblue"}
+            key="visit"
+            onClick={() => console.log(ele.id)}
+          >
             <Link
               active
               to={{
                 pathname: ele.category,
-                hash: ele.hashId,
+                hash: ele.hashId
               }}
               smooth
             >
               visit
             </Link>
           </Tag>
-          <Tag color='red' key='delete' onClick={() => console.log(ele.id)}>
+          <Tag color="red" key="delete" onClick={() => console.log(ele.id)}>
             Delete
           </Tag>
         </>
       );
-    },
-  },
+    }
+  }
 ];
 
 const Todo = () => {
   const data = useSelector((state) => state.todo.getTodos);
   const dispatch = useDispatch();
   useEffect(() => {
-       dispatch(getTodos());
+    dispatch(getTodos());
   }, []);
 
   return (
