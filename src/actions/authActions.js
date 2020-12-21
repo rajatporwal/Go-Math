@@ -5,9 +5,9 @@ import { API_URLs, HttpUtil } from "../utils";
 import setAuthToken from "../utils/setAuthToken";
 import { clearError, setError, showLoader, showModal } from "./commonActions";
 
-export const registerUser = (data, header) => async (dispatch) => {
+export const registerUser = (data) => async (dispatch) => {
   dispatch(showLoader(true));
-  HttpUtil.makePOST(API_URLs.REGISTER_USER_API_URL, data, header)
+  HttpUtil.makePOST(API_URLs.REGISTER_USER_API_URL, data)
     .then((res) => {
       if (res.success) {
         dispatch(showModal(false));
@@ -30,16 +30,15 @@ export const registerUser = (data, header) => async (dispatch) => {
         err ? JSON.stringify(err) : "Something went wrong, please try again",
         true
       );
-      console.log("Error", "Something went wrong.", err);
     })
     .finally(() => {
       dispatch(showLoader(false));
     });
 };
 
-export const loginUser = (data, header) => async (dispatch) => {
+export const loginUser = (data) => async (dispatch) => {
   dispatch(showLoader(true));
-  HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data, header)
+  HttpUtil.makePOST(API_URLs.LOGIN_USER_API_URL, data)
     .then((res) => {
       if (res.success) {
         dispatch(showModal(false));
@@ -68,7 +67,6 @@ export const loginUser = (data, header) => async (dispatch) => {
         err ? JSON.stringify(err) : "Something went wrong, please try again",
         true
       );
-      console.log("Error", "Something went wrong.", err);
     })
     .finally(() => {
       dispatch(showLoader(false));

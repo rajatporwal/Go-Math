@@ -1,8 +1,36 @@
-import { ADD_TODO } from "./types"
+import Banner from "../common/notification/notification";
+import { API_URLs, HttpUtil } from "../utils"
+import { clearError, setError, showLoader } from "./commonActions";
+import { ADD_TODO, SET_TODO } from "./types"
 
 export const setTodo = (todo) => {
     return {
-        type: ADD_TODO,
+        type: SET_TODO,
         payload: todo
     }
 }
+
+export const getTodos = () => async (dispatch) => {
+    dispatch(showLoader(true));
+    HttpUtil.makeGET(API_URLs.TODO_API_URL).then((res) => {
+        if(res.success) {
+            dispatch(setTodo(res.data.todos));
+            dispatch(clearError());
+            Banner("Success", "Records Fetched Successfully");
+        } else {
+                      dispatch(setError(res.data));
+                      Banner("Something went wrong !!", JSON.stringify(res.data || res.message), true);
+                    }
+                    return res;
+    }).catch((err) => {
+                Banner(
+                  "Error",
+                  err ? JSON.stringify(err) : "Something went wrong, please try again",
+                  true
+                );
+                console.log("Error", "Something went wrong.", err);
+              })
+              .finally(() => {
+                dispatch(showLoader(false));
+              });
+};

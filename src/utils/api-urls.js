@@ -3,5 +3,6 @@ const GO_MATH_APP_URL = 'https://gomath.herokuapp.com';
 
 export const API_URLs = {
     LOGIN_USER_API_URL: `${GO_MATH_APP_URL}/api/users/login`,
-    REGISTER_USER_API_URL: `${GO_MATH_APP_URL}/api/users/register`
+    REGISTER_USER_API_URL: `${GO_MATH_APP_URL}/api/users/register`,
+    TODO_API_URL: `${GO_MATH_APP_URL}/api/todo`
 }

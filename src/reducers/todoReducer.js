@@ -1,11 +1,15 @@
-import { ADD_TODO } from "../actions/types";
+import { ADD_TODO, SET_TODO } from "../actions/types";
 
-const initialState = []
+const initialState = {
+  getTodos: [],
+  addTodo: {}
+};
+
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ADD_TODO:
-        return [...state, action.payload];
+    case SET_TODO:
+        return {...state, getTodos: action.payload};
     default:
       return state;
   }

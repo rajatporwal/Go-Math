@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Table, Tag } from "antd";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HashLink as Link } from "react-router-hash-link";
+import { getTodos } from "../../actions/todoActions";
 
 const columns = [
   {
@@ -18,13 +19,22 @@ const columns = [
     title: "Action",
     dataIndex: "action",
     key: "action",
-    render: (id) => {
+    render: (ele) => {
       return (
         <>
-          <Tag color={'geekblue'} key='visit' onClick={() => console.log(id)}>
-            Visit
+          <Tag color={'geekblue'} key='visit' onClick={() => console.log(ele.id)}>
+            <Link
+              active
+              to={{
+                pathname: ele.category,
+                hash: ele.hashId,
+              }}
+              smooth
+            >
+              visit
+            </Link>
           </Tag>
-          <Tag color='red' key='delete' onClick={() => console.log(id)}>
+          <Tag color='red' key='delete' onClick={() => console.log(ele.id)}>
             Delete
           </Tag>
         </>
@@ -34,7 +44,11 @@ const columns = [
 ];
 
 const Todo = () => {
-  const data = useSelector((state) => state.todo);
+  const data = useSelector((state) => state.todo.getTodos);
+  const dispatch = useDispatch();
+  useEffect(() => {
+       dispatch(getTodos());
+  }, []);
 
   return (
     <div className="javascript">
@@ -42,19 +56,7 @@ const Todo = () => {
         columns={columns}
         dataSource={data.map((d, i) => {
           d["index"] = i + 1;
-          d["pathname"] = (
-            <Link
-              active
-              to={{
-                pathname: d.category,
-                hash: d.child,
-              }}
-              smooth
-            >
-              click here
-            </Link>
-          );
-          d["action"] = { id: "abc" };
+          d["action"] = d;
           return d;
         })}
       />

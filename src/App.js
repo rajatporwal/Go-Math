@@ -20,7 +20,6 @@ const { Content } = Layout;
 const antIcon = <LoadingOutlined style={{ fontSize: 24, zIndex: 1 }} spin />;
 // Check for token
 if (localStorage.jwtToken) {
-  console.log('localStorage', localStorage.jwtToken);
   // Set auth token header auth
   setAuthToken(localStorage.jwtToken);
   // Decode token and get user info and exp
