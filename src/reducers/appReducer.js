@@ -3,7 +3,7 @@ import {
   SHOW_MODAL,
   SIDE_BAR,
   SIDE_BAR_OPTIONS,
-  USER_DETAIL
+  TABLE_PROPS
 } from "../actions/types";
 
 const initialState = {
@@ -12,7 +12,11 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   userDetail: {},
-  showModal: false
+  showModal: false,
+  tableProps: {
+    showIndex: false,
+    showBorder: false,
+  }
 };
 
 function appReducer(state = initialState, action) {
@@ -25,8 +29,8 @@ function appReducer(state = initialState, action) {
       return { ...state, isLoading: action.payload };
     case SHOW_MODAL:
       return { ...state, showModal: action.payload };
-    case USER_DETAIL:
-      return { ...state, userDetail: action.value };
+    case TABLE_PROPS:
+      return { ...state, tableProps: action.payload };
     default:
       return state;
   }

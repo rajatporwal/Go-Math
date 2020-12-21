@@ -1,11 +1,22 @@
 import React, { useEffect } from "react";
-import { Table, Tag } from "antd";
+import { Table, Tag, Switch, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { HashLink as Link } from "react-router-hash-link";
 import { getTodos, deleteTodo } from "../../actions/todoActions";
+import { setTableProps } from "../../actions/commonActions";
+
+const addIndex = [
+  {
+    title: "Index",
+    dataIndex: "index",
+    key: "index",
+    width: 10
+  }
+];
 
 const Todo = () => {
   const data = useSelector((state) => state.todo.getTodos);
+  const tableProps = useSelector((state) => state.appReducer.tableProps);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,11 +24,6 @@ const Todo = () => {
   }, []);
 
   const columns = [
-    {
-      title: "Index",
-      dataIndex: "index",
-      index: "index"
-    },
     {
       title: "Todo",
       dataIndex: "title",
@@ -27,6 +33,7 @@ const Todo = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
+      width: 155,
       render: (ele) => {
         return (
           <>
@@ -56,13 +63,19 @@ const Todo = () => {
 
   return (
     <div className="javascript">
+       <Space align="center" style={{ marginBottom: 10 }}>
+        Index:
+        <Switch checked={tableProps.showIndex} onChange={() => dispatch(setTableProps({...tableProps, showIndex: !tableProps.showIndex}))} />
+        Border: <Switch checked={tableProps.showBorder} onChange={() => dispatch(setTableProps({...tableProps, showBorder: !tableProps.showBorder}))} />
+      </Space>
       <Table
-        columns={columns}
+        columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
         dataSource={data.map((d, i) => {
           d["index"] = i + 1;
           d["action"] = d;
           return d;
         })}
+        bordered={tableProps.showBorder}
       />
     </div>
   );
