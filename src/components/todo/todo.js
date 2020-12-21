@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Table, Tag, Switch, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 import { getTodos, deleteTodo } from "../../actions/todoActions";
 import { setTableProps } from "../../actions/commonActions";
@@ -17,7 +18,13 @@ const addIndex = [
 const Todo = () => {
   const data = useSelector((state) => state.todo.getTodos);
   const tableProps = useSelector((state) => state.appReducer.tableProps);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+  let history = useHistory();
+
+  if(!isAuthenticated) {
+    history.push("/home");
+  }
 
   useEffect(() => {
     dispatch(getTodos());
