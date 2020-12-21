@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_TODO } from "../actions/types";
+import { SET_TODO } from "../actions/types";
 
 const initialState = {
   getTodos: [],

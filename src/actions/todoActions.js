@@ -1,13 +1,33 @@
 import Banner from "../common/notification/notification";
 import { API_URLs, HttpUtil } from "../utils"
 import { clearError, setError, showLoader } from "./commonActions";
-import { ADD_TODO, SET_TODO } from "./types"
+import { SET_TODO } from "./types"
 
 export const setTodo = (todo) => {
     return {
         type: SET_TODO,
         payload: todo
     }
+}
+
+export const addTodo = (data) => async (dispatch) => {
+    dispatch(showLoader(true));
+    setTimeout(function(){ dispatch(showLoader(false)) }, 500);
+    HttpUtil.makePOST(API_URLs.TODO_API_URL, data).then((res) => {
+        console.log('res', res)
+        if(res.success) {
+            Banner("Success", res.data.message);
+        } else {
+            Banner("Success", res.data.message || res.data);
+        }
+        return res;
+    }).catch((err) => {
+        Banner(
+          "Error",
+          err ? JSON.stringify(err) : "Something went wrong, please try again",
+          true
+        );
+      })
 }
 
 export const getTodos = () => async (dispatch) => {
