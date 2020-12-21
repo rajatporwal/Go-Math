@@ -1,4 +1,4 @@
-import { CLEAR_ERROR, GET_ERRORS, IS_LOADING, SHOW_MODAL, TABLE_PROPS } from "./types";
+import { GET_ERRORS, IS_LOADING, SHOW_MODAL, TABLE_PROPS } from "./types";
 
 export const showLoader = (loading) => {
   return {
@@ -25,12 +25,5 @@ export const setError = (errors) => {
   return {
     type: GET_ERRORS,
     payload: errors
-  };
-};
-
-export const clearError = () => {
-  return {
-    type: CLEAR_ERROR,
-    payload: {}
   };
 };

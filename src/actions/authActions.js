@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "../actions/types";
 import { API_URLs, HttpUtil } from "../utils";
 import setAuthToken from "../utils/setAuthToken";
-import { clearError, setError, showLoader, showModal } from "./commonActions";
+import { setError, showLoader, showModal } from "./commonActions";
 
 export const registerUser = (data) => async (dispatch) => {
   dispatch(showLoader(true));
@@ -11,7 +11,7 @@ export const registerUser = (data) => async (dispatch) => {
     .then((res) => {
       if (res.success) {
         dispatch(showModal(false));
-        dispatch(clearError());
+        dispatch(setError({}));
         Banner("Success", "User registerd successfully. Please login.");
         dispatch(showModal(true));
       } else {
@@ -53,7 +53,7 @@ export const loginUser = (data) => async (dispatch) => {
         // Set current user
         dispatch(setCurrentUser(decoded));
 
-        dispatch(clearError());
+        dispatch(setError({}));
         Banner("Success", "Login Successfull");
       } else {
         dispatch(setError(res.data));

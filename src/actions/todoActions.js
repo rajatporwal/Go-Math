@@ -1,6 +1,6 @@
 import Banner from "../common/notification/notification";
 import { API_URLs, HttpUtil } from "../utils";
-import { clearError, setError, showLoader } from "./commonActions";
+import { setError, showLoader } from "./commonActions";
 import { SET_TODO } from "./types";
 
 export const setTodo = (todo) => {
@@ -40,7 +40,7 @@ export const getTodos = () => async (dispatch) => {
     .then((res) => {
       if (res.success) {
         dispatch(setTodo(res.data.todos));
-        dispatch(clearError());
+        dispatch(setError({}));
         Banner("Success", "Records Fetched Successfully");
       } else {
         dispatch(setError(res.data));
