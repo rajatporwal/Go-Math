@@ -18,8 +18,8 @@ export const setTableProps = (props) => {
   return {
     type: TABLE_PROPS,
     payload: props
-  }
-}
+  };
+};
 
 export const setError = (errors) => {
   return {

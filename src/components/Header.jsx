@@ -49,12 +49,11 @@ export default () => {
         <Menu.Item key="7">
           <Link to="/conversion">Conversion</Link>
         </Menu.Item>
-        {
-          isAuthenticated &&
-        <Menu.Item key="todo">
-          <Link to="/todo">Todo</Link>
-        </Menu.Item>
-        }
+        {isAuthenticated && (
+          <Menu.Item key="todo">
+            <Link to="/todo">Todo</Link>
+          </Menu.Item>
+        )}
         <div key="login" style={{ float: "right", marginRight: "5rem" }}>
           {isAuthenticated ? (
             <Button

@@ -7,7 +7,7 @@ import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import questionsConfig from "../../config/questionsConfig";
 import { Table, Switch, Space, Checkbox } from "antd";
 import { HOME_ROUTES } from "../Home/index";
-import { setTableProps } from '../../actions/commonActions';
+import { setTableProps } from "../../actions/commonActions";
 
 const Questions = () => {
   const [queCategory, setQueCategory] = useState([]);
@@ -122,8 +122,26 @@ const Questions = () => {
       <hr />
       <Space align="center" style={{ marginBottom: 10 }}>
         Index:
-        <Switch checked={tableProps.showIndex} onChange={() => dispatch(setTableProps({...tableProps, showIndex: !tableProps.showIndex}))} />
-        Border: <Switch checked={tableProps.showBorder} onChange={() => dispatch(setTableProps({...tableProps, showBorder: !tableProps.showBorder}))} />
+        <Switch
+          checked={tableProps.showIndex}
+          onChange={() =>
+            dispatch(
+              setTableProps({ ...tableProps, showIndex: !tableProps.showIndex })
+            )
+          }
+        />
+        Border:{" "}
+        <Switch
+          checked={tableProps.showBorder}
+          onChange={() =>
+            dispatch(
+              setTableProps({
+                ...tableProps,
+                showBorder: !tableProps.showBorder
+              })
+            )
+          }
+        />
       </Space>
       <Table
         columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}

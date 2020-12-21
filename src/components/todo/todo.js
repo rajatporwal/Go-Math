@@ -18,11 +18,11 @@ const addIndex = [
 const Todo = () => {
   const data = useSelector((state) => state.todo.getTodos);
   const tableProps = useSelector((state) => state.appReducer.tableProps);
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   let history = useHistory();
 
-  if(!isAuthenticated) {
+  if (!isAuthenticated) {
     history.push("/home");
   }
 
@@ -44,10 +44,7 @@ const Todo = () => {
       render: (ele) => {
         return (
           <>
-            <Tag
-              color={"geekblue"}
-              key="visit"
-            >
+            <Tag color={"geekblue"} key="visit">
               <Link
                 active
                 to={{
@@ -59,7 +56,12 @@ const Todo = () => {
                 visit
               </Link>
             </Tag>
-            <Tag color="red" key="delete" style={{cursor: 'pointer'}} onClick={() => dispatch(deleteTodo(ele._id))}>
+            <Tag
+              color="red"
+              key="delete"
+              style={{ cursor: "pointer" }}
+              onClick={() => dispatch(deleteTodo(ele._id))}
+            >
               Delete
             </Tag>
           </>
@@ -70,10 +72,28 @@ const Todo = () => {
 
   return (
     <div className="javascript">
-       <Space align="center" style={{ marginBottom: 10 }}>
+      <Space align="center" style={{ marginBottom: 10 }}>
         Index:
-        <Switch checked={tableProps.showIndex} onChange={() => dispatch(setTableProps({...tableProps, showIndex: !tableProps.showIndex}))} />
-        Border: <Switch checked={tableProps.showBorder} onChange={() => dispatch(setTableProps({...tableProps, showBorder: !tableProps.showBorder}))} />
+        <Switch
+          checked={tableProps.showIndex}
+          onChange={() =>
+            dispatch(
+              setTableProps({ ...tableProps, showIndex: !tableProps.showIndex })
+            )
+          }
+        />
+        Border:{" "}
+        <Switch
+          checked={tableProps.showBorder}
+          onChange={() =>
+            dispatch(
+              setTableProps({
+                ...tableProps,
+                showBorder: !tableProps.showBorder
+              })
+            )
+          }
+        />
       </Space>
       <Table
         columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}

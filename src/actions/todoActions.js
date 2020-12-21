@@ -83,7 +83,8 @@ export const deleteTodo = (id) => async (dispatch) => {
         err ? JSON.stringify(err) : "Something went wrong, please try again",
         true
       );
-    }).finally(() => {
+    })
+    .finally(() => {
       dispatch(showLoader(false));
     });
 };
