@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import dataStructureConfig from "../../config/dataStructureConfig";
-import { Table, Checkbox } from "antd";
+import React from "react";
 
 const Interview = () => <div>WIP</div>
 
