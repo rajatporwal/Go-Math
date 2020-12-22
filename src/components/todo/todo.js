@@ -28,7 +28,7 @@ const Todo = () => {
 
   useEffect(() => {
     dispatch(getTodos());
-  }, []);
+  }, [dispatch]);
 
   const columns = [
     {
