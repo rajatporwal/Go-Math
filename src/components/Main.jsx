@@ -9,6 +9,7 @@ import Conversion from "./Conversion";
 import DataStructure from "./DataStructure";
 import ReactJS from "./React";
 import Todo from "./todo/todo";
+import Interview from "./Interview/Interview";
 
 const Main = () => (
   <main>
@@ -22,6 +23,7 @@ const Main = () => (
       <Route exact path="/conversion" component={Conversion} />
       <Route exact path="/ds" component={DataStructure} />
       <Route exact path="/todo" component={Todo} />
+      <Route exact path="/interview" component={Interview} />
       <Route
         path="*"
         render={() => {
