@@ -16,6 +16,7 @@ const { Header } = Layout;
 export default () => {
   const sideBar = useSelector((state) => state.appReducer.sideBar);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAdmin = useSelector((state) => state.auth.isAdmin);
   const dispatch = useDispatch();
 
   return (
@@ -49,6 +50,13 @@ export default () => {
         <Menu.Item key="7">
           <Link to="/conversion">Conversion</Link>
         </Menu.Item>
+        {
+          isAdmin && isAuthenticated && (
+            <Menu.Item key="interview">
+            <Link to="/interview">Interview</Link>
+          </Menu.Item>
+          )
+        }
         {isAuthenticated && (
           <Menu.Item key="todo">
             <Link to="/todo">Todo</Link>
