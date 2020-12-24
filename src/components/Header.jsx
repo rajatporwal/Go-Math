@@ -52,8 +52,8 @@ export default () => {
         </Menu.Item>
         {
           isAdmin && isAuthenticated && (
-            <Menu.Item key="interview">
-            <Link to="/interview">Interview</Link>
+            <Menu.Item key="admin">
+            <Link to="/admin">Admin</Link>
           </Menu.Item>
           )
         }

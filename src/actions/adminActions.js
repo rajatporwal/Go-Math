@@ -1,44 +1,21 @@
 import Banner from "../common/notification/notification";
 import { API_URLs, HttpUtil } from "../utils";
 import { setError, showLoader } from "./commonActions";
-import { SET_TODO } from "./types";
+import { SET_USERS_LIST } from "./types";
 
-export const setTodo = (todo) => {
+export const setUsers = (users) => {
   return {
-    type: SET_TODO,
-    payload: todo
+    type: SET_USERS_LIST,
+    payload: users
   };
 };
 
-export const addTodo = (data) => async (dispatch) => {
+export const getUsersList = () => async (dispatch) => {
   dispatch(showLoader(true));
-  setTimeout(function () {
-    dispatch(showLoader(false));
-  }, 500);
-  HttpUtil.makePOST(API_URLs.TODO_API_URL, data)
+  HttpUtil.makeGET(`${API_URLs.ADMIN_API_URL}/users`)
     .then((res) => {
       if (res.success) {
-        Banner("Success", res.data.message);
-      } else {
-        Banner("Success", res.data.message || res.data);
-      }
-      return res;
-    })
-    .catch((err) => {
-      Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
-        true
-      );
-    });
-};
-
-export const getTodos = () => async (dispatch) => {
-  dispatch(showLoader(true));
-  HttpUtil.makeGET(API_URLs.TODO_API_URL)
-    .then((res) => {
-      if (res.success) {
-        dispatch(setTodo(res.data.todos));
+        dispatch(setUsers(res.data));
         dispatch(setError({}));
         Banner("Success", "Records Fetched Successfully");
       } else {
@@ -63,16 +40,16 @@ export const getTodos = () => async (dispatch) => {
     });
 };
 
-export const deleteTodo = (id) => async (dispatch) => {
+export const deleteUser = (id) => async (dispatch) => {
   dispatch(showLoader(true));
-  HttpUtil.makeDELETE(`${API_URLs.TODO_API_URL}/${id}`)
+  HttpUtil.makeDELETE(`${API_URLs.ADMIN_API_URL}/users/${id}`)
     .then((res) => {
       if (res.success) {
         Banner("Success", res.data.message);
+        dispatch(getUsersList());
       } else {
-        Banner("Success", res.data.message || res.data);
+        Banner("Error", res.data.message || res.data, true);
       }
-      dispatch(setTodo(res.data.todo));
       return res;
     })
     .catch((err) => {

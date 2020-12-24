@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { Table, Tag, Switch, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
-import { getTodos, deleteTodo } from "../../actions/todoActions";
+import { deleteUser } from "../../actions/adminActions";
 import { setTableProps } from "../../actions/commonActions";
-import isEmpty from "../../validation/is-empty";
+import { getUsersList } from "../../actions/adminActions";
 
 const addIndex = [
   {
@@ -16,26 +15,32 @@ const addIndex = [
   }
 ];
 
-const Todo = () => {
-  const data = useSelector((state) => state.todo.getTodos);
+const Admin = () => {
+  const data = useSelector((state) => state.admin.usersList);
   const tableProps = useSelector((state) => state.appReducer.tableProps);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAdmin = useSelector((state) => state.auth.isAdmin);
   const dispatch = useDispatch();
   let history = useHistory();
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !isAdmin) {
     history.push("/home");
   }
 
   useEffect(() => {
-    dispatch(getTodos());
+    dispatch(getUsersList());
   }, [dispatch]);
 
   const columns = [
     {
-      title: "Todo",
-      dataIndex: "title",
-      key: "title"
+      title: "Name",
+      dataIndex: "name",
+      key: "name"
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email"
     },
     {
       title: "Action",
@@ -45,26 +50,17 @@ const Todo = () => {
       render: (ele) => {
         return (
           <>
-            <Tag color={"geekblue"} key="visit">
-              <Link
-                active
-                to={{
-                  pathname: ele.category,
-                  hash: ele.hashId
-                }}
-                smooth
-              >
-                visit
-              </Link>
-            </Tag>
+            {
+                !ele.userRole.includes('admin') &&
             <Tag
-              color="red"
-              key="delete"
-              style={{ cursor: "pointer" }}
-              onClick={() => dispatch(deleteTodo(ele._id))}
+            color="red"
+            key="delete"
+            style={{ cursor: "pointer" }}
+            onClick={() => dispatch(deleteUser(ele.id))}
             >
               Delete
             </Tag>
+        }
           </>
         );
       }
@@ -96,20 +92,17 @@ const Todo = () => {
           }
         />
       </Space>
-      {
-        isEmpty(data) ? 'No Records Found' : 
       <Table
-      columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
-      dataSource={data.map((d, i) => {
-        d["index"] = i + 1;
-        d["action"] = d;
-        return d;
-      })}
-      bordered={tableProps.showBorder}
+        columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
+        dataSource={data.map((d, i) => {
+          d["index"] = i + 1;
+          d["action"] = d;
+          return d;
+        })}
+        bordered={tableProps.showBorder}
       />
-    }
     </div>
   );
 };
 
-export default Todo;
+export default Admin;
