@@ -39,7 +39,7 @@ const Todo = () => {
     },
     {
       title: "Action",
-      dataIndex: "action",
+      dataIndex: "action ",
       key: "action",
       width: 155,
       render: (ele) => {
