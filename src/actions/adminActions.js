@@ -60,6 +60,6 @@ export const deleteUser = (id) => async (dispatch) => {
       );
     })
     .finally(() => {
-       dispatch(showLoader(false));
+      dispatch(showLoader(false));
     });
 };
