@@ -1,8 +1,8 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Layout, Menu } from "antd";
-import { HashLink as Link } from "react-router-hash-link";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Layout, Menu } from 'antd';
+import { HashLink as Link } from 'react-router-hash-link';
+import { useSelector } from 'react-redux';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -14,20 +14,20 @@ const SideBar = () => {
   return (
     <Sider
       width={200}
-      className="site-layout-background"
+      className='site-layout-background'
       style={{
         marginTop: 64,
         marginBottom: 64,
-        overflow: "auto",
-        height: "100vh",
-        position: "fixed",
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
         left: 0,
-        zIndex: 1
+        zIndex: 1,
       }}
       collapsible
-      onCollapse={() => dispatch({ type: "SIDE_BAR", value: false })}
+      onCollapse={() => dispatch({ type: 'SIDE_BAR', value: false })}
     >
-      <Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
+      <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
         {sideBarOptions.map((js, j) =>
           js.heading ? (
             <SubMenu key={j} title={js.heading}>
@@ -37,7 +37,7 @@ const SideBar = () => {
                     active
                     to={{
                       pathname: js.pathname,
-                      hash: child.id
+                      hash: child.id,
                     }}
                     smooth
                   >
@@ -52,7 +52,7 @@ const SideBar = () => {
                 <Link
                   active
                   to={{
-                    pathname: child.pathname
+                    pathname: child.pathname,
                   }}
                   smooth
                 >

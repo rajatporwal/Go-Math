@@ -1,19 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import jwt_decode from "jwt-decode";
-import { BackTop, Layout, Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import jwt_decode from 'jwt-decode';
+import { BackTop, Layout, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import Header from './components/Header';
+import Footer from './components/Footer';
 // import Footer from "./components/Footer/Footer";
-import Main from "./components/Main";
-import SideBar from "./components/SideBar";
-import "./sass/main.scss";
-import "antd/dist/antd.css";
-import AuthModal from "./components/Auth/AuthModal";
-import setAuthToken from "./utils/setAuthToken";
-import { logoutUser, setCurrentUser } from "./actions/authActions";
-import store from "./store";
+import Main from './components/Main';
+import SideBar from './components/SideBar';
+import './sass/main.scss';
+import 'antd/dist/antd.css';
+import AuthModal from './components/Auth/AuthModal';
+import setAuthToken from './utils/setAuthToken';
+import { logoutUser, setCurrentUser } from './actions/authActions';
+import store from './store';
 
 const { Content } = Layout;
 
@@ -48,7 +48,7 @@ export default function App() {
         </div>
         <Layout>
           {showSideBar ? <SideBar /> : null}
-          <div className={`content ${showSideBar ? "sideBar" : ""}`}>
+          <div className={`content ${showSideBar ? 'sideBar' : ''}`}>
             <Content className="site-layout" style={{ marginTop: 64 }}>
               <div className="site-layout-background" style={{ padding: 24 }}>
                 <Spin indicator={antIcon} spinning={isLoading}>

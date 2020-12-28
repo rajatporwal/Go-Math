@@ -1,12 +1,12 @@
-import Banner from "../common/notification/notification";
-import { API_URLs, HttpUtil } from "../utils";
-import { setError, showLoader } from "./commonActions";
-import { SET_TODO } from "./types";
+import Banner from '../common/notification/notification';
+import { API_URLs, HttpUtil } from '../utils';
+import { setError, showLoader } from './commonActions';
+import { SET_TODO } from './types';
 
 export const setTodo = (todo) => {
   return {
     type: SET_TODO,
-    payload: todo
+    payload: todo,
   };
 };
 
@@ -18,16 +18,16 @@ export const addTodo = (data) => async (dispatch) => {
   HttpUtil.makePOST(API_URLs.TODO_API_URL, data)
     .then((res) => {
       if (res.success) {
-        Banner("Success", res.data.message);
+        Banner('Success', res.data.message);
       } else {
-        Banner("Success", res.data.message || res.data);
+        Banner('Success', res.data.message || res.data);
       }
       return res;
     })
     .catch((err) => {
       Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        'Error',
+        err ? JSON.stringify(err) : 'Something went wrong, please try again',
         true
       );
     });
@@ -40,11 +40,11 @@ export const getTodos = () => async (dispatch) => {
       if (res.success) {
         dispatch(setTodo(res.data.todos));
         dispatch(setError({}));
-        Banner("Success", "Records Fetched Successfully");
+        Banner('Success', 'Records Fetched Successfully');
       } else {
         dispatch(setError(res.data));
         Banner(
-          "Something went wrong !!",
+          'Something went wrong !!',
           JSON.stringify(res.data || res.message),
           true
         );
@@ -53,8 +53,8 @@ export const getTodos = () => async (dispatch) => {
     })
     .catch((err) => {
       Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        'Error',
+        err ? JSON.stringify(err) : 'Something went wrong, please try again',
         true
       );
     })
@@ -68,17 +68,17 @@ export const deleteTodo = (id) => async (dispatch) => {
   HttpUtil.makeDELETE(`${API_URLs.TODO_API_URL}/${id}`)
     .then((res) => {
       if (res.success) {
-        Banner("Success", res.data.message);
+        Banner('Success', res.data.message);
       } else {
-        Banner("Success", res.data.message || res.data);
+        Banner('Success', res.data.message || res.data);
       }
       dispatch(setTodo(res.data.todo));
       return res;
     })
     .catch((err) => {
       Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        'Error',
+        err ? JSON.stringify(err) : 'Something went wrong, please try again',
         true
       );
     })
