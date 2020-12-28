@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { Table, Tag, Switch, Space } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { deleteUser } from "../../actions/adminActions";
-import { setTableProps } from "../../actions/commonActions";
-import { getUsersList } from "../../actions/adminActions";
+import React, { useEffect } from 'react';
+import { Table, Tag, Switch, Space } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { deleteUser } from '../../actions/adminActions';
+import { setTableProps } from '../../actions/commonActions';
+import { getUsersList } from '../../actions/adminActions';
 
 const addIndex = [
   {
-    title: "Index",
-    dataIndex: "index",
-    key: "index",
-    width: 10
-  }
+    title: 'Index',
+    dataIndex: 'index',
+    key: 'index',
+    width: 10,
+  },
 ];
 
 const Admin = () => {
@@ -24,7 +24,7 @@ const Admin = () => {
   let history = useHistory();
 
   if (!isAuthenticated && !isAdmin) {
-    history.push("/home");
+    history.push('/home');
   }
 
   useEffect(() => {
@@ -33,38 +33,37 @@ const Admin = () => {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name"
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
     },
     {
-      title: "Email",
-      dataIndex: "email",
-      key: "email"
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
     },
     {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
       width: 155,
       render: (ele) => {
         return (
           <>
-            {
-                !ele.userRole.includes('admin') &&
-            <Tag
-            color="red"
-            key="delete"
-            style={{ cursor: "pointer" }}
-            onClick={() => dispatch(deleteUser(ele.id))}
-            >
-              Delete
-            </Tag>
-        }
+            {!ele.userRole.includes('admin') && (
+              <Tag
+                color="red"
+                key="delete"
+                style={{ cursor: 'pointer' }}
+                onClick={() => dispatch(deleteUser(ele.id))}
+              >
+                Delete
+              </Tag>
+            )}
           </>
         );
-      }
-    }
+      },
+    },
   ];
 
   return (
@@ -79,14 +78,14 @@ const Admin = () => {
             )
           }
         />
-        Border:{" "}
+        Border:{' '}
         <Switch
           checked={tableProps.showBorder}
           onChange={() =>
             dispatch(
               setTableProps({
                 ...tableProps,
-                showBorder: !tableProps.showBorder
+                showBorder: !tableProps.showBorder,
               })
             )
           }
@@ -95,8 +94,8 @@ const Admin = () => {
       <Table
         columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
         dataSource={data.map((d, i) => {
-          d["index"] = i + 1;
-          d["action"] = d;
+          d['index'] = i + 1;
+          d['action'] = d;
           return d;
         })}
         bordered={tableProps.showBorder}

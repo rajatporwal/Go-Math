@@ -1,12 +1,12 @@
-import Banner from "../common/notification/notification";
-import { API_URLs, HttpUtil } from "../utils";
-import { setError, showLoader } from "./commonActions";
-import { SET_USERS_LIST } from "./types";
+import Banner from '../common/notification/notification';
+import { API_URLs, HttpUtil } from '../utils';
+import { setError, showLoader } from './commonActions';
+import { SET_USERS_LIST } from './types';
 
 export const setUsers = (users) => {
   return {
     type: SET_USERS_LIST,
-    payload: users
+    payload: users,
   };
 };
 
@@ -17,11 +17,11 @@ export const getUsersList = () => async (dispatch) => {
       if (res.success) {
         dispatch(setUsers(res.data));
         dispatch(setError({}));
-        Banner("Success", "Records Fetched Successfully");
+        Banner('Success', 'Records Fetched Successfully');
       } else {
         dispatch(setError(res.data));
         Banner(
-          "Something went wrong !!",
+          'Something went wrong !!',
           JSON.stringify(res.data || res.message),
           true
         );
@@ -30,8 +30,8 @@ export const getUsersList = () => async (dispatch) => {
     })
     .catch((err) => {
       Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        'Error',
+        err ? JSON.stringify(err) : 'Something went wrong, please try again',
         true
       );
     })
@@ -45,17 +45,17 @@ export const deleteUser = (id) => async (dispatch) => {
   HttpUtil.makeDELETE(`${API_URLs.ADMIN_API_URL}/users/${id}`)
     .then((res) => {
       if (res.success) {
-        Banner("Success", res.data.message);
+        Banner('Success', res.data.message);
         dispatch(getUsersList());
       } else {
-        Banner("Error", res.data.message || res.data, true);
+        Banner('Error', res.data.message || res.data, true);
       }
       return res;
     })
     .catch((err) => {
       Banner(
-        "Error",
-        err ? JSON.stringify(err) : "Something went wrong, please try again",
+        'Error',
+        err ? JSON.stringify(err) : 'Something went wrong, please try again',
         true
       );
     })

@@ -1,6 +1,6 @@
-import React from "react";
-import { Tabs } from "antd";
-import Login from "./Login";
+import React from 'react';
+import { Tabs } from 'antd';
+import Login from './Login';
 
 const { TabPane } = Tabs;
 
