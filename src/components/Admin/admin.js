@@ -66,6 +66,12 @@ const Admin = () => {
     },
   ];
 
+  const addLink = data.map((item, i) => ({
+    ...item,
+    index: i + 1,
+    action: { id: item.id, userRole: item.userRole },
+  }));
+
   return (
     <div className="javascript">
       <Space align="center" style={{ marginBottom: 10 }}>
@@ -91,15 +97,13 @@ const Admin = () => {
           }
         />
       </Space>
-      <Table
-        columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
-        dataSource={data.map((d, i) => {
-          d['index'] = i + 1;
-          d['action'] = d;
-          return d;
-        })}
-        bordered={tableProps.showBorder}
-      />
+      {addLink.length > 0 && (
+        <Table
+          columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
+          dataSource={addLink}
+          bordered={tableProps.showBorder}
+        />
+      )}
     </div>
   );
 };

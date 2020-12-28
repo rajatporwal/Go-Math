@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
-import { Table, Tag, Switch, Space } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
-import { getTodos, deleteTodo } from "../../actions/todoActions";
-import { setTableProps } from "../../actions/commonActions";
-import isEmpty from "../../validation/is-empty";
+import React, { useEffect } from 'react';
+import { Table, Tag, Switch, Space } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import { getTodos, deleteTodo } from '../../actions/todoActions';
+import { setTableProps } from '../../actions/commonActions';
 
 const addIndex = [
   {
-    title: "Index",
-    dataIndex: "index",
-    key: "index",
-    width: 10
-  }
+    title: 'Index',
+    dataIndex: 'index',
+    key: 'index',
+    width: 10,
+  },
 ];
 
 const Todo = () => {
@@ -24,7 +23,7 @@ const Todo = () => {
   let history = useHistory();
 
   if (!isAuthenticated) {
-    history.push("/home");
+    history.push('/home');
   }
 
   useEffect(() => {
@@ -33,24 +32,24 @@ const Todo = () => {
 
   const columns = [
     {
-      title: "Todo",
-      dataIndex: "title",
-      key: "title"
+      title: 'Todo',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
-      title: "Action",
-      dataIndex: "action ",
-      key: "action",
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
       width: 155,
       render: (ele) => {
         return (
           <>
-            <Tag color={"geekblue"} key="visit">
+            <Tag color={'geekblue'} key="visit">
               <Link
                 active
                 to={{
                   pathname: ele.category,
-                  hash: ele.hashId
+                  hash: ele.hashId,
                 }}
                 smooth
               >
@@ -60,16 +59,22 @@ const Todo = () => {
             <Tag
               color="red"
               key="delete"
-              style={{ cursor: "pointer" }}
-              onClick={() => dispatch(deleteTodo(ele._id))}
+              style={{ cursor: 'pointer' }}
+              onClick={() => dispatch(deleteTodo(ele.id))}
             >
               Delete
             </Tag>
           </>
         );
-      }
-    }
+      },
+    },
   ];
+
+  const addLink = data.map((item, i) => ({
+    ...item,
+    index: i + 1,
+    action: { id: item._id, category: item.category, hashId: item.hashId },
+  }));
 
   return (
     <div className="javascript">
@@ -83,31 +88,26 @@ const Todo = () => {
             )
           }
         />
-        Border:{" "}
+        Border:{' '}
         <Switch
           checked={tableProps.showBorder}
           onChange={() =>
             dispatch(
               setTableProps({
                 ...tableProps,
-                showBorder: !tableProps.showBorder
+                showBorder: !tableProps.showBorder,
               })
             )
           }
         />
       </Space>
-      {
-        isEmpty(data) ? 'No Records Found' : 
-      <Table
-      columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
-      dataSource={data.map((d, i) => {
-        d["index"] = i + 1;
-        d["action"] = d;
-        return d;
-      })}
-      bordered={tableProps.showBorder}
-      />
-    }
+      {addLink.length > 0 && (
+        <Table
+          columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
+          dataSource={addLink}
+          bordered={tableProps.showBorder}
+        />
+      )}
     </div>
   );
 };
