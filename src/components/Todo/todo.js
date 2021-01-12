@@ -22,13 +22,13 @@ const Todo = () => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  if (!isAuthenticated) {
-    history.push('/home');
-  }
-
   useEffect(() => {
+    if (!isAuthenticated) {
+      history.push('/home');
+      return;
+    }
     dispatch(getTodos());
-  }, [dispatch]);
+  }, [dispatch, isAuthenticated, history]);
 
   const columns = [
     {
