@@ -4,7 +4,7 @@ import { Button, Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
   UserAddOutlined,
-  LogoutOutlined
+  LogoutOutlined,
 } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { SIDE_BAR } from "../actions/types";

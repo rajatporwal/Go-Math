@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import questionsConfig from "../../config/questionsConfig";
-import { Table, Switch, Space, Checkbox } from "antd";
+import { Checkbox, Table, Switch, Space } from "antd";
 import { HOME_ROUTES } from "../Home/index";
 import { setTableProps } from "../../actions/commonActions";
 
@@ -157,6 +157,9 @@ const Questions = () => {
             {ele.question}
           </h2>
           <hr />
+          {ele.directions ? (
+            <p dangerouslySetInnerHTML={{ __html: ele.directions }} />
+          ) : null}
           {ele.solution.map((s, i) => (
             <>
               {s.title ? (
