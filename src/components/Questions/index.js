@@ -117,6 +117,22 @@ const Questions = () => {
             Conversion
           </Checkbox>
         </div>
+        <div>
+          <Checkbox
+            onChange={() => onCategoryChange("javascript")}
+            checked={queCategory.includes("javascript")}
+          >
+            Javascript
+          </Checkbox>
+        </div>
+        <div>
+          <Checkbox
+            onChange={() => onCategoryChange("object")}
+            checked={queCategory.includes("object")}
+          >
+            Object
+          </Checkbox>
+        </div>
       </div>
       <br />
       <hr />

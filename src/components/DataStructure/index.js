@@ -61,6 +61,9 @@ const DataStructure = () => {
         <div>
           <Checkbox onChange={() => onCategoryChange("map")}>Map</Checkbox>
         </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("bst")}>BST</Checkbox>
+        </div>
       </div>
       <br />
       {filteredData.map((ele) => (

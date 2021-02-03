@@ -25,6 +25,14 @@ const QUESTIONS_ROUTES = [
   {
     title: "Conversion",
     id: "conversion"
+  },
+  {
+    title: "Javascript",
+    id: "javascript"
+  },
+  {
+    title: "Object",
+    id: "object"
   }
 ];
 
