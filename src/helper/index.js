@@ -9,6 +9,8 @@ import STRING_HELPER from "./stringHelper";
 import OBJECT_HELPER from "./objectHelper";
 import MAP_HELPER from "./mapHelper";
 import SET_HELPER from "./setHelper";
+import LINKED_LIST_HELPER from "./linkedListHelper";
+import BINARY_SEARCH_TREE_HELPER from "./binarySearchTreeHelper";
 
 export {
   binaryToAll,
@@ -19,5 +21,7 @@ export {
   STRING_HELPER,
   OBJECT_HELPER,
   MAP_HELPER,
-  SET_HELPER
+  SET_HELPER,
+  LINKED_LIST_HELPER,
+  BINARY_SEARCH_TREE_HELPER
 };

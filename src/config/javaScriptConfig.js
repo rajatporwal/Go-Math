@@ -275,6 +275,31 @@ weird();  // Reference error: height is not defined`
         note: "IIFE are self invoked function, there is no need to call them."
       },
       {
+        title: "callback functions",
+        id: "callback",
+        description: `A callback function is a function that is passed to another function as an argument and is executed after some operation has been completed. 
+        <br /><br />
+        Below is an example of a simple callback function that logs to the console after some operations have been completed.`,
+        code: [
+          {
+            title: null,
+            code: `function modifyArray(arr, callback) {
+  // do something to arr here
+  arr.push(100);
+  // then execute the callback function that was passed
+  callback();
+}
+
+var arr = [1, 2, 3, 4, 5];
+
+modifyArray(arr, function() {
+  console.log("array has been modified", arr);
+});`
+          }
+        ],
+        note: null
+      },
+      {
         title: "this",
         id: "this",
         description: `The <b>JavaScript</b> this keyword refers to the object it belongs to. In a function, this refers to the global object. In a function, in strict mode, this is undefined . In an event, this refers to the element that received the event.
@@ -474,6 +499,17 @@ d.say()		// { name: 'jay', say: [Function] }
           }
         ],
         note: "Every function has call, apply and bind property."
+      },
+      {
+        title: "target vs current target",
+        id: "target_current_target",
+        description: `<b>target</b> is the element that triggered the event (e.g., the user clicked on) 
+        <br /><br />
+        <b>currentTarget</b> is the element that the event listener is attached to.
+`,
+        list: null,
+        code: null,
+        note: null
       },
       {
         title: "Arrow function vs Regular Function",

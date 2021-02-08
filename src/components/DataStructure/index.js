@@ -51,7 +51,7 @@ const DataStructure = () => {
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("linked-list")}>
+          <Checkbox onChange={() => onCategoryChange("linked_list")}>
             Linked List
           </Checkbox>
         </div>
@@ -60,6 +60,9 @@ const DataStructure = () => {
         </div>
         <div>
           <Checkbox onChange={() => onCategoryChange("map")}>Map</Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange("bst")}>BST</Checkbox>
         </div>
       </div>
       <br />

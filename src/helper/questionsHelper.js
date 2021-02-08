@@ -78,3 +78,91 @@ export const VOWEL_COUNT = {
     return matches ? matches.length : 0;
   }`
 };
+
+export const PALINDROME = {
+  usingEvery: `// palindrome("abba") === true
+// palindrome("abcdefg") === false
+          
+  function palindrome(str) {
+    return str.split('').every((char, i) => {
+      return char === str[str.length - i - 1];
+    });
+  }`,
+  usingReverse: `function palindrome(str) {
+    const reversed = str
+      .split('')
+      .reverse()
+      .join('');
+  
+    return str === reversed;
+  }`
+};
+
+export const ANAGRAMS = {
+  usingInbuiltMethods: `function anagrams(stringA, stringB) {
+    return cleanString(stringA) === cleanString(stringB);
+  }
+  
+function cleanString(str) {
+  return str
+    .replace(/[^\\w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('');
+}`,
+  withoutUsingInbuiltMethods: `function anagrams(stringA, stringB) {
+  const aCharMap = buildCharMap(stringA);
+  const bCharMap = buildCharMap(stringB);
+
+  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+    return false;
+  }
+    
+  for (let char in aCharMap) {
+    if (aCharMap[char] !== bCharMap[char]) {
+      return false;
+    }
+  }
+    return true;
+  }
+    
+  function buildCharMap(str) {
+    const charMap = {};
+
+    for (let char of str.replace(/[^\\w]/g, '').toLowerCase()) {
+      charMap[char] = charMap[char] + 1 || 1;
+    }
+
+  return charMap;
+ }`
+};
+
+export const ARRAY_CHUNKING = {
+  usingInbuiltMethods: `function chunk(array, size) {
+  const chunked = [];
+  let index = 0;
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+
+  return chunked;
+}`,
+  withoutUsingInbuiltMethods: `function chunk(arr, chunk) {
+  const chunked = [];
+  let count = [];
+
+  for(var ele of arr) {
+    if(count.length === chunk) {
+      chunked.push(count);
+      count = [];
+    }
+      count.push(ele);
+  }
+
+  chunked.push(count)
+  return chunked;
+}`
+};
