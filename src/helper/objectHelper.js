@@ -1,49 +1,53 @@
-import { OBJECT_FOR_IN } from "./common";
+import { OBJECT_FOR_IN } from './common';
 
 const OBJECT_HELPER = {
-  heading: "Object",
-  category: "object",
-  pathname: "/ds",
+  heading: 'Object',
+  category: 'object',
+  pathname: '/ds',
   children: [
     {
-      title: "Object.values",
-      id: "object/values",
-      description: `The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)`,
+      title: 'Object.values',
+      id: 'object/values',
+      description:
+        "The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)",
       list: null,
       code: [
         {
           title: null,
           code: `const obj = { 0: '23', 1: 'geeks', 2: 'true' };
 
-Object.values(obj);   // output: [23, "geeks", true]`
-        }
+Object.values(obj);   // output: [23, "geeks", true]`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Object.keys",
-      id: "object/keys",
-      description: `The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.`,
+      title: 'Object.keys',
+      id: 'object/keys',
+      description:
+        "The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.",
       list: null,
       code: [
         {
           title: null,
           code: `const obj = { 'index': '23', 'value': 'geeks', 'type': 'true' };
 
-Object.keys(obj);   // output: ["index", "value", "type"]`
+Object.keys(obj);   // output: ["index", "value", "type"]`,
         },
         {
-          title: `If we use Object.keys in array then it will return index of the elements.`,
+          title:
+            'If we use Object.keys in array then it will return index of the elements.',
           code: `var check = ['x', 'y', 'z'];
 
-Object.keys(check);  // output: ["0", "1", "2"]`
-        }
-      ]
+Object.keys(check);  // output: ["0", "1", "2"]`,
+        },
+      ],
     },
     {
-      title: "Object.entries",
-      id: "object/entries",
-      description: `The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.`,
+      title: 'Object.entries',
+      id: 'object/entries',
+      description:
+        "The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.",
       list: null,
       code: [
         {
@@ -55,15 +59,15 @@ Object.entries(obj);   /* [
                             ["value", "geeks"],
                             ["type", "true"]
                           ]
-                      */`
-        }
-      ]
+                      */`,
+        },
+      ],
     },
     {
-      title: "Object.assign",
-      id: "object/assign",
-      description: `Object.assign is used for cloning object`,
-      list: ["if two variables have same name it will only keep last one."],
+      title: 'Object.assign',
+      id: 'object/assign',
+      description: 'Object.assign is used for cloning object',
+      list: ['if two variables have same name it will only keep last one.'],
       code: [
         {
           title: null,
@@ -82,14 +86,15 @@ let c1 = { a: 10, b: 10, c: 10 };
 let c2 = { b: 20, c: 20 };
 let c3 = { c: 31 };
 let c = Object.assign({}, c1, c2, c3);    // c1, c2, c3 are copied to the c and the target object gets the overwritten values.
-                                          // output : {a: 10, b: 20, c: 31}`
-        }
-      ]
+                                          // output : {a: 10, b: 20, c: 31}`,
+        },
+      ],
     },
     {
-      title: "Object.is",
-      id: "object/is",
-      description: `Object.is() is used for comparison of two strings, two numbers, polarity of two numbers and two objects`,
+      title: 'Object.is',
+      id: 'object/is',
+      description:
+        'Object.is() is used for comparison of two strings, two numbers, polarity of two numbers and two objects',
       list: null,
       code: [
         {
@@ -103,14 +108,15 @@ Object.is(checkObj1, checkObj3);    // false    it will create new object
 
 Object.is(0,-0);    // false
 0 == -0;            // true    this is polarity check for 0
-0 === -0;           // true`
-        }
-      ]
+0 === -0;           // true`,
+        },
+      ],
     },
     {
-      title: "Object.freeze",
-      id: "object/freeze",
-      description: `It makes the object immutable i.e after freezing object we can not add or update keys`,
+      title: 'Object.freeze',
+      id: 'object/freeze',
+      description:
+        'It makes the object immutable i.e after freezing object we can not add or update keys',
       list: null,
       code: [
         {
@@ -124,14 +130,14 @@ Object.freeze(obj1);
 // after freezing object we can not add or update keys.
 obj1['c'] = 3;     //  { a:1, b:2 } we will get same output.
 
-Object.isFrozen(obj1);   // true`
-        }
-      ]
+Object.isFrozen(obj1);   // true`,
+        },
+      ],
     },
     {
-      title: "Object.seal",
-      id: "object/seal",
-      description: `we can only update the existing keys.`,
+      title: 'Object.seal',
+      id: 'object/seal',
+      description: 'we can only update the existing keys.',
       list: null,
       code: [
         {
@@ -145,15 +151,40 @@ Object.seal(obj1);       //  { x:1, y:2 }, we will get same output.
 obj2['y'] = 3;     
 console.log(obj2);       //  { x:1, y:3 }
 
-Object.isSealed(obj1);   // true`
-        }
-      ]
+Object.isSealed(obj1);   // true`,
+        },
+      ],
+    },
+    {
+      title: 'Object.defineProperty',
+      id: 'object/define_property',
+      description: 'make few of the keys of object non editable',
+      list: null,
+      code: [
+        {
+          title: null,
+          code: `let obj = {
+  name: 'Rajat',
+}
+
+// writable = false, will make age key now immutable
+Object.defineProperty(obj, 'age', {
+  value: 25,
+  writable: false
+})
+
+obj.name = 'porwal';
+obj.age = 2;
+
+console.log(obj);     // { name: "porwal", age: 25 }`,
+        },
+      ],
     },
     {
       ...OBJECT_FOR_IN,
-      id: "object/for_in"
-    }
-  ]
+      id: 'object/for_in',
+    },
+  ],
 };
 
 export default OBJECT_HELPER;

@@ -5,8 +5,8 @@ import {
   MAP_HELPER,
   SET_HELPER,
   LINKED_LIST_HELPER,
-  BINARY_SEARCH_TREE_HELPER
-} from "../helper";
+  BINARY_SEARCH_TREE_HELPER,
+} from '../helper';
 
 const dataStructureConfig = [
   ARRAY_HELPER,
@@ -15,7 +15,7 @@ const dataStructureConfig = [
   MAP_HELPER,
   SET_HELPER,
   LINKED_LIST_HELPER,
-  BINARY_SEARCH_TREE_HELPER
+  BINARY_SEARCH_TREE_HELPER,
 ];
 
 export default dataStructureConfig;
