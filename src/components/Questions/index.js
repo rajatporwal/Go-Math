@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { HashLink as Link } from "react-router-hash-link";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { HashLink as Link } from 'react-router-hash-link';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import questionsConfig from "../../config/questionsConfig";
-import { Checkbox, Table, Switch, Space } from "antd";
-import { HOME_ROUTES } from "../Home/index";
-import { setTableProps } from "../../actions/commonActions";
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import questionsConfig from '../../config/questionsConfig';
+import { Checkbox, Table, Switch, Space } from 'antd';
+import { HOME_ROUTES } from '../Home/index';
+import { setTableProps } from '../../actions/commonActions';
 
 const Questions = () => {
   const [queCategory, setQueCategory] = useState([]);
@@ -15,45 +15,45 @@ const Questions = () => {
   const dispatch = useDispatch();
   const addIndex = [
     {
-      title: "Index",
-      dataIndex: "index",
-      key: "index",
-      width: 10
-    }
+      title: 'Index',
+      dataIndex: 'index',
+      key: 'index',
+      width: 10,
+    },
   ];
 
   const columns = [
     {
-      title: "Description",
-      dataIndex: "question",
-      key: "question",
-      width: 500
+      title: 'Description',
+      dataIndex: 'question',
+      key: 'question',
+      width: 500,
     },
     {
-      title: "",
-      dataIndex: "id",
-      key: "id",
+      title: '',
+      dataIndex: 'id',
+      key: 'id',
       width: 50,
       render: (text) => (
         <Link
           active
           to={{
-            pathname: "/questions",
-            hash: text
+            pathname: '/questions',
+            hash: text,
           }}
           smooth
         >
           here
         </Link>
-      )
-    }
+      ),
+    },
   ];
 
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
+    dispatch({ type: 'SIDE_BAR_OPTIONS', value: HOME_ROUTES });
     const getHash = window.location.hash
-      .replace("#/questions#", "")
-      .replace("#/questions", "");
+      .replace('#/questions#', '')
+      .replace('#/questions', '');
     setQueCategory(getHash ? [getHash] : []);
   }, [dispatch]);
 
@@ -79,58 +79,66 @@ const Questions = () => {
       <div className="que_filter">
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("array")}
-            checked={queCategory.includes("array")}
+            onChange={() => onCategoryChange('array')}
+            checked={queCategory.includes('array')}
           >
             Array
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("string")}
-            checked={queCategory.includes("string")}
+            onChange={() => onCategoryChange('string')}
+            checked={queCategory.includes('string')}
           >
             String
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("number")}
-            checked={queCategory.includes("number")}
+            onChange={() => onCategoryChange('number')}
+            checked={queCategory.includes('number')}
           >
             Number
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("regex")}
-            checked={queCategory.includes("regex")}
+            onChange={() => onCategoryChange('regex')}
+            checked={queCategory.includes('regex')}
           >
             Regex
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("conversion")}
-            checked={queCategory.includes("conversion")}
+            onChange={() => onCategoryChange('conversion')}
+            checked={queCategory.includes('conversion')}
           >
             Conversion
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("javascript")}
-            checked={queCategory.includes("javascript")}
+            onChange={() => onCategoryChange('javascript')}
+            checked={queCategory.includes('javascript')}
           >
             Javascript
           </Checkbox>
         </div>
         <div>
           <Checkbox
-            onChange={() => onCategoryChange("object")}
-            checked={queCategory.includes("object")}
+            onChange={() => onCategoryChange('object')}
+            checked={queCategory.includes('object')}
           >
             Object
+          </Checkbox>
+        </div>
+        <div>
+          <Checkbox
+            onChange={() => onCategoryChange('x-or')}
+            checked={queCategory.includes('x-or')}
+          >
+            X-OR
           </Checkbox>
         </div>
       </div>
@@ -146,14 +154,14 @@ const Questions = () => {
             )
           }
         />
-        Border:{" "}
+        Border:{' '}
         <Switch
           checked={tableProps.showBorder}
           onChange={() =>
             dispatch(
               setTableProps({
                 ...tableProps,
-                showBorder: !tableProps.showBorder
+                showBorder: !tableProps.showBorder,
               })
             )
           }
@@ -162,7 +170,7 @@ const Questions = () => {
       <Table
         columns={tableProps.showIndex ? [...addIndex, ...columns] : columns}
         dataSource={filteredData.map((d, i) => {
-          d["index"] = i + 1;
+          d['index'] = i + 1;
           return d;
         })}
         bordered={tableProps.showBorder}

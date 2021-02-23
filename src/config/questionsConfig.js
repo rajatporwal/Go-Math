@@ -38,7 +38,7 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`,
   },
   {
     question: 'Odd even sort array',
-    category: ['array'],
+    category: ['array', 'number'],
     id: 'odd_even_sort_array',
     solution: [
       {
@@ -751,6 +751,116 @@ For simplicity, only works with ASCII characters.`,
     ],
   },
   {
+    question: 'Find Min Max sum after removing each element from the array',
+    category: ['array'],
+    id: 'find_min_max',
+    directions:
+      'Remove each element from array from every index and then sum rest of the array elements, find out min and max summation',
+    solution: [
+      {
+        title: 'Using Apply method',
+        code: `const arr = [1, 2, 3, 4, 5, 6, 19, 78, 9, 11, 10];
+
+const findMinMax = (arr) => {
+  const total = arr.reduce((c, v) => c + v);
+
+  console.log('min', total - Math.max.apply(null, arr));        // 70
+  console.log('max', total - Math.min.apply(null, arr));        // 147
+};`,
+      },
+      {
+        title: 'Using loop',
+        code: `const arr = [1, 2, 3, 4, 5, 6, 19, 78, 9, 11, 10];
+
+const findMinMax = (arr) => {
+  let min = arr[0];
+  let max = arr[0];
+  const total = arr.reduce((c, v) => c + v);
+
+  arr.forEach((ele) => {
+    if (ele < min) min = ele;
+    if (ele > max) max = ele;
+  });
+
+  console.log('min', total - max);        // 70
+  console.log('max', total - min);        // 147
+};`,
+      },
+    ],
+  },
+  {
+    question: 'Find length of number without converting it into string',
+    category: ['number'],
+    id: 'find_length_of_number',
+    directions: null,
+    solution: [
+      {
+        title: null,
+        code: `let x = 1234578787878;
+let len = 0;
+while (x !== 0) {
+  len += 1;
+  x = (x - (x % 10)) / 10;
+}
+
+console.log(len); // 13`,
+      },
+    ],
+  },
+  {
+    question: 'Find the number occurring odd number of times in an array',
+    category: ['array', 'x-or'],
+    id: 'find_number_occuring_odd_times',
+    directions: `Given an array of positive integers. All numbers occur even number of times except one number which occurs odd number of times
+    <br /><br />
+    <b>Example:</b> 
+      <br />
+      Input: [1, 2, 3, 2, 3, 1, 3]<br />
+      Output: [3] 
+      `,
+    solution: [
+      {
+        title: 'Using X-OR operator',
+        code: `const arr = [1, 2, 3, 2, 3, 1, 3];
+
+function findOddOccurence(arr) {
+  let res = 0;
+  arr.forEach((ele) => {
+    res = res ^ ele;
+  });
+}
+
+findOddOccurence(arr);      // Output: 3
+
+
+/*
+  XOR of two elements is 0 if both the elements are same i.e. A ^ A = 0
+  XOR of a number x with 0 is x i.e. A ^ 0 = A
+*/`,
+      },
+      {
+        title: 'Using Map/Object',
+        code: `const arr = [1, 2, 3, 2, 3, 1, 3];
+
+function findOddOccurence(arr) {
+  const map = new Map();
+  arr.forEach((ele) => {
+    if (map.has(ele)) {
+      map.delete(ele);
+    } else {
+      map.set(ele, true);
+    }
+  });
+  for (var i of map.keys()) {
+    return i;
+  }
+}
+
+findOddOccurence(arr);      // Output: 3`,
+      },
+    ],
+  },
+  {
     question: 'Tricky JS Question',
     category: ['javascript'],
     id: 'tricky_js_que',
@@ -774,6 +884,14 @@ console.log('abc' - 2);   // NaN, because abc cannot be converted into number
 console.log(Math.min())      // Infinity`,
       },
       {
+        title: 'Convert String of Numbers to Array of Numbers',
+        code: `const arr = ['1', '9', '8', '4', '0', '0', '2', '7', '0'];
+
+arr.map(Number);          // [1, 9, 8, 4, 0, 0, 2, 7, 0]
+
+arr.map((ele) => +ele);   // [1, 9, 8, 4, 0, 0, 2, 7, 0]`,
+      },
+      {
         title: 'Create one common function for add(1, 2) and add(1)(2)',
         code: `function add(num1, num2) {
   if (num1 && num2) {
@@ -787,6 +905,63 @@ console.log(Math.min())      // Infinity`,
 
 console.log(add(1, 2));     // 3
 console.log(add(1)(2));     // 3`,
+      },
+    ],
+  },
+  {
+    question: 'First character of string is Uppercase or not',
+    category: ['string', 'regex'],
+    id: 'string_upper_case_first_char',
+    directions: null,
+    solution: [
+      {
+        title: null,
+        code: `const str1 = 'Abcd';
+const str2 = 'abcd';
+
+console.log(str1.match(/^[A-Z]/));    // [0: A, index=0]
+console.log(str2.match(/^[A-Z]/));    // null`,
+      },
+    ],
+  },
+  {
+    question: 'Move Zeros to end of the array',
+    category: ['arr'],
+    id: 'move_zeros_to_end_of_array',
+    directions: null,
+    solution: [
+      {
+        title: 'Time Complexity - O(n), Extra Space O(1)',
+        code: `const arr = [1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0];
+
+function pushZerosToEnd(arr) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count++] = arr[i];
+    }
+  }
+  while (count < arr.length) {
+    arr[count++] = 0;
+  }
+  return arr;
+}
+
+pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
+      },
+      {
+        title: 'Using Regex',
+        code: `const arr = [1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0];
+
+function pushZerosToEnd(arr) {
+  const str = arr.join('');
+  const zeroArr = str.match(/[0]/g);
+
+  return (str.replace(/[0]/g, '') + zeroArr.join('')).split('').map(Number);
+}
+
+pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
       },
     ],
   },

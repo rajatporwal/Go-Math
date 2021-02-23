@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import dataStructureConfig from "../../config/dataStructureConfig";
-import { Table, Checkbox } from "antd";
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import dataStructureConfig from '../../config/dataStructureConfig';
+import { Table, Checkbox } from 'antd';
 
 const DataStructure = () => {
   const [filter, setFilter] = useState([]);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: dataStructureConfig });
+    dispatch({ type: 'SIDE_BAR_OPTIONS', value: dataStructureConfig });
   });
 
   const onCategoryChange = (type) => {
@@ -33,42 +33,48 @@ const DataStructure = () => {
       <h3>Add Filters</h3>
       <div className="que_filter">
         <div>
-          <Checkbox onChange={() => onCategoryChange("array")}>Array</Checkbox>
+          <Checkbox onChange={() => onCategoryChange('array')}>Array</Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("string")}>
+          <Checkbox onChange={() => onCategoryChange('string')}>
             String
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("object")}>
+          <Checkbox onChange={() => onCategoryChange('object')}>
             Object
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("number")}>
+          <Checkbox onChange={() => onCategoryChange('number')}>
             Number
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("linked_list")}>
+          <Checkbox onChange={() => onCategoryChange('linked_list')}>
             Linked List
           </Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("set")}>Set</Checkbox>
+          <Checkbox onChange={() => onCategoryChange('stack')}>Stack</Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("map")}>Map</Checkbox>
+          <Checkbox onChange={() => onCategoryChange('queue')}>Queue</Checkbox>
         </div>
         <div>
-          <Checkbox onChange={() => onCategoryChange("bst")}>BST</Checkbox>
+          <Checkbox onChange={() => onCategoryChange('set')}>Set</Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange('map')}>Map</Checkbox>
+        </div>
+        <div>
+          <Checkbox onChange={() => onCategoryChange('bst')}>BST</Checkbox>
         </div>
       </div>
       <br />
       {filteredData.map((ele) => (
         <>
-          <h1>{ele.heading}</h1>
+          <h1 className="m-t-20">{ele.heading}</h1>
           <hr />
           {ele.children.map((child) => (
             <div className="javascript">
@@ -111,16 +117,16 @@ const DataStructure = () => {
                       <>
                         <p
                           dangerouslySetInnerHTML={{
-                            __html: `- ${t.title}`
+                            __html: `- ${t.title}`,
                           }}
                         />
                         <Table
                           columns={t.columns}
                           dataSource={t.data.map((d, i) => {
-                            d["index"] = i + 1;
+                            d['index'] = i + 1;
                             return d;
                           })}
-                          scroll={{ y: 500, x: "100vw" }}
+                          scroll={{ y: 500, x: '100vw' }}
                         />
                       </>
                     ))
@@ -130,7 +136,7 @@ const DataStructure = () => {
                 <p
                   className="note"
                   dangerouslySetInnerHTML={{
-                    __html: `Note: ${child.note}`
+                    __html: `Note: ${child.note}`,
                   }}
                 />
               ) : null}

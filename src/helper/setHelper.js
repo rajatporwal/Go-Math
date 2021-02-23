@@ -1,85 +1,85 @@
 const SET_HELPER = {
-  heading: "Set",
-  category: "set",
-  pathname: "/ds",
+  heading: 'Set',
+  category: 'set',
+  pathname: '/ds',
   children: [
     {
-      title: "Introduction",
-      id: "set/introduction",
+      title: 'Introduction',
+      id: 'set/introduction',
       description: `Sets are a new object type with ES6 (ES2015) that allow creating collections of unique values. The values in a set can be either simple primitives like strings or integers as well as more complex object types like object literals or arrays.
       <br />You can iterate through the elements of a set in insertion order`,
       list: [
-        `<b>new Set() </b> – creates the set.`,
-        `<b>set.add(value) </b> – It adds the new element with a specified value at the end of the Set object.`,
-        `<b>set.has(key) </b> – returns true if the key exists, false otherwise.`,
-        `<b>set.delete(key) </b> – It deletes an element with the specified value from the Set object.`,
-        `<b>set.clear() </b> – removes everything from the set.`,
-        `<b>set.size </b> – returns the current element count.`
+        '<b>new Set() </b> – creates the set.',
+        '<b>set.add(value) </b> – It adds the new element with a specified value at the end of the Set object.',
+        '<b>set.has(key) </b> – returns true if the key exists, false otherwise.',
+        '<b>set.delete(key) </b> – It deletes an element with the specified value from the Set object.',
+        '<b>set.clear() </b> – removes everything from the set.',
+        '<b>set.size </b> – returns the current element count.',
       ],
       code: [
         {
-          title: ``,
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
 set.add("b");
 set.add("d");
 
-console.log(set.size);        // output: 3`
-        }
+console.log(set.size);        // output: 3`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "add()",
-      id: "set/add",
-      description: `adds the element to set`,
+      title: 'add()',
+      id: 'set/add',
+      description: 'adds the element to set',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
 set.add("b");
 set.add("d");
 
-console.log(set)    // output: Set(3) {"a", "b", "d"}`
+console.log(set)    // output: Set(3) {"a", "b", "d"}`,
         },
         {
           title:
-            "if we try to add multiple values at one time, it will only insert first value",
+            'if we try to add multiple values at one time, it will only insert first value',
           code: `var set = new Set(); 
   
 set.add("a");
 set.add("b");
 set.add("c", "d");
 
-console.log(set)    // output: Set(3) {"a", "b", "c"}`
+console.log(set)    // output: Set(3) {"a", "b", "c"}`,
         },
         {
           title: null,
           code: `var set = new Set("a", "b", "c"); 
   
-console.log(set)        // output: Set(1) {"a"}`
+console.log(set)        // output: Set(1) {"a"}`,
         },
         {
-          title: "create set by passing array",
+          title: 'create set by passing array',
           code: `var set = new Set(["a", "b", "c"]); 
   
-console.log(set)        // output: Set(3) {"a", "b", "c"}`
-        }
+console.log(set)        // output: Set(3) {"a", "b", "c"}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "has()",
-      id: "set/has",
-      description: `returns false if element is not found`,
+      title: 'has()',
+      id: 'set/has',
+      description: 'returns false if element is not found',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
@@ -88,19 +88,19 @@ set.add("d");
 
 console.log(set.has('a'));    // true
 console.log(set.has('c'));    // false
-console.log(set.has('D'));    // false`
-        }
+console.log(set.has('D'));    // false`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "delete()",
-      id: "map/delete",
-      description: `returns false if element is not found`,
+      title: 'delete()',
+      id: 'map/delete',
+      description: 'returns false if element is not found',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
@@ -108,42 +108,43 @@ set.add("b");
 set.add("d");
 
 console.log(set.delete("d"));   // true
-console.log(set.delete("c"));   // false`
-        }
+console.log(set.delete("c"));   // false`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "clear()",
-      id: "map/clear",
-      description: `returns undefined if it cleared set successfully`,
+      title: 'clear()',
+      id: 'map/clear',
+      description: 'returns undefined if it cleared set successfully',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new set(); 
   
 set.add("a", "A");
 set.add("b", "B");
 set.add("d", "D");
   
-console.log(set.clear());       // output:  undefined`
-        }
+console.log(set.clear());       // output:  undefined`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "entries()",
-      id: "map/entries",
-      description: `It returns an iterator object which contains an array having the entries of the set, in the insertion order.`,
+      title: 'entries()',
+      id: 'map/entries',
+      description:
+        'It returns an iterator object which contains an array having the entries of the set, in the insertion order.',
       list: [
         `It returns an iterator object that contains an
       <b>array of [value, value] </b> for every 
-      element of the set, in the insertion order.`
+      element of the set, in the insertion order.`,
       ],
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
@@ -153,16 +154,17 @@ set.add("d");
 let setIteratorEntries = set.entries();
 for(let ele of setIteratorEntries) {       
   console.log(ele);                       // ex. ["a", "a"] ["b", "b"]
-}`
-        }
+}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "values()",
-      id: "map/values",
-      description: `It returns all the values from the Set in the insertion order.`,
-      list: ["Values and keys are same in case of Set."],
+      title: 'values()',
+      id: 'map/values',
+      description:
+        'It returns all the values from the Set in the insertion order.',
+      list: ['Values and keys are same in case of Set.'],
       code: [
         {
           title: null,
@@ -175,15 +177,16 @@ set.add("d");
 let setIteratorValues = set.values();       
 for(let ele of setIteratorValues) {
   console.log(ele);                     // a b 
-}`
-        }
+}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "keys()",
-      id: "set/keys",
-      description: `It also returns all the values from the Set in the insertion order.`,
+      title: 'keys()',
+      id: 'set/keys',
+      description:
+        'It also returns all the values from the Set in the insertion order.',
       list: null,
       code: [
         {
@@ -197,19 +200,20 @@ set.add("d");
 let setIteratorKeys = set.keys();       
 for(let ele of setIteratorKeys) {
   console.log(ele);                     // a b 
-}`
-        }
+}`,
+        },
       ],
-      note: "It is similar to the values() in case of Sets."
+      note: 'It is similar to the values() in case of Sets.',
     },
     {
-      title: "forEach()",
-      id: "set/forEach",
-      description: `It executes the given function once for every element in the Set, in the insertion order.`,
+      title: 'forEach()',
+      id: 'set/forEach',
+      description:
+        'It executes the given function once for every element in the Set, in the insertion order.',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(); 
   
 set.add("a");
@@ -219,40 +223,41 @@ set.add("d");
   
 set.forEach(ele => {
   console.log(ele);           // a b
-})`
-        }
+})`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "convert set to array",
-      id: "set/array",
-      description: `It executes the given function once for every element in the Set, in the insertion order.`,
+      title: 'convert set to array',
+      id: 'set/array',
+      description:
+        'It executes the given function once for every element in the Set, in the insertion order.',
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set = new Set(["a", "d", "e"]);
 
-console.log([...set]);      // ["a", "d", "e"]`
-        }
+console.log([...set]);      // ["a", "d", "e"]`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Set.prototype.subSet()",
-      id: "set/subSet",
+      title: 'Set.prototype.subSet()',
+      id: 'set/subSet',
       description: `It returns true if Set A is a subset of Set B.
       <br /><br />
       A Set A is said to be a subset of Set B, if all the elements of Set A is also present in Set B.`,
       list: [
-        `Arrow functions do not have a prototype property. Therefore we can not make prototype function using ES6`,
+        'Arrow functions do not have a prototype property. Therefore we can not make prototype function using ES6',
         `We can not use forEach loop here because we have to break the loop when condition meets,
-      and we cannot break forEach loop in between.`
+      and we cannot break forEach loop in between.`,
       ],
       code: [
         {
-          title: "",
+          title: '',
           code: `var set1 = new Set(["a", "b", "c", "d", "e"]); 
 var set2 = new Set(["a", "d", "e"]);   
 
@@ -270,10 +275,10 @@ Set.prototype.subSet = function(otherSet) {
 }
 
 console.log(set2.subSet(set1));       // true
-console.log(set1.subSet(set2));       // false`
+console.log(set1.subSet(set2));       // false`,
         },
         {
-          title: "Solution 2",
+          title: 'Solution 2',
           code: `function isSuperset(set, subset) {
   for (let elem of subset) {
       if (!set.has(elem)) {
@@ -281,14 +286,14 @@ console.log(set1.subSet(set2));       // false`
       }
   }
   return true
-}`
-        }
+}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Set.prototype.union()",
-      id: "set/union",
+      title: 'Set.prototype.union()',
+      id: 'set/union',
       description: `It returns a Set which consists of union of Set A and Set B.
       <br /><br />
       A Set is said to be a union of two set, if it contains all element of Set A as well as all elements of Set B, but it does’nt contains duplicate elements.
@@ -297,7 +302,7 @@ console.log(set1.subSet(set2));       // false`
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set1 = new Set(["a", "b", "c", "d", "e"]); 
 var set2 = new Set(["a", "d", "e"]);
           
@@ -312,37 +317,37 @@ Set.prototype.union = function(otherSet) {
   return unionSet; 
 }
 
-console.log(set1.union(set2));      // output: Set(5) {"a", "b", "c", "d", "e"}`
+console.log(set1.union(set2));      // output: Set(5) {"a", "b", "c", "d", "e"}`,
         },
         {
-          title: "Solution 2",
+          title: 'Solution 2',
           code: `Set.prototype.union = function(otherSet) {
   let unionSet = new Set(this)
   for (let elem of otherSet) {
       unionSet.add(elem);
   }
   return unionSet
-}`
+}`,
         },
         {
-          title: "Solution 3",
+          title: 'Solution 3',
           code: `const union = (set1, set2) => {
   return new Set([...set1, ...set2]);
-}`
-        }
+}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Set.prototype.intersection()",
-      id: "set/intersection",
+      title: 'Set.prototype.intersection()',
+      id: 'set/intersection',
       description: `It returns the intersection of Set A and Set B.
       <br /><br />
       A Set is said to be the intersection of Set A and B if contains element which is present both in Set A and Set B.`,
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set1 = new Set(["a", "b", "c", "d", "e"]); 
 var set2 = new Set(["a", "d", "e"]);
 
@@ -355,21 +360,21 @@ Set.prototype.intersection = function(otherSet) {
   return intersectionSet;                 
 } 
 
-console.log(set1.intersection(set2));   // Set(3) {"a", "d", "e"}`
-        }
+console.log(set1.intersection(set2));   // Set(3) {"a", "d", "e"}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Set.prototype.difference()",
-      id: "set/difference",
+      title: 'Set.prototype.difference()',
+      id: 'set/difference',
       description: `It returns the Set which contains difference of Set A and Set B.
       <br /><br />
       A Set is said to be a difference of Set A and B if it contains set of element e which are present in Set A but not in Set B.`,
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set1 = new Set(["a", "b", "c", "d", "e"]); 
 var set2 = new Set(["a", "d", "e", "f"]);
 
@@ -383,21 +388,21 @@ Set.prototype.difference = function(otherSet)
 } 
 
 console.log(set1.difference(set2));   // Set(2) {"b", "c"}
-console.log(set2.difference(set1));   // Set(1) {"f"}`
-        }
+console.log(set2.difference(set1));   // Set(1) {"f"}`,
+        },
       ],
-      note: null
+      note: null,
     },
     {
-      title: "Set.prototype.symmetricDifference()",
-      id: "set/symmetricDifference",
+      title: 'Set.prototype.symmetricDifference()',
+      id: 'set/symmetricDifference',
       description: `It returns the Set which contains difference of both Set A and Set B.
       <br /><br />
       A Set is said to be a symmetricDifference of Set A and B if it contains set of element e which are present in Set A but not in Set B and also present in set B and not in Set A.`,
       list: null,
       code: [
         {
-          title: "",
+          title: '',
           code: `var set1 = new Set(["a", "b", "c", "d", "e"]); 
           var set2 = new Set(["a", "d", "e", "f"]);
 
@@ -415,12 +420,12 @@ Set.prototype.symmetricDifference = function(otherSet)
 } 
 
 console.log(set1.symmetricDifference(set2));   // Set(3) {"b", "c", "f"}
-console.log(set2.symmetricDifference(set1));   // Set(1) {"f", "b", "c"}`
-        }
+console.log(set2.symmetricDifference(set1));   // Set(1) {"f", "b", "c"}`,
+        },
       ],
-      note: null
-    }
-  ]
+      note: null,
+    },
+  ],
 };
 
 export default SET_HELPER;
