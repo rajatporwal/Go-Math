@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -11,8 +12,10 @@ import { setTableProps } from '../../actions/commonActions';
 
 const Questions = () => {
   const [queCategory, setQueCategory] = useState([]);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const tableProps = useSelector((state) => state.appReducer.tableProps);
   const dispatch = useDispatch();
+  let history = useHistory();
   const addIndex = [
     {
       title: 'Index',
@@ -50,12 +53,16 @@ const Questions = () => {
   ];
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      history.push('/home');
+      return;
+    }
     dispatch({ type: 'SIDE_BAR_OPTIONS', value: HOME_ROUTES });
     const getHash = window.location.hash
       .replace('#/questions#', '')
       .replace('#/questions', '');
     setQueCategory(getHash ? [getHash] : []);
-  }, [dispatch]);
+  }, [history, isAuthenticated, dispatch]);
 
   const onCategoryChange = (type) => {
     if (queCategory.includes(type)) {

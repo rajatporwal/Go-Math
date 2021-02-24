@@ -1,19 +1,21 @@
-import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
-import dataStrucutreConfig from "../../config/dataStructureConfig";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { HashLink as Link } from 'react-router-hash-link';
+import dataStructureConfig from '../../config/dataStructureConfig';
 
-const DataStructureRoutes = () =>
-  dataStrucutreConfig.map((ds) => (
+const DataStructureRoutes = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  return dataStructureConfig(isAuthenticated).map((ds) => (
     <>
       <h4>{ds.heading}</h4>
-      <ul className="home__list">
+      <ul className='home__list'>
         {ds.children.map((child) => (
           <li>
             <Link
               active
               to={{
                 pathname: ds.pathname,
-                hash: child.id
+                hash: child.id,
               }}
               smooth
             >
@@ -24,5 +26,6 @@ const DataStructureRoutes = () =>
       </ul>
     </>
   ));
+};
 
 export default DataStructureRoutes;

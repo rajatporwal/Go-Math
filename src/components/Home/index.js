@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Collapse } from "antd";
-import JavaScriptRoutes from "./JavaScriptRoutes";
-import RegexRoutes from "./RegexRoutes";
-import QuestionsRoutes from "./QuestionsRoutes";
-import ConversionRoutes from "./ConversionRoutes";
-import DataStructureRoutes from "./DataStructureRoutes";
-import ReactJsRoutes from "./ReactJsRoutes";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Collapse } from 'antd';
+import JavaScriptRoutes from './JavaScriptRoutes';
+import RegexRoutes from './RegexRoutes';
+import QuestionsRoutes from './QuestionsRoutes';
+import ConversionRoutes from './ConversionRoutes';
+import DataStructureRoutes from './DataStructureRoutes';
+import ReactJsRoutes from './ReactJsRoutes';
 const { Panel } = Collapse;
 
 export const HOME_ROUTES = [
@@ -14,41 +14,41 @@ export const HOME_ROUTES = [
     heading: null,
     children: [
       {
-        title: "Home",
-        pathname: "/home"
+        title: 'Home',
+        pathname: '/home',
       },
       {
-        title: "JavaScript",
-        pathname: "/javascript"
+        title: 'JavaScript',
+        pathname: '/javascript',
       },
       {
-        title: "React",
-        pathname: "/react"
+        title: 'React',
+        pathname: '/react',
       },
       {
-        title: "Regex",
-        pathname: "/regex"
+        title: 'Regex',
+        pathname: '/regex',
       },
       {
-        title: "Questions",
-        pathname: "/questions"
+        title: 'Questions',
+        pathname: '/questions',
       },
       {
-        title: "Conversion",
-        pathname: "/conversion"
+        title: 'Conversion',
+        pathname: '/conversion',
       },
       {
-        title: "Data Structure",
-        pathname: "/ds"
-      }
-    ]
-  }
+        title: 'Data Structure',
+        pathname: '/ds',
+      },
+    ],
+  },
 ];
 const Home = () => {
   const dispatch = useDispatch();
-
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: HOME_ROUTES });
+    dispatch({ type: 'SIDE_BAR_OPTIONS', value: HOME_ROUTES });
   });
 
   return (
@@ -68,11 +68,13 @@ const Home = () => {
           <DataStructureRoutes />
         </Panel>
       </Collapse>
-      <Collapse accordion>
-        <Panel header="Questions" key="questions">
-          <QuestionsRoutes />
-        </Panel>
-      </Collapse>
+      {isAuthenticated && (
+        <Collapse accordion>
+          <Panel header="Questions" key="questions">
+            <QuestionsRoutes />
+          </Panel>
+        </Collapse>
+      )}
       <Collapse accordion>
         <Panel header="Regex" key="regex">
           <RegexRoutes />

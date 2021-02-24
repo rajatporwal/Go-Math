@@ -1,17 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import dataStructureConfig from '../../config/dataStructureConfig';
 import { Table, Checkbox } from 'antd';
 
+const filterOptionsPublic = [
+  {
+    name: 'Array',
+    value: 'array',
+  },
+  {
+    name: 'String',
+    value: 'string',
+  },
+  {
+    name: 'Object',
+    value: 'object',
+  },
+  {
+    name: 'Number',
+    value: 'number',
+  },
+  {
+    name: 'Set',
+    value: 'set',
+  },
+  {
+    name: 'Map',
+    value: 'map',
+  },
+];
+
+const filterOptionsPrivate = [
+  {
+    name: 'Linked List',
+    value: 'linked_list',
+  },
+  {
+    name: 'Stack',
+    value: 'stack',
+  },
+  {
+    name: 'Queue',
+    value: 'queue',
+  },
+  {
+    name: 'BST',
+    value: 'bst',
+  },
+];
+
 const DataStructure = () => {
   const [filter, setFilter] = useState([]);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: 'SIDE_BAR_OPTIONS', value: dataStructureConfig });
+    dispatch({
+      type: 'SIDE_BAR_OPTIONS',
+      value: dataStructureConfig(isAuthenticated),
+    });
   });
 
   const onCategoryChange = (type) => {
@@ -25,51 +75,30 @@ const DataStructure = () => {
 
   const filteredData =
     filter.length > 0
-      ? dataStructureConfig.filter((ele) => filter.indexOf(ele.category) !== -1)
-      : dataStructureConfig;
+      ? dataStructureConfig(isAuthenticated).filter(
+          (ele) => filter.indexOf(ele.category) !== -1
+        )
+      : dataStructureConfig(isAuthenticated);
 
   return (
     <div>
       <h3>Add Filters</h3>
       <div className="que_filter">
-        <div>
-          <Checkbox onChange={() => onCategoryChange('array')}>Array</Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('string')}>
-            String
-          </Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('object')}>
-            Object
-          </Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('number')}>
-            Number
-          </Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('linked_list')}>
-            Linked List
-          </Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('stack')}>Stack</Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('queue')}>Queue</Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('set')}>Set</Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('map')}>Map</Checkbox>
-        </div>
-        <div>
-          <Checkbox onChange={() => onCategoryChange('bst')}>BST</Checkbox>
-        </div>
+        {filterOptionsPublic.map((ele) => (
+          <div>
+            <Checkbox onChange={() => onCategoryChange(ele.value)}>
+              {ele.name}
+            </Checkbox>
+          </div>
+        ))}
+        {isAuthenticated &&
+          filterOptionsPrivate.map((ele) => (
+            <div>
+              <Checkbox onChange={() => onCategoryChange(ele.value)}>
+                {ele.name}
+              </Checkbox>
+            </div>
+          ))}
       </div>
       <br />
       {filteredData.map((ele) => (

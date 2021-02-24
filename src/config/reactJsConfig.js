@@ -43,7 +43,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'componentWillMount vs componentDidMount',
         id: 'will_vs_did_mount',
-        description: `The best place to make calls to fetch data is within componentDidMount(). componentDidMount() is only called once, on the client, compared to componentWillMount() which is called twice, once to the server and once on the client.`,
+        description:
+          'The best place to make calls to fetch data is within componentDidMount(). componentDidMount() is only called once, on the client, compared to componentWillMount() which is called twice, once to the server and once on the client.',
         list: [
           'componentWillMount() runs first',
           "<a href=`https://dev.to/torianne02/componentwillmount-vs-componentdidmount-5f0n#:~:text=componentDidMount()%20is%20only%20called,is%20displayed%20in%20the%20browser` target='_blank'>Click here for more</a>",
@@ -120,7 +121,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'ReactDOM',
         id: 'dom',
-        description: `The react-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.`,
+        description:
+          'The react-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.',
         list: [
           'render()',
           'hydrate()',
@@ -134,7 +136,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'Why can’t Browsers read JSX?',
         id: 'browser_jsx',
-        description: `Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. So to enable a browser to read JSX, first we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.`,
+        description:
+          'Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. So to enable a browser to read JSX, first we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.',
         list: null,
         code: null,
         note: null,
@@ -154,7 +157,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'Synthetic Events',
         id: 'synthetic_events',
-        description: `Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. They combine the behavior of different browsers into one API. This is done to make sure that the events show consistent properties across different browsers.`,
+        description:
+          'Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. They combine the behavior of different browsers into one API. This is done to make sure that the events show consistent properties across different browsers.',
         list: null,
         code: null,
         note: null,
@@ -162,7 +166,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'Refs',
         id: 'refs',
-        description: `Refs is the shorthand for References in React. It is an attribute which helps to store a reference to a particular React element or component, which will be returned by the components render configuration function.`,
+        description:
+          'Refs is the shorthand for References in React. It is an attribute which helps to store a reference to a particular React element or component, which will be returned by the components render configuration function.',
         list: null,
         code: null,
         note: null,
@@ -170,7 +175,8 @@ shouldComponentUpdate(nextProps, nextState) {
       {
         title: 'HOC',
         id: 'hoc',
-        description: `A higher-order component in React is a pattern used to share common functionality between components without repeating code. A higher-order component is actually not a component though, it is a function. A HOC function takes a component as an argument and returns a component. It transforms a component into another component and adds additional data or functionality. In short:`,
+        description:
+          'A higher-order component in React is a pattern used to share common functionality between components without repeating code. A higher-order component is actually not a component though, it is a function. A HOC function takes a component as an argument and returns a component. It transforms a component into another component and adds additional data or functionality. In short:',
         list: null,
         code: [
           {
@@ -181,7 +187,8 @@ shouldComponentUpdate(nextProps, nextState) {
 }`,
           },
           {
-            title: `A higher-order component is a function that takes a component as an argument and returns a component. This means that a HOC will always have a form similar to the following:`,
+            title:
+              'A higher-order component is a function that takes a component as an argument and returns a component. This means that a HOC will always have a form similar to the following:',
             code: `const higherOrderComponent = (WrappedComponent) => {
   class HOC extends React.Component {
     render() {
@@ -192,15 +199,15 @@ shouldComponentUpdate(nextProps, nextState) {
 };`,
           },
         ],
-        note: `HOC adds additional functionality to the component.`,
+        note: 'HOC adds additional functionality to the component.',
       },
       {
         title: 'Controlled and uncontrolled components',
         id: 'c_vs_un_compoennt',
         description: null,
         list: [
-          `A Controlled Component is one that takes its current value through props and notifies changes through callbacks like onChange. A parent component “controls” it by handling the callback and managing its own state and passing the new values as props to the controlled component. You could also call this a “dumb component”`,
-          `An Uncontrolled Component is one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.`,
+          'A Controlled Component is one that takes its current value through props and notifies changes through callbacks like onChange. A parent component “controls” it by handling the callback and managing its own state and passing the new values as props to the controlled component. You could also call this a “dumb component”',
+          'An Uncontrolled Component is one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.',
         ],
         code: null,
         note: null,
@@ -229,7 +236,8 @@ class Square extends PureComponent {
       {
         title: 'Pure Function',
         id: 'pure_function',
-        description: `Pure functions take an input value (a parameter or argument) and depending on that input, produce an output value.`,
+        description:
+          'Pure functions take an input value (a parameter or argument) and depending on that input, produce an output value.',
         list: null,
         code: [
           {
@@ -244,7 +252,8 @@ class Square extends PureComponent {
       {
         title: 'Is reducer a pure function ?',
         id: 'reducer_pure_fnc',
-        description: `Yes reducer is a pure function that takes the previous state and an action, and returns the next state.`,
+        description:
+          'Yes reducer is a pure function that takes the previous state and an action, and returns the next state.',
         list: null,
         code: null,
         note: null,
@@ -256,7 +265,7 @@ class Square extends PureComponent {
         list: [
           `Context Api Pattern <a href="https://reactjs.org/docs/context.html#when-to-use-context" target="_blank">(here)</a>
           <br/> Context provides a way to pass data through the component tree without having to pass props down manually at every level.`,
-          `Render props <a href="https://reactjs.org/docs/render-props.html" target="_blank">(here)</a>`,
+          'Render props <a href="https://reactjs.org/docs/render-props.html" target="_blank">(here)</a>',
           'Presentation component',
         ],
         code: null,
@@ -289,12 +298,13 @@ Class BaseComponent extends Component {
       {
         title: 'Css-in-js react',
         id: 'css',
-        description: `CSS-in-JS refers to a pattern where CSS is composed using JavaScript instead of defined in external files. Read a comparison of CSS-in-JS libraries <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">here</a>.`,
+        description:
+          'CSS-in-JS refers to a pattern where CSS is composed using JavaScript instead of defined in external files. Read a comparison of CSS-in-JS libraries <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">here</a>.',
         list: null,
         code: [
           {
             title: null,
-            code: `style={{color: "red"}}`,
+            code: 'style={{color: "red"}}',
           },
         ],
         note: null,
@@ -302,7 +312,8 @@ Class BaseComponent extends Component {
       {
         title: 'Code Splitting - Lazy Loading',
         id: 'lazy_loading',
-        description: `The React.lazy function lets you render a dynamic import as a regular component. <a href="https://reactjs.org/docs/code-splitting.html" target="_blank">more</a>`,
+        description:
+          'The React.lazy function lets you render a dynamic import as a regular component. <a href="https://reactjs.org/docs/code-splitting.html" target="_blank">more</a>',
         list: null,
         code: null,
         note: null,
@@ -310,7 +321,8 @@ Class BaseComponent extends Component {
       {
         title: 'FLUX',
         id: 'flux',
-        description: `Flux is an architectural pattern which enforces the unidirectional data flow. It controls derived data and enables communication between multiple components using a central Store which has authority for all data. Any update in data throughout the application must occur here only. Flux provides stability to the application and reduces run-time errors.`,
+        description:
+          'Flux is an architectural pattern which enforces the unidirectional data flow. It controls derived data and enables communication between multiple components using a central Store which has authority for all data. Any update in data throughout the application must occur here only. Flux provides stability to the application and reduces run-time errors.',
         list: null,
         code: null,
         note: null,
@@ -349,7 +361,7 @@ Action is something which triggers what needs to be done from the component disp
       {
         title: 'components of Redux',
         id: 'components_redux',
-        description: `Redux is composed of the following components:`,
+        description: 'Redux is composed of the following components:',
         list: [
           `<b>Action </b> - Actions are payloads of information that send data from our application to our store. They are the only source of information for the store. We send them to the store using store.dispatch(). 
         <br />
@@ -440,7 +452,8 @@ document.getElementById('root')
 )`,
           },
         ],
-        note: `It’s important to note that we’ll only have a single store in a Redux application. When we want to split your data handling logic, we’ll use reducer composition instead of many stores.`,
+        note:
+          'It’s important to note that we’ll only have a single store in a Redux application. When we want to split your data handling logic, we’ll use reducer composition instead of many stores.',
       },
       {
         title: 'State is async. Why?',
@@ -454,7 +467,8 @@ document.getElementById('root')
       {
         title: 'Second argument in setState',
         id: 'arg_setState',
-        description: `A callback function which will be invoked when setState has finished and the component is re-rendered. Since the setState is asynchronous, which is why it takes in a second callback function. With this function, we can do what we want immediately after the state has been updated.`,
+        description:
+          'A callback function which will be invoked when setState has finished and the component is re-rendered. Since the setState is asynchronous, which is why it takes in a second callback function. With this function, we can do what we want immediately after the state has been updated.',
         list: null,
         code: null,
         note: null,
@@ -462,7 +476,8 @@ document.getElementById('root')
       {
         title: 'Error Boundary',
         id: 'error_boundary',
-        description: `Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.`,
+        description:
+          'Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.',
         list: null,
         code: [
           {
@@ -494,22 +509,22 @@ componentDidCatch(error, info) {
         id: 'package_json',
         description: null,
         list: [
-          `<b>version : </b> Must match version exactly`,
-          `<b>>version : </b> Must be greater than version`,
-          `<b>>=version : </b> etc`,
-          `<b><=version</b>`,
-          `<b>~version :</b> Approximately equivalent to version” <a href="https://docs.npmjs.com/misc/semver" target="_blank">See semver</a>`,
-          `<b>^version : </b>Compatible with version” <a href="https://docs.npmjs.com/misc/semver" target="_blank">See semver</a>`,
-          `<b>1.2.x : </b> 1.2.0, 1.2.1, etc., but not 1.3.0`,
-          `<b>http://... </b> See ‘URLs as Dependencies’ below`,
-          `<b>* : </b> Matches any version`,
-          `<b> "" : </b> (just an empty string) Same as *`,
-          `<b>version1 - version2 : </b>Same as >=version1 <=version2.`,
-          `<b>range1 || range2 : </b> Passes if either range1 or range2 are satisfied.`,
-          `<b>git... </b> See ‘Git URLs as Dependencies’ below`,
-          `<b>user/repo : </b> See ‘GitHub URLs’ below`,
-          `<b>tag A : </b> specific version tagged and published as tag <a href="https://docs.npmjs.com/cli/dist-tag" target="_blank">See npm-dist-tag</a>`,
-          `<b>path/path/path </b> See <a href="https://docs.npmjs.com/files/package.json#local-paths" target="_blank">Local Paths </a> below`,
+          '<b>version : </b> Must match version exactly',
+          '<b>>version : </b> Must be greater than version',
+          '<b>>=version : </b> etc',
+          '<b><=version</b>',
+          '<b>~version :</b> Approximately equivalent to version” <a href="https://docs.npmjs.com/misc/semver" target="_blank">See semver</a>',
+          '<b>^version : </b>Compatible with version” <a href="https://docs.npmjs.com/misc/semver" target="_blank">See semver</a>',
+          '<b>1.2.x : </b> 1.2.0, 1.2.1, etc., but not 1.3.0',
+          '<b>http://... </b> See ‘URLs as Dependencies’ below',
+          '<b>* : </b> Matches any version',
+          '<b> "" : </b> (just an empty string) Same as *',
+          '<b>version1 - version2 : </b>Same as >=version1 <=version2.',
+          '<b>range1 || range2 : </b> Passes if either range1 or range2 are satisfied.',
+          '<b>git... </b> See ‘Git URLs as Dependencies’ below',
+          '<b>user/repo : </b> See ‘GitHub URLs’ below',
+          '<b>tag A : </b> specific version tagged and published as tag <a href="https://docs.npmjs.com/cli/dist-tag" target="_blank">See npm-dist-tag</a>',
+          '<b>path/path/path </b> See <a href="https://docs.npmjs.com/files/package.json#local-paths" target="_blank">Local Paths </a> below',
         ],
         code: null,
         note: null,
@@ -517,7 +532,8 @@ componentDidCatch(error, info) {
       {
         title: 'PropTypes',
         id: 'proptypes',
-        description: `Used to check the type of the props passed in the component.`,
+        description:
+          'Used to check the type of the props passed in the component.',
         list: null,
         code: [
           {
@@ -569,7 +585,8 @@ MyComponent.propTypes = {
       {
         title: 'Hooks',
         id: 'hooks',
-        description: `Hooks let you use state and other React features without writing a class.`,
+        description:
+          'Hooks let you use state and other React features without writing a class.',
         list: null,
         code: [
           {
@@ -581,7 +598,8 @@ value={name} // name state can be directly used without using  this.state.name s
 onChange={e => setName(e.target.value)} // setName to update state.`,
           },
           {
-            title: `<b>useEffect</b> <br /> Performs the same operation as of react lifecycle methods does, like didMount, willMount.`,
+            title:
+              '<b>useEffect</b> <br /> Performs the same operation as of react lifecycle methods does, like didMount, willMount.',
             code: `// [] behaves as componentWillMount, only calls one time.
 // [nirvana] only runs when nirvana changes.
 // no second parameter will run on every update, componentDidUpdate.
@@ -628,8 +646,9 @@ const dispatch = useDispatch();
 <button onClick={() => dispatch({type: "INCREMENT", payload:10 })}>INCREMENT</button>`,
           },
           {
-            title: `<b>useParams</b> <br />useParams is for reading values from URL.`,
-            code: `const {firstName,lastName} = useParams();`,
+            title:
+              '<b>useParams</b> <br />useParams is for reading values from URL.',
+            code: 'const {firstName,lastName} = useParams();',
           },
           {
             title: `<b>UseLocation</b> <br /> use for fetching multiple parameters from Link.
@@ -648,13 +667,44 @@ const dispatch = useDispatch();
         note: null,
       },
       {
-        title: 'Force React Component to Render',
-        id: 'force_render',
-        description: `this.forceUpdate(), which skips shouldComponentUpdate:`,
+        title: 'Lifecycle methods with the useEffect Hook',
+        id: 'lifecycle_using_useEffect',
+        description:
+          'you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.',
         list: '',
         code: [
           {
-            title: ``,
+            title: 'componentDidMount',
+            code: `useEffect(() => {
+  // Inside this callback function we perform our side effects.
+});`,
+          },
+          {
+            title: 'componentDidUpdate',
+            code: `useEffect(() => {
+  // Inside this callback function we perform our side effects.
+});`,
+          },
+          {
+            title: 'componentWillUnmount',
+            code: `useEffect(() => {
+  window.addEventListener("mousemove", () => {});
+  return () => {
+    window.removeEventListener("mousemove", () => {})
+  }
+}, []);`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: 'Force React Component to Render',
+        id: 'force_render',
+        description: 'this.forceUpdate(), which skips shouldComponentUpdate:',
+        list: '',
+        code: [
+          {
+            title: '',
             code: `someMethod() {
   // Force a render without state change...
   this.forceUpdate();
@@ -703,7 +753,8 @@ const dispatch = useDispatch();
         list: '',
         code: [
           {
-            title: `A generator function is one defined like this. Notice the asterisk after the function keyword.`,
+            title:
+              'A generator function is one defined like this. Notice the asterisk after the function keyword.',
             code: `function* mySaga() {
   // ...
 }`,
@@ -724,7 +775,7 @@ const dispatch = useDispatch();
       {
         title: 'Advantages Redux Thunk',
         id: 'adv_thunk',
-        description: `WIP`,
+        description: 'WIP',
         list: '',
         code: null,
         note: null,
@@ -746,7 +797,7 @@ const dispatch = useDispatch();
       {
         title: 'React Router',
         id: 'router',
-        description: `Coming Soon`,
+        description: 'Coming Soon',
         list: '',
         code: null,
         note: null,
