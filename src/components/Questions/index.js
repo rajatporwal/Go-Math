@@ -148,6 +148,14 @@ const Questions = () => {
             X-OR
           </Checkbox>
         </div>
+        <div>
+          <Checkbox
+            onChange={() => onCategoryChange('linked_list')}
+            checked={queCategory.includes('linked_list')}
+          >
+            Linked List
+          </Checkbox>
+        </div>
       </div>
       <br />
       <hr />

@@ -965,6 +965,116 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
       },
     ],
   },
+  {
+    question: 'Find mid point of linked list',
+    category: ['linked_list'],
+    id: 'mid_point_ll',
+    directions: `Return the middle node of Linked List <br /><br />
+    Conditions:<br />
+    - Do not use counter variable<br />
+    - Do not retrive size of the list<br />
+    - Only iterate through the list one time`,
+    solution: [
+      {
+        title: null,
+        code: `function findMidPoint(list) {
+  let slow = list.head;
+  let fast = list.head;
+
+  while(fast?.next?.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+
+/* Optional chaining operator:
+  "fast.next && fast.next.next" is same as "fast?.next?.next"
+*/`,
+      },
+    ],
+  },
+  {
+    question: 'Find Circular Node in linked list',
+    category: ['linked_list'],
+    id: 'circular_node_ll',
+    directions:
+      'Given a linked list, return true if the list is circular, false if it is not.',
+    solution: [
+      {
+        title: null,
+        code: `function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  return false;
+}
+                  
+/*
+  const ll = new List(); <br />
+  const a = new Node('a'); <br />
+  const b = new Node('b'); <br />
+  const c = new Node('c'); <br />
+  ll.head = a; <br />
+  a.next = b; <br />
+  b.next = c; <br />
+  c.next = b; <br />
+  circular(ll) // true
+*/`,
+      },
+    ],
+  },
+  {
+    question: 'Find element from last in Linked List',
+    category: ['linked_list'],
+    id: 'return_last_elment',
+    directions: `Given a linked list and integer n, return the element n spaces from the last node in the list.
+      <br /> Do not call the size method of the linked list.
+      <br /> Assume that n will always be less than the length of the list.`,
+    solution: [
+      {
+        title: null,
+        code: `function fromLast(list, n) {
+  let slow = list.head;
+  let fast = list.head;
+
+  while (n) {
+    fast = fast.next;
+    n--;
+  }
+
+  while (fast.next) {
+    fast = fast.next;
+    slow = slow.next;
+  }
+
+  return slow;
+}
+  
+  /*
+    const list = new List();
+    list.insertLast('a');
+    list.insertLast('b');
+    list.insertLast('c');
+    list.insertLast('d');
+    list.insertLast('e');
+    list.insertLast('f');
+    list.insertLast('g');
+    fromLast(list, 2).data // 'e'
+  */`,
+      },
+    ],
+  },
 ];
 
 export default questionsConfig;
