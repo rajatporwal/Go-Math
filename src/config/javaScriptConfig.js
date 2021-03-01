@@ -1454,6 +1454,116 @@ legolas.attack(); // attack with bow`,
           },
         ],
       },
+      {
+        title: 'Prototype Chaining',
+        id: 'prototype_chaining',
+        description:
+          'Nearly all objects in JavaScript are instances of Object. That means all the objects in JavaScript inherit the properties and methods from Object. prototype. This is called Prototype chaining. This is a very powerful and potentially dangerous mechanism to override or extend object behavior',
+        code: [
+          {
+            title: null,
+            code: `const Car = function () {};
+
+Car.prototype = {
+  print() {
+    return 'I am a Car';
+  },
+};
+
+const ToyCar = function () {};
+
+ToyCar.prototype = Object.create(Car.prototype);
+
+ToyCar.prototype.print = function () {
+  return 'I am a toyCar';
+};
+
+const ToyTransformer = function () {};
+
+ToyTransformer.prototype = Object.create(ToyCar.prototype);
+
+ToyTransformer.prototype.print = function () {
+  return 'I am a toyTransformer';
+};
+
+const toyota = new Car();
+const legoCar = new ToyCar();
+const optimusPrim = new ToyTransformer();
+
+console.log(toyota.print()); //  I am a Car
+console.log(legoCar.print()); // I am a toyCar
+console.log(optimusPrim.print()); // I am a toyTransformer`,
+          },
+          {
+            title:
+              'When we remove print method from ToyTrasformer Class, it will look for print method in the proto of Toy class',
+            code: `const Car = function () {};
+
+Car.prototype = {
+  print() {
+    return 'I am a Car';
+  },
+};
+
+const ToyCar = function () {};
+
+ToyCar.prototype = Object.create(Car.prototype);
+
+ToyCar.prototype.print = function () {
+  return 'I am a toyCar';
+};
+
+const ToyTransformer = function () {};
+
+ToyTransformer.prototype = Object.create(ToyCar.prototype);
+
+// ToyTransformer.prototype.print = function () {
+//   return 'I am a toyTransformer';
+// };
+
+const toyota = new Car();
+const legoCar = new ToyCar();
+const optimusPrim = new ToyTransformer();
+
+console.log(toyota.print()); //  I am a Car
+console.log(legoCar.print()); // I am a toyCar
+console.log(optimusPrim.print()); // I am a toyCar`,
+          },
+        ],
+      },
+      {
+        title: '__proto__ vs prototype',
+        id: '_proto_vs_prototype',
+        description:
+          'Nearly all objects in JavaScript are instances of Object. That means all the objects in JavaScript inherit the properties and methods from Object. prototype. This is called Prototype chaining. This is a very powerful and potentially dangerous mechanism to override or extend object behavior',
+        list: [
+          '__proto__ is the actual object that is used in the lookup chain to resolve methods',
+          'prototype is the used to add new values/functions to the object',
+          'prototype is a property of a Function object. It is the prototype of objects constructed by that function.',
+        ],
+        code: [
+          {
+            title: null,
+            code: `function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+var myPoint = new Point();
+
+// the following are all true
+  myPoint.__proto__ == Point.prototype
+  myPoint.__proto__.__proto__ == Object.prototype
+  myPoint instanceof Point;
+  myPoint instanceof Object;
+-8-
+/*
+Here Point is a constructor function, it builds an object (data structure) procedurally.
+myPoint is an object constructed by Point() so Point.prototype gets saved to myPoint.__proto__ at that time.
+*/`,
+          },
+        ],
+      },
     ],
   },
   {

@@ -422,6 +422,50 @@ tripleAdd(10)(20)(30); // 60`,
     ],
   },
   {
+    question: 'create map(), filter() and reduce() method',
+    category: ['javascript'],
+    id: 'create_map_filter_reduce',
+    directions: null,
+    solution: [
+      {
+        title: 'map()',
+        code: `Array.prototype.myMap = function (callback) {
+  const resultArray = [];
+  for (let i = 0; i < this.length; i++) {
+    resultArray.push(callback(this[i], i, this));
+  }
+  return resultArray;
+};`,
+      },
+      {
+        title: 'filter()',
+        code: `Array.prototype.myFilter = function (callback) {
+  const filteredArray = [];
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      filteredArray.push(this[i]);
+    }
+  }
+  return filteredArray;
+};`,
+      },
+      {
+        title: 'reduce()',
+        code: `Array.prototype.myReduce = function (callback, accumulator) {
+  if (this.length < 1) return 'Array is Empty';
+
+  if (!accumulator) {
+    if (this.type[0] === 'string') accumulator = '';
+  } else if (this.type[0] === 'number') accumulator = 0;
+
+  for (let i = 0; i < this.length; i++) {
+    accumulator = callback(accumulator, this.length);
+  }
+};`,
+      },
+    ],
+  },
+  {
     question: 'check if an object is an array',
     category: ['object', 'javascript'],
     id: 'is_array',

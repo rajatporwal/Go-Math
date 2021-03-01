@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import javaScriptConfig from "../../config/javaScriptConfig";
-import { Table } from "antd";
-import { PlusCircleTwoTone } from "@ant-design/icons";
-import { addTodo } from "../../actions/todoActions";
-import { SIDE_BAR_OPTIONS } from "../../actions/types";
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import javaScriptConfig from '../../config/javaScriptConfig';
+import { Table } from 'antd';
+import { PlusCircleTwoTone } from '@ant-design/icons';
+import { addTodo } from '../../actions/todoActions';
+import { SIDE_BAR_OPTIONS } from '../../actions/types';
 
 const JavaScript = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -33,13 +33,13 @@ const JavaScript = () => {
                 {child.title}
                 {isAuthenticated && (
                   <PlusCircleTwoTone
-                    style={{ marginLeft: "1rem", fontSize: "2rem" }}
+                    style={{ marginLeft: '1rem', fontSize: '2rem' }}
                     onClick={() =>
                       dispatch(
                         addTodo({
                           title: child.title,
-                          category: "javascript",
-                          hashId: child.id
+                          category: 'javascript',
+                          hashId: child.id,
                         })
                       )
                     }
@@ -79,16 +79,16 @@ const JavaScript = () => {
                     <>
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: `- ${t.title}`
+                          __html: `- ${t.title}`,
                         }}
                       />
                       <Table
                         columns={t.columns}
                         dataSource={t.data.map((d, i) => {
-                          d["index"] = i + 1;
+                          d['index'] = i + 1;
                           return d;
                         })}
-                        scroll={{ y: 500, x: "100vw" }}
+                        scroll={{ y: 500, x: '100vw' }}
                       />
                     </>
                   ))}
@@ -97,7 +97,7 @@ const JavaScript = () => {
                 <p
                   className="note"
                   dangerouslySetInnerHTML={{
-                    __html: `Note: ${child.note}`
+                    __html: `Note: ${child.note}`,
                   }}
                 />
               )}
