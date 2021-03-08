@@ -25,6 +25,15 @@ const reactJsConfig = [
           "<b>componentWillMount : </b> componentWillMount is essentially the constructor. You can set instance properties that don't affect render, pull data from a store synchronously and setState with it, and other simple side effect free code you need to run when setting up your component. It's rarely needed, and not at all with ES6 classes.",
           '<b>componentDidMount : </b> componentDidMount() is a hook that gets invoked right after a React component has been mounted aka after the first render() lifecycle.',
           '<b>shouldComponentUpdate :</b> returns a boolean value.',
+          `<b>componentWillReceiveProps (deprecated):</b> componentWillReceiveProps is a synchronous hook. Calling asynchronous function like data fetching inside this hook will need to render in between when the new props are set and when data has finished loading
+            <br /><br />
+But the getDerivedStateFromProps is an asynchronous hook won't require any additional render.
+<br /><br />
+Thus, componentWillReceiveProps is being deprecated in favor of the following reason:
+<br />
+  Use getDerivedStateFromProps
+  Or, use componentDidUpdate
+          `,
         ],
         code: [
           {
@@ -800,6 +809,63 @@ const dispatch = useDispatch();
         description: 'Coming Soon',
         list: '',
         code: null,
+        note: null,
+      },
+      {
+        title: 'Redux Persist',
+        id: 'redux_persist',
+        description:
+          'Redux persist is a library allowing to save the redux store in the local storage of your browser.',
+        list: [
+          '<b>Persist Redux State: </b>When creating your redux store, pass your createStore function a persistReducer that wraps your apps root reducer. Once your store is created, pass it to the persistStore function, which ensures your redux state is saved to persisted storage whenever it changes.',
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: 'Access Redux Store Outside a React Component',
+        id: 'redux_store_outside_component',
+        description:
+          'If you need access to the Redux store’s state from inside a thunk action creator, that’s even easier. You don’t even need to export the store, because thunk actions receive a getState argument.',
+        list: ['Export the Store', 'Access Redux State from a Thunk'],
+        code: [
+          {
+            title: 'Export the Store',
+            code: `// Move your store creation code into its own file. store.js is a nice name.
+
+// store.js
+
+import { createStore } from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+
+export default store;
+
+// use in any file by importing store
+
+import store from './store';
+
+// grab current state
+const state = store.getState();
+
+// get the JWT token out of it
+// (obviously depends on how your store is structured)
+const authToken = state.currentUser.token;`,
+          },
+          {
+            title: 'Access Redux State from a Thunk',
+            code: `export function getProtectedThing() {
+return (dispatch, getState) => {
+  // grab current state
+  const state = getState();
+
+  // get the JWT token out of it
+  // (obviously depends on how your store is structured)
+  const authToken = state.currentUser.token;
+}`,
+          },
+        ],
         note: null,
       },
     ],
