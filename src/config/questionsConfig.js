@@ -37,6 +37,39 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`,
     ],
   },
   {
+    question: 'Matching Brackets',
+    category: ['string'],
+    id: 'matching_brackets',
+    solution: [
+      {
+        title: null,
+        code: `let isMatchingBrackets = function (str) {
+  let stack = [];
+  let map = {
+      '(': ')',
+      '[': ']',
+      '{': '}'
+  }
+  for (let word of str) {
+    if(map[word]) {
+      stack.push(word);
+    }
+    else {
+      let last = stack.pop();
+      if (word !== map[last]) {return false};
+    }
+  }
+    if (stack.length !== 0) {return false};
+  return true;
+}
+
+console.log(isMatchingBrackets("(){}")); // returns true
+console.log(isMatchingBrackets("[{()()}({[]})]({}[({})])((((((()[])){}))[]{{{({({({{{{{{}}}}}})})})}}}))[][][]")); // returns true
+console.log(isMatchingBrackets("({(()))}}"));  // returns false`,
+      },
+    ],
+  },
+  {
     question: 'Odd even sort array',
     category: ['array', 'number'],
     id: 'odd_even_sort_array',
