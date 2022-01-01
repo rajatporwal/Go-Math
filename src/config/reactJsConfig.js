@@ -707,6 +707,63 @@ const dispatch = useDispatch();
         note: null,
       },
       {
+        title: 'useMemo, useCallback, memo',
+        id: 'usememo_usecallback',
+        description: 'Assume component B is a child of component A',
+        list: [
+          'whenever component A will render component B will also render, to prevent this we can wrap component with memo',
+          'if we pass any function as a prop to component B then we will break the memo, so for this we need to pass memoizedCallback using useCallback hook',
+          'useMemo is used for memorizing the previous render of component so that component will not get render again, it will only get rendered if passed prop is changed.',
+          'React.memo() is the functional component equivalent of React.PureComponent',
+        ],
+        code: [
+          {
+            title: '',
+            code: `const memoizedCallback = useCallback(number => changeChildNumber(number), []);
+const memoizedValue = useMemo(number => getLargestNumber(), [arr]);
+
+function A() {
+  return (
+    <B changeNumber={memoizedCallback} />
+  )
+}`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: 'useRef',
+        id: 'useref',
+        description:
+          'useRef hook allows us to directly ceate a reference to the DOM element',
+        list: null,
+        code: [
+          {
+            title:
+              'Scroll to the bottom by taking ref of the div using useRef()',
+            code: `import React, { useEffect, useRef } from 'react'
+
+const Messages = ({ messages }) => {
+  const messagesEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(scrollToBottom, [messages]);
+
+  return (
+    <div>
+      {messages.map(message => <Message key={message.id} {...message} />)}
+      <div ref={messagesEndRef} />
+    </div>
+  )
+}`,
+          },
+        ],
+        note: null,
+      },
+      {
         title: 'Force React Component to Render',
         id: 'force_render',
         description: 'this.forceUpdate(), which skips shouldComponentUpdate:',
@@ -866,6 +923,33 @@ return (dispatch, getState) => {
 }`,
           },
         ],
+        note: null,
+      },
+      {
+        title: 'Shadow Dom s Virtual Dom',
+        id: 'shadow_dom',
+        description: `<b>The virtual DOM (VDOM) </b> is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
+        <br /><br />
+        This approach enables the declarative API of React: You tell React what state you want the UI to be in, and it makes sure the DOM matches that state. This abstracts out the attribute manipulation, event handling, and manual DOM updating that you would otherwise have to use to build your app.
+        <br /><br />
+        Since “virtual DOM” is more of a pattern than a specific technology, people sometimes say it to mean different things. In React world, the term “virtual DOM” is usually associated with React elements since they are the objects representing the user interface. React, however, also uses internal objects called “fibers” to hold additional information about the component tree. They may also be considered a part of “virtual DOM” implementation in React.
+        <br /><br />
+        No, they are different. The <b>Shadow DOM</b> is a browser technology designed primarily for scoping variables and CSS in web components. The virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.
+        `,
+        list: '',
+        code: null,
+        note: null,
+      },
+      {
+        title: 'React fiber',
+        id: 'react_fiber',
+        description: `Fiber is the new reconciliation engine in React 16. Its main goal is to enable incremental rendering of the virtual DOM.
+        <br /><br />
+        The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering, the ability to split rendering work into chunks and spread it out over multiple frames.
+        <br /><br />
+        Other key features include the ability to pause, abort, or reuse work as new updates come in, the ability to assign priority to different types of updates and new concurrency primitives.`,
+        list: '',
+        code: null,
         note: null,
       },
     ],

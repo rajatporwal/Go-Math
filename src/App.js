@@ -42,15 +42,15 @@ export default function App() {
 
   return (
     <Layout>
-      <div className="App">
+      <div className='App'>
         <div>
           <Header />
         </div>
         <Layout>
           {showSideBar ? <SideBar /> : null}
           <div className={`content ${showSideBar ? 'sideBar' : ''}`}>
-            <Content className="site-layout" style={{ marginTop: 64 }}>
-              <div className="site-layout-background" style={{ padding: 24 }}>
+            <Content className='site-layout' style={{ marginTop: 64 }}>
+              <div className='site-layout-background' style={{ padding: 24 }}>
                 <Spin indicator={antIcon} spinning={isLoading}>
                   <Main />
                 </Spin>
