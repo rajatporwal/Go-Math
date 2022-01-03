@@ -1152,6 +1152,32 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
       },
     ],
   },
+  {
+    question: 'Stock prices array',
+    category: ['array', 'javascript'],
+    id: 'stock_prices_array',
+    directions: `Find the total profit by buying and selling the stocks any number of times.`,
+    solution: [
+      {
+        title: null,
+        code: `// [2, 4, 5, 10, 1, 3] = 10
+// [3, 1, 4, 9, 4, 1] = 8
+// [1, 4, 2, 9, 4, 5] = 11
+
+const getStocksProfit = arr => {
+  let total = 0;
+  for(let i = 1; i < arr.length; i++) {
+    if(arr[i] > arr[i-1]){
+      total += arr[i] - arr[i-1];
+    }
+  }
+  return total;
+}
+
+getStocksProfit([1, 4, 2, 9, 4, 5]);`,
+      },
+    ],
+  },
 ];
 
 export default questionsConfig;
