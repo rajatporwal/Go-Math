@@ -10,10 +10,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SIDE_BAR } from '../actions/types';
 import { showModal } from '../actions/commonActions';
 import { logoutUser } from '../actions/authActions';
+import Search from '../common/search/search';
 
 const { Header } = Layout;
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ searchData }) => {
   const sideBar = useSelector((state) => state.appReducer.sideBar);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isAdmin = useSelector((state) => state.auth.isAdmin);
@@ -41,11 +42,9 @@ const HeaderComponent = () => {
         <Menu.Item key='4'>
           <Link to='/ds'>DS</Link>
         </Menu.Item>
-        {isAuthenticated && (
           <Menu.Item key='5'>
             <Link to='/questions'>Questions</Link>
           </Menu.Item>
-        )}
         <Menu.Item key='6'>
           <Link to='/regex'>Regex</Link>
         </Menu.Item>
@@ -63,6 +62,7 @@ const HeaderComponent = () => {
           </Menu.Item>
         )}
         <div key='login' style={{ float: 'right', marginRight: '5rem' }}>
+        <Search searchData={searchData}/>
           {isAuthenticated ? (
             <Button
               type='danger'

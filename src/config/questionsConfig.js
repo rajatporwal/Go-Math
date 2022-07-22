@@ -8,9 +8,10 @@ import {
   ARRAY_CHUNKING,
 } from '../helper/questionsHelper';
 
-const questionsConfig = [
+const QUESTIONS_CONFIG = [
   {
     question: 'Remove duplicate objects from array',
+    keywords: 'Remove duplicate objects from array',
     category: ['array'],
     id: 'a_remove_duplicate',
     solution: [
@@ -38,6 +39,7 @@ let uniqueArray = Array.from(uniqueSet).map(JSON.parse);`,
   },
   {
     question: 'Matching Brackets',
+    keywords: 'Matching Brackets',
     category: ['string'],
     id: 'matching_brackets',
     solution: [
@@ -71,6 +73,7 @@ console.log(isMatchingBrackets("({(()))}}"));  // returns false`,
   },
   {
     question: 'Odd even sort array',
+    keywords: 'Odd even sort array',
     category: ['array', 'number'],
     id: 'odd_even_sort_array',
     solution: [
@@ -94,6 +97,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Reverse string',
+    keywords: 'Reverse string',
     category: ['string', 'reverse'],
     id: 'reverse_string',
     solution: [
@@ -117,6 +121,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Reverse Integer',
+    keywords: 'Reverse Integer',
     category: ['number', 'reverse'],
     id: 'reverse_integer',
     solution: [
@@ -128,6 +133,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Capitalizes first letter of every word in a sentence',
+    keywords: 'Capitalizes first letter of every word in a sentence',
     category: ['string'],
     id: 'capitalizes',
     solution: [
@@ -143,6 +149,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Find total vowel count in string',
+    keywords: 'Find total vowel count in string',
     category: ['string', 'regex'],
     id: 'vowel_count',
     solution: [
@@ -158,6 +165,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'String Palindrome',
+    keywords: 'String Palindrome',
     category: ['string'],
     id: 'palindrome',
     solution: [
@@ -173,6 +181,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'String Anagrams',
+    keywords: 'String Anagrams',
     category: ['string'],
     id: 'anagrams',
     directions: `Check to see if two provided strings are anagrams of eachother.
@@ -199,6 +208,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Harmless Ransom Note',
+    keywords: 'Harmless Ransom Note',
     category: ['string'],
     id: 'hrn',
     directions: `Given an arbitrary ransom note string and another string containing words from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
@@ -279,6 +289,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Array Chunking',
+    keywords: 'Array Chunking',
     category: ['array'],
     id: 'chunking',
     directions: `Given an array and chunk size, divide the array into many subarrays
@@ -304,6 +315,7 @@ sort([4, 3, 6, 8, 10, 1, 9, 5]);    // output: [4, 6, 8, 10, 1, 3, 5, 9]`,
   },
   {
     question: 'Two Sum',
+    keywords: 'Two Sum',
     category: ['array', 'number'],
     id: 'two_sum',
     directions:
@@ -331,6 +343,7 @@ twoSum(arr, 7);  // [ [6, 1], [3, 4],[3, 4]]`,
   },
   {
     question: 'String MaxChar',
+    keywords: 'String MaxChar',
     category: ['string'],
     id: 'max_char',
     directions: `Given a string, return the character that is most
@@ -371,6 +384,7 @@ module.exports = maxChar;`,
   },
   {
     question: 'setTimeOut()',
+    keywords: 'setTimeOut()',
     category: ['javascript'],
     id: 'set_time_out',
     directions: '',
@@ -435,6 +449,7 @@ for (var i = 0; i < arr.length; i++) {
   },
   {
     question: 'tripleAdd (function currying)',
+    keywords: 'tripleAdd (function currying)',
     category: ['javascript'],
     id: 'triple_add',
     directions:
@@ -456,6 +471,7 @@ tripleAdd(10)(20)(30); // 60`,
   },
   {
     question: 'create map(), filter() and reduce() method',
+    keywords: 'create map(), filter() and reduce() method',
     category: ['javascript'],
     id: 'create_map_filter_reduce',
     directions: null,
@@ -500,6 +516,7 @@ tripleAdd(10)(20)(30); // 60`,
   },
   {
     question: 'check if an object is an array',
+    keywords: 'check if an object is an array',
     category: ['object', 'javascript'],
     id: 'is_array',
     directions: null,
@@ -520,6 +537,7 @@ Object.prototype.toString.call(obj) === '[object Object]'    // true
   },
   {
     question: 'check if a number is an integer',
+    keywords: 'check if a number is an integer',
     category: ['number', 'javascript'],
     id: 'is_number',
     directions: null,
@@ -538,6 +556,7 @@ console.log(isInt(0.3));    // false`,
   },
   {
     question: 'Counter Function using Closures',
+    keywords: 'Counter Function using Closures',
     category: ['javascript'],
     id: 'counter_fnc_closure',
     directions: null,
@@ -567,6 +586,7 @@ console.log(isInt(0.3));    // false`,
   },
   {
     question: 'call() and apply() methods',
+    keywords: 'call() and apply() methods',
     category: ['javascript'],
     id: 'call_apply',
     directions: null,
@@ -600,6 +620,7 @@ car1.getCarDescription.apply(car3, [35000, 2012, 'black']);`,
   },
   {
     question: 'bind() method',
+    keywords: 'bind() method',
     category: ['javascript'],
     id: 'bind',
     directions:
@@ -640,6 +661,7 @@ console.log(roadTrip1.getDistance.call(roadTrip1))    // 3000`,
   },
   {
     question: 'Equivalent Numbers',
+    keywords: 'Equivalent Numbers',
     category: ['javascript'],
     id: 'equivalent_numbers',
     directions: null,
@@ -660,6 +682,7 @@ Number((300.3 * 3).toPrecision(12))     // 900.9
   },
   {
     question: 'String as Arrays',
+    keywords: 'String as Arrays',
     category: ['string', 'array', 'javascript'],
     id: 'string_as_array',
     directions: `Use Array methods on String: <br /> <br />
@@ -682,6 +705,7 @@ console.log(data2);       // ['S', 'm', 'i', 't', 'h']`,
   },
   {
     question: 'Object as a key',
+    keywords: 'Object as a key',
     category: ['object', 'javascript'],
     id: 'object_as_a_key',
     directions: `Only strings are allowed as an Object key in JS
@@ -712,6 +736,7 @@ console.log(a)        // { [object Object]: 400 }`,
   },
   {
     question: 'Find mising number from an unsorted array',
+    keywords: 'Find mising number from an unsorted array',
     category: ['array'],
     id: 'find_missing_no',
     directions: null,
@@ -753,6 +778,7 @@ findMissingNo(arr);     // 5`,
   },
   {
     question: 'caesarCipher',
+    keywords: 'caesarCipher',
     category: ['string'],
     id: 'caesar_cipher',
     directions: ` - "Encrypt" like this: <br />
@@ -829,6 +855,7 @@ For simplicity, only works with ASCII characters.`,
   },
   {
     question: 'Find Min Max sum after removing each element from the array',
+    keywords: 'Find Min Max sum after removing each element from the array',
     category: ['array'],
     id: 'find_min_max',
     directions:
@@ -867,6 +894,7 @@ const findMinMax = (arr) => {
   },
   {
     question: 'Find length of number without converting it into string',
+    keywords: 'Find length of number without converting it into string',
     category: ['number'],
     id: 'find_length_of_number',
     directions: null,
@@ -886,6 +914,7 @@ console.log(len); // 13`,
   },
   {
     question: 'Find the number occurring odd number of times in an array',
+    keywords: 'Find the number occurring odd number of times in an array',
     category: ['array', 'x-or'],
     id: 'find_number_occuring_odd_times',
     directions: `Given an array of positive integers. All numbers occur even number of times except one number which occurs odd number of times
@@ -939,6 +968,7 @@ findOddOccurence(arr);      // Output: 3`,
   },
   {
     question: 'Tricky JS Question',
+    keywords: 'Tricky JS keywords',
     category: ['javascript'],
     id: 'tricky_js_que',
     directions: null,
@@ -987,6 +1017,7 @@ console.log(add(1)(2));     // 3`,
   },
   {
     question: 'First character of string is Uppercase or not',
+    keywords: 'First character of string is Uppercase or not',
     category: ['string', 'regex'],
     id: 'string_upper_case_first_char',
     directions: null,
@@ -1003,6 +1034,7 @@ console.log(str2.match(/^[A-Z]/));    // null`,
   },
   {
     question: 'Move Zeros to end of the array',
+    keywords: 'Move Zeros to end of the array',
     category: ['arr'],
     id: 'move_zeros_to_end_of_array',
     directions: null,
@@ -1044,6 +1076,7 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
   },
   {
     question: 'Find mid point of linked list',
+    keywords: 'Find mid point of linked list',
     category: ['linked_list'],
     id: 'mid_point_ll',
     directions: `Return the middle node of Linked List <br /><br />
@@ -1074,6 +1107,7 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
   },
   {
     question: 'Find Circular Node in linked list',
+    keywords: 'Find Circular Node in linked list',
     category: ['linked_list'],
     id: 'circular_node_ll',
     directions:
@@ -1113,6 +1147,7 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
   },
   {
     question: 'Find element from last in Linked List',
+    keywords: 'Find element from last in Linked List',
     category: ['linked_list'],
     id: 'return_last_elment',
     directions: `Given a linked list and integer n, return the element n spaces from the last node in the list.
@@ -1154,6 +1189,7 @@ pushZerosToEnd(arr);    //  [1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0]`,
   },
   {
     question: 'Stock prices array',
+    keywords: 'Stock prices array',
     category: ['array', 'javascript'],
     id: 'stock_prices_array',
     directions: `Find the total profit by buying and selling the stocks any number of times.`,
@@ -1180,4 +1216,4 @@ getStocksProfit([1, 4, 2, 9, 4, 5]);`,
   },
 ];
 
-export default questionsConfig;
+export default QUESTIONS_CONFIG;

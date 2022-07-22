@@ -1,12 +1,13 @@
 import { OBJECT_FOR_IN } from "../helper/common";
 
-const javaScriptConfig = [
+const JAVASCRIPT_CONFIG = [
   {
     heading: "JavaScript Foundation",
     pathname: "/javascript",
     children: [
       {
         title: "Execution Context",
+        keywords: "Execution Context",
         id: "execution_context",
         description: `When the <b>JavaScript</b> engine first encounters your script, it
   creates a global <b>execution context</b> and pushes it to the current 
@@ -31,6 +32,7 @@ const javaScriptConfig = [
       },
       {
         title: "Lexical Environment",
+        keywords: "Lexical Environment",
         id: "lexical_environment",
         description: ` Every time the <b>JavaScript</b> engine creates an execution context to
     execute the function or global code, it also creates a new 
@@ -63,6 +65,7 @@ console.log(window.nestedFunction);  	// undefined`,
       },
       {
         title: "Hoisting",
+        keywords: "Hoisting",
         id: "hoisting",
         description: `Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
     Hoisting happens on every execution context.`,
@@ -127,6 +130,7 @@ a();				// Output: Bye`,
       },
       {
         title: "Functions",
+        keywords: "Functions",
         id: "functions",
         description: `A <b>JavaScript function</b> is a block of code designed to perform a particular task. A <b>JavaScript function</b> is executed when something invokes it (calls it).
     `,
@@ -156,6 +160,7 @@ india();		// it will get memory at parse/compile time`,
       },
       {
         title: "Arguments",
+        keywords: "Arguments",
         id: "arguments",
         description: `The <b>arguments</b> object is a local variable available within all non-arrow functions. You can refer to a function's <b>arguments</b> inside that function by using its <b>arguments</b> object. It has entries for each <b>argument</b> the function was called with, with the first entry's index at 0 .
     .
@@ -178,6 +183,7 @@ world("hello", "world");`,
       },
       {
         title: "Scope Chain",
+        keywords: "Scope Chain",
         id: "scope_chain",
         description:
           "The scope chain is used to resolve the value of variable names in javascript. Without a scope chain the Javascript engine wouldn't know which value to pick for a certain variable name if there are multiple defined at different scopes. Scope chain in javascript is lexically defined, which means that we can see what the scope chain will be by looking at the code.",
@@ -205,6 +211,7 @@ sayMyName(1)(2)(3);			// 1, 2, 3, [function findMyName]`,
       },
       {
         title: "use strict",
+        keywords: "use strict",
         id: "use_strict",
         description:
           "The <b>use strict</b> directive was new in ECMAScript version 5. It is not a statement, but a literal expression, ignored by earlier versions of <b>JavaScript</b>. The purpose of <b>use strict</b> is to indicate that the code should be executed in <b>strict</b> mode. With strict mode, you can not, for example, use undeclared variables.",
@@ -235,6 +242,7 @@ weird();  // Reference error: height is not defined`,
       },
       {
         title: "Function Scope vs Block Scope",
+        keywords: "Function Scope vs Block Scope",
         id: "function_scope_vs_block_scope",
         description: null,
         list: [
@@ -261,6 +269,7 @@ weird();  // Reference error: height is not defined`,
       },
       {
         title: "IIFE",
+        keywords: "IIFE",
         id: "iife",
         description: `An Immediately-invoked Function Expression is a way to execute functions immediately, as soon as they are created. IIFEs are very useful because they don't pollute the global object, and they are a simple way to isolate variables declarations.
     `,
@@ -278,6 +287,7 @@ weird();  // Reference error: height is not defined`,
       },
       {
         title: "callback functions",
+        keywords: "callback functions",
         id: "callback",
         description: `A callback function is a function that is passed to another function as an argument and is executed after some operation has been completed. 
         <br /><br />
@@ -303,6 +313,7 @@ modifyArray(arr, function() {
       },
       {
         title: "this",
+        keywords: "this",
         id: "this",
         description: `The <b>JavaScript</b> this keyword refers to the object it belongs to. In a function, this refers to the global object. In a function, in strict mode, this is undefined . In an event, this refers to the element that received the event.
     `,
@@ -339,6 +350,7 @@ modifyArray(arr, function() {
       },
       {
         title: "4 ways to bind this",
+        keywords: "4 ways to bind this",
         id: "bind_this",
         description: "",
         list: [
@@ -408,6 +420,7 @@ person4.hi();
       },
       {
         title: "call(), apply(), bind()",
+        keywords: "call(), apply(), bind()",
         id: "call_apply_bind",
         description:
           "The <b>call</b>, <b>bind</b> and <b>apply</b> methods can be used to set the this keyword independent of how a function is <b>called</b>. The <b>bind</b> method creates a copy of the function and sets the this keyword, while the <b>call</b> and <b>apply</b> methods sets the this keyword and <b>calls</b> the function immediately.",
@@ -505,6 +518,7 @@ d.say()		// { name: 'jay', say: [Function] }
       },
       {
         title: "target vs current target",
+        keywords: "target vs current target",
         id: "target_current_target",
         description: `The most deeply nested element that caused the event is called a target element, accessible as event.target. <br/>
         event.target is the “current” element, the one that has a currently running handler on it.`,
@@ -518,6 +532,7 @@ d.say()		// { name: 'jay', say: [Function] }
       },
       {
         title: "Event Bubbling and Capturing",
+        keywords: "Event Bubbling and Capturing",
         id: "bubbling_capturing",
         description: `Almost all events bubble.
         <br />
@@ -573,6 +588,7 @@ d.say()		// { name: 'jay', say: [Function] }
       },
       {
         title: "Symbol",
+        keywords: "Symbol",
         id: "symbol",
         description:
           "Symbol method is present on iterable objects (like array, string)",
@@ -597,6 +613,7 @@ iterator.next()    // { value: undefined, done: true}
       },
       {
         title: "Generator Function",
+        keywords: "Generator Function",
         id: "generator_fnc",
         description:
           "Unlike normal arrays generator will only take memory when it is yeild using next().",
@@ -640,6 +657,7 @@ iterator.next()    // { value: 5, done: false}      this will never return true`
       },
       {
         title: "Arrow function vs Regular Function",
+        keywords: "Arrow function vs Regular Function",
         id: "Arrow_function_vs_regular_function",
         description: "Todo",
         list: null,
@@ -648,6 +666,7 @@ iterator.next()    // { value: 5, done: false}      this will never return true`
       },
       {
         title: "Local Storage",
+        keywords: "Local Storage",
         id: "local_storage",
         description: null,
         list: "",
@@ -668,6 +687,7 @@ localStorage.clear();`,
       },
       {
         title: "Client Side Storage Technology",
+        keywords: "Client Side Storage Technology",
         id: "client_side_storage_tech",
         description: "",
         list: [
@@ -683,6 +703,7 @@ localStorage.clear();`,
       },
       {
         title: "Async vs Defer",
+        keywords: "Async vs Defer",
         id: "async_and_defer",
         description: "",
         list: [
@@ -691,8 +712,8 @@ localStorage.clear();`,
           "<b>Async Script</b>: HTML parsing is going on, it fetches the script in parallel, it stops HTML parsing the time script got fetched, execute the script, then again start doing HTML parsing",
           "HTML parsing and running script in parallel -> stops HTML parsing when script fetched is and then execute script -> HTML parsing",
           "<b>Defer Script</b>: HTML parsing is going on, it fetches the script in parallel, even when script is fetched HTML parsing doesn't stops, scripts are only executed when HTML parsing is completed",
-          "HTML parsing and running script in parallel -> HTML parsing completed -> Execute script"
-         ],
+          "HTML parsing and running script in parallel -> HTML parsing completed -> Execute script",
+        ],
         code: null,
         note: null,
       },
@@ -704,6 +725,7 @@ localStorage.clear();`,
     children: [
       {
         title: "Primitive Types",
+        keywords: "Primitive Types",
         id: "primitive_types",
         description:
           "In JavaScript, a <b>primitive data type</b> is data that is not an object and has no methods. All primitives are immutable, i.e., they cannot be altered.",
@@ -760,6 +782,7 @@ localStorage.clear();`,
       },
       {
         title: "Non-Primitive Data Types ",
+        keywords: "Non-Primitive Data Types ",
         id: "non_primitive_data_types ",
         description: null,
         list: [
@@ -819,6 +842,7 @@ localStorage.clear();`,
       },
       {
         title: "Pass By Value vs Pass By Reference",
+        keywords: "Pass By Value vs Pass By Reference",
         id: "pass_by_value_vs_pass_by_reference",
         description:
           "Primitive data types are passed by value while non-primitive data types are pass by reference.",
@@ -844,6 +868,7 @@ console.log(obj2);		// output: { name: 'Yao', pass: '456'}
       },
       {
         title: "Shallow Clone vs Deep Clone",
+        keywords: "Shallow Clone vs Deep Clone",
         id: "shallow_clone_vs_deep_clone",
         description: null,
         list: null,
@@ -875,6 +900,7 @@ console.log(superClone);   // { a: 'a', b: 'b', c: { deep: 'try and copy me' }}`
       },
       {
         title: "Type Coercion",
+        keywords: "Type Coercion",
         id: "type_coercion",
         description:
           "JS implicit converts the type when we use <b>==</b> for comparison. Always use <b>===</b> for comparison unless you have solid reason for <b>==</b>.",
@@ -1099,6 +1125,8 @@ console.log(superClone);   // { a: 'a', b: 'b', c: { deep: 'try and copy me' }}`
     children: [
       {
         title: "Functions are Objects",
+        keywords: "Functions are Objects",
+        keywords: "Functions are Objects",
         id: "functions_are_objects",
         description: null,
         list: null,
@@ -1137,6 +1165,7 @@ four(4);`,
       },
       {
         title: "Callable Object",
+        keywords: "Callable Object",
         id: "callable_object",
         description:
           "Because functions are objects in JavaScript, this also gives them the ability to have properties added to them. This creates a <b>callable object</b>, a special object that creates properties not available on normal objects. Below is a visualisation of how this works under the hood. This code can not be ran in the console, but it is a representation of how the object looks.",
@@ -1172,6 +1201,7 @@ const obj = {
       },
       {
         title: "Higher Order Function",
+        keywords: "Higher Order Function",
         id: "higher_order_function",
         description:
           "A Higher Order Function (HOF) is a function that either takes a function as an argument or returns another function.",
@@ -1181,6 +1211,7 @@ const obj = {
       },
       {
         title: "Closures",
+        keywords: "Closures",
         id: "closures",
         description: `Closures allow a function to access variables from an enclosing scope or environment even after it leaves the scope in which it was declared. In other words, a closure gives you access to its outer functions scope from the inner scope. The JavaScript engine will keep variables around inside functions that have a reference to them, instead of "sweeping" them away after they are popped off the call stack.
         <br><br>
@@ -1228,6 +1259,7 @@ callMeMaybe()
       },
       {
         title: "Memory Efficient",
+        keywords: "Memory Efficient",
         id: "memory_efficient",
         description: `Closures are created only when function returns function.
         <br><br>
@@ -1283,6 +1315,8 @@ function efficient() {
     children: [
       {
         title: "OOP Introduction",
+        keywords: "OOP Introduction",
+        keywords: "OOP Introduction",
         id: "introduction",
         description: `OOP stands for Object-Oriented Programming. Procedural programming is about writing
         procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.`,
@@ -1322,6 +1356,7 @@ elf2.attack()
       },
       {
         title: "Factory Functions",
+        keywords: "Factory Functions",
         id: "factory_functions",
         description: `When you use regular functions to build objects, they are called factory functions.
         <br /><br />
@@ -1362,6 +1397,7 @@ legolas.attack(); // Legolas attacks with bow.`,
       },
       {
         title: "Store",
+        keywords: "Store",
         id: "store",
         description:
           "This is a step in the right direction, but if we added more characters, we would run into some of the same issues again. Not only is the code not DRY, the attack method is being created and taking up memory space for every new elf. This is not very efficient. How do we solve this? Well, we could separate the methods out into a store.",
@@ -1399,6 +1435,7 @@ legolas.say = elfMethodsStore.say;`,
       },
       {
         title: "Object.create",
+        keywords: "Object.create",
         id: "object_create",
         description:
           "Having a store saved us some efficiency in memory, but this was a lot of manual work to assign each method. So, we were given Object.create to help create this chain without having to assign each method.",
@@ -1435,6 +1472,7 @@ legolas.attack; // attack with bow`,
       },
       {
         title: "Constructor Functions",
+        keywords: "Constructor Functions",
         id: "constructor_function",
         description: `Using Object.create is true prototypal inheritance, the code is cleaner and easier to read. However, you will not see this being used in most programs. Before Object.create came around, we had the ability to use constructor functions. 
         <br /><br />Constructor functions are exactly like the function constructor we talked about above. The number and string functions were constructed and invoked with the new keyword and they were capitalized. The new keyword actually changes the meaning of this for the constructor function. Without new, this will point to the window object instead of the object that we just created.
@@ -1471,6 +1509,7 @@ legolas.attack(); // attack with bow`,
       },
       {
         title: "Prototype Chaining",
+        keywords: "Prototype Chaining",
         id: "prototype_chaining",
         description:
           "Nearly all objects in JavaScript are instances of Object. That means all the objects in JavaScript inherit the properties and methods from Object. prototype. This is called Prototype chaining. This is a very powerful and potentially dangerous mechanism to override or extend object behavior",
@@ -1548,6 +1587,7 @@ console.log(optimusPrim.print()); // I am a toyCar`,
       },
       {
         title: "__proto__ vs prototype",
+        keywords: "__proto__ vs prototype",
         id: "_proto_vs_prototype",
         description:
           "Nearly all objects in JavaScript are instances of Object. That means all the objects in JavaScript inherit the properties and methods from Object. prototype. This is called Prototype chaining. This is a very powerful and potentially dangerous mechanism to override or extend object behavior",
@@ -1587,6 +1627,8 @@ myPoint is an object constructed by Point() so Point.prototype gets saved to myP
     children: [
       {
         title: "FP Introduction",
+        keywords: "FP Introduction",
+        keywords: "FP Introduction",
         id: "fnc_introduction",
         description: `Functional programming has the same goals in mind as object oriented programming, to keep your code understanable, easy to extend, easy to maintain, memory efficient, and DRY. 
         <br /><br />Instead of objects, it uses reusable functions to create and act on data. Functional programming is based on a separation of concerns similar to object oriented programming. However, in functional programming, there is a complete separation between the data and the behaviors of a program. 
@@ -1595,6 +1637,7 @@ myPoint is an object constructed by Point() so Point.prototype gets saved to myP
       },
       {
         title: "Pure Functions",
+        keywords: "Pure Functions",
         id: "pure_fnc",
         description: `A pure function has no side effects to anything outside of it and given the same input will always output the same value. They do not change any data passed into them, but create new data to return without altering the original.. 
         <br /><br />However, it is not possible to have 100% pure functions. At some point you need to interact with the dom or fetch an api. Even console.log makes a function unpure because it uses the window object outside of the function. Fact is a program cannot exist without side effects. 
@@ -1623,6 +1666,7 @@ function a() {
       },
       {
         title: "Referential transparency",
+        keywords: "Referential transparency",
         id: "referential_transparency",
         description:
           "One important concept of functional programming is referential transparency, the ability to replace an expression with the resulting value without changing the result of the program.",
@@ -1647,6 +1691,7 @@ b(7); // 14
       },
       {
         title: "Idempotence",
+        keywords: "Idempotence",
         id: "idempotence",
         description:
           "Idempotence is another important piece of functional programming. It is the idea that given the same input to a function, you will always return the same output. The function could be used over and over again and nothing changes. This is how you make your code predictable.",
@@ -1654,6 +1699,7 @@ b(7); // 14
       },
       {
         title: "Imperative vs Declarative",
+        keywords: "Imperative vs Declarative",
         id: "imperative_vs_declarative",
         description: `Imperative programming tells the computer what to do and how to complete it.
         <br /><br /> Declarative programming only tells the computer what to do, but not how to do things.
@@ -1664,6 +1710,7 @@ b(7); // 14
       },
       {
         title: "Immutability",
+        keywords: "Immutability",
         id: "immutability",
         description:
           "Immutability is simply not modifying the original data or state. Instead we should create copies of the state inside our functions and return a new version of the state.",
@@ -1702,6 +1749,7 @@ console.log('obj = \${obj}, updatedNameObj = \${updatedNameObj}')
     children: [
       {
         title: "Memory Heap",
+        keywords: "Memory Heap",
         id: "memory_heap",
         description:
           "The memory heap is a place to store and write information so that we can use our memory appropriately. It is a place to allocate, use, and remove memory as needed. Think of it as a storage room of boxes that are unordered.",
@@ -1722,6 +1770,7 @@ const person = {
       },
       {
         title: "Call Stack",
+        keywords: "Call Stack",
         id: "call_stack",
         description:
           "The call stack keeps track of where we are in the code, so we can run the program in order.",
@@ -1782,6 +1831,7 @@ calculate(
       },
       {
         title: "Stack Overflow",
+        keywords: "Stack Overflow",
         id: "stack_overflow",
         description:
           "So what happens if you keep calling functions that are nested inside each other? When this happens it's called a stack overflow.",
@@ -1802,6 +1852,7 @@ inception();
       },
       {
         title: "Garbage Collection",
+        keywords: "Garbage Collection",
         id: "garbage_collection",
         description:
           "JavaScript is a garbage collected language. If you allocate memory inside of a function, JavaScript will automatically remove it from the memory heap when the function is done being called. However, that does not mean you can forget about memory leaks. No system is perfect, so it is important to always remember memory management. JavaScript completes garbage collection with a mark and sweep method.",
@@ -1824,6 +1875,7 @@ person = "Brittney Postma";`,
       },
       {
         title: "Synchronous",
+        keywords: "Synchronous",
         id: "synchronous",
         description:
           "So, what is the issue with being a single threaded language? Lets's start from the beginning. When you visit a web page, you run a browser to do so (Chrome, Firefox, Safari, Edge). Each browser has its own version of JavaScript Runtime with a set of Web API's, methods that developers can access from the window object. In a synchronous language, only one thing can be done at a time. Imagine an alert on the page, blocking the user from accessing any part of the page until the OK button is clicked. If everything in JavaScript that took a significant amount of time, blocked the browser, then we would have a pretty bad user experience. <b>This is where concurrency and the event loop come in</b>.",
@@ -1831,6 +1883,7 @@ person = "Brittney Postma";`,
       },
       {
         title: "Promises",
+        keywords: "Promises",
         id: "promises",
         description:
           "A promise is an object that may produce a single value some time in the future : either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending.",
@@ -1913,6 +1966,7 @@ output:
       },
       {
         title: "Async/await",
+        keywords: "Async/await",
         id: "async_await",
         description:
           "The purpose of async / await is to simplify the syntax necessary to consume promise-based APIs. The behavior of async / await is similar to combining generators and promises. Async functions always return a promise. ... In this way, an async function without an await expression will run synchronously.",
@@ -1957,6 +2011,7 @@ race().then(console.log);
       },
       {
         title: "for await ...of",
+        keywords: "for await ...of",
         id: "await_of",
         description:
           "The 'for await...of' statement creates a loop iterating over async objects and sync objects such as arrays, array-like objects, maps sets, etc.",
@@ -1986,6 +2041,7 @@ const getData = async function() {
       },
       {
         title: "Job Queue",
+        keywords: "Job Queue",
         id: "job_queue",
         description:
           "The job queue or microtask queue came about with promises in ES6. With promises we needed another callback queue that would give higher priority to promise calls. <b>The JavaScript engine is going to check the job queue before the callback queue.</b>",
@@ -2027,6 +2083,7 @@ console.log("3", "is a crowd");
     children: [
       {
         title: "for of",
+        keywords: "for of",
         id: "for_of",
         description: "Used to iterate over arrays and string",
         code: [
@@ -2050,6 +2107,7 @@ for (item of str) {
       OBJECT_FOR_IN,
       {
         title: "Big  Int",
+        keywords: "Big  Int",
         id: "big_int",
         description:
           "BigInt is a built-in object that provides a way to represent whole numbers larger than 253 - 1, which is the largest number JavaScript can reliably represent with the Number primitive and represented by the Number.MAX_SAFE_INTEGER constant. BigInt can be used for arbitrarily large integers.",
@@ -2078,6 +2136,7 @@ console.log(9007199254740991n +  10n);    // output : 9007199254741001n`,
       },
       {
         title: "Optional Chaining ( ?. )",
+        keywords: "Optional Chaining ( ?. )",
         id: "optional_chaining",
         description: `The optional chaining operator (?.) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid. The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.
         <br /><br />
@@ -2116,6 +2175,7 @@ let nestedProp = obj.first?.second;`,
       },
       {
         title: "Nullish coalescing operator (??)",
+        keywords: "Nullish coalescing operator (??)",
         id: "nullish_coalescing",
         description: `The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is <b>null or undefined</b>, and otherwise returns its left-hand side operand.
         <br /><br />
@@ -2151,6 +2211,7 @@ fruits.apple.smell ?? 'no apple';   // output: no apple`,
       },
       {
         title: "globalThis",
+        keywords: "globalThis",
         id: "globalThis",
         description: `globalThis is the object which works in all the environment, i.e. Javascript, Browser and Node.js.
         <br /><br />
@@ -2190,6 +2251,7 @@ fruits.apple.smell ?? 'no apple';   // output: no apple`,
     children: [
       {
         title: "what is desgin pattern",
+        keywords: "what is desgin pattern",
         id: "design_pattern",
         description:
           "Design patterns in JavaScript are reusable solutions applied to commonly occurring problems in writing JavaScript web applications.",
@@ -2202,6 +2264,7 @@ fruits.apple.smell ?? 'no apple';   // output: no apple`,
       },
       {
         title: "Factory Pattern",
+        keywords: "Factory Pattern",
         id: "factory_pattern",
         description:
           "The factory pattern is a creational design pattern that uses factory methods to create objects — rather than by calling a constructor.",
@@ -2262,6 +2325,7 @@ employees.forEach( emp => {
       },
       {
         title: "Singleton Pattern",
+        keywords: "Singleton Pattern",
         id: "singleton_pattern",
         description:
           "The Singleton pattern allows you to limit the number of instances of a particular object to one. This single instance is called the singleton. Singletons reduce the need for global variables which is particularly important in JavaScript because it limits namespace pollution and associated risk of name collisions.",
@@ -2300,6 +2364,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Strategy Pattern",
+        keywords: "Strategy Pattern",
         id: "strategy_pattern",
         description:
           "The Strategy pattern is a behavioral design pattern that enables you to define a group (or family) of closely-related algorithms (known as strategies). The strategy pattern allows you to swap strategies in and out for each other as needed at runtime.",
@@ -2309,6 +2374,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Iterator Pattern",
+        keywords: "Iterator Pattern",
         id: "iterator_pattern",
         description: `The Iterator pattern is a pattern that allows you to effectively loop over a collection of objects. A common programming task is to traverse and manipulate a collection of objects. These collections may be stored as an array or perhaps something more complex, such as a tree or graph structure. In addition, you may need to access the items in the collection in a certain order, such as, front to back, back to front, depth first (as in tree searches), skip evenly numbered objects, etc.
           <br /><br />
@@ -2319,6 +2385,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Observer Pattern",
+        keywords: "Observer Pattern",
         id: "observer_pattern",
         description: `The Observer pattern is a design pattern that offers a subscription model in which objects (known as 'observers') can subscribe to an event (known as a 'subject') and get notified when the event occurs (or when the subject sends a signal). This pattern is the cornerstone of event driven programming.`,
         list: null,
@@ -2327,6 +2394,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Proxy Pattern",
+        keywords: "Proxy Pattern",
         id: "proxy_pattern",
         description: `A proxy object is an object that acts as an interface (or placeholder) for something else. The proxy could be an interface to anything: an API, a network connection, a large object in memory, or some other resource that is expensive or impossible to duplicate.
           <br /><br />
@@ -2337,6 +2405,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Mediator Pattern",
+        keywords: "Mediator Pattern",
         id: "mediator_pattern",
         description: `The Mediator pattern provides central authority over a group of objects by controlling how these objects interact with each other. The "central" object is known as the 'mediator'. The mediator pattern is useful in scenarios where every object needs to be aware of any state change in any other object in the group.`,
         list: null,
@@ -2345,6 +2414,7 @@ console.log(singleton === singleton2) // true`,
       },
       {
         title: "Visitor Pattern",
+        keywords: "Visitor Pattern",
         id: "visitor_pattern",
         description: `The Visitor pattern allows you to add or define new functionality to an object without changing the code for that object. The new logic resides in a external object or function called the 'visitor'.
           <br /><br />
@@ -2357,4 +2427,4 @@ console.log(singleton === singleton2) // true`,
   },
 ];
 
-export default javaScriptConfig;
+export default JAVASCRIPT_CONFIG;

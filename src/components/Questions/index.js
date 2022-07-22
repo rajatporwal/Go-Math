@@ -12,7 +12,7 @@ import { setTableProps } from '../../actions/commonActions';
 
 const Questions = () => {
   const [queCategory, setQueCategory] = useState([]);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const tableProps = useSelector((state) => state.appReducer.tableProps);
   const dispatch = useDispatch();
   let history = useHistory();
@@ -53,16 +53,17 @@ const Questions = () => {
   ];
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      history.push('/home');
-      return;
-    }
+    // if (!isAuthenticated) {
+    //   history.push('/home');
+    //   return;
+    // }
     dispatch({ type: 'SIDE_BAR_OPTIONS', value: HOME_ROUTES });
     const getHash = window.location.hash
       .replace('#/questions#', '')
       .replace('#/questions', '');
     setQueCategory(getHash ? [getHash] : []);
-  }, [history, isAuthenticated, dispatch]);
+  }, [history, dispatch]);
+  // }, [history, isAuthenticated, dispatch]);
 
   const onCategoryChange = (type) => {
     if (queCategory.includes(type)) {
@@ -191,7 +192,7 @@ const Questions = () => {
         bordered={tableProps.showBorder}
       />
       {filteredData.map((ele) => (
-        <div class="javascript">
+        <div className="javascript">
           <h2 className="m_t_50" id={ele.id}>
             {ele.question}
           </h2>

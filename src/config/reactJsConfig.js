@@ -1,10 +1,11 @@
-const reactJsConfig = [
+const REACT_JS_CONFIG = [
   {
     heading: 'React Foundation',
     pathname: '/react',
     children: [
       {
         title: 'React',
+        keywords: 'React',
         id: 'intro',
         description: null,
         list: [
@@ -17,6 +18,7 @@ const reactJsConfig = [
       },
       {
         title: 'Life Cycle Methods',
+        keywords: 'Life Cycle Methods',
         id: 'life_cycle_methods',
         description: null,
         list: [
@@ -38,6 +40,7 @@ Thus, componentWillReceiveProps is being deprecated in favor of the following re
         code: [
           {
             title: 'shouldComponentUpdate()',
+            keywords: 'shouldComponentUpdate()',
             code: ` // We can stop our component from re rendering on state change by returning false from shouldComponentUpdate Method.          
 shouldComponentUpdate(nextProps, nextState) {
   if (this.props.number === nextProps.number) {
@@ -51,6 +54,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'componentWillMount vs componentDidMount',
+        keywords: 'componentWillMount vs componentDidMount',
         id: 'will_vs_did_mount',
         description:
           'The best place to make calls to fetch data is within componentDidMount(). componentDidMount() is only called once, on the client, compared to componentWillMount() which is called twice, once to the server and once on the client.',
@@ -63,6 +67,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Methods which prevents component from re rendering',
+        keywords: 'Methods which prevents component from re rendering',
         id: 'prevent_rendering',
         description: null,
         list: ['shouldComponentUpdate()', 'React.PureComponent', 'React.memo'],
@@ -71,6 +76,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Virtual DOM',
+        keywords: 'Virtual DOM',
         id: 'virtual_dom',
         description: null,
         list: [
@@ -84,6 +90,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'JSX',
+        keywords: 'JSX',
         id: 'jsx',
         description: null,
         list: [
@@ -96,6 +103,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'React Component',
+        keywords: 'React Component',
         id: 'component',
         description: `A React Component is a template. A blueprint. A global definition. This can be either a function or a class (with a render function). 
         To define a React component class, you need to extend React.Component`,
@@ -114,6 +122,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'React Element',
+        keywords: 'React Element',
         id: 'element',
         description: null,
         list: [
@@ -129,6 +138,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'ReactDOM',
+        keywords: 'ReactDOM',
         id: 'dom',
         description:
           'The react-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.',
@@ -144,6 +154,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Why can’t Browsers read JSX?',
+        keywords: 'Why can’t Browsers read JSX?',
         id: 'browser_jsx',
         description:
           'Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. So to enable a browser to read JSX, first we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.',
@@ -153,6 +164,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Render in React',
+        keywords: 'Render in React',
         id: 'render',
         description:
           'Render function in react.js is used to return the HTML you want to display in a component.',
@@ -165,6 +177,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Synthetic Events',
+        keywords: 'Synthetic Events',
         id: 'synthetic_events',
         description:
           'Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. They combine the behavior of different browsers into one API. This is done to make sure that the events show consistent properties across different browsers.',
@@ -174,6 +187,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Refs',
+        keywords: 'Refs',
         id: 'refs',
         description:
           'Refs is the shorthand for References in React. It is an attribute which helps to store a reference to a particular React element or component, which will be returned by the components render configuration function.',
@@ -183,6 +197,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'HOC',
+        keywords: 'HOC',
         id: 'hoc',
         description:
           'A higher-order component in React is a pattern used to share common functionality between components without repeating code. A higher-order component is actually not a component though, it is a function. A HOC function takes a component as an argument and returns a component. It transforms a component into another component and adds additional data or functionality. In short:',
@@ -212,6 +227,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Controlled and uncontrolled components',
+        keywords: 'Controlled and uncontrolled components',
         id: 'c_vs_un_compoennt',
         description: null,
         list: [
@@ -223,6 +239,7 @@ shouldComponentUpdate(nextProps, nextState) {
       },
       {
         title: 'Pure Component',
+        keywords: 'Pure Component',
         id: 'pure_component',
         description: `React's PureComponent does a shallow compare on the component's props and state. If nothing has changed, it prevents the rerender of the component. If something has changed, it rerenders the component.
         <br /><br />
@@ -244,6 +261,7 @@ class Square extends PureComponent {
       },
       {
         title: 'Pure Function',
+        keywords: 'Pure Function',
         id: 'pure_function',
         description:
           'Pure functions take an input value (a parameter or argument) and depending on that input, produce an output value.',
@@ -251,6 +269,7 @@ class Square extends PureComponent {
         code: [
           {
             title: null,
+            keywords: null,
             code: `const pureFunction = (x) => {
   return x* 2;
 } `,
@@ -260,6 +279,7 @@ class Square extends PureComponent {
       },
       {
         title: 'Is reducer a pure function ?',
+        keywords: 'Is reducer a pure function ?',
         id: 'reducer_pure_fnc',
         description:
           'Yes reducer is a pure function that takes the previous state and an action, and returns the next state.',
@@ -269,6 +289,7 @@ class Square extends PureComponent {
       },
       {
         title: 'React Patterns',
+        keywords: 'React Patterns',
         id: 'patterns',
         description: null,
         list: [
@@ -282,6 +303,7 @@ class Square extends PureComponent {
       },
       {
         title: 'Render Props',
+        keywords: 'Render Props',
         id: 'render_props',
         description: `The term <a href="https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce" target="_blank">render props</a> refers to a technique for sharing code between React components using a prop whose value is a function.
         <br /></br />
@@ -306,6 +328,7 @@ Class BaseComponent extends Component {
       },
       {
         title: 'Css-in-js react',
+        keywords: 'Css-in-js react',
         id: 'css',
         description:
           'CSS-in-JS refers to a pattern where CSS is composed using JavaScript instead of defined in external files. Read a comparison of CSS-in-JS libraries <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">here</a>.',
@@ -320,6 +343,7 @@ Class BaseComponent extends Component {
       },
       {
         title: 'Code Splitting - Lazy Loading',
+        keywords: 'Code Splitting - Lazy Loading',
         id: 'lazy_loading',
         description:
           'The React.lazy function lets you render a dynamic import as a regular component. <a href="https://reactjs.org/docs/code-splitting.html" target="_blank">more</a>',
@@ -329,6 +353,7 @@ Class BaseComponent extends Component {
       },
       {
         title: 'FLUX',
+        keywords: 'FLUX',
         id: 'flux',
         description:
           'Flux is an architectural pattern which enforces the unidirectional data flow. It controls derived data and enables communication between multiple components using a central Store which has authority for all data. Any update in data throughout the application must occur here only. Flux provides stability to the application and reduces run-time errors.',
@@ -338,6 +363,7 @@ Class BaseComponent extends Component {
       },
       {
         title: 'Alternative of Redux ',
+        keywords: 'Alternative of Redux ',
         id: 'alt_redux',
         description: null,
         list: ['mobX', 'Apollo client + graphQL', 'RxJS'],
@@ -346,6 +372,7 @@ Class BaseComponent extends Component {
       },
       {
         title: 'Redux',
+        keywords: 'Redux',
         id: 'redux',
         description: `It is a predictable state container for JavaScript applications and is used for the entire application state management.
         <br /><br />
@@ -357,6 +384,7 @@ Action is something which triggers what needs to be done from the component disp
       },
       {
         title: 'Three principles that Redux follows',
+        keywords: 'Three principles that Redux follows',
         id: 'three_principles',
         description: null,
         list: [
@@ -369,6 +397,7 @@ Action is something which triggers what needs to be done from the component disp
       },
       {
         title: 'components of Redux',
+        keywords: 'components of Redux',
         id: 'components_redux',
         description: 'Redux is composed of the following components:',
         list: [
@@ -466,6 +495,7 @@ document.getElementById('root')
       },
       {
         title: 'State is async. Why?',
+        keywords: 'State is async. Why?',
         id: 'async_state',
         description: `setState actions are asynchronous and are batched for performance gains. This is explained in the documentation of setState.
         setState() does not immediately mutate this.state but creates a pending state transition. Accessing this.state after calling this method can potentially return the existing value. There is no guarantee of synchronous operation of calls to setState and calls may be batched for performance gains.`,
@@ -475,6 +505,7 @@ document.getElementById('root')
       },
       {
         title: 'Second argument in setState',
+        keywords: 'Second argument in setState',
         id: 'arg_setState',
         description:
           'A callback function which will be invoked when setState has finished and the component is re-rendered. Since the setState is asynchronous, which is why it takes in a second callback function. With this function, we can do what we want immediately after the state has been updated.',
@@ -484,6 +515,7 @@ document.getElementById('root')
       },
       {
         title: 'Error Boundary',
+        keywords: 'Error Boundary',
         id: 'error_boundary',
         description:
           'Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.',
@@ -515,6 +547,7 @@ componentDidCatch(error, info) {
       },
       {
         title: 'package.json',
+        keywords: 'package.json',
         id: 'package_json',
         description: null,
         list: [
@@ -540,6 +573,7 @@ componentDidCatch(error, info) {
       },
       {
         title: 'PropTypes',
+        keywords: 'PropTypes',
         id: 'proptypes',
         description:
           'Used to check the type of the props passed in the component.',
@@ -570,6 +604,7 @@ MyComponent.propTypes = {
       },
       {
         title: 'Profiling',
+        keywords: 'Profiling',
         id: 'profiling',
         description: `The Profiler measures how often a React application renders and what the <b>cost of rendering </b> is. Its purpose is to help identify parts of an application that are slow and may benefit from <a href="https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations" target="_blank">optimizations such as memoization</a>.
         <br /><br />
@@ -593,6 +628,7 @@ MyComponent.propTypes = {
       },
       {
         title: 'Hooks',
+        keywords: 'Hooks',
         id: 'hooks',
         description:
           'Hooks let you use state and other React features without writing a class.',
@@ -677,6 +713,7 @@ const dispatch = useDispatch();
       },
       {
         title: 'Lifecycle methods with the useEffect Hook',
+        keywords: 'Lifecycle methods with the useEffect Hook',
         id: 'lifecycle_using_useEffect',
         description:
           'you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.',
@@ -708,6 +745,7 @@ const dispatch = useDispatch();
       },
       {
         title: 'useMemo, useCallback, memo',
+        keywords: 'useMemo, useCallback, memo',
         id: 'usememo_usecallback',
         description: 'Assume component B is a child of component A',
         list: [
@@ -733,6 +771,7 @@ function A() {
       },
       {
         title: 'useRef',
+        keywords: 'useRef',
         id: 'useref',
         description:
           'useRef hook allows us to directly ceate a reference to the DOM element',
@@ -781,6 +820,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Middleware',
+        keywords: 'Middleware',
         id: 'middleware',
         description: `Middleware is block of code which acts as a mediater while the process of receiving a request or generating response. Here we are going to discuss about the 2 most popular libraries redux-thunk and redux-saga.
         <br /><br />
@@ -793,6 +833,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Redux Thunk',
+        keywords: 'Redux Thunk',
         id: 'thunk',
         description: `Redux-Thunk middleware allows you to dispatch special functions, called thunks.
         <br /><br />
@@ -812,6 +853,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Redux Saga',
+        keywords: 'Redux Saga',
         id: 'saga',
         description: `Redux-Saga middleware allows you to express complex application logic as pure functions called sagas. Pure functions are desirable from a testing standpoint because they are predictable and repeatable, which makes them relatively easy to test.
         <br /><br />
@@ -830,6 +872,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Redux Thunk vs Redux Saga',
+        keywords: 'Redux Thunk vs Redux Saga',
         id: 'thunk_vs_saga',
         description: `You might think the biggest difference is in the syntax. Although it's true that writing and reasoning about thunks and sagas are quite different, there's something bigger.
         <br /><br />
@@ -840,6 +883,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Advantages Redux Thunk',
+        keywords: 'Advantages Redux Thunk',
         id: 'adv_thunk',
         description: 'WIP',
         list: '',
@@ -848,6 +892,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Redux Thunk Alternatives & Comparisons',
+        keywords: 'Redux Thunk Alternatives & Comparisons',
         id: 'thunk_alt',
         description: '',
         list: [
@@ -862,6 +907,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'React Router',
+        keywords: 'React Router',
         id: 'router',
         description: 'Coming Soon',
         list: '',
@@ -870,6 +916,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Redux Persist',
+        keywords: 'Redux Persist',
         id: 'redux_persist',
         description:
           'Redux persist is a library allowing to save the redux store in the local storage of your browser.',
@@ -881,6 +928,7 @@ const Messages = ({ messages }) => {
       },
       {
         title: 'Access Redux Store Outside a React Component',
+        keywords: 'Access Redux Store Outside a React Component',
         id: 'redux_store_outside_component',
         description:
           'If you need access to the Redux store’s state from inside a thunk action creator, that’s even easier. You don’t even need to export the store, because thunk actions receive a getState argument.',
@@ -927,6 +975,7 @@ return (dispatch, getState) => {
       },
       {
         title: 'Shadow Dom s Virtual Dom',
+        keywords: 'Shadow Dom s Virtual Dom',
         id: 'shadow_dom',
         description: `<b>The virtual DOM (VDOM) </b> is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
         <br /><br />
@@ -942,6 +991,7 @@ return (dispatch, getState) => {
       },
       {
         title: 'React fiber',
+        keywords: 'React fiber',
         id: 'react_fiber',
         description: `Fiber is the new reconciliation engine in React 16. Its main goal is to enable incremental rendering of the virtual DOM.
         <br /><br />
@@ -956,4 +1006,4 @@ return (dispatch, getState) => {
   },
 ];
 
-export default reactJsConfig;
+export default REACT_JS_CONFIG;
