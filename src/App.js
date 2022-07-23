@@ -52,7 +52,7 @@ export default function App() {
           {showSideBar ? <SideBar /> : null}
           <div className={`content ${showSideBar ? "sideBar" : ""}`}>
             <Content className="site-layout" style={{ marginTop: 64 }}>
-              <div style={{ display :  window.matchMedia("(min-width: 500px)").matches ? 'none' : 'flex', justifyContent: 'center', padding: '30px'}}>
+              <div style={{ display :  window.matchMedia("(min-width: 500px)").matches ? 'none' : 'flex', justifyContent: 'center', paddingTop: '30px'}}>
                 <SearchComponent searchData={searchData} />
               </div>
               <div className="site-layout-background" style={{ padding: 24 }}>
