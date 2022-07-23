@@ -19,11 +19,7 @@ const SearchComponent = ({ searchData }) => {
               }}
             >
               <span>
-                <Link
-                  active
-                  to={ele.path}
-                  smooth
-                >
+                <Link active to={ele.path} smooth>
                   {ele.title}
                 </Link>
               </span>
@@ -38,7 +34,13 @@ const SearchComponent = ({ searchData }) => {
   };
 
   return (
-    <span style={{ marginRight: "2rem" }}>
+    <span
+      style={{
+        marginRight: window.matchMedia("(min-width: 500px)").matches
+          ? "2rem"
+          : 0,
+      }}
+    >
       <AutoComplete
         dropdownMatchSelectWidth={252}
         style={{ width: 300 }}

@@ -20,7 +20,6 @@ const HeaderComponent = ({ searchData }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isAdmin = useSelector((state) => state.auth.isAdmin);
   const dispatch = useDispatch();
-  console.log('d', window.matchMedia('(min-width: 500px)'))
   return (
     <Header style={{ position: "fixed", zIndex: 1, width: "100%", padding: 0 }}>
       <Menu theme="dark" mode="horizontal">

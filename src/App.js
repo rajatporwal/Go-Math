@@ -15,6 +15,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { logoutUser, setCurrentUser } from "./actions/authActions";
 import store from "./store";
 import { getSearchData } from "./utils/search-options";
+import SearchComponent from "./common/search/search";
 
 const { Content } = Layout;
 
@@ -51,6 +52,9 @@ export default function App() {
           {showSideBar ? <SideBar /> : null}
           <div className={`content ${showSideBar ? "sideBar" : ""}`}>
             <Content className="site-layout" style={{ marginTop: 64 }}>
+              <div style={{ display :  window.matchMedia("(min-width: 500px)").matches ? 'none' : 'flex', justifyContent: 'center', padding: '30px'}}>
+                <SearchComponent searchData={searchData} />
+              </div>
               <div className="site-layout-background" style={{ padding: 24 }}>
                 <Spin indicator={antIcon} spinning={isLoading}>
                   <Main />
