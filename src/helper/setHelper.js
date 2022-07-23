@@ -4,7 +4,8 @@ const SET_HELPER = {
   pathname: '/ds',
   children: [
     {
-      title: 'Introduction',
+      title: 'Introduction Set',
+      keywords: 'Introduction Set',
       id: 'set/introduction',
       description: `Sets are a new object type with ES6 (ES2015) that allow creating collections of unique values. The values in a set can be either simple primitives like strings or integers as well as more complex object types like object literals or arrays.
       <br />You can iterate through the elements of a set in insertion order`,
@@ -32,6 +33,7 @@ console.log(set.size);        // output: 3`,
     },
     {
       title: 'add()',
+      keywords: 'add()',
       id: 'set/add',
       description: 'adds the element to set',
       list: null,
@@ -74,6 +76,7 @@ console.log(set)        // output: Set(3) {"a", "b", "c"}`,
     },
     {
       title: 'has()',
+      keywords: 'has()',
       id: 'set/has',
       description: 'returns false if element is not found',
       list: null,
@@ -95,6 +98,7 @@ console.log(set.has('D'));    // false`,
     },
     {
       title: 'delete()',
+      keywords: 'delete()',
       id: 'map/delete',
       description: 'returns false if element is not found',
       list: null,
@@ -115,6 +119,7 @@ console.log(set.delete("c"));   // false`,
     },
     {
       title: 'clear()',
+      keywords: 'clear()',
       id: 'map/clear',
       description: 'returns undefined if it cleared set successfully',
       list: null,
@@ -134,6 +139,7 @@ console.log(set.clear());       // output:  undefined`,
     },
     {
       title: 'entries()',
+      keywords: 'entries()',
       id: 'map/entries',
       description:
         'It returns an iterator object which contains an array having the entries of the set, in the insertion order.',
@@ -161,6 +167,7 @@ for(let ele of setIteratorEntries) {
     },
     {
       title: 'values()',
+      keywords: 'values()',
       id: 'map/values',
       description:
         'It returns all the values from the Set in the insertion order.',
@@ -184,6 +191,7 @@ for(let ele of setIteratorValues) {
     },
     {
       title: 'keys()',
+      keywords: 'keys()',
       id: 'set/keys',
       description:
         'It also returns all the values from the Set in the insertion order.',
@@ -207,6 +215,7 @@ for(let ele of setIteratorKeys) {
     },
     {
       title: 'forEach()',
+      keywords: 'forEach()',
       id: 'set/forEach',
       description:
         'It executes the given function once for every element in the Set, in the insertion order.',
@@ -230,6 +239,7 @@ set.forEach(ele => {
     },
     {
       title: 'convert set to array',
+      keywords: 'convert set to array',
       id: 'set/array',
       description:
         'It executes the given function once for every element in the Set, in the insertion order.',
@@ -246,6 +256,7 @@ console.log([...set]);      // ["a", "d", "e"]`,
     },
     {
       title: 'Set.prototype.subSet()',
+      keywords: 'Set.prototype.subSet()',
       id: 'set/subSet',
       description: `It returns true if Set A is a subset of Set B.
       <br /><br />
@@ -293,6 +304,7 @@ console.log(set1.subSet(set2));       // false`,
     },
     {
       title: 'Set.prototype.union()',
+      keywords: 'Set.prototype.union()',
       id: 'set/union',
       description: `It returns a Set which consists of union of Set A and Set B.
       <br /><br />
@@ -340,6 +352,7 @@ console.log(set1.union(set2));      // output: Set(5) {"a", "b", "c", "d", "e"}
     },
     {
       title: 'Set.prototype.intersection()',
+      keywords: 'Set.prototype.intersection()',
       id: 'set/intersection',
       description: `It returns the intersection of Set A and Set B.
       <br /><br />
@@ -367,6 +380,7 @@ console.log(set1.intersection(set2));   // Set(3) {"a", "d", "e"}`,
     },
     {
       title: 'Set.prototype.difference()',
+      keywords: 'Set.prototype.difference()',
       id: 'set/difference',
       description: `It returns the Set which contains difference of Set A and Set B.
       <br /><br />
@@ -395,6 +409,7 @@ console.log(set2.difference(set1));   // Set(1) {"f"}`,
     },
     {
       title: 'Set.prototype.symmetricDifference()',
+      keywords: 'Set.prototype.symmetricDifference()',
       id: 'set/symmetricDifference',
       description: `It returns the Set which contains difference of both Set A and Set B.
       <br /><br />

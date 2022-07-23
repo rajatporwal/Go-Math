@@ -5,6 +5,7 @@ const LINKED_LIST_HELPER = {
   children: [
     {
       title: 'Singly Linked List',
+      keywords: 'Singly Linked List',
       id: 'linkedlist/singly',
       description: `A singly linked list is a type of linked list that is unidirectional, that is, it can be traversed in only one direction from head to the last node (tail). Each element in a linked list is called a node. A single node contains data and a pointer to the next node which helps in maintaining the structure of the list.`,
       code: [
@@ -205,6 +206,7 @@ class LinkedList {
     },
     {
       title: 'Find Mid Point of Linked List',
+      keywords: 'Find Mid Point of Linked List',
       id: 'linkedlist/mid_point',
       description: null,
       code: [
@@ -241,6 +243,7 @@ findMidPoint(linkedlist);       // 14`,
     },
     {
       title: 'Circular Node in Linked List',
+      keywords: 'Circular Node in Linked List',
       id: 'linkedlist/circular_node',
       description:
         'Given a linked list, return true if the list is circular, false if it is not.',
@@ -279,6 +282,7 @@ findMidPoint(linkedlist);       // 14`,
     },
     {
       title: 'Find element from last in Linked List',
+      keywords: 'Find element from last in Linked List',
       id: 'linkedlist/return_last_ele',
       description: `Given a linked list and integer n, return the element n spaces from the last node in the list.
         <br /> Do not call the size method of the linked list.

@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { HashLink as Link } from 'react-router-hash-link';
-import dataStructureConfig from '../../config/dataStructureConfig';
+import DATA_STRUCTURE_CONFIG from '../../config/dataStructureConfig';
 
 const DataStructureRoutes = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  return dataStructureConfig(isAuthenticated).map((ds) => (
+  return DATA_STRUCTURE_CONFIG.map((ds) => (
     <>
       <h4>{ds.heading}</h4>
       <ul className='home__list'>

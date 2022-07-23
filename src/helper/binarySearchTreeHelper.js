@@ -61,6 +61,7 @@ const BINARY_SEARCH_TREE_HELPER = {
   children: [
     {
       title: "Binary Tree",
+      keywords: "Binary Tree",
       id: "bt",
       description: `A binary tree is a tree-type non-linear data structure with a maximum of two children for each parent. Every node in a binary tree has a left and right reference along with the data element.
       <br /><br />The nodes that hold other sub-nodes are the parent nodes. A parent node has two child nodes: the left child and right child.`
@@ -184,6 +185,7 @@ const BINARY_SEARCH_TREE_HELPER = {
     },
     {
       title: "Breadth First Traversal",
+      keywords: "Breadth First Traversal",
       id: "bst/bft",
       code: [
         {

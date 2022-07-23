@@ -5,6 +5,7 @@ const ARRAY_HELPER = {
   children: [
     {
       title: "push()",
+      keywords: "push()",
       id: "array/push",
       description: `Add's the element to the last index.`,
       list: null,
@@ -21,6 +22,7 @@ const ARRAY_HELPER = {
     },
     {
       title: "pop()",
+      keywords: "pop()",
       id: "array/pop",
       description: `removes last element from the array.`,
       list: null,
@@ -37,6 +39,7 @@ const ARRAY_HELPER = {
     },
     {
       title: "unshift()",
+      keywords: "unshift()",
       id: "array/unshift",
       description: `add elements at the front of an array.`,
       list: null,
@@ -53,6 +56,7 @@ const ARRAY_HELPER = {
     },
     {
       title: "shift()",
+      keywords: "shift()",
       id: "array/shift",
       description: `removes element from the front (first element) of array.`,
       list: null,
@@ -69,6 +73,7 @@ const ARRAY_HELPER = {
     },
     {
       title: "splice()",
+      keywords: "splice()",
       id: "array/splice",
       description: `removes or add element from the given index.`,
       list: null,
@@ -105,6 +110,7 @@ console.log(arr); // [1, 2, 3, "a", "b", 4, 5, 6, 7, 8, 9]`
     },
     {
       title: "slice()",
+      keywords: "slice()",
       id: "array/slice",
       description: `returns new array containing a portion of the array (end index exclusive)`,
       list: null,
@@ -133,6 +139,7 @@ console.log(newArray);   // output: [5, 6];`
     },
     {
       title: "indexOf()",
+      keywords: "indexOf()",
       id: "array/indexOf",
       description: `returns index of first matched element.`,
       list: null,
@@ -150,6 +157,7 @@ console.log(index); // output: 0`
     },
     {
       title: "lastIndexOf()",
+      keywords: "lastIndexOf()",
       id: "array/lastIndexOf",
       description: `returns index of last matched element.`,
       list: null,
@@ -167,6 +175,7 @@ console.log(index); // output: 3`
     },
     {
       title: "findIndex()",
+      keywords: "findIndex()",
       id: "array/findindex",
       description: `returns index of first matched element according to condition.`,
       list: null,
@@ -186,6 +195,7 @@ console.log(index); // output: 3`
     },
     {
       title: "find()",
+      keywords: "find()",
       id: "array/find",
       description: `find will return element itself when condition mathced`,
       list: null,
@@ -205,6 +215,7 @@ console.log(index); // output: 3`
     },
     {
       title: "reverse()",
+      keywords: "reverse()",
       id: "array/reverse",
       description: `inbuilt function to reverse array`,
       list: null,
@@ -219,6 +230,7 @@ arr.reverse();  // Output: [5, 4, 3, 2, 1]`
     },
     {
       title: "sort()",
+      keywords: "sort()",
       id: "array/sort",
       description: null,
       list: ["only sorts alphabets"],
@@ -273,6 +285,7 @@ console.log(arr); // output: ["d1", "b3", "a4", "c23"]`
     },
     {
       title: "Iterating over array",
+      keywords: "Iterating over array",
       id: "array/iteration",
       description: null,
       list: [
@@ -335,6 +348,7 @@ for( let e of iterateValues) {
     },
     {
       title: "every()",
+      keywords: "every()",
       id: "array/every",
       description: `It checks whether all the elements of the array satisfy the given condition or not.`,
       list: null,
@@ -351,6 +365,7 @@ console.log(every);   // output: false`
     },
     {
       title: "some()",
+      keywords: "some()",
       id: "array/some",
       description: `It checks at least one of the elements of the array satisfy the given condition.`,
       list: null,
@@ -367,6 +382,7 @@ console.log(some);   // output: true`
     },
     {
       title: "map()",
+      keywords: "map()",
       id: "array/map",
       description: `creates a new array from results of calling func for every element.`,
       list: null,
@@ -384,6 +400,7 @@ console.log(mappedArray)  // output: [2, 4, 6, 8, 10]`
     },
     {
       title: "filter()",
+      keywords: "filter()",
       id: "array/filter",
       description: `filter elements through the function, return all values that make it return true`,
       list: null,
@@ -400,6 +417,7 @@ console.log(filter);  // output: [1, 2]`
     },
     {
       title: "reduce/reduceRight",
+      keywords: "reduce/reduceRight",
       id: "array/reduce",
       description: `reduces the array after performing provided calculation on every element`,
       list: [
@@ -430,6 +448,7 @@ console.log(result);   // output: [1, 2, 3, 4]`
     },
     {
       title: "join()",
+      keywords: "join()",
       id: "array/join",
       description: `joins every ele with the passed parameter and returns new string`,
       list: null,
@@ -445,6 +464,7 @@ const result = a.join('|');    // 1|2|3|4|5|6`
     },
     {
       title: "fill()",
+      keywords: "fill()",
       id: "array/fill",
       description: `fills the array with a given static value`,
       list: null,
@@ -476,6 +496,7 @@ console.log(arr);   // Output: [1, 2, 87, 87, 87, 87]`
     },
     {
       title: "flat()",
+      keywords: "flat()",
       id: "array/flat",
       description: `flats the deeply nested array`,
       list: null,

@@ -4,7 +4,8 @@ const STACK_HELPER = {
   pathname: '/ds',
   children: [
     {
-      title: 'Introduction',
+      title: 'Introduction Stack',
+      keywords: 'Introduction Stack',
       id: 'stack/introduction',
       description:
         'Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out). There are many real-life examples of a stack. Consider an example of plates stacked over one another in the canteen.',

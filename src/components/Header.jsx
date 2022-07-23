@@ -1,71 +1,72 @@
-import React from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
-import { Button, Layout, Menu } from 'antd';
+import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
+import { Button, Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
   UserAddOutlined,
   LogoutOutlined,
-} from '@ant-design/icons';
-import { useSelector, useDispatch } from 'react-redux';
-import { SIDE_BAR } from '../actions/types';
-import { showModal } from '../actions/commonActions';
-import { logoutUser } from '../actions/authActions';
-import Search from '../common/search/search';
+} from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { SIDE_BAR } from "../actions/types";
+import { showModal } from "../actions/commonActions";
+import { logoutUser } from "../actions/authActions";
+import Search from "../common/search/search";
 
 const { Header } = Layout;
+
 
 const HeaderComponent = ({ searchData }) => {
   const sideBar = useSelector((state) => state.appReducer.sideBar);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isAdmin = useSelector((state) => state.auth.isAdmin);
   const dispatch = useDispatch();
-
+  console.log('d', window.matchMedia('(min-width: 500px)'))
   return (
-    <Header style={{ position: 'fixed', zIndex: 1, width: '100%', padding: 0 }}>
-      <Menu theme='dark' mode='horizontal'>
+    <Header style={{ position: "fixed", zIndex: 1, width: "100%", padding: 0 }}>
+      <Menu theme="dark" mode="horizontal">
         <Menu.Item
-          key='menuOutline'
+          key="menuOutline"
           icon={<MenuUnfoldOutlined />}
           onClick={() => {
             dispatch({ type: SIDE_BAR, value: !sideBar });
           }}
         />
-        <Menu.Item key='1' className='add_margin'>
-          <Link to='/home'>Home</Link>
+        <Menu.Item key="1" className="add_margin">
+          <Link to="/home">Home</Link>
         </Menu.Item>
-        <Menu.Item key='2'>
-          <Link to='/javascript'>JavaScript</Link>
+        <Menu.Item key="2">
+          <Link to="/javascript">JavaScript</Link>
         </Menu.Item>
-        <Menu.Item key='3'>
-          <Link to='/react'>React</Link>
+        <Menu.Item key="3">
+          <Link to="/react">React</Link>
         </Menu.Item>
-        <Menu.Item key='4'>
-          <Link to='/ds'>DS</Link>
+        <Menu.Item key="4">
+          <Link to="/ds">DS</Link>
         </Menu.Item>
-          <Menu.Item key='5'>
-            <Link to='/questions'>Questions</Link>
-          </Menu.Item>
-        <Menu.Item key='6'>
-          <Link to='/regex'>Regex</Link>
+        <Menu.Item key="5">
+          <Link to="/questions">Questions</Link>
         </Menu.Item>
-        <Menu.Item key='7'>
-          <Link to='/conversion'>Conversion</Link>
+        <Menu.Item key="6">
+          <Link to="/regex">Regex</Link>
+        </Menu.Item>
+        <Menu.Item key="7">
+          <Link to="/conversion">Conversion</Link>
         </Menu.Item>
         {isAdmin && isAuthenticated && (
-          <Menu.Item key='admin'>
-            <Link to='/admin'>Admin</Link>
+          <Menu.Item key="admin">
+            <Link to="/admin">Admin</Link>
           </Menu.Item>
         )}
         {isAuthenticated && (
-          <Menu.Item key='todo'>
-            <Link to='/todo'>Todo</Link>
+          <Menu.Item key="todo">
+            <Link to="/todo">Todo</Link>
           </Menu.Item>
         )}
-        <div key='login' style={{ float: 'right', marginRight: '5rem' }}>
-        <Search searchData={searchData}/>
+        <div key="login" style={{ float: "right", marginRight: "5rem" }}>
+          <span style={{display: window.matchMedia('(min-width: 500px)').matches ? 'inline-block' : 'none' }}><Search searchData={searchData} /></span>
           {isAuthenticated ? (
             <Button
-              type='danger'
+              type="danger"
               onClick={() => {
                 dispatch(logoutUser());
               }}
@@ -75,7 +76,7 @@ const HeaderComponent = ({ searchData }) => {
             </Button>
           ) : (
             <Button
-              type='primary'
+              type="primary"
               onClick={() => {
                 dispatch(showModal(true));
               }}

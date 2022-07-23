@@ -5,7 +5,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import questionsConfig from '../../config/questionsConfig';
+import QUESTIONS_CONFIG from '../../config/questionsConfig';
 import { Checkbox, Table, Switch, Space } from 'antd';
 import { HOME_ROUTES } from '../Home/index';
 import { setTableProps } from '../../actions/commonActions';
@@ -76,10 +76,10 @@ const Questions = () => {
 
   const filteredData =
     queCategory.length > 0
-      ? questionsConfig.filter((ele) =>
+      ? QUESTIONS_CONFIG.filter((ele) =>
           ele.category.some((element) => queCategory.includes(element))
         )
-      : questionsConfig;
+      : QUESTIONS_CONFIG;
 
   return (
     <div>
@@ -191,8 +191,8 @@ const Questions = () => {
         })}
         bordered={tableProps.showBorder}
       />
-      {filteredData.map((ele) => (
-        <div className="javascript">
+      {filteredData.map((ele, i) => (
+        <div className="javascript" key={ele.question + i}>
           <h2 className="m_t_50" id={ele.id}>
             {ele.question}
           </h2>

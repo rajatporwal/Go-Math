@@ -5,6 +5,7 @@ const STRING_HELPER = {
   children: [
     {
       title: "substr()",
+      keywords: "substr()",
       id: "string/substr",
       description: `Counts index from start index to the next provided end index.`,
       list: [
@@ -27,6 +28,7 @@ str.substr(-1, -4)  // no output`
     },
     {
       title: "substring()",
+      keywords: "substring()",
       id: "string/substring",
       description: `Counts index from start index to the end index.`,
       list: ["If negative index is passed it will return whole string"],
@@ -45,6 +47,7 @@ str.substring(-1, -4)  // no output`
     },
     {
       title: "trim()",
+      keywords: "trim()",
       id: "string/trim",
       description: `Removes the white spaces from both the ends of the given string.`,
       list: null,
@@ -62,6 +65,7 @@ str.trimRight();   // '   geeks'`
     },
     {
       title: "startsWith()",
+      keywords: "startsWith()",
       id: "string/startsWith",
       description: `Check whether the given string start's with the characters of the specified string or not.`,
       list: [
@@ -82,6 +86,7 @@ str.startsWith('great', 8);   // true`
     },
     {
       title: "endsWith()",
+      keywords: "endsWith()",
       id: "string/endsWith",
       description: `Check whether the given string ends with the characters of the specified string or not.`,
       list: [
@@ -101,6 +106,7 @@ str.endsWith('great', 13);  // true, `
     },
     {
       title: "includes()",
+      keywords: "includes()",
       id: "string/includes",
       description: `Check whether the given string includes the characters of the specified string or not.`,
       list: [
@@ -124,6 +130,7 @@ str.includes("g", -2);   // true`
     },
     {
       title: "toUpperCase/toLowerCase",
+      keywords: "toUpperCase/toLowerCase",
       id: "string/case",
       description: `Converts string into uppercase/lowercase.`,
       list: null,
@@ -140,6 +147,7 @@ str.toLowerCase();        // it is a great day.`
     },
     {
       title: "toLocaleUpperCase/toLocaleLowerCase",
+      keywords: "toLocaleUpperCase/toLocaleLowerCase",
       id: "string/localeCase",
       description: `Converts a string to uppercase/lowercase letters, according to the host's current locale.`,
       list: [
@@ -160,6 +168,7 @@ str.toLocaleLowerCase();        // it is a great day.`
     },
     {
       title: "charCodeAt()",
+      keywords: "charCodeAt()",
       id: "string/charCodeAt",
       description: `returns a Unicode character code of the character present at the index.`,
       list: null,
@@ -177,6 +186,7 @@ str.charCodeAt(6);     // 97`
     },
     {
       title: "fromCharCode()",
+      keywords: "fromCharCode()",
       id: "string/fromCharCode",
       description: `Converts the UTF-16 codes into their equivalent characters and returns the string containing them.`,
       list: null,
@@ -190,6 +200,7 @@ str.charCodeAt(6);     // 97`
     },
     {
       title: "length",
+      keywords: "length",
       id: "string/length",
       description: `returns the length count`,
       list: null,
@@ -205,6 +216,7 @@ const len = str.length;     // 18`
     },
     {
       title: "charAt",
+      keywords: "charAt",
       id: "string/charAt",
       description: `returns the character present at the passed index`,
       list: null,
@@ -222,6 +234,7 @@ str.charAt(-2);   // empty string`
     },
     {
       title: "indexOf/lastIndexOf",
+      keywords: "indexOf/lastIndexOf",
       id: "string/indexOf/lastIndexOf",
       description: `returns the first matched index`,
       list: [
@@ -243,6 +256,7 @@ str.indexOf('t', 2);       // 12`
     },
     {
       title: "String.raw",
+      keywords: "String.raw",
       id: "string/raw",
       description: `Skips the escape char and print it as it is.`,
       list: null,
@@ -259,6 +273,7 @@ console.log(String.raw\`Hello world:\\n new line\`);    // Hello world:\\n new l
     },
     {
       title: "repeat()",
+      keywords: "repeat()",
       id: "string/repeat",
       description: `String.repeat() is used to build a new string containing a specified number of copies of the string on which this function has been called.`,
       list: null,
@@ -276,6 +291,7 @@ rep.repeat(3.8);    // Repeat me Repeat me Repeat me`
     },
     {
       title: "split()",
+      keywords: "split()",
       id: "string/split",
       description: null,
       list: [
@@ -297,6 +313,7 @@ str.split(" ", -1);     // [ "U", "want", "to", "split" ]`
     },
     {
       title: "concat()",
+      keywords: "concat()",
       id: "string/concat",
       description: null,
       list: null,
@@ -313,6 +330,7 @@ str1.concat(str2);    // It is a great day.`
     },
     {
       title: "valueOf()",
+      keywords: "valueOf()",
       id: "string/valueOf",
       description: "Return the primitive value of a string object.",
       list: null,
@@ -327,6 +345,7 @@ var res = str.valueOf();    // Hello World`
     },
     {
       title: "slice()",
+      keywords: "slice()",
       id: "string/slice",
       description:
         "Extracts a section of a string and returns it as a new string, without modifying the original string.",
@@ -348,6 +367,7 @@ str.slice(10);      // eat day`
     },
     {
       title: "search()",
+      keywords: "search()",
       id: "string/search",
       description: `Return index of first matched character/regex`,
       list: [
@@ -373,6 +393,7 @@ str.search('a');   // 6`
     },
     {
       title: "match()",
+      keywords: "match()",
       id: "string/match",
       description: `Return array with all the matched characters/regex`,
       list: [
@@ -397,6 +418,7 @@ str.match(re3);    // ["g", "G", "g"]`
     },
     {
       title: "replace()",
+      keywords: "replace()",
       id: "string/replace",
       description: `Replace a part of the given string with some another string or a regular expression. `,
       list: null,
@@ -413,6 +435,7 @@ str.replace(/a/g, 'A');   // It is A greAt dAy.`
     },
     {
       title: "localeCompare()",
+      keywords: "localeCompare()",
       id: "string/localeCompare",
       description: `The localeCompare method returns a number indicating whether str1 comes before, after or is the same as str2 in sort order.`,
       list: [
@@ -436,6 +459,7 @@ str1.localeCompare(str3);      // 0`
     },
     {
       title: "padStart()/padEnd()",
+      keywords: "padStart()/padEnd()",
       id: "string/pad",
       description: `padStart and padEnd add the spaces before and after the string respectively.`,
       list: null,

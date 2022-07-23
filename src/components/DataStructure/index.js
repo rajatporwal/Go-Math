@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 // import { twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import dataStructureConfig from '../../config/dataStructureConfig';
+import DATA_STRUCTURE_CONFIG from '../../config/dataStructureConfig';
 import { Table, Checkbox } from 'antd';
 
-const filterOptionsPublic = [
+const filterOptions = [
   {
     name: 'Array',
     value: 'array',
@@ -31,9 +31,6 @@ const filterOptionsPublic = [
     name: 'Map',
     value: 'map',
   },
-];
-
-const filterOptionsPrivate = [
   {
     name: 'Linked List',
     value: 'linked_list',
@@ -54,13 +51,12 @@ const filterOptionsPrivate = [
 
 const DataStructure = () => {
   const [filter, setFilter] = useState([]);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
       type: 'SIDE_BAR_OPTIONS',
-      value: dataStructureConfig(isAuthenticated),
+      value: DATA_STRUCTURE_CONFIG,
     });
   });
 
@@ -75,30 +71,22 @@ const DataStructure = () => {
 
   const filteredData =
     filter.length > 0
-      ? dataStructureConfig(isAuthenticated).filter(
+      ? DATA_STRUCTURE_CONFIG.filter(
           (ele) => filter.indexOf(ele.category) !== -1
         )
-      : dataStructureConfig(isAuthenticated);
+      : DATA_STRUCTURE_CONFIG;
 
   return (
     <div>
       <h3>Add Filters</h3>
       <div className="que_filter">
-        {filterOptionsPublic.map((ele) => (
+        {filterOptions.map((ele) => (
           <div>
             <Checkbox onChange={() => onCategoryChange(ele.value)}>
               {ele.name}
             </Checkbox>
           </div>
         ))}
-        {isAuthenticated &&
-          filterOptionsPrivate.map((ele) => (
-            <div>
-              <Checkbox onChange={() => onCategoryChange(ele.value)}>
-                {ele.name}
-              </Checkbox>
-            </div>
-          ))}
       </div>
       <br />
       {filteredData.map((ele) => (

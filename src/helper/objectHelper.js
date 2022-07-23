@@ -7,6 +7,7 @@ const OBJECT_HELPER = {
   children: [
     {
       title: 'Object.values',
+      keywords: 'Object.values',
       id: 'object/values',
       description:
         "The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)",
@@ -23,6 +24,7 @@ Object.values(obj);   // output: [23, "geeks", true]`,
     },
     {
       title: 'Object.keys',
+      keywords: 'Object.keys',
       id: 'object/keys',
       description:
         "The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.",
@@ -45,6 +47,7 @@ Object.keys(check);  // output: ["0", "1", "2"]`,
     },
     {
       title: 'Object.entries',
+      keywords: 'Object.entries',
       id: 'object/entries',
       description:
         "The Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.",
@@ -65,6 +68,7 @@ Object.entries(obj);   /* [
     },
     {
       title: 'Object.assign',
+      keywords: 'Object.assign',
       id: 'object/assign',
       description: 'Object.assign is used for cloning object',
       list: ['if two variables have same name it will only keep last one.'],
@@ -92,6 +96,7 @@ let c = Object.assign({}, c1, c2, c3);    // c1, c2, c3 are copied to the c and 
     },
     {
       title: 'Object.is',
+      keywords: 'Object.is',
       id: 'object/is',
       description:
         'Object.is() is used for comparison of two strings, two numbers, polarity of two numbers and two objects',
@@ -114,6 +119,7 @@ Object.is(0,-0);    // false
     },
     {
       title: 'Object.freeze',
+      keywords: 'Object.freeze',
       id: 'object/freeze',
       description:
         'It makes the object immutable i.e after freezing object we can not add or update keys',
@@ -136,6 +142,7 @@ Object.isFrozen(obj1);   // true`,
     },
     {
       title: 'Object.seal',
+      keywords: 'Object.seal',
       id: 'object/seal',
       description: 'we can only update the existing keys.',
       list: null,
@@ -157,6 +164,7 @@ Object.isSealed(obj1);   // true`,
     },
     {
       title: 'Object.defineProperty',
+      keywords: 'Object.defineProperty',
       id: 'object/define_property',
       description: 'make few of the keys of object non editable',
       list: null,

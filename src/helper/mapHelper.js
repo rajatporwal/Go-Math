@@ -4,7 +4,8 @@ const MAP_HELPER = {
   pathname: "/ds",
   children: [
     {
-      title: "Introduction",
+      title: "Introduction Map",
+      keywords: "Introduction Map",
       id: "map/introduction",
       description: `Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.`,
       list: [
@@ -32,6 +33,7 @@ console.log(map.size);        // output: 3`
     },
     {
       title: "has()",
+      keywords: "has()",
       id: "map/has",
       description: `returns false if key is not found`,
       list: null,
@@ -53,6 +55,7 @@ console.log(map.has('D'));    // false`
     },
     {
       title: "get()",
+      keywords: "get()",
       id: "map/get",
       description: `returns undefined if key is not found`,
       list: null,
@@ -73,6 +76,7 @@ console.log(map.get("c"));     // undefined`
     },
     {
       title: "delete()",
+      keywords: "delete()",
       id: "map/delete",
       description: `returns false if key is not found`,
       list: null,
@@ -93,6 +97,7 @@ console.log(map.delete("c"));   // false`
     },
     {
       title: "entries()",
+      keywords: "entries()",
       id: "map/entries",
       description: `returns key and values both in array form`,
       list: null,
@@ -122,6 +127,7 @@ for(let [key, value] of map.entries()) {
     },
     {
       title: "keys()",
+      keywords: "keys()",
       id: "map/keys",
       description: `returns only keys`,
       list: null,
@@ -146,6 +152,7 @@ for(let ele of mapIteratorKeys) {
     },
     {
       title: "values()",
+      keywords: "values()",
       id: "map/values",
       description: `returns only values`,
       list: null,
@@ -170,6 +177,7 @@ for(let ele of mapIteratorValues) {
     },
     {
       title: "forEach()",
+      keywords: "forEach()",
       id: "map/forEach",
       description: `we can directly render using forEach while entries(), keys() and values() returns iterator object.`,
       list: null,
@@ -192,6 +200,7 @@ map.forEach(ele => {
     },
     {
       title: "clear()",
+      keywords: "clear()",
       id: "map/clear",
       description: `returns undefined if it cleared map successfully`,
       list: null,
@@ -211,6 +220,7 @@ console.log(map.clear());       // output:  undefined`
     },
     {
       title: "convert map to array",
+      keywords: "convert map to array",
       id: "map/m_array",
       description: null,
       list: null,
@@ -230,6 +240,7 @@ console.log(arr);                    // [["a", "A"], ["b", "B"]]`
     },
     {
       title: "map vs object",
+      keywords: "map vs object",
       id: "map/map-vs_obj",
       description: `<b>Map </b> is a data structure which helps in storing the data in the form of pairs. The pair consists of a unique key and a value mapped to the key. It helps prevent duplicity.
       <br /><br />
@@ -246,6 +257,7 @@ console.log(arr);                    // [["a", "A"], ["b", "B"]]`
     },
     {
       title: "Where To Use Object",
+      keywords: "Where To Use Object",
       id: "map/use_obj",
       description: `Although Map tends to have more advantages over objects, at the end the day it depends on the kind of data being used and the operation needs to be performed.
       <br /><br />
