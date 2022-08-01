@@ -1,0 +1,5 @@
+import { REACT_APPS_CONFIG, HTML_APPS_CONFIG } from "../helper";
+
+const MY_APPS_CONFIG = [REACT_APPS_CONFIG, HTML_APPS_CONFIG];
+
+export default MY_APPS_CONFIG;

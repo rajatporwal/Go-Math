@@ -51,6 +51,9 @@ const HeaderComponent = ({ searchData }) => {
         <Menu.Item key="7">
           <Link to="/conversion">Conversion</Link>
         </Menu.Item>
+        <Menu.Item key="8">
+          <Link to="/myapps">Apps</Link>
+        </Menu.Item>
         {isAdmin && isAuthenticated && (
           <Menu.Item key="admin">
             <Link to="/admin">Admin</Link>

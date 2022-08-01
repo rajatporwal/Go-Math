@@ -7,6 +7,7 @@ import QuestionsRoutes from "./QuestionsRoutes";
 import ConversionRoutes from "./ConversionRoutes";
 import DataStructureRoutes from "./DataStructureRoutes";
 import ReactJsRoutes from "./ReactJsRoutes";
+import MyAppsRoutes from "./MyAppsRoutes";
 const { Panel } = Collapse;
 
 export const HOME_ROUTES = [
@@ -53,6 +54,11 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Collapse accordion>
+        <Panel header="My Apps" key="myapps">
+          <MyAppsRoutes />
+        </Panel>
+      </Collapse>
       <Collapse accordion>
         <Panel header="JavaScript" key="javascript">
           <JavaScriptRoutes />
