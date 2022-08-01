@@ -24,17 +24,14 @@ body {
 .content {
   padding: 0 5rem;
   background-color: $color-white;
-  margin-left: 15rem;
-  margin-right: 15rem;
+  width: 90%;
   min-height: 90vh;
+  margin: auto;
   @media only screen and (max-width: $bp-large) {
     padding: 0;
-    margin-left: 10rem;
-    margin-right: 10rem;
   }
   @media only screen and (max-width: $bp-medium) {
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;
   }
 }
 
