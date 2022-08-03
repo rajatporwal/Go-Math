@@ -70,7 +70,7 @@ const HTML_APPS_CONFIG = {
       description: "",
       list: null,
       embededUrl:
-        "//jsfiddle.net/rajatporwal/znvdog1j/14/embedded/result,js,html,css/dark/",
+        "//jsfiddle.net/rajatporwal/znvdog1j/15/embedded/result,js,html,css/dark/",
       note: null,
     },
   ],

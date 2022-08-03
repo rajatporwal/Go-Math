@@ -37,7 +37,7 @@ export default () => {
         </li>
       </ul>
       <p className="copyright">
-        &copy; Copyright 2020 by Rajat Porwal. All rights reserved. &nbsp; |
+        &copy; Copyright 2023 by Rajat Porwal. All rights reserved. &nbsp; |
         &nbsp; Terms of Service &nbsp; | &nbsp; Privacy Policy
       </p>
     </footer>

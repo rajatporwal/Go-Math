@@ -6,7 +6,7 @@ const { Footer } = Layout;
 export default () => {
   return (
     <Footer style={{ textAlign: "center" }}>
-      Go Math ©2020 Created by Rajat Porwal
+      Go Math ©2022 Created by Rajat Porwal
     </Footer>
   );
 };

@@ -55,13 +55,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Accordion title="My Apps" content={ <MyAppsRoutes />} >
-      </Accordion>
-      <Collapse accordion>
-        <Panel header="My Apps" key="myapps">
-          <MyAppsRoutes />
-        </Panel>
-      </Collapse>
+      <Accordion title="My Apps" content={ <MyAppsRoutes />} />
       <Collapse accordion>
         <Panel header="JavaScript" key="javascript">
           <JavaScriptRoutes />
