@@ -63,6 +63,16 @@ const HTML_APPS_CONFIG = {
         "//jsfiddle.net/rajatporwal/yevs4b0w/embedded/result,js,html,css/dark/",
       note: null,
     },
+    {
+      title: "Accordion",
+      keywords: "accordion",
+      id: "html-css/accordion",
+      description: "",
+      list: null,
+      embededUrl:
+        "//jsfiddle.net/rajatporwal/znvdog1j/14/embedded/result,js,html,css/dark/",
+      note: null,
+    },
   ],
 };
 
