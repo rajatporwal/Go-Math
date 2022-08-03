@@ -8,6 +8,7 @@ import ConversionRoutes from "./ConversionRoutes";
 import DataStructureRoutes from "./DataStructureRoutes";
 import ReactJsRoutes from "./ReactJsRoutes";
 import MyAppsRoutes from "./MyAppsRoutes";
+import { Accordion } from '@rajatporwal/react-component-library'
 const { Panel } = Collapse;
 
 export const HOME_ROUTES = [
@@ -54,6 +55,8 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Accordion title="My Apps" content={ <MyAppsRoutes />} >
+      </Accordion>
       <Collapse accordion>
         <Panel header="My Apps" key="myapps">
           <MyAppsRoutes />
