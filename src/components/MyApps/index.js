@@ -9,6 +9,10 @@ const filterOptions = [
     value: 'react',
   },
   {
+    name: 'Javascript',
+    value: 'javascript',
+  },
+  {
     name: 'Html & Css',
     value: 'html-css',
   },
@@ -60,14 +64,14 @@ const MyApps = () => {
           <hr />
           {ele.children.map((child) => (
             <div className="javascript">
-              <h2
-                className="heading_3"
+              <h3
+                className="heading-3"
                 refs={child.id}
                 id={child.id}
                 name={child.id}
               >
-                {child.title}
-              </h2>
+                - {child.title}
+              </h3>
               {child.description ? (
                 <p dangerouslySetInnerHTML={{ __html: child.description }} />
               ) : null}

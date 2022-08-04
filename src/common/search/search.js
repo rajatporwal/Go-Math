@@ -12,18 +12,16 @@ const SearchComponent = ({ searchData }) => {
         return {
           value: ele.title,
           label: (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <span>
-                <Link active to={ele.path} smooth>
-                  {ele.title}
-                </Link>
-              </span>
-            </div>
+            <Link active to={ele.path} smooth>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span>{ele.title}</span>
+              </div>
+            </Link>
           ),
         };
       });

@@ -1,5 +1,6 @@
 import DATA_STRUCTURE_CONFIG from "../config/dataStructureConfig";
 import JAVASCRIPT_CONFIG from "../config/javaScriptConfig";
+import MY_APPS_CONFIG from "../config/myAppsConfig";
 import QUESTIONS_CONFIG from "../config/questionsConfig";
 import REACT_JS_CONFIG from "../config/reactJsConfig";
 
@@ -29,6 +30,13 @@ export const getSearchData = () => {
       path: `${ele.pathname}#${child.id}`,
     }));
   });
+  
+  const myApps = MY_APPS_CONFIG.map((ele) => {
+    return ele.children.map((child) => ({
+      title: child.keywords?.toLowerCase(),
+      path: `${ele.pathname}#${child.id}`,
+    }));
+  });
 
-  return [...js.flat(), ...reactData.flat(), ...questionData.flat(), ...dataStructure.flat()];
+  return [...js.flat(), ...reactData.flat(), ...questionData.flat(), ...dataStructure.flat(), ...myApps.flat()];
 };

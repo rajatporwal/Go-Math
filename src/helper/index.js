@@ -15,6 +15,7 @@ import LINKED_LIST_HELPER from './linkedListHelper';
 import BINARY_SEARCH_TREE_HELPER from './binarySearchTreeHelper';
 import REACT_APPS_CONFIG from './reactAppsConfig';
 import HTML_APPS_CONFIG from './htmlAppsConfig';
+import JS_APPS_CONGIG from './jsAppsConfig';
 
 export {
   binaryToAll,
@@ -31,5 +32,6 @@ export {
   LINKED_LIST_HELPER,
   BINARY_SEARCH_TREE_HELPER,
   REACT_APPS_CONFIG,
-  HTML_APPS_CONFIG
+  HTML_APPS_CONFIG,
+  JS_APPS_CONGIG
 };
