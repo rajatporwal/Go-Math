@@ -1,1 +1,3 @@
 # Go Math
+
+npm start

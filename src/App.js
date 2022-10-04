@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { BackTop, Layout, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
@@ -16,6 +16,9 @@ import { logoutUser, setCurrentUser } from "./actions/authActions";
 import store from "./store";
 import { getSearchData } from "./utils/search-options";
 import SearchComponent from "./common/search/search";
+
+import { MY_APPS_CONFIG } from "./actions/types";
+import { HttpUtil } from "./utils";
 
 const { Content } = Layout;
 
@@ -41,7 +44,27 @@ export default function App() {
   const showSideBar = useSelector((state) => state.appReducer.sideBar);
   const showModal = useSelector((state) => state.appReducer.showModal);
   const isLoading = useSelector((state) => state.appReducer.isLoading);
-  const searchData = getSearchData();
+  const appsConfig = useSelector((state) => state.appReducer.appsConfig);
+  const searchData = getSearchData(appsConfig);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const baseUrl =
+      "https://raw.githubusercontent.com/rajatporwal/helper-json/main/my-apps.json";
+    HttpUtil.makeGET(baseUrl)
+      .then((response) => {
+        dispatch({
+          type: MY_APPS_CONFIG,
+          payload: response.data,
+        });
+      })
+      .catch(() =>
+        dispatch({
+          type: MY_APPS_CONFIG,
+          payload: [],
+        })
+      );
+  }, []);
+
   return (
     <Layout>
       <div className="App">
@@ -52,7 +75,15 @@ export default function App() {
           {showSideBar ? <SideBar /> : null}
           <div className={`content ${showSideBar ? "sideBar" : ""}`}>
             <Content className="site-layout" style={{ marginTop: 64 }}>
-              <div style={{ display :  window.matchMedia("(min-width: 500px)").matches ? 'none' : 'flex', justifyContent: 'center', paddingTop: '30px'}}>
+              <div
+                style={{
+                  display: window.matchMedia("(min-width: 500px)").matches
+                    ? "none"
+                    : "flex",
+                  justifyContent: "center",
+                  paddingTop: "30px",
+                }}
+              >
                 <SearchComponent searchData={searchData} />
               </div>
               <div className="site-layout-background" style={{ padding: 24 }}>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from "react-redux";
 import { HashLink as Link } from 'react-router-hash-link';
-import MY_APP_CONFIG from '../../config/myAppsConfig';
 
 const MyAppRoutes = () => {
-  return MY_APP_CONFIG.map((ds) => (
+  const appsConfig = useSelector((state) => state.appReducer.appsConfig);
+
+  return appsConfig.map((ds) => (
     <>
       <h4>{ds.heading}</h4>
       <ul className='home__list'>

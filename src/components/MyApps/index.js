@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import MY_APPS_CONFIG from '../../config/myAppsConfig';
+import { useSelector, useDispatch } from 'react-redux';
 import { Checkbox } from 'antd';
+import { SIDE_BAR_OPTIONS } from '../../actions/types';
 
 const filterOptions = [
   {
@@ -20,12 +20,12 @@ const filterOptions = [
 
 const MyApps = () => {
   const [filter, setFilter] = useState([]);
-
+  const appsConfig = useSelector((state) => state.appReducer.appsConfig);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
-      type: 'SIDE_BAR_OPTIONS',
-      value: MY_APPS_CONFIG,
+      type: SIDE_BAR_OPTIONS,
+      value: appsConfig,
     });
   });
 
@@ -40,10 +40,10 @@ const MyApps = () => {
 
   const filteredData =
     filter.length > 0
-      ? MY_APPS_CONFIG.filter(
+      ? appsConfig.filter(
           (ele) => filter.indexOf(ele.category) !== -1
         )
-      : MY_APPS_CONFIG;
+      : appsConfig;
 
   return (
     <div>

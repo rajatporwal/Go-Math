@@ -1,5 +1,6 @@
 import {
   IS_LOADING,
+  MY_APPS_CONFIG,
   SHOW_MODAL,
   SIDE_BAR,
   SIDE_BAR_OPTIONS,
@@ -13,6 +14,7 @@ const initialState = {
   isLoggedIn: false,
   userDetail: {},
   showModal: false,
+  appsConfig: [],
   tableProps: {
     showIndex: false,
     showBorder: false,
@@ -31,6 +33,8 @@ function appReducer(state = initialState, action) {
       return { ...state, showModal: action.payload };
     case TABLE_PROPS:
       return { ...state, tableProps: action.payload };
+    case MY_APPS_CONFIG:
+      return { ...state, appsConfig: action.payload };
     default:
       return state;
   }
