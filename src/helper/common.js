@@ -1,6 +1,7 @@
 export const OBJECT_FOR_IN = {
   title: "for in",
   id: "for_in",
+  keywords: "for in for of",
   description: `Used to enumerate over object`,
   list: ["It returns object keys"],
   code: [

@@ -1002,6 +1002,81 @@ return (dispatch, getState) => {
         code: null,
         note: null,
       },
+      {
+        title: 'npm vs npx',
+        keywords: 'npm vs npx',
+        id: 'npm_vs_npx',
+        description: `Npm is a tool that use to install packages. Npx is a tool that use to execute packages. Packages used by npm are installed globally. You have to care about pollution in the long term.`,
+        list: ['NPM is a package manager used to install, delete, and update Javascript packages on your machine.', 'NPX is a package executer, and it is used to execute javascript packages directly, without installing them.'],
+        code: null,
+        note: null,
+      },
+      {
+        title: 'yarn vs npm',
+        keywords: 'yarn vs npm',
+        id: 'yarn_vs_npm',
+        description: '',
+        list: ['NPM installs packages sequentially', 'Yarn performs parallel installation resulting in better speed and performance.  Yarn uses more disk space than NPM.',
+      `It is recommended to install Yarn through the npm package manager, which comes bundled with Node.js when you install it on your system`, `Yes, It is possible to use both yarn and npm in the same project.`],
+        code: null,
+        note: null,
+      },
+      {
+        title: 'scss vs sass',
+        keywords: 'scss vs sass',
+        id: 'scss_vs_sass',
+        description: '',
+        list: [`SASS is used when we need an original syntax, code syntax is not required for SCSS.`,
+        `<b>SASS follows strict indentation, SCSS has no strict indentation.</b>`,
+        `<b>SASS can’t be used as CSS and vice-versa whereas a valid CSS code is also a valid SCSS code.</b>`,
+        `SASS has a loose syntax with white space and no semicolons, the SCSS resembles more to CSS style and use of semicolons and braces are mandatory.`,
+        `SASS has more developer community and support than SCSS.`,
+        `SASS supports SassDoc to add documentation whereas SCSS allows inline documentation.`,
+        `SASS is hard to add to existing CSS projects whereas SCSS can be added easily to an existing CSS project just by adding new code.`],
+        code: [
+          {
+            title:
+              'SASS Example:',
+            code: `$primary-color: green
+$primary-bg: red
+
+body
+  color: $primary-color
+  background: $primary-bg
+
+  /* Output CSS */
+
+body {
+  color: green;
+  background: red;
+}
+            `,
+          },
+          {
+            title:
+              'SCSS Example:',
+            code: `$bgcolor: blue;
+$textcolor: red;
+$fontsize: 25px;
+
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+
+  /* Output CSS */
+
+body {
+  background-color: blue;
+  color: red;
+  font-size: 25px;
+}
+            `,
+          },
+        ],
+        note: null,
+      },
     ],
   },
 ];
