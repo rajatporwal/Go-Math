@@ -63,7 +63,7 @@ const MyApps = () => {
           <h1 className="m-t-20">{ele.heading}</h1>
           <hr />
           {ele.children.map((child) => (
-            <div className="javascript">
+            <div className="javascript m-t-30">
               <h3
                 className="heading-3"
                 refs={child.id}
@@ -82,7 +82,7 @@ const MyApps = () => {
                   ))}
                 </ul>
               ) : null}
-              <div>
+              <div className='m-t-30'>
                 {child.embededUrl &&
                     <iframe
                     title={child.title}
