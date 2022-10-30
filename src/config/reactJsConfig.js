@@ -712,6 +712,42 @@ const dispatch = useDispatch();
         note: null,
       },
       {
+        title: 'async await in useEffect',
+        keywords: 'async await in useEffect',
+        id: 'async_await_in_useEffect',
+        description:
+          'This WORKS, but you should avoid it. Why? Because React’s useEffect hook expects a cleanup function returned from it which is called when the component unmounts. Using an async function here will cause a bug as the cleanup function will never get called.',
+        list: '',
+        code: [
+          {
+            title: `Don't do this!`,
+            code: `useEffect(async () => {
+  const users = await fetchUsers();
+  setUsers(users);
+
+  return () => {
+    // this never gets called, hello memory leaks...
+  };
+}, []);`,
+          },
+          {
+            title: `Instead do this`,
+            code: `// 🆗 Ship it
+useEffect(() => {
+  (async () => {
+    const users = await fetchUsers();
+    setUsers(users);
+  })();
+
+  return () => {
+    // this now gets called when the component unmounts
+  };
+}, []);`,
+          },
+        ],
+        note: null,
+      },
+      {
         title: 'Lifecycle methods with the useEffect Hook',
         keywords: 'Lifecycle methods with the useEffect Hook',
         id: 'lifecycle_using_useEffect',
@@ -750,9 +786,10 @@ const dispatch = useDispatch();
         description: 'Assume component B is a child of component A',
         list: [
           'whenever component A will render component B will also render, to prevent this we can wrap component with memo',
-          'if we pass any function as a prop to component B then we will break the memo, so for this we need to pass memoizedCallback using useCallback hook',
+          'if we pass any <b>function as a prop</b> to component B then we will <b>break the memo</b>, so for this we need to pass memoizedCallback using useCallback hook',
           'useMemo is used for memorizing the previous render of component so that component will not get render again, it will only get rendered if passed prop is changed.',
           'React.memo() is the functional component equivalent of React.PureComponent',
+          'If we will not return anything form useMemo, it will return undefined'
         ],
         code: [
           {

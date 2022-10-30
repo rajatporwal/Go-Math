@@ -2271,8 +2271,8 @@ fruits.apple.smell ?? 'no apple';   // output: no apple`,
     pathname: "/javascript",
     children: [
       {
-        title: "what is desgin pattern",
-        keywords: "what is desgin pattern",
+        title: "what is design pattern",
+        keywords: "what is design pattern",
         id: "design_pattern",
         description:
           "Design patterns in JavaScript are reusable solutions applied to commonly occurring problems in writing JavaScript web applications.",

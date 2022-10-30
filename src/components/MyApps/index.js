@@ -92,6 +92,7 @@ const MyApps = () => {
                     allowfullscreen="allowfullscreen"
                     allowpaymentrequest
                     frameborder="0"
+                    loading="lazy"
                   ></iframe>
                   }
               </div>
