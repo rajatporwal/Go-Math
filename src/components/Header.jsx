@@ -30,28 +30,31 @@ const HeaderComponent = ({ searchData }) => {
             dispatch({ type: SIDE_BAR, value: !sideBar });
           }}
         />
-        <Menu.Item key="1" className="add_margin">
+        <Menu.Item key="home" className="add_margin">
           <Link to="/home">Home</Link>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="javascript">
           <Link to="/javascript">JavaScript</Link>
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="react">
           <Link to="/react">React</Link>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="ds">
           <Link to="/ds">DS</Link>
         </Menu.Item>
-        <Menu.Item key="5">
+        <Menu.Item key="questions">
           <Link to="/questions">Questions</Link>
         </Menu.Item>
-        <Menu.Item key="6">
+        {/* <Menu.Item key="6">
           <Link to="/regex">Regex</Link>
-        </Menu.Item>
-        <Menu.Item key="7">
+        </Menu.Item> */}
+        {/* <Menu.Item key="7">
           <Link to="/conversion">Conversion</Link>
+        </Menu.Item> */}
+        <Menu.Item key="system_design">
+          <Link to="/system_design">System Design</Link>
         </Menu.Item>
-        <Menu.Item key="8">
+        <Menu.Item key="myapps">
           <Link to="/myapps">Apps</Link>
         </Menu.Item>
         {isAdmin && isAuthenticated && (

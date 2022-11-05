@@ -6,3 +6,11 @@
 .note {
   margin-top: 1rem;
 }
+
+.img_container {
+  width: 50%;
+  max-height: 400px;
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  };
+}
