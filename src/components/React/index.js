@@ -95,6 +95,20 @@ const ReactJS = () => {
                     ))
                   : null}
               </div>
+              <div>
+              {child.embededUrl &&
+                    <iframe
+                    title={child.title}
+                    width="100%"
+                    height="400"
+                    src={child.embededUrl}
+                    allowfullscreen="allowfullscreen"
+                    allowpaymentrequest
+                    frameborder="0"
+                    loading="lazy"
+                  ></iframe>
+                  }
+              </div>
               {child.note ? (
                 <p
                   className="note"

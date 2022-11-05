@@ -60,8 +60,7 @@ console.log(window.findMyName);  		// prints function defination
 console.log(window.nestedFunction);  	// undefined`,
           },
         ],
-        note:
-          "Only function or variable which are defined at parent level have gloabl lexical scope.",
+        note: "Only function or variable which are defined at parent level have gloabl lexical scope.",
       },
       {
         title: "Hoisting",
@@ -125,8 +124,7 @@ function b() {
 a();				// Output: Bye`,
           },
         ],
-        note:
-          "When there are two functions with same name gets hoisted, it overrides the previously alloted memory with the new function.",
+        note: "When there are two functions with same name gets hoisted, it overrides the previously alloted memory with the new function.",
       },
       {
         title: "Functions",
@@ -722,8 +720,10 @@ localStorage.clear();`,
         keywords: "Debounce",
         id: "debounce",
         description: `<b>a conversation.</b> you wait for the other person to finish speaking before you reply.`,
-        list: ['<b>Typing. </b> You want to do something after the user stopped typing. So waiting 1sec after the last keystroke makes sense. Each keystroke restarts the wait.',
-        '<b>Animation. </b> You want to shrink back an element after the user stopped hovering over it. Not using debounce might cause an erratic animation as a result of the cursor unintentionally moving between the "hot" and "cold" zones.'],
+        list: [
+          "<b>Typing. </b> You want to do something after the user stopped typing. So waiting 1sec after the last keystroke makes sense. Each keystroke restarts the wait.",
+          '<b>Animation. </b> You want to shrink back an element after the user stopped hovering over it. Not using debounce might cause an erratic animation as a result of the cursor unintentionally moving between the "hot" and "cold" zones.',
+        ],
         code: null,
         note: null,
       },
@@ -732,10 +732,94 @@ localStorage.clear();`,
         keywords: "Throttle",
         id: "throttle",
         description: `<b>a drum bit.</b>. you only play notes on a simple 4/4 drum bit.`,
-        list: ['<b>Scrolling. </b> You want to react to scrolling but limit the amount of calculations made, so doing something every 100ms is enough to prevent potential lag.',
-        '<b>Mouse move. </b> Same as scrolling but for mouse move.',
-      '<b>API calls. </b> You want to fire an API call on certain UI events but want to limit the number of API calls you make not to overload your server.'],
+        list: [
+          "<b>Scrolling. </b> You want to react to scrolling but limit the amount of calculations made, so doing something every 100ms is enough to prevent potential lag.",
+          "<b>Mouse move. </b> Same as scrolling but for mouse move.",
+          "<b>API calls. </b> You want to fire an API call on certain UI events but want to limit the number of API calls you make not to overload your server.",
+        ],
         code: null,
+        note: null,
+      },
+      {
+        title: "npm vs npx",
+        keywords: "npm vs npx",
+        id: "npm_vs_npx",
+        description: `Npm is a tool that use to install packages. Npx is a tool that use to execute packages. Packages used by npm are installed globally. You have to care about pollution in the long term.`,
+        list: [
+          "NPM is a package manager used to install, delete, and update Javascript packages on your machine.",
+          "NPX is a package executer, and it is used to execute javascript packages directly, without installing them.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "yarn vs npm",
+        keywords: "yarn vs npm",
+        id: "yarn_vs_npm",
+        description: "",
+        list: [
+          "NPM installs packages sequentially",
+          "Yarn performs parallel installation resulting in better speed and performance.  Yarn uses more disk space than NPM.",
+          `It is recommended to install Yarn through the npm package manager, which comes bundled with Node.js when you install it on your system`,
+          `Yes, It is possible to use both yarn and npm in the same project.`,
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "scss vs sass",
+        keywords: "scss vs sass",
+        id: "scss_vs_sass",
+        description: "",
+        list: [
+          `SASS is used when we need an original syntax, code syntax is not required for SCSS.`,
+          `<b>SASS follows strict indentation, SCSS has no strict indentation.</b>`,
+          `<b>SASS can’t be used as CSS and vice-versa whereas a valid CSS code is also a valid SCSS code.</b>`,
+          `SASS has a loose syntax with white space and no semicolons, the SCSS resembles more to CSS style and use of semicolons and braces are mandatory.`,
+          `SASS has more developer community and support than SCSS.`,
+          `SASS supports SassDoc to add documentation whereas SCSS allows inline documentation.`,
+          `SASS is hard to add to existing CSS projects whereas SCSS can be added easily to an existing CSS project just by adding new code.`,
+        ],
+        code: [
+          {
+            title: "SASS Example:",
+            code: `$primary-color: green
+$primary-bg: red
+
+body
+  color: $primary-color
+  background: $primary-bg
+
+  /* Output CSS */
+
+body {
+  color: green;
+  background: red;
+}
+            `,
+          },
+          {
+            title: "SCSS Example:",
+            code: `$bgcolor: blue;
+$textcolor: red;
+$fontsize: 25px;
+
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+
+  /* Output CSS */
+
+body {
+  background-color: blue;
+  color: red;
+  font-size: 25px;
+}
+            `,
+          },
+        ],
         note: null,
       },
     ],
@@ -1413,8 +1497,7 @@ dobby.attack(); // Dobby attacks with cloth.
 legolas.attack(); // Legolas attacks with bow.`,
           },
         ],
-        note:
-          "Factory functions return a new object every time they are ran. This could improve the code somewhat.",
+        note: "Factory functions return a new object every time they are ran. This could improve the code somewhat.",
       },
       {
         title: "Store",
@@ -1682,8 +1765,7 @@ function a() {
 }`,
           },
         ],
-        note:
-          "No side effects - i.e. a pure function do not update anything outside the function.",
+        note: "No side effects - i.e. a pure function do not update anything outside the function.",
       },
       {
         title: "Referential transparency",
@@ -1726,8 +1808,7 @@ b(7); // 14
         <br /><br /> Declarative programming only tells the computer what to do, but not how to do things.
         <br /><br />Humans are declarative by nature, but computers typically need more imperative type programming. However, using higher level languages like JavaScript is actually being less declarative. This is important in function programming because we want to be more declarative to better understand our code and let the computer handle the dirty work of figuring out the best way to do something.`,
         code: null,
-        note:
-          "<b>Javascript is more of a declarative programming language.</b>",
+        note: "<b>Javascript is more of a declarative programming language.</b>",
       },
       {
         title: "Immutability",
@@ -1759,8 +1840,7 @@ console.log('obj = \${obj}, updatedNameObj = \${updatedNameObj}')
 // obj = {name: 'Brittney'} updatedNameObj = {name: 'Joe'}`,
           },
         ],
-        note:
-          "You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called <b>structural sharing</b> that allows the data to only copy new information and points to the original state for any commonalities.",
+        note: "You may be thinking that this could get really expensive, memory wise, to just copy code over and over. However, there is something called <b>structural sharing</b> that allows the data to only copy new information and points to the original state for any commonalities.",
       },
     ],
   },
@@ -1982,8 +2062,7 @@ output:
 `,
           },
         ],
-        note:
-          'Promise.all only returs results if all the promises are resolved, if any of the promise got rejects it will throw exception "Uncaught (in promise) undefined"',
+        note: 'Promise.all only returs results if all the promises are resolved, if any of the promise got rejects it will throw exception "Uncaught (in promise) undefined"',
       },
       {
         title: "Async/await",
@@ -2093,8 +2172,7 @@ console.log("3", "is a crowd");
 // 2 can be as bad as one`,
           },
         ],
-        note:
-          '<a href="http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank">read more</a>',
+        note: '<a href="http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank">read more</a>',
       },
     ],
   },
