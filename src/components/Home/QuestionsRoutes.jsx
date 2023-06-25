@@ -1,10 +1,14 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
+import TopicList from "../../common/topicList/topicList";
 
 const QUESTIONS_ROUTES = [
   {
+    heading: '',
+    pathname: '/questions',
+    children: [
+  {
     title: "Array",
-    id: "array"
+    id: "array",
   },
   {
     title: "String",
@@ -33,26 +37,11 @@ const QUESTIONS_ROUTES = [
   {
     title: "Object",
     id: "object"
-  }
+  }]}
 ];
 
 const QuestionsRoutes = () => (
-  <ul className="home__list">
-    {QUESTIONS_ROUTES.map((r) => (
-      <li>
-        <Link
-          active
-          to={{
-            pathname: "/questions",
-            hash: r.id
-          }}
-          smooth
-        >
-          {r.title}
-        </Link>
-      </li>
-    ))}
-  </ul>
+  <TopicList list={QUESTIONS_ROUTES} />
 );
 
 export default QuestionsRoutes;

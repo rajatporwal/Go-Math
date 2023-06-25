@@ -17,17 +17,17 @@ const Main = () => (
   <main>
     <Switch>
       <Redirect exact from='/' to='/home' />
-      <Route exact path='/home' component={Home} />
-      <Route exact path='/javascript' component={JavaScript} />
-      <Route exact path='/react' component={ReactJS} />
-      <Route exact path='/regex' component={Regex} />
-      <Route exact path='/questions' component={Questions} />
-      <Route exact path='/conversion' component={Conversion} />
-      <Route exact path='/ds' component={DataStructure} />
-      <Route exact path='/myapps' component={MyApps} />
-      <Route exact path='/system_design' component={SystemDesign} />
-      <Route exact path='/todo' component={Todo} />
-      <Route exact path='/admin' component={Admin} />
+      <Route exact key='home' path='/home' component={Home} />
+      <Route exact key='javascript' path='/javascript' component={JavaScript} />
+      <Route exact key='react' path='/react' component={ReactJS} />
+      <Route exact key='regex' path='/regex' component={Regex} />
+      <Route exact key='questions' path='/questions' component={Questions} />
+      <Route exact key='conversion' path='/conversion' component={Conversion} />
+      <Route exact key='ds' path='/ds' component={DataStructure} />
+      <Route exact key='myapps' path='/myapps' component={MyApps} />
+      <Route exact key='system_design' path='/system_design' component={SystemDesign} />
+      <Route exact key='todo' path='/todo' component={Todo} />
+      <Route exact key='admin' path='/admin' component={Admin} />
       <Route
         path='*'
         render={() => {

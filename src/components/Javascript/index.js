@@ -14,7 +14,7 @@ const JavaScript = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: SIDE_BAR_OPTIONS, value: javaScriptConfig });
-  });
+  }, []);
 
   return (
     <div>
@@ -51,8 +51,8 @@ const JavaScript = () => {
               ) : null}
               {child.list && (
                 <ul>
-                  {child.list.map((v) => (
-                    <li dangerouslySetInnerHTML={{ __html: v }} />
+                  {child.list.map((v, i) => (
+                    <li key={'html' + i} dangerouslySetInnerHTML={{ __html: v }} />
                   ))}
                 </ul>
               )}

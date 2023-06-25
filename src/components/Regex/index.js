@@ -13,7 +13,7 @@ const Regex = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: regexConfig });
-  });
+  }, []);
   return (
     <div>
       {regexConfig.map((ele) => (

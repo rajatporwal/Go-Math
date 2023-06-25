@@ -27,7 +27,7 @@ const MyApps = () => {
       type: SIDE_BAR_OPTIONS,
       value: appsConfig,
     });
-  });
+  }, []);
 
   const onCategoryChange = (type) => {
     if (filter.indexOf(type) === -1) {
@@ -58,12 +58,12 @@ const MyApps = () => {
         ))}
       </div>
       <br />
-      {filteredData.map((ele) => (
+      {filteredData.map((ele, i) => (
         <>
-          <h1 className="m-t-20">{ele.heading}</h1>
+          <h1 key={ele.heading + i} className="m-t-20">{ele.heading}</h1>
           <hr />
           {ele.children.map((child) => (
-            <div className="javascript m-t-30">
+            <div key={child?.embededUrl + i} className="javascript m-t-30">
               <h3
                 className="heading-3"
                 refs={child.id}
@@ -89,9 +89,9 @@ const MyApps = () => {
                     width="100%"
                     height="400"
                     src={child.embededUrl}
-                    allowfullscreen="allowfullscreen"
-                    allowpaymentrequest
-                    frameborder="0"
+                    allowFullScreen="allowfullscreen"
+                    allowpaymentrequest="false"
+                    frameBorder="0"
                     loading="lazy"
                   ></iframe>
                   }

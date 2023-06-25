@@ -14,7 +14,7 @@ const SystemDesign = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: SIDE_BAR_OPTIONS, value: systemDesignConfig });
-  });
+  }, []);
 
   return (
     <div>

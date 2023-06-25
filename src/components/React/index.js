@@ -13,7 +13,7 @@ const ReactJS = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SIDE_BAR_OPTIONS", value: reactJsConfig });
-  });
+  }, []);
 
   return (
     <div>
@@ -102,9 +102,9 @@ const ReactJS = () => {
                     width="100%"
                     height="400"
                     src={child.embededUrl}
-                    allowfullscreen="allowfullscreen"
-                    allowpaymentrequest
-                    frameborder="0"
+                    allowFullScreen="allowfullscreen"
+                    allowpaymentrequest="false"
+                    frameBorder="0"
                     loading="lazy"
                   ></iframe>
                   }

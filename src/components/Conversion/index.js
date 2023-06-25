@@ -38,9 +38,9 @@ const Conversion = ({ type }) => {
   useEffect(() => {
     dispatch({
       type: "SIDE_BAR_OPTIONS",
-      value: [{ heading: "Conversion", children: [...CONVERSION_ROUTES] }]
+      value: [{ heading: "Conversion", children: [...CONVERSION_ROUTES[0].children] }]
     });
-  });
+  }, []);
 
   return (
     <div className="conversion">
@@ -54,7 +54,7 @@ const Conversion = ({ type }) => {
           <h3>See Also</h3>
           {
             <ul className="conversion__li">
-              {CONVERSION_ROUTES.map((r) => (
+              {CONVERSION_ROUTES[0].children.map((r) => (
                 <li>
                   <Link
                     active

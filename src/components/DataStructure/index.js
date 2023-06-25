@@ -58,7 +58,7 @@ const DataStructure = () => {
       type: 'SIDE_BAR_OPTIONS',
       value: DATA_STRUCTURE_CONFIG,
     });
-  });
+  }, []);
 
   const onCategoryChange = (type) => {
     if (filter.indexOf(type) === -1) {
@@ -80,8 +80,8 @@ const DataStructure = () => {
     <div>
       <h3>Add Filters</h3>
       <div className="que_filter">
-        {filterOptions.map((ele) => (
-          <div>
+        {filterOptions.map((ele, i) => (
+          <div key={ele.name + i}>
             <Checkbox onChange={() => onCategoryChange(ele.value)}>
               {ele.name}
             </Checkbox>

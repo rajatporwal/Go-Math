@@ -1,7 +1,10 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
+import TopicList from "../../common/topicList/topicList";
 
-export const CONVERSION_ROUTES = [
+export const CONVERSION_ROUTES = [{
+  heading: 'Conversion',
+  pathname: '/conversion',
+  children: [
   {
     title: "Number Convertor",
     pathname: "/conversion",
@@ -36,29 +39,12 @@ export const CONVERSION_ROUTES = [
     title: "Length Convertor",
     pathname: "/conversion",
     id: "length_convertor"
-  }
+  }]
+}
 ];
 
 const ConversionRoutes = () => (
-  <>
-    <h4>Conversion</h4>
-    <ul className="home__list">
-      {CONVERSION_ROUTES.map((r) => (
-        <li>
-          <Link
-            active
-            to={{
-              pathname: r.pathname,
-              hash: r.id
-            }}
-            smooth
-          >
-            {r.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </>
+  <TopicList list={CONVERSION_ROUTES} />
 );
 
 export default ConversionRoutes;

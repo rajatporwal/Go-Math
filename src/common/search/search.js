@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AutoComplete, Input } from "antd";
+import { AutoComplete } from "antd";
 import { HashLink as Link } from "react-router-hash-link";
 
 const SearchComponent = ({ searchData }) => {

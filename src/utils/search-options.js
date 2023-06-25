@@ -30,7 +30,7 @@ export const getSearchData = (appsConfig) => {
     }));
   });
   
-  const myApps = appsConfig.map((ele) => {
+  const myApps = appsConfig?.map((ele) => {
     return ele.children.map((child) => ({
       title: child.keywords?.toLowerCase(),
       path: `${ele.pathname}#${child.id}`,
