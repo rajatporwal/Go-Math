@@ -10,6 +10,8 @@ import DataStructure from './DataStructure';
 import MyApps from './MyApps';
 import SystemDesign from './SystemDesign';
 import ReactJS from './React';
+import NodeJS from './Node';
+import Typescript from './Typescript';
 import Todo from './Todo/todo';
 import Admin from './Admin/admin';
 
@@ -20,6 +22,8 @@ const Main = () => (
       <Route exact key='home' path='/home' component={Home} />
       <Route exact key='javascript' path='/javascript' component={JavaScript} />
       <Route exact key='react' path='/react' component={ReactJS} />
+      <Route exact key='node' path='/node' component={NodeJS} />
+      <Route exact key='typescript' path='/typescript' component={Typescript} />
       <Route exact key='regex' path='/regex' component={Regex} />
       <Route exact key='questions' path='/questions' component={Questions} />
       <Route exact key='conversion' path='/conversion' component={Conversion} />

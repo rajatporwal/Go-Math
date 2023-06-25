@@ -39,6 +39,12 @@ const HeaderComponent = ({ searchData }) => {
         <Menu.Item key="react">
           <Link to="/react">React</Link>
         </Menu.Item>
+        <Menu.Item key="node">
+          <Link to="/node">Node</Link>
+        </Menu.Item>
+        <Menu.Item key="typescript">
+          <Link to="/typescript">Typescript</Link>
+        </Menu.Item>
         <Menu.Item key="ds">
           <Link to="/ds">DS</Link>
         </Menu.Item>
