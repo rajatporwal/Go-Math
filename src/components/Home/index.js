@@ -10,6 +10,7 @@ import MyAppsRoutes from "./MyAppsRoutes";
 import Accordion from "../../common/accordion/Accordion";
 import NodeJsRoutes from "./NodeJsRoutes";
 import TypescriptRoutes from "./TypescriptRoutes";
+import NextJsRoutes from "./NextJsRoutes";
 
 export const HOME_ROUTES = [
   {
@@ -30,6 +31,10 @@ export const HOME_ROUTES = [
       {
         title: "Node",
         pathname: "/node",
+      },
+      {
+        title: "Next JS",
+        pathname: "/next",
       },
       {
         title: "Typescript",
@@ -67,6 +72,7 @@ const Home = () => {
       <Accordion title="JavaScript"  key="JavaScript" content={<JavaScriptRoutes />}></Accordion>
       <Accordion title="React"  key="React" content={<ReactJsRoutes />}></Accordion>
       <Accordion title="Node"  key="Node" content={<NodeJsRoutes />}></Accordion>
+      <Accordion title="Next"  key="Next" content={<NextJsRoutes />}></Accordion>
       <Accordion title="Typescript"  key="Typescript" content={<TypescriptRoutes />}></Accordion>
       <Accordion title="Data Structure" key="Data Structure" content={<DataStructureRoutes />}></Accordion>
       <Accordion title="Questions"  key="Questions" content={<QuestionsRoutes />}></Accordion>
