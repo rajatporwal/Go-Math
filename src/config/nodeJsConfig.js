@@ -8,7 +8,6 @@ const NODE_JS_CONFIG = [
           keywords: "Creating Node Server",
           id: "creating_node_server",
           description: null,
-          list: [],
           code: [
             {
               title: '',
@@ -35,7 +34,6 @@ server.listen(3000)`,
           id: "node_life_cycle",
           description: null,
           img: "/images/node_js_life_cycle.png",
-          list: [],
           code:null,
           note: null,
         },
@@ -124,7 +122,7 @@ app.use((req, res, next) => {
     res.send('<h1>Hello from middleware</h1>')
 })`
           }],
-          note: null,
+          note: 'Express js relies heavily on middleware functions, you can easily add them by calling use()',
         },
         {
           title: "path npm package",
@@ -145,13 +143,73 @@ router.get('/', (req, res, next) => {
           note: null,
         },
         {
-          title: "serving static files",
+          title: "serving static and html files",
           keywords: "serving static files",
           id: "serving_static_files",
-          description: `To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.`,
+          description: ``,
+          list: [
+            `To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.`,
+            `you can send files to users using sendFile() method`
+          ],
           code:[{
             title: '',
             code: `app.use(express.static(path.join(__dirname, 'public')))`}],
+          note: null,
+        },
+        {
+          title: "Template Engines",
+          keywords: "template engines pug",
+          id: "template_engines",
+          description: `
+          A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.`,
+          list: [
+            'pug',
+            'handlebars',
+            'ejs'
+          ],
+          code:[{
+            title: 'set view engines',
+            code: `// app.set to set the known view engines
+            
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
+// app.engine() is used to set new template which is not built in
+
+const expressHbs = require('express-handlebars')
+app.engine('handlebars', expressHbs())`
+          },{
+            title: 'pug template',
+            code: ` // res.render will render add-product.pug template
+            
+router.get('/add-product', (req, res, next) => {
+  res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product' });
+});
+
+/*
+  add-product.pug
+  title #{pageTitle} render the values passed from res.render method
+*/
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{pageTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        block styles
+    body   
+        header.main-header
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a(href="/", class=(path === '/' ? 'active' : '')) Shop
+                    li.main-header__item
+                        a(href="/admin/add-product", class=(path === '/admin/add-product' ? 'active' : '')) Add Product
+        block content
+`}],
           note: null,
         },
       ]}
