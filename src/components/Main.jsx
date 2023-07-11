@@ -16,6 +16,8 @@ import Typescript from './Typescript';
 import Todo from './Todo/todo';
 import Admin from './Admin/admin';
 import HtmlComponent from './HtmlComponent';
+import CssComponent from './CssComponent';
+import ReactNative from './ReactNative';
 
 const Main = () => (
   <main>
@@ -27,6 +29,8 @@ const Main = () => (
       <Route exact key='node' path='/node' component={NodeJS} />
       <Route exact key='next' path='/next' component={NextJS} />
       <Route exact key='html' path='/html' component={HtmlComponent} />
+      <Route exact key='css' path='/css' component={CssComponent} />
+      <Route exact key='reactnative' path='/reactnative' component={ReactNative} />
       <Route exact key='typescript' path='/typescript' component={Typescript} />
       <Route exact key='regex' path='/regex' component={Regex} />
       <Route exact key='questions' path='/questions' component={Questions} />

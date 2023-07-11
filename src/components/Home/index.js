@@ -11,6 +11,9 @@ import Accordion from "../../common/accordion/Accordion";
 import NodeJsRoutes from "./NodeJsRoutes";
 import TypescriptRoutes from "./TypescriptRoutes";
 import NextJsRoutes from "./NextJsRoutes";
+import HtmlRoutes from "./HtmlRoutes";
+import CssRoutes from "./CssRoutes";
+import ReactNativeRoutes from "./ReactNativeRoutes";
 
 export const HOME_ROUTES = [
   {
@@ -35,6 +38,18 @@ export const HOME_ROUTES = [
       {
         title: "Next JS",
         pathname: "/next",
+      },
+      {
+        title: "Html",
+        pathname: "/html",
+      },
+      {
+        title: "Css",
+        pathname: "/css",
+      },
+      {
+        title: "React Native",
+        pathname: "/reactnative",
       },
       {
         title: "Typescript",
@@ -73,6 +88,9 @@ const Home = () => {
       <Accordion title="React"  key="React" content={<ReactJsRoutes />}></Accordion>
       <Accordion title="Node"  key="Node" content={<NodeJsRoutes />}></Accordion>
       <Accordion title="Next"  key="Next" content={<NextJsRoutes />}></Accordion>
+      <Accordion title="Html"  key="Html" content={<HtmlRoutes />}></Accordion>
+      <Accordion title="Css"  key="Css" content={<CssRoutes />}></Accordion>
+      <Accordion title="React Native"  key="ReactNative" content={<ReactNativeRoutes />}></Accordion>
       <Accordion title="Typescript"  key="Typescript" content={<TypescriptRoutes />}></Accordion>
       <Accordion title="Data Structure" key="Data Structure" content={<DataStructureRoutes />}></Accordion>
       <Accordion title="Questions"  key="Questions" content={<QuestionsRoutes />}></Accordion>

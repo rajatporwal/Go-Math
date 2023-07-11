@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import htmlConfig from "../../config/htmlConfig";
+import cssConfig from "../../config/cssConfig";
 import TopicDetails from "../../common/topicDetails/TopicDetails";
 
-const HtmlComponent = () => {
+const CssComponent = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "SIDE_BAR_OPTIONS", value: htmlConfig });
+    dispatch({ type: "SIDE_BAR_OPTIONS", value: cssConfig });
   }, []);
 
   return (
-    <TopicDetails config={htmlConfig} />
+    <TopicDetails config={cssConfig} />
   );
 };
 
-export default HtmlComponent;
+export default CssComponent;
