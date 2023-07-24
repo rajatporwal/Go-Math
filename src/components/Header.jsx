@@ -42,12 +42,24 @@ const HeaderComponent = ({ searchData }) => {
         <Menu.Item key="node">
           <Link to="/node">Node</Link>
         </Menu.Item>
+        <Menu.Item key="next">
+          <Link to="/next">Next JS</Link>
+        </Menu.Item>
+        <Menu.Item key="reactnative">
+          <Link to="/reactnative">React Native</Link>
+        </Menu.Item>
+        <Menu.Item key="html">
+          <Link to="/html">HTML</Link>
+        </Menu.Item>
+        <Menu.Item key="css">
+          <Link to="/css">CSS</Link>
+        </Menu.Item>
         <Menu.Item key="typescript">
           <Link to="/typescript">Typescript</Link>
         </Menu.Item>
-        <Menu.Item key="ds">
+        {/* <Menu.Item key="ds">
           <Link to="/ds">DS</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="questions">
           <Link to="/questions">Questions</Link>
         </Menu.Item>
@@ -57,12 +69,12 @@ const HeaderComponent = ({ searchData }) => {
         {/* <Menu.Item key="7">
           <Link to="/conversion">Conversion</Link>
         </Menu.Item> */}
-        <Menu.Item key="system_design">
+        {/* <Menu.Item key="system_design">
           <Link to="/system_design">System Design</Link>
-        </Menu.Item>
-        <Menu.Item key="myapps">
+        </Menu.Item> */}
+        {/* <Menu.Item key="myapps">
           <Link to="/myapps">Apps</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         {isAdmin && isAuthenticated && (
           <Menu.Item key="admin">
             <Link to="/admin">Admin</Link>
