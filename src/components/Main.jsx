@@ -18,6 +18,7 @@ import Admin from './Admin/admin';
 import HtmlComponent from './HtmlComponent';
 import CssComponent from './CssComponent';
 import ReactNative from './ReactNative';
+import Quick from './Quick';
 
 const Main = () => (
   <main>
@@ -26,6 +27,7 @@ const Main = () => (
       <Route exact key='home' path='/home' component={Home} />
       <Route exact key='javascript' path='/javascript' component={JavaScript} />
       <Route exact key='react' path='/react' component={ReactJS} />
+      <Route exact key='react' path='/quick' component={Quick} />
       <Route exact key='node' path='/node' component={NodeJS} />
       <Route exact key='next' path='/next' component={NextJS} />
       <Route exact key='html' path='/html' component={HtmlComponent} />

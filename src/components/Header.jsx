@@ -39,21 +39,24 @@ const HeaderComponent = ({ searchData }) => {
         <Menu.Item key="react">
           <Link to="/react">React</Link>
         </Menu.Item>
-        <Menu.Item key="node">
-          <Link to="/node">Node</Link>
+        <Menu.Item key="quick">
+          <Link to="/quick">Quick</Link>
         </Menu.Item>
+        {/* <Menu.Item key="node">
+          <Link to="/node">Node</Link>
+        </Menu.Item> */}
         <Menu.Item key="next">
           <Link to="/next">Next JS</Link>
         </Menu.Item>
-        <Menu.Item key="reactnative">
+        {/* <Menu.Item key="reactnative">
           <Link to="/reactnative">React Native</Link>
-        </Menu.Item>
-        <Menu.Item key="html">
+        </Menu.Item> */}
+        {/* <Menu.Item key="html">
           <Link to="/html">HTML</Link>
-        </Menu.Item>
-        <Menu.Item key="css">
+        </Menu.Item> */}
+        {/* <Menu.Item key="css">
           <Link to="/css">CSS</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="typescript">
           <Link to="/typescript">Typescript</Link>
         </Menu.Item>

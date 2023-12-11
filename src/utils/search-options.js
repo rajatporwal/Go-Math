@@ -10,6 +10,7 @@ import SYSTEM_DESIGN_CONFIG from "../config/systemDesignConfig";
 import CSS_CONFIG from "../config/cssConfig";
 import HTML_CONFIG from "../config/htmlConfig";
 import NODE_JS_CONFIG from "../config/nodeJsConfig";
+import QUICK_CONFIG from "../config/quickConfig";
 
 const serachOptions = (config) => {
   return (
@@ -41,6 +42,7 @@ export const getSearchData = (appsConfig) => {
     ...serachOptions(CSS_CONFIG).flat(),
     ...serachOptions(HTML_CONFIG).flat(),
     ...serachOptions(NODE_JS_CONFIG).flat(),
+    ...serachOptions(QUICK_CONFIG).flat(),
     ...serachOptions(appsConfig).flat(),
     ...questionData.flat()];
 };

@@ -14,6 +14,7 @@ import NextJsRoutes from "./NextJsRoutes";
 import HtmlRoutes from "./HtmlRoutes";
 import CssRoutes from "./CssRoutes";
 import ReactNativeRoutes from "./ReactNativeRoutes";
+import QuickRoutes from "./QuickRoutes";
 
 export const HOME_ROUTES = [
   {
@@ -30,6 +31,10 @@ export const HOME_ROUTES = [
       {
         title: "React",
         pathname: "/react",
+      },
+      {
+        title: "Quick",
+        pathname: "/quick",
       },
       {
         title: "Node",
@@ -86,6 +91,7 @@ const Home = () => {
       <Accordion title="My Apps" key="My Apps" content={<MyAppsRoutes />}></Accordion>
       <Accordion title="JavaScript"  key="JavaScript" content={<JavaScriptRoutes />}></Accordion>
       <Accordion title="React"  key="React" content={<ReactJsRoutes />}></Accordion>
+      <Accordion title="Quick"  key="Quick" content={<QuickRoutes />}></Accordion>
       <Accordion title="Node"  key="Node" content={<NodeJsRoutes />}></Accordion>
       <Accordion title="Next"  key="Next" content={<NextJsRoutes />}></Accordion>
       <Accordion title="Html"  key="Html" content={<HtmlRoutes />}></Accordion>
