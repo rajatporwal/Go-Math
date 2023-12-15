@@ -454,6 +454,143 @@ Callback hell          It may create callback hell.                          It 
         code: null,
         note: "so, yes for bigger project Redux is good approach in comparison to context API.",
       },
+      {
+        title: "useMemo code",
+        keywords: "useMemo code",
+        id: "usememo_code",
+        description: null,
+        list: [],
+        code: [
+          {
+            title: "APP.js",
+            code: `import { useMemo, useState } from "react";
+            import "./styles.css";
+            import Child from "./Child.js";
+            
+            export default function App() {
+              const [count, setCount] = useState(0);
+            
+              const memo = useMemo(() => {
+                return <Child></Child>;
+              }, []);
+            
+              return (
+                <div className="App">
+                  <h1>Use Memo</h1>
+                  <p>Count : {count}</p>
+                  <button onClick={() => setCount(count + 1)}>Increment</button>
+                  {memo}
+                </div>
+              );
+            }
+            `,
+          },
+          {
+            title: "Child.js",
+            code: `import { useEffect } from "react";
+
+            let render = 0;
+            
+            const Child = () => {
+              useEffect(() => {
+                render++;
+              });
+              return <p>{render}</p>;
+            };
+            
+            export default Child;`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "useCallback code",
+        keywords: "useCallback code",
+        id: "usecallback_code",
+        description: null,
+        list: [],
+        code: [
+          {
+            title: "APP.js",
+            code: `import { useCallback, useMemo, useState } from "react";
+            import "./styles.css";
+            import Child from "./Child.js";
+            
+            export default function App() {
+              const [count, setCount] = useState(0);
+            
+              //Child Component Rerender again and again
+              // const Learning = () => {
+              //   //some operation
+              // };
+            
+              //Using useCallback it will prevent Child Component from Rerendering
+            
+              const Learning = useCallback(() => {
+                () => {
+                  console.log("in");
+                };
+              }, []);
+            
+              return (
+                <div className="App">
+                  <h1>Use Memo</h1>
+                  <p>Count : {count}</p>
+                  <button onClick={() => setCount(count + 1)}>Increment</button>
+                  <Child Learning={Learning} />
+                </div>
+              );
+            }
+            `,
+          },
+          {
+            title: "Child.js",
+            code: `import { React, memo } from "react";
+
+            const Child = ({ Learning }) => {
+              console.log("Child Component");
+            };
+            
+            export default memo(Child);
+            `,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "Difference Between new Map() & normal object({}) ?",
+        keywords: "db new Map() & normal object({})?",
+        id: "db_map_object",
+        description:
+          "In JavaScript, an object and a Map are both used to store key-value pairs, but there are some key differences between them.",
+        list: [
+          "Object: Objects are optimized for the general use case of storing and retrieving values by keys.",
+          "Map: Maps have some advantages in scenarios that involve frequent additions and removals of key-value pairs or when the keys are not strings.",
+        ],
+        code: [
+          {
+            title: "",
+            code: `
+Parameter                      Object                                         Maps
+            
+Key Types                Keys in objects are always strings or        Keys in maps can be of any data type,
+                         symbols. Any other data type used as a key   including objects, functions, and primitive
+                                                                      values.
+            
+Key Order               The order of keys in an object is not         The order of keys in a Map is guaranteed 
+                        guaranteed to be the same.                    to be the order in which they were added.
+
+Size Property          To get the number of keys in an object,        Map objects have a size property that
+                       you need to manually iterate over the          gives the number of key-value pairs.
+                       keys and count them.                                                                   
+
+Iteration              using newer methods like Object.keys(),        Iterating over keys and values in a Map is 
+                       Object.values(), or Object.entries()           straightforward using the Map methods keys(), values(), 
+                                                                      and entries().`,
+          },
+        ],
+        note: null,
+      },
     ],
   },
 ];
