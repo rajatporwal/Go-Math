@@ -734,7 +734,7 @@ Iteration              using newer methods like Object.keys(),        Iterating 
         note: null,
       },
       {
-        title: "Advantages of SEO",
+        title: "Advantages of SEO.",
         keywords: "advantages of seo",
         id: "advantages_of_seo",
         description: null,
