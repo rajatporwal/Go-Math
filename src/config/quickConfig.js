@@ -14,16 +14,55 @@ const QUICK_CONFIG = [
         note: null,
       },
       {
-        title: "Execution Context",
-        keywords: "Quick Execution Context",
-        id: "quick_execution_context",
+        title: "Difference between var and let",
+        keywords: "DB var and let",
+        id: "db_var_let",
         description: null,
         list: [
-          "Everything in javascript happens inside an Execution Context.",
-          "An execution context is similar to a container that stores variables, and the code gets evaluated and then executed.",
-          "So For Example :- we have one big box which is known as execution context and in this box 2 components is there....first component is known as memory component and second component is known as code component.",
-          "Memory Component (Variable Environment) contains variables and functions as the key-value pairs.",
-          "and Code Component (Thread of Execution) is the place where whole javascript code is executed.",
+          "var is hoisted let is not hoisted.",
+          "var has functional scope and let has block scope.",
+          "we will redeclare the variable with the keyword var but not redeclared the variable with the keyword let.",
+          "var is from initial javascript but let is in the picture after ES6.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Difference between let and const",
+        keywords: "DB let and const",
+        id: "db_let_const",
+        description: null,
+        list: [
+          "Reassignment :- Variables declared with let can be reassigned, but variables declared with const cannot. Once a value is assigned to a const variable, it cannot be changed.",
+          "Initialization :- A const variable must be initialized at the time of declaration, while a let variable can be declared without initialization.",
+        ],
+        code: [
+          {
+            title: "",
+            code: ` // Reassignment
+            let a = 1; // allowed
+            a = 2; // allowed
+         
+            const b = 1; // allowed
+            b = 2; // Uncaught TypeError: Assignment to constant variable.
+            
+  // Initialization
+            let a; // allowed
+            const b; // Uncaught SyntaxError: Missing initializer in const declaration`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "Hoisting",
+        keywords: "quick hoisting",
+        id: "quick_hoisting",
+        description: null,
+        list: [
+          "Hoisting is a default behavior of javascript where all the variables and function declarations are moved on the top of the scope before code execution.",
+          "Variables defined with let and const are hoisted to the top of the block, but not initialized and the only reason is because of temporal dead zone (TDZ).",
+          "A temporal dead zone (TDZ) is the block where a variable is inaccessible until the moment the computer initializes it with a value.",
+          "Function Declaration gets hoisted and Function Expression are not hoisted",
         ],
         code: null,
         note: null,
@@ -62,26 +101,81 @@ const QUICK_CONFIG = [
         note: null,
       },
       {
+        title: "Difference between Regular functions and Arrow functions",
+        keywords: "DB Regular and Arrow Function",
+        id: "db_regular_arrowfunction",
+        description: null,
+        list: [
+          "the Regular Functions uses function keyword but Arrow Functions don't inspite it uses arrow symbol(=>).",
+          "Regular function have its their own this context, but the Arrow function don't have their own. Inside an Arrow function this value hold the this value of outer function.",
+          "Arguments objects are not available in arrow functions, but are available in regular functions. and give Reference Error :arguments is not defined.",
+          "regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only ‘callable’ and not constructible.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Debounce",
+        keywords: "debounce_quick",
+        id: "debounce_quick",
+        description:
+          "Debouncing is a programming technique used to handle rapid and repeated events such as user input, network requests, and API calls. In React, debouncing can help improve performance and reduce unnecessary renders.",
+        list: [
+          "Debounce is a technique used to prevent an event from being triggered too frequently. This can be especially useful in situations where you want to avoid the user spamming a button or sending an excessive number of requests to a server.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Throttling",
+        keywords: "throttling",
+        id: "throttling",
+        description:
+          "Throttling typically involves setting a fixed interval between function calls using timers or timestamps to track the last invocation time. ",
+        list: [
+          "A throttle is best used when you want to handle all intermediate states but at a controlled rate. For example, track the screen width as a user resizes the window and rearrange page content while it changes instead of waiting until the user has finished.",
+          "It prevents frequent calling of the function.",
+          "It makes the website faster and controls the rate at which a particular function is called.",
+          "Performance Optimization.",
+          "Improved Responsiveness.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "DB Debounce and throttling",
+        keywords: "db_debounce_throttling",
+        id: "db_debounce_throttling",
+        description:
+          "The major difference between debouncing and throttling is that debounce calls a function when a user hasn't carried out an event in a specific amount of time, while throttle calls a function at intervals of a specified amount of time while the user is carrying out an event.",
+        list: [
+          "Debounce is most suitable for control events like typing or button clicks. Throttle is most suitable for continuous user events like resizing and scrolling.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Execution Context",
+        keywords: "Quick Execution Context",
+        id: "quick_execution_context",
+        description: null,
+        list: [
+          "Everything in javascript happens inside an Execution Context.",
+          "An execution context is similar to a container that stores variables, and the code gets evaluated and then executed.",
+          "So For Example :- we have one big box which is known as execution context and in this box 2 components is there....first component is known as memory component and second component is known as code component.",
+          "Memory Component (Variable Environment) contains variables and functions as the key-value pairs.",
+          "and Code Component (Thread of Execution) is the place where whole javascript code is executed.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
         title: "Difference Between Closures and Lexical Scope",
         keywords: "DB Closures and Lexical Scope",
         id: "db_closures_lexicalscope",
         description:
           "The only difference between closures and lexical scope is that we will access parent scope even after the parent function has closed because closures store a variable for further reference even after it is closed.",
         list: [],
-        code: null,
-        note: null,
-      },
-      {
-        title: "Hoisting",
-        keywords: "quick hoisting",
-        id: "quick_hoisting",
-        description: null,
-        list: [
-          "Hoisting is a default behavior of javascript where all the variables and function declarations are moved on the top of the scope before code execution.",
-          "Variables defined with let and const are hoisted to the top of the block, but not initialized and the only reason is because of temporal dead zone (TDZ).",
-          "A temporal dead zone (TDZ) is the block where a variable is inaccessible until the moment the computer initializes it with a value.",
-          "Function Declaration gets hoisted and Function Expression are not hoisted",
-        ],
         code: null,
         note: null,
       },
@@ -93,20 +187,6 @@ const QUICK_CONFIG = [
         list: [
           "The main objective of using Redux Thunk is to establish asynchronous communication from the externally present API into fetching and saving data. It makes it easier to dispatch actions that follow the paradigm of the whole lifecycle of requests from the externally present API.",
           "keep our components clean from API calls and make our codebase more readable",
-        ],
-        code: null,
-        note: null,
-      },
-      {
-        title: "Difference between Regular functions and Arrow functions",
-        keywords: "DB Regular and Arrow Function",
-        id: "db_regular_arrowfunction",
-        description: null,
-        list: [
-          "the Regular Functions uses function keyword but Arrow Functions don't inspite it uses arrow symbol(=>).",
-          "Regular function have its their own this context, but the Arrow function don't have their own. Inside an Arrow function this value hold the this value of outer function.",
-          "Arguments objects are not available in arrow functions, but are available in regular functions. and give Reference Error :arguments is not defined.",
-          "regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only ‘callable’ and not constructible.",
         ],
         code: null,
         note: null,
@@ -148,46 +228,6 @@ const QUICK_CONFIG = [
             
             var person2 = new Person("Courtney", 34, "female");
             console.log(person2);`,
-          },
-        ],
-        note: null,
-      },
-      {
-        title: "Difference between var and let",
-        keywords: "DB var and let",
-        id: "db_var_let",
-        description: null,
-        list: [
-          "var is hoisted let is not hoisted.",
-          "var has functional scope and let has block scope.",
-          "we will redeclare the variable with the keyword var but not redeclared the variable with the keyword let.",
-          "var is from initial javascript but let is in the picture after ES6.",
-        ],
-        code: null,
-        note: null,
-      },
-      {
-        title: "Difference between let and const",
-        keywords: "DB let and const",
-        id: "db_let_const",
-        description: null,
-        list: [
-          "Reassignment :- Variables declared with let can be reassigned, but variables declared with const cannot. Once a value is assigned to a const variable, it cannot be changed.",
-          "Initialization :- A const variable must be initialized at the time of declaration, while a let variable can be declared without initialization.",
-        ],
-        code: [
-          {
-            title: "",
-            code: ` // Reassignment
-            let a = 1; // allowed
-            a = 2; // allowed
-         
-            const b = 1; // allowed
-            b = 2; // Uncaught TypeError: Assignment to constant variable.
-            
-  // Initialization
-            let a; // allowed
-            const b; // Uncaught SyntaxError: Missing initializer in const declaration`,
           },
         ],
         note: null,
@@ -453,6 +493,263 @@ Callback hell          It may create callback hell.                          It 
         ],
         code: null,
         note: "so, yes for bigger project Redux is good approach in comparison to context API.",
+      },
+      {
+        title: "useMemo code",
+        keywords: "useMemo code",
+        id: "usememo_code",
+        description: null,
+        list: [],
+        code: [
+          {
+            title: "APP.js",
+            code: `import { useMemo, useState } from "react";
+            import "./styles.css";
+            import Child from "./Child.js";
+            
+            export default function App() {
+              const [count, setCount] = useState(0);
+            
+              const memo = useMemo(() => {
+                return <Child></Child>;
+              }, []);
+            
+              return (
+                <div className="App">
+                  <h1>Use Memo</h1>
+                  <p>Count : {count}</p>
+                  <button onClick={() => setCount(count + 1)}>Increment</button>
+                  {memo}
+                </div>
+              );
+            }
+            `,
+          },
+          {
+            title: "Child.js",
+            code: `import { useEffect } from "react";
+
+            let render = 0;
+            
+            const Child = () => {
+              useEffect(() => {
+                render++;
+              });
+              return <p>{render}</p>;
+            };
+            
+            export default Child;`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "useCallback code",
+        keywords: "useCallback code",
+        id: "usecallback_code",
+        description: null,
+        list: [],
+        code: [
+          {
+            title: "APP.js",
+            code: `import { useCallback, useMemo, useState } from "react";
+            import "./styles.css";
+            import Child from "./Child.js";
+            
+            export default function App() {
+              const [count, setCount] = useState(0);
+            
+              //Child Component Rerender again and again
+              // const Learning = () => {
+              //   //some operation
+              // };
+            
+              //Using useCallback it will prevent Child Component from Rerendering
+            
+              const Learning = useCallback(() => {
+                () => {
+                  console.log("in");
+                };
+              }, []);
+            
+              return (
+                <div className="App">
+                  <h1>Use Memo</h1>
+                  <p>Count : {count}</p>
+                  <button onClick={() => setCount(count + 1)}>Increment</button>
+                  <Child Learning={Learning} />
+                </div>
+              );
+            }
+            `,
+          },
+          {
+            title: "Child.js",
+            code: `import { React, memo } from "react";
+
+            const Child = ({ Learning }) => {
+              console.log("Child Component");
+            };
+            
+            export default memo(Child);
+            `,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "Difference Between new Map() & normal object({}) ?",
+        keywords: "db new Map() & normal object({})?",
+        id: "db_map_object",
+        description:
+          "In JavaScript, an object and a Map are both used to store key-value pairs, but there are some key differences between them.",
+        list: [
+          "Object: Objects are optimized for the general use case of storing and retrieving values by keys.",
+          "Map: Maps have some advantages in scenarios that involve frequent additions and removals of key-value pairs or when the keys are not strings.",
+        ],
+        code: [
+          {
+            title: "",
+            code: `
+Parameter                      Object                                         Maps
+            
+Key Types                Keys in objects are always strings or        Keys in maps can be of any data type,
+                         symbols. Any other data type used as a key   including objects, functions, and primitive
+                                                                      values.
+            
+Key Order               The order of keys in an object is not         The order of keys in a Map is guaranteed 
+                        guaranteed to be the same.                    to be the order in which they were added.
+
+Size Property          To get the number of keys in an object,        Map objects have a size property that
+                       you need to manually iterate over the          gives the number of key-value pairs.
+                       keys and count them.                                                                   
+
+Iteration              using newer methods like Object.keys(),        Iterating over keys and values in a Map is 
+                       Object.values(), or Object.entries()           straightforward using the Map methods keys(), values(), 
+                                                                      and entries().`,
+          },
+        ],
+        note: null,
+      },
+      {
+        title: "Improve the performance of react",
+        keywords: "improve performance",
+        id: "improve_performance",
+        description: null,
+        list: [
+          "React.memo",
+          "useMemo",
+          "useCallback",
+          "Lazy load the Images",
+          "Server-Side Rendering (SSR)",
+          "use SVG images it is small in size",
+          "Use react devtools like lighthouse,react cosmos and react developer tool",
+          "Key Coordination for List Rendering :- When working with lists in React, you can assign key attributes to an element that will help render the upcoming ist items.",
+          "Use Functional Components :t is the most straightforward and proven tactic to build efficient and performant React applications speedily.",
+          "keeping your components small because smaller components are easier to read, test, maintain, and reuse.",
+          "Check the types of the props",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "What is SEO ?",
+        keywords: "seo",
+        id: "seo",
+        description:
+          "SEO, which stands for Search Engine Optimization,SEO is a set of practices and techniques aimed at optimizing a website or software application to improve its visibility and ranking on search engine results pages. ",
+        list: [
+          "SEO includes efforts for ranking website into Search Engine Result Pages on certain keywords",
+          "Use analytics tools like Google Analytics and Google Search Console to monitor website performance, track user behavior, and identify areas for improvement.",
+          "Regularly create high-quality, relevant content and update existing content to keep it fresh and valuable for users.",
+          "Actual Activities of SEO are :- On Page SEO, Off Page SEO, Technical SEO",
+          "The goal of SEO is to increase organic (non-paid) traffic to a website or application by making it more accessible and attractive to search engines.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "On Page SEO ?",
+        keywords: "onpage SEO",
+        id: "onpage_seo",
+        description: "On-page SEO refers to optimizing elements on the website itself.",
+        list: [
+          "Content Optimization of page",
+          "Keyword Research",
+          "Title and description of page",
+          "URL Structure",
+          "Image Optimization",
+          "User Experience (UX) Optimization"
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Off Page SEO ?",
+        keywords: "offpage SEO",
+        id: "offpage_seo",
+        description: "Off-page SEO involves activities outside of the website that impact its search engine rankings.",
+        list: [
+          "Social Media Marketing",
+          "Influencer Outreach",
+          "Link Building",
+          "Online Reputation Management",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Technical SEO ?",
+        keywords: "Technical SEO",
+        id: "technical_seo",
+        description: "Technical SEO involves optimizing the technical aspects of a website for search engines.",
+        list: [
+          "Site Speed Optimization:",
+          "Mobile-Friendliness",
+          "Crawlability and Indexing",
+          "Create and submit XML sitemaps to search engines to facilitate the indexing of pages.",
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "how to implement seo ?",
+        keywords: "Implement SEO",
+        id: "implement_seo",
+        description: null,
+        list: [
+          "Server-Side Rendering (SSR) or Pre-rendering",
+          "Use the noscript Tag :- noscript tag to provide an alternative for users with JavaScript disabled and search engines that may not execute JavaScript.",
+          "Implement a progressive enhancement strategy, where the core content and functionality are available without JavaScript.",
+          "Implement Canonical URLs : This helps prevent issues related to duplicate content that may arise from JavaScript rendering.",
+          "Optimize Meta Tags",
+          "Structured Data and Schema Markup",
+          "Lazy Loading",
+          "Avoid Infinite Scroll",
+          "Monitoring and Testing",
+          "Optimize Page Speed",
+          "Content Updates"
+        ],
+        code: null,
+        note: null,
+      },
+      {
+        title: "Advantages of SEO.",
+        keywords: "advantages of seo",
+        id: "advantages_of_seo",
+        description: null,
+        list: [
+          "Better User Experience",
+          "Increased Visibility and Traffic:SEO helps improve the visibility of a website or online content on search engine results pages (SERPs). Higher visibility means more users are likely to find and visit your site.",
+          "Websites that appear at the top of search results are more credible and trustworthy by users. SEO can help in building trust and authority to website",
+          "Increased Website Usability: SEO involves making your website more accessible and usable for both search engines and users.",
+          "Targeted Traffic: SEO allows you to target specific keywords and phrases relevant to your business or content. This means that the traffic you attract is more likely to be interested in what you offer, leading to higher conversion rates.",
+          "Competitive Advantage: If your competitors are investing in SEO and you are not, they are likely to attract a larger share of online traffic.",
+          "Long-Term Strategy: SEO is a long-term strategy.",
+          "SEO strategies can be adapted to changes in market conditions, user behavior, and search engine algorithms. This flexibility allows businesses to stay relevant and responsive"
+        ],
+        code: null,
+        note: null,
       },
     ],
   },
